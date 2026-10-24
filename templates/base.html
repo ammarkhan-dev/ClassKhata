@@ -3,6 +3,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b1f3f">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/static/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
 <title>{{ coaching }}</title>
 <style>
 :root{--navy:#0b1f3f;--ink:#1a2233;--paper:#f5f3ee;--line:#e3dfd3;--gold:#b8913a;--green:#1f7a4d;--red:#b83a3a;--muted:#6c7385}
@@ -65,5 +68,7 @@ nav a.on .ic{stroke:var(--gold)}
 <a href="/students" class="{{ 'on' if request.path.startswith('/students') }}"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.2c2.6.2 4.5 2 4.5 5.3"/></svg>{{ t('nav_students') }}</a>
 <a href="/hazri" class="{{ 'on' if request.path.startswith('/hazri') }}"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>{{ t('nav_attendance') }}</a>
 <a href="/fees" class="{{ 'on' if request.path.startswith('/fees') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M8 5c4.5 0 6.5 1.6 6.5 4s-2 4-6.5 4H7l7 7"/></svg>{{ t('nav_fees') }}</a>
+<a href="/more" class="{{ 'on' if request.path.startswith(('/more', '/backup', '/settings', '/records')) }}"><svg class="ic" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="19" cy="12" r="1.6" fill="currentColor"/></svg>{{ t('nav_more') }}</a>
 </nav>{% endif %}
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js")}</script>
 </body></html>

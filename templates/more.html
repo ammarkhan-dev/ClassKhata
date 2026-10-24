@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "_shared.html" %}
+<h1 class="page">{{ t('nav_more') }}</h1>
+<a class="item" href="/records"><span>{{ t('records') }}<br><span class="muted" style="font-weight:400">{{ t('records_sub') }}</span></span><span class="chev">›</span></a>
+<a class="item" href="/backup"><span>{{ t('backup_title') }}{% if due %} <span class="pc lo" style="margin-left:6px">{{ t('backup_due') }}</span>{% endif %}</span><span class="chev">›</span></a>
+<a class="item" href="/settings"><span>{{ t('settings') }}</span><span class="chev">›</span></a>
+<div class="card" id="inst-card" style="margin-top:18px">
+<b>{{ t('install_app') }}</b>
+<p class="muted">{{ t('install_hint') }}</p>
+<button id="inst-btn" hidden>{{ t('install_app') }}</button>
+<p class="muted" style="margin-bottom:0">{{ t('install_manual') }}</p>
+</div>
+<script>
+var dp;
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;document.getElementById('inst-btn').hidden=false});
+document.getElementById('inst-btn').addEventListener('click',function(){if(dp){dp.prompt();dp=null;this.hidden=true}});
+if(window.matchMedia('(display-mode: standalone)').matches){document.getElementById('inst-card').hidden=true}
+</script>
+{% endblock %}
