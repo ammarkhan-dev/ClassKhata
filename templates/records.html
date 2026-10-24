@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "_shared.html" %}
+<a class="muted" href="/students" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('records') }}</h1>
+<p class="muted" style="margin:-8px 0 16px">{{ t('records_sub') }}</p>
+{% for ses, classes in groups.items() %}
+<details class="card">
+<summary class="row"><b style="font-family:Georgia,serif;font-size:20px;color:var(--navy)">{{ ses }}</b><span class="badge">{{ classes.values()|map('length')|sum }} {{ t('students_word') }}</span></summary>
+{% for c, items in classes.items() %}
+<div class="sect" style="margin:14px 0 6px">{{ t('class') }} {{ c }} · {{ items|length }}</div>
+{% for r in items %}<a class="item" href="/records/student/{{ r.id }}"><span>{{ r.name }}</span><span class="chev">›</span></a>{% endfor %}
+{% endfor %}
+</details>
+{% else %}
+<div class="card muted">{{ t('no_records') }}</div>
+{% endfor %}
+<p class="sect">{{ t('end_session') }}</p>
+<div class="card">
+<p class="muted" style="margin-top:0">{{ t('end_session_hint') }}</p>
+{% if active %}
+<form method="post" action="/records/end" onsubmit="return confirm('{{ t('end_session_confirm') }}')">
+<select name="ses">{% for a in active %}<option value="{{ a.ses or '' }}">{{ a.ses or '—' }} · {{ a.n }} {{ t('students_word') }}</option>{% endfor %}</select>
+<div style="height:10px"></div>
+<button class="btn danger">{{ t('end_session_btn') }}</button>
+</form>
+{% else %}<span class="muted">{{ t('no_active_sessions') }}</span>{% endif %}
+</div>
+{% endblock %}

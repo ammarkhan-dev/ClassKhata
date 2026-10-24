@@ -1,10 +1,18 @@
 {% extends "base.html" %}
 {% block body %}
-<p class="muted" style="margin:2px 0 14px">{{ t('hello') }}, {{ user_name }}</p>
+<style>
+.hero>*{position:relative;z-index:1}
+.hero .inst{font-family:Georgia,serif;font-size:23px;line-height:1.2;padding-right:48px;display:block}
+.hero .who{font-size:13px;color:#c4cee3;margin-top:5px}
+.hero .rule{height:1px;width:44px;background:rgba(184,145,58,.7);margin:16px 0 14px}
+</style>
 <div class="hero">
+{% if institute %}<div class="inst">{{ institute }}</div>{% else %}<a class="inst" href="/settings" style="color:#e9d9ab;text-decoration:none;font-size:17px">+ {{ t('institute_name') }}</a>{% endif %}
+<div class="who">{{ user_name }}</div>
+<div class="rule"></div>
 <div class="lbl">{{ t('total_label') }}</div>
 <div class="num">{{ total }}</div>
-<div class="sub">{{ t('across') }}</div>
+<div class="sub">{{ t('across') }} · {{ t('session_label') }} {{ ses }}</div>
 </div>
 <div class="grid2">
 {% for c in [9,10,11,12] %}
@@ -28,4 +36,5 @@
 <div class="u">{{ pn }} {{ t('student_one') if pn == 1 else t('students_word') }} · {{ t('all_months') }}</div>
 </a>
 </div>
+<p style="text-align:center;margin-top:22px"><a class="muted" href="/settings">{{ t('settings') }}</a></p>
 {% endblock %}

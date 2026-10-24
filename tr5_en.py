@@ -1,0 +1,16 @@
+EN5 = {
+"institute_name": "Institute / coaching name", "inst_ph": "e.g. Sunrise Coaching Classes",
+"your_name": "Your full name", "err_inst": "Please enter your institute name",
+"session_end": "Session ends on", "session_ended": "Session ended on",
+"err_end": "End date must be after the admission date",
+"records": "Records", "records_sub": "Past sessions with complete attendance and fee history",
+"no_records": "No records yet. Students move here when their session ends.",
+"end_session": "End a session", "end_session_hint": "Move all students of a session to Records right now.",
+"end_session_btn": "Move to Records",
+"end_session_confirm": "Move all students of this session to Records? You can restore any student later.",
+"no_active_sessions": "No active students.",
+"restore": "Restore to main list", "restore_confirm": "Bring this student back to the main list?",
+"readmit": "Re-admit for new session", "readmit_title": "Re-admit student",
+"archived_on": "Moved to Records on", "att_by_month": "Attendance by month", "fee_by_month": "Fee by month",
+"settings": "Settings", "saved": "Saved",
+}

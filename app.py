@@ -22,9 +22,9 @@ def close(e):
 
 @app.context_processor
 def inject():
-    return dict(coaching=COACHING_NAME)
+    return dict(coaching=COACHING_NAME, institute=store.get("institute"))
 
-import i18n, auth, students, hazri, fees
+import i18n, auth, students, hazri, fees, store, records, more
 
 @app.route("/")
 def home():
@@ -35,13 +35,16 @@ def home():
         (date.today().isoformat(),))}
     pn, pa = fees.pending_all(db)
     return render_template("home.html", total=sum(counts.values()), counts=counts,
-                           p=att.get("P", 0), a=att.get("A", 0), pn=pn, pa=pa)
+                           p=att.get("P", 0), a=att.get("A", 0), pn=pn, pa=pa,
+                           ses=students.cur_session())
 
 i18n.setup(app)
 auth.setup(app)
 students.setup(app, db)
 hazri.setup(app, db)
 fees.setup(app, db)
+records.setup(app, db)
+more.setup(app, db)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

@@ -17,6 +17,11 @@
 <input type="date" name="adm" value="{{ s.admission_date or '' }}" required>
 <label>{{ t('session_label') }}</label>
 <select name="ses">{% for o in sessions %}<option {{ 'selected' if o == s.acad_session }}>{{ o }}</option>{% endfor %}</select>
+<label>{{ t('session_end') }}</label>
+<input type="date" name="end" id="endd" value="{{ s.session_end or '' }}" required>
+<script>
+document.querySelector('select[name=ses]').addEventListener('change',function(){var y=parseInt(this.value.slice(0,4));if(y){document.getElementById('endd').value=(y+1)+'-03-31'}});
+</script>
 <div style="height:18px"></div>
 <button>{{ t('save') }}</button>
 </form>

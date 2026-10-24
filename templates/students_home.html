@@ -5,6 +5,7 @@
 <input type="search" name="q" value="{{ q }}" placeholder="{{ t('search_ph') }}">
 </form>
 <a class="btn" href="/students/add"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>{{ t('add_student') }}</a>
+<a class="btn ghost" href="/records">{{ t('records') }}</a>
 {% if found is not none %}
 <p class="sect">{{ found|length }}</p>
 {% for r in found %}

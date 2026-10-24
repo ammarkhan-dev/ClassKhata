@@ -1,4 +1,5 @@
 import os, secrets, time, sqlite3
+import store
 from datetime import timedelta
 from urllib.parse import urlparse
 from flask import request, session, redirect, render_template
@@ -37,22 +38,27 @@ def setup(app):
     def guard():
         if request.endpoint in ("login", "signup", "set_lang", "static"):
             return
-        if not session.get("uid"):
+        if not session.get("uid") or not q("SELECT 1 FROM users WHERE id=?", (session["uid"],), one=True):
+            session.pop("uid", None)
+            session.pop("name", None)
             return redirect("/signup" if no_users() else "/login")
 
     @app.route("/signup", methods=["GET", "POST"])
     def signup():
         if not no_users():
             return redirect("/login")
-        err, name = None, ""
+        err, name, inst = None, "", ""
         if request.method == "POST":
             name = request.form.get("name", "").strip()
             pw = request.form.get("pw", "")
-            lang = request.form.get("lang", "en")
+            lang = session.get("lang", "en")
+            inst = request.form.get("inst", "").strip()[:80]
             if lang not in ("en", "hi"):
                 lang = "en"
             if not name:
                 err = "err_name"
+            elif not inst:
+                err = "err_inst"
             elif len(pw) < 6:
                 err = "err_pw_short"
             elif pw != request.form.get("pw2", ""):
@@ -60,11 +66,12 @@ def setup(app):
             else:
                 q("INSERT INTO users(name,pw_hash,lang) VALUES(?,?,?)",
                   (name, generate_password_hash(pw), lang), commit=True)
+                store.put("institute", inst)
                 u = q("SELECT * FROM users WHERE name=?", (name,), one=True)
                 session.permanent = True
                 session.update(uid=u["id"], name=u["name"], lang=lang)
                 return redirect("/")
-        return render_template("signup.html", err=err, name=name)
+        return render_template("signup.html", err=err, name=name, inst=inst)
 
     @app.route("/login", methods=["GET", "POST"])
     def login():

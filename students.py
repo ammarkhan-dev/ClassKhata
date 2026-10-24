@@ -15,6 +15,9 @@ def session_options(extra=None):
         opts.append(extra)
     return opts
 
+def default_end(ses):
+    return f"{int(ses[:4]) + 1}-03-31"
+
 def digits10(s):
     d = "".join(ch for ch in s if ch.isdigit())
     if len(d) > 10 and d.startswith("91"):
@@ -45,7 +48,13 @@ def parse(form):
     if cls not in (9, 10, 11, 12):
         return None, "err_student_name"
     ses = form.get("ses", "").strip() or cur_session()
-    return (name, cls, form.get("parent_name", "").strip(), phone, fee, adm, ses), None
+    try:
+        end = date.fromisoformat(form.get("end", "")).isoformat()
+    except ValueError:
+        return None, "err_date"
+    if end <= adm:
+        return None, "err_end"
+    return (name, cls, form.get("parent_name", "").strip(), phone, fee, adm, ses, end), None
 
 def setup(app, db):
     with sqlite3.connect("classkhata.db") as c:
@@ -54,7 +63,7 @@ def setup(app, db):
             name TEXT NOT NULL, cls INTEGER NOT NULL,
             parent_phone TEXT, monthly_fee INTEGER DEFAULT 0)""")
         have = [r[1] for r in c.execute("PRAGMA table_info(students)")]
-        for col in ("parent_name", "admission_date", "acad_session"):
+        for col in ("parent_name", "admission_date", "acad_session", "session_end"):
             if col not in have:
                 c.execute(f"ALTER TABLE students ADD COLUMN {col} TEXT")
 
@@ -74,11 +83,11 @@ def setup(app, db):
         s.update(name=f.get("name", ""), cls=f.get("cls", "9"),
                  parent_name=f.get("parent_name", ""), parent_phone=f.get("phone", ""),
                  monthly_fee=f.get("fee", ""), admission_date=f.get("adm", ""),
-                 acad_session=f.get("ses", ""))
+                 acad_session=f.get("ses", ""), session_end=f.get("end", ""))
         return s
 
-    NEW = "INSERT INTO students(name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session) VALUES(?,?,?,?,?,?,?)"
-    UPD = "UPDATE students SET name=?,cls=?,parent_name=?,parent_phone=?,monthly_fee=?,admission_date=?,acad_session=? WHERE id=?"
+    NEW = "INSERT INTO students(name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session,session_end) VALUES(?,?,?,?,?,?,?,?)"
+    UPD = "UPDATE students SET name=?,cls=?,parent_name=?,parent_phone=?,monthly_fee=?,admission_date=?,acad_session=?,session_end=? WHERE id=?"
 
     @app.route("/students")
     def students():
@@ -130,7 +139,8 @@ def setup(app, db):
     @app.route("/students/add", methods=["GET", "POST"])
     def student_add():
         s = dict(name="", cls=9, parent_name="", parent_phone="", monthly_fee="",
-                 admission_date=date.today().isoformat(), acad_session=cur_session())
+                 admission_date=date.today().isoformat(), acad_session=cur_session(),
+                 session_end=default_end(cur_session()))
         err = None
         if request.method == "POST":
             v, err = parse(request.form)

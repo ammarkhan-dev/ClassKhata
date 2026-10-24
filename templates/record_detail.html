@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "_shared.html" %}
+<a class="muted" href="/records" style="text-decoration:none">‹ {{ t('records') }}</a>
+<div class="row" style="justify-content:flex-start;gap:14px;margin:12px 0 16px">
+<div class="av">{{ r.name[:1]|upper }}</div>
+<div><h1 class="page" style="margin:0;font-size:24px">{{ r.name }}</h1>
+<span class="muted">{{ t('class') }} {{ r.cls }} · {{ r.acad_session or '—' }}</span></div>
+</div>
+<div class="card">
+<div class="kv"><span>{{ t('parent_name') }}</span><span>{{ r.parent_name or '—' }}</span></div>
+<div class="kv"><span>{{ t('parent_phone') }}</span><span>{{ r.parent_phone or '—' }}</span></div>
+<div class="kv"><span>{{ t('monthly_fee') }}</span><span>₹{{ r.monthly_fee or 0 }}</span></div>
+<div class="kv"><span>{{ t('admission_date') }}</span><span>{{ r.admission_date or '—' }}</span></div>
+<div class="kv"><span>{{ t('session_ended') }}</span><span>{{ r.session_end or '—' }}</span></div>
+<div class="kv"><span>{{ t('archived_on') }}</span><span>{{ r.archived_on or '—' }}</span></div>
+</div>
+<p class="sect">{{ t('fee_by_month') }}</p>
+<div class="card">
+<div class="kv"><span>{{ t('months_paid') }}</span><span>{{ info.paid_n }}/{{ info.tot_n }}</span></div>
+<div class="kv"><span>{{ t('total_paid') }}</span><span class="g">₹{{ '{:,}'.format(info.total_paid) }}</span></div>
+<div class="kv"><span>{{ t('pending') }}</span><span class="{{ 'r' if info.unpaid else 'g' }}">₹{{ '{:,}'.format(info.unpaid) }}</span></div>
+<div style="margin-top:10px">{% for h in hist %}<span class="chip {{ h.st }}">{{ h.label }}</span>{% endfor %}</div>
+</div>
+<p class="sect">{{ t('att_by_month') }}</p>
+<div class="card">
+<div class="kv"><span>{{ t('att_overall') }}</span><span>{% if pct is not none %}<span class="pc {{ 'hi' if pct >= 75 else ('mid' if pct >= 60 else 'lo') }}">{{ pct }}%</span>{% else %}—{% endif %}</span></div>
+{% for m in months %}<div class="kv"><span>{{ m.label }}</span><span>{{ m.pres }}/{{ m.days }} · {{ m.pct }}%</span></div>{% endfor %}
+</div>
+<a class="btn" href="/records/{{ r.id }}/readmit">{{ t('readmit') }}</a>
+<form method="post" action="/records/{{ r.id }}/restore" onsubmit="return confirm('{{ t('restore_confirm') }}')">
+<button class="btn ghost">{{ t('restore') }}</button></form>
+{% endblock %}
