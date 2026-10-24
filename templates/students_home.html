@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body %}
+<h1 class="page">{{ t('nav_students') }}</h1>
+<form method="get" style="margin-bottom:12px">
+<input type="search" name="q" value="{{ q }}" placeholder="{{ t('search_ph') }}">
+</form>
+<a class="btn" href="/students/add"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>{{ t('add_student') }}</a>
+{% if found is not none %}
+<p class="sect">{{ found|length }}</p>
+{% for r in found %}
+<a class="item" href="/students/{{ r.id }}"><span>{{ r.name }}</span><span class="badge">{{ t('class') }} {{ r.cls }}</span></a>
+{% else %}
+<div class="card muted">{{ t('no_results') }}</div>
+{% endfor %}
+{% else %}
+<p class="sect">{{ t('classes') }}</p>
+<div class="grid2">
+{% for c in [9,10,11,12] %}
+<a class="cls" href="/students/class/{{ c }}">
+<div class="k">{{ t('class') }} {{ c }}</div>
+<div class="n">{{ counts.get(c, 0) }}</div>
+<div class="u">{{ t('student_one') if counts.get(c, 0) == 1 else t('students_word') }}</div>
+</a>
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}

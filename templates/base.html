@@ -1,30 +1,69 @@
 <!doctype html>
-<html lang="hi"><head>
+<html lang="{{ lang }}"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1f3f">
 <title>{{ coaching }}</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,sans-serif;background:#f3f5f9;color:#1b2540;padding-bottom:76px}
-header{background:#0b2a5b;color:#fff;padding:18px 16px;font-size:20px;font-weight:700}
-main{padding:16px;max-width:600px;margin:auto}
-.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(11,42,91,.08)}
-.big{font-size:34px;font-weight:800;color:#0b2a5b}
-.muted{color:#6b7794;font-size:14px}
-input,select{width:100%;padding:12px;margin:6px 0;border:1px solid #cfd6e6;border-radius:10px;font-size:16px}
-button{background:#0b2a5b;color:#fff;border:0;border-radius:10px;padding:12px 16px;font-size:16px;font-weight:600;width:100%}
-button.del{background:#fff;color:#c0392b;border:1px solid #f0c4be;width:auto;padding:6px 10px;font-size:13px;margin-top:6px}
+:root{--navy:#0b1f3f;--ink:#1a2233;--paper:#f5f3ee;--line:#e3dfd3;--gold:#b8913a;--green:#1f7a4d;--red:#b83a3a;--muted:#6c7385}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);padding-bottom:84px}
+header{background:var(--navy);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:Georgia,serif;font-size:20px;letter-spacing:.4px}
+.hr{display:flex;align-items:center;gap:12px;font-size:13px}
+.hr a{color:#dfe6f3;text-decoration:none}
+.lang{display:flex;border:1px solid rgba(255,255,255,.35);border-radius:20px;overflow:hidden}
+.lang a{padding:5px 11px;font-weight:600}
+.lang a.on{background:var(--gold);color:#fff}
+main{padding:18px;max-width:640px;margin:auto}
+h1.page{font-family:Georgia,serif;font-weight:400;font-size:28px;margin:4px 0 16px;color:var(--navy)}
+.sect{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
+.muted{color:var(--muted);font-size:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.hero{background:var(--navy);color:#fff;border-radius:18px;padding:22px;margin-bottom:14px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-34px;top:-34px;width:150px;height:150px;border:1px solid rgba(184,145,58,.5);border-radius:50%}
+.hero .lbl{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#c4cee3}
+.hero .num{font-family:Georgia,serif;font-size:56px;line-height:1.05;margin:8px 0 4px}
+.hero .sub{font-size:13px;color:#a9b6d0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cls{display:block;position:relative;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px 20px}
+.cls:before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;background:var(--gold);border-radius:0 3px 3px 0}
+.cls:active{background:#faf8f2}
+.cls .k{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+.cls .n{font-family:Georgia,serif;font-size:36px;color:var(--navy);margin:2px 0}
+.cls .u{font-size:13px;color:var(--muted)}
+.item{display:flex;justify-content:space-between;align-items:center;padding:16px;background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:10px;text-decoration:none;color:inherit;font-weight:600}
+.item:active{background:#faf8f2}
+.chev{color:#b5b9c4;font-size:22px;line-height:1}
+.kv{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.kv:last-child{border:0}
+.kv span:first-child{color:var(--muted);font-size:14px}
+.kv span:last-child{font-weight:600;text-align:right}
+.av{width:62px;height:62px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:26px;flex:none}
+label{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:14px 0 5px}
+input,select{width:100%;padding:13px 12px;border:1px solid var(--line);border-radius:10px;font-size:16px;background:#fff;color:var(--ink);font-family:inherit}
+input:focus,select:focus{outline:2px solid rgba(184,145,58,.45);border-color:var(--gold)}
+button,.btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--navy);color:#fff;border:0;border-radius:12px;padding:14px 16px;font-size:16px;font-weight:600;width:100%;text-decoration:none;font-family:inherit}
+.btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line);margin-top:10px}
+.btn.danger{background:#fff;color:var(--red);border:1px solid #ebc9c9}
+.err{background:#fbeeee;color:var(--red);border:1px solid #efcaca;border-radius:10px;padding:10px 12px;font-size:14px;margin-bottom:12px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.badge{background:#e6edfb;color:#0b2a5b;border-radius:20px;padding:3px 10px;font-size:13px;font-weight:600}
-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid #e1e6f0}
-nav a{flex:1;text-align:center;padding:12px 0;color:#0b2a5b;text-decoration:none;font-size:13px;font-weight:600}
-nav a.off{color:#aab3c8}
+.big{font-family:Georgia,serif;font-size:32px;color:var(--navy)}
+.badge{background:#efe9d8;color:var(--navy);border-radius:20px;padding:3px 10px;font-size:13px;font-weight:600}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+nav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 9px;color:#8b90a0;text-decoration:none;font-size:11px;font-weight:600}
+nav a.on{color:var(--navy)}
+nav a.on .ic{stroke:var(--gold)}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 </style></head><body>
-<header>🎓 {{ coaching }}</header>
+<header><span class="brand">{{ coaching }}</span>
+<span class="hr"><span class="lang"><a href="/lang/en" class="{{ 'on' if lang=='en' }}">EN</a><a href="/lang/hi" class="{{ 'on' if lang=='hi' }}">हिं</a></span>
+{% if user_name %}<a href="/logout">{{ t('logout') }}</a>{% endif %}</span></header>
 <main>{% block body %}{% endblock %}</main>
-<nav>
-<a href="/">🏠<br>Home</a>
-<a href="/students">👥<br>Students</a>
-<a href="/hazri">✅<br>Hazri</a>
-<a href="/fees">💰<br>Fees</a>
-</nav></body></html>
+{% if user_name %}<nav>
+<a href="/" class="{{ 'on' if request.path=='/' }}"><svg class="ic" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>{{ t('nav_home') }}</a>
+<a href="/students" class="{{ 'on' if request.path.startswith('/students') }}"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.2c2.6.2 4.5 2 4.5 5.3"/></svg>{{ t('nav_students') }}</a>
+<a href="/hazri" class="{{ 'on' if request.path.startswith('/hazri') }}"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>{{ t('nav_attendance') }}</a>
+<a href="/fees" class="{{ 'on' if request.path.startswith('/fees') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M8 5c4.5 0 6.5 1.6 6.5 4s-2 4-6.5 4H7l7 7"/></svg>{{ t('nav_fees') }}</a>
+</nav>{% endif %}
+</body></html>

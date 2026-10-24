@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "_shared.html" %}
+<a class="muted" href="/hazri?day={{ day }}" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('class') }} {{ cls }}</h1>
+<form method="get">
+<input type="date" name="day" value="{{ day }}" max="{{ today }}" onchange="this.form.submit()">
+</form>
+<div class="card row" style="text-align:center;margin-top:12px">
+<div><div class="big g">{{ p }}</div><div class="muted">{{ t('present') }}</div></div>
+<div><div class="big r">{{ a }}</div><div class="muted">{{ t('absent') }}</div></div>
+<div><div class="big" style="color:var(--muted)">{{ rows|length - p - a }}</div><div class="muted">{{ t('not_marked') }}</div></div>
+</div>
+{% for r in rows %}
+<div class="stu" id="s{{ r.id }}">
+<div class="row"><a href="/hazri/student/{{ r.id }}" style="color:inherit;text-decoration:none"><b>{{ r.name }}</b><br><span class="muted">{{ t('view_history') }} ›</span></a>
+{% if r.pct is not none %}<span class="pc {{ 'hi' if r.pct >= 75 else ('mid' if r.pct >= 60 else 'lo') }}">{{ r.pct }}%</span>{% else %}<span class="muted">—</span>{% endif %}</div>
+<form method="post" action="/mark" class="pa">
+<input type="hidden" name="sid" value="{{ r.id }}">
+<input type="hidden" name="day" value="{{ day }}">
+<button name="status" value="P" class="p {{ 'on' if r.status == 'P' else 'o' }}">{{ t('present') }}</button>
+<button name="status" value="A" class="a {{ 'on' if r.status == 'A' else 'o' }}">{{ t('absent') }}</button>
+</form></div>
+{% else %}
+<div class="card muted">{{ t('no_students_in_class') }}</div>
+{% endfor %}
+{% if rows %}
+<form method="post" action="/mark_all">
+<input type="hidden" name="cls" value="{{ cls }}"><input type="hidden" name="day" value="{{ day }}">
+<button class="btn ghost">{{ t('mark_all') }}</button></form>
+{% endif %}
+{% endblock %}

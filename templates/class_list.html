@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block body %}
+<a class="muted" href="/students" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('class') }} {{ cls }}</h1>
+<p class="muted" style="margin:-8px 0 16px">{{ rows|length }} {{ t('student_one') if rows|length == 1 else t('students_word') }}</p>
+{% for r in rows %}
+<a class="item" href="/students/{{ r.id }}"><span>{{ r.name }}</span><span class="chev">›</span></a>
+{% else %}
+<div class="card muted">{{ t('no_students_in_class') }}</div>
+{% endfor %}
+<div style="height:6px"></div>
+<a class="btn" href="/students/add">{{ t('add_student') }}</a>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "_shared.html" %}
+<a class="muted" href="/students/class/{{ s.cls }}" style="text-decoration:none">‹ {{ t('class') }} {{ s.cls }}</a>
+<div class="row" style="justify-content:flex-start;gap:14px;margin:12px 0 16px">
+<div class="av">{{ s.name[:1]|upper }}</div>
+<div><h1 class="page" style="margin:0;font-size:24px">{{ s.name }}</h1>
+<span class="muted">{{ t('class') }} {{ s.cls }} · {{ s.acad_session or '—' }}</span></div>
+</div>
+<div class="pa" style="margin-bottom:12px">
+{% if s.parent_phone %}
+<a class="btn ghost" href="tel:{{ s.parent_phone }}">{{ t('call') }}</a>
+<a class="btn ghost" href="https://wa.me/91{{ s.parent_phone }}" target="_blank">{{ t('whatsapp') }}</a>
+{% endif %}
+</div>
+<div class="card">
+<div class="kv"><span>{{ t('parent_name') }}</span><span>{{ s.parent_name or '—' }}</span></div>
+<div class="kv"><span>{{ t('parent_phone') }}</span><span>{{ s.parent_phone or '—' }}</span></div>
+<div class="kv"><span>{{ t('monthly_fee') }}</span><span>₹{{ s.monthly_fee }}</span></div>
+<div class="kv"><span>{{ t('admission_date') }}</span><span>{{ s.admission_date or '—' }}</span></div>
+<div class="kv"><span>{{ t('session_label') }}</span><span>{{ s.acad_session or '—' }}</span></div>
+</div>
+<p class="sect">{{ t('fee_status') }}</p>
+<div class="card">
+{% set c = info.cur %}
+{% if c %}
+<div class="row" style="margin-bottom:6px"><b style="font-size:17px">{{ c.label }}</b>
+{% if c.st == 'paid' %}<span class="pc hi">{{ t('paid_list') }}</span>
+{% elif c.st == 'due' %}<span class="pc lo">{% if c.late > 0 %}{{ t('overdue') }} {{ c.late }} {{ t('days') }}{% else %}{{ t('due_today') }}{% endif %}</span>
+{% else %}<span class="pc mid">{{ t('upcoming') }} · {{ t('due_on') }} {{ c.due_s }}</span>{% endif %}</div>
+{% endif %}
+<div class="kv"><span>{{ t('months_paid') }}</span><span>{{ info.paid_n }}/{{ info.tot_n }}</span></div>
+<div class="kv"><span>{{ t('total_paid') }}</span><span class="g">₹{{ '{:,}'.format(info.total_paid) }}</span></div>
+<div class="kv"><span>{{ t('pending') }}</span><span class="{{ 'r' if info.pending else 'g' }}">₹{{ '{:,}'.format(info.pending) }}</span></div>
+</div>
+{% if hist %}
+<p class="sect">{{ t('fee_history') }}</p>
+<div class="card">
+{% for h in hist %}<a class="chip {{ h.st }}" href="/fees?month={{ h.key }}">{{ h.label }}</a>{% endfor %}
+<div class="muted" style="margin-top:4px">{{ t('tap_unpaid') }}</div>
+</div>
+{% endif %}
+<p class="sect">{{ t('att_history') }}</p>
+<a class="item" href="/hazri/student/{{ s.id }}"><span>{{ t('att_overall') }}<br><span class="muted">{{ att.pres }}/{{ att.tot }} {{ t('class_days') }} · {{ t('since_joining') }}</span></span>
+{% if pct is not none %}<span class="pc {{ 'hi' if pct >= 75 else ('mid' if pct >= 60 else 'lo') }}">{{ pct }}%</span>{% else %}<span class="chev">›</span>{% endif %}</a>
+<div style="height:8px"></div>
+<a class="btn" href="/students/{{ s.id }}/edit">{{ t('edit') }}</a>
+<form method="post" action="/students/{{ s.id }}/delete" onsubmit="return confirm('{{ t('delete_confirm') }}')" style="margin-top:10px">
+<button class="btn danger">{{ t('delete') }}</button></form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card" style="margin-top:24px">
+<h2 style="margin:0 0 4px;color:#0b2a5b">{{ t('setup_title') }}</h2>
+<p class="muted" style="margin-top:0">{{ t('setup_sub') }}</p>
+<form method="post">
+<input name="name" value="{{ name }}" placeholder="{{ t('full_name') }}" required autofocus>
+<input type="password" name="pw" placeholder="{{ t('password') }}" required>
+<input type="password" name="pw2" placeholder="{{ t('confirm_password') }}" required>
+<label class="muted">{{ t('language') }}</label>
+<select name="lang">
+<option value="en" {{ 'selected' if lang=='en' }}>English</option>
+<option value="hi" {{ 'selected' if lang=='hi' }}>हिन्दी</option>
+</select>
+{% if err %}<p style="color:#d64545;margin:4px 0">{{ t(err) }}</p>{% endif %}
+<button>{{ t('create_account') }}</button>
+</form></div>
+{% endblock %}

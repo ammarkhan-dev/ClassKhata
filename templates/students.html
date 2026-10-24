@@ -2,17 +2,17 @@
 {% block body %}
 <div class="card">
 <form method="post">
-<input name="name" placeholder="Student ka naam" required>
+<input name="name" placeholder="{{ t('ph_name') }}" required>
 <select name="cls"><option>9</option><option>10</option><option>11</option><option>12</option></select>
-<input name="phone" placeholder="Parent ka phone" inputmode="numeric">
-<input name="fee" placeholder="Mahine ki fees (₹)" inputmode="numeric">
-<button>➕ Student jodo</button>
+<input name="phone" placeholder="{{ t('ph_phone') }}" inputmode="numeric">
+<input name="fee" placeholder="{{ t('ph_fee') }}" inputmode="numeric">
+<button>➕ {{ t('add_student') }}</button>
 </form></div>
 {% for s in rows %}
 <div class="card row">
-<div><b>{{ s.name }}</b><br><span class="muted">{{ s.parent_phone or "-" }} · ₹{{ s.monthly_fee }}/mahina</span></div>
-<div style="text-align:right"><span class="badge">Class {{ s.cls }}</span>
-<form method="post" action="/delete/{{ s.id }}" onsubmit="return confirm('Delete karna hai?')"><button class="del">Hatao</button></form></div>
+<div><b>{{ s.name }}</b><br><span class="muted">{{ s.parent_phone or "-" }} · ₹{{ s.monthly_fee }}{{ t('per_month') }}</span></div>
+<div style="text-align:right"><span class="badge">{{ t('class') }} {{ s.cls }}</span>
+<form method="post" action="/delete/{{ s.id }}" onsubmit="return confirm('{{ t('confirm_delete') }}')"><button class="del">{{ t('remove') }}</button></form></div>
 </div>
 {% endfor %}
 {% endblock %}

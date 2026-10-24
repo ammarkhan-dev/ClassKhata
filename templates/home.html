@@ -1,8 +1,31 @@
 {% extends "base.html" %}
 {% block body %}
-<div class="card"><div class="muted">Kul students</div><div class="big">{{ total }}</div></div>
-{% for r in rows %}
-<div class="card row"><span>Class {{ r.cls }}</span><span class="badge">{{ r.n }} students</span></div>
+<p class="muted" style="margin:2px 0 14px">{{ t('hello') }}, {{ user_name }}</p>
+<div class="hero">
+<div class="lbl">{{ t('total_label') }}</div>
+<div class="num">{{ total }}</div>
+<div class="sub">{{ t('across') }}</div>
+</div>
+<div class="grid2">
+{% for c in [9,10,11,12] %}
+<a class="cls" href="/students/class/{{ c }}">
+<div class="k">{{ t('class') }} {{ c }}</div>
+<div class="n">{{ counts.get(c, 0) }}</div>
+<div class="u">{{ t('student_one') if counts.get(c, 0) == 1 else t('students_word') }}</div>
+</a>
 {% endfor %}
-{% if total == 0 %}<div class="card muted">Abhi koi student nahi. Neeche Students me jaake add kar.</div>{% endif %}
+</div>
+<p class="sect">{{ t('today') }}</p>
+<div class="grid2">
+<a class="cls" href="/hazri">
+<div class="k">{{ t('today_att') }}</div>
+<div class="n" style="color:var(--green)">{{ p }}</div>
+<div class="u">{{ t('present') }} · {{ a }} {{ t('absent') }}</div>
+</a>
+<a class="cls" href="/fees">
+<div class="k">{{ t('fees_pending_all') }}</div>
+<div class="n" style="color:var(--red);font-size:29px;padding:5px 0">₹{{ '{:,}'.format(pa) }}</div>
+<div class="u">{{ pn }} {{ t('student_one') if pn == 1 else t('students_word') }} · {{ t('all_months') }}</div>
+</a>
+</div>
 {% endblock %}

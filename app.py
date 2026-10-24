@@ -1,5 +1,6 @@
 import sqlite3
-from flask import Flask, render_template, request, redirect, g
+from datetime import date
+from flask import Flask, render_template, g
 
 app = Flask(__name__)
 COACHING_NAME = "ClassKhata"
@@ -17,46 +18,28 @@ def close(e):
     if d:
         d.close()
 
-def init():
-    with sqlite3.connect(DB) as c:
-        c.execute("""CREATE TABLE IF NOT EXISTS students(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL, cls INTEGER NOT NULL,
-            parent_phone TEXT, monthly_fee INTEGER DEFAULT 0)""")
-
 @app.context_processor
 def inject():
     return dict(coaching=COACHING_NAME)
 
+import i18n, auth, students, hazri, fees
+
 @app.route("/")
 def home():
-    rows = db().execute("SELECT cls, COUNT(*) n FROM students GROUP BY cls ORDER BY cls").fetchall()
-    total = sum(r["n"] for r in rows)
-    return render_template("home.html", total=total, rows=rows)
+    rows = db().execute("SELECT cls, COUNT(*) n FROM students GROUP BY cls").fetchall()
+    counts = {r["cls"]: r["n"] for r in rows}
+    att = {r["status"]: r["n"] for r in db().execute(
+        "SELECT status, COUNT(*) n FROM attendance WHERE day=? GROUP BY status",
+        (date.today().isoformat(),))}
+    pn, pa = fees.pending_all(db)
+    return render_template("home.html", total=sum(counts.values()), counts=counts,
+                           p=att.get("P", 0), a=att.get("A", 0), pn=pn, pa=pa)
 
-@app.route("/students", methods=["GET", "POST"])
-def students():
-    if request.method == "POST":
-        name = request.form["name"].strip()
-        if name:
-            db().execute(
-                "INSERT INTO students(name,cls,parent_phone,monthly_fee) VALUES(?,?,?,?)",
-                (name, int(request.form["cls"]), request.form["phone"].strip(),
-                 int(request.form.get("fee") or 0)))
-            db().commit()
-        return redirect("/students")
-    rows = db().execute("SELECT * FROM students ORDER BY cls, name").fetchall()
-    return render_template("students.html", rows=rows)
-
-@app.route("/delete/<int:sid>", methods=["POST"])
-def delete(sid):
-    db().execute("DELETE FROM students WHERE id=?", (sid,))
-    db().commit()
-    return redirect("/students")
-
-import hazri
+i18n.setup(app)
+auth.setup(app)
+students.setup(app, db)
 hazri.setup(app, db)
-import fees
 fees.setup(app, db)
-init()
-app.run(host="0.0.0.0", port=5000)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)

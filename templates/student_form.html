@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+<h1 class="page">{{ t(title_key) }}</h1>
+{% if err %}<div class="err">{{ t(err) }}</div>{% endif %}
+<form method="post" action="{{ action }}" class="card">
+<label>{{ t('student_name') }}</label>
+<input name="name" value="{{ s.name }}" required autofocus>
+<label>{{ t('class_label') }}</label>
+<select name="cls">{% for c in [9,10,11,12] %}<option value="{{ c }}" {{ 'selected' if s.cls|string == c|string }}>{{ t('class') }} {{ c }}</option>{% endfor %}</select>
+<label>{{ t('parent_name') }}</label>
+<input name="parent_name" value="{{ s.parent_name or '' }}" required>
+<label>{{ t('parent_phone') }}</label>
+<input name="phone" value="{{ s.parent_phone or '' }}" inputmode="numeric" required>
+<label>{{ t('monthly_fee') }}</label>
+<input name="fee" value="{{ s.monthly_fee }}" inputmode="numeric" required>
+<label>{{ t('admission_date') }}</label>
+<input type="date" name="adm" value="{{ s.admission_date or '' }}" required>
+<label>{{ t('session_label') }}</label>
+<select name="ses">{% for o in sessions %}<option {{ 'selected' if o == s.acad_session }}>{{ o }}</option>{% endfor %}</select>
+<div style="height:18px"></div>
+<button>{{ t('save') }}</button>
+</form>
+<a class="btn ghost" href="javascript:history.back()">{{ t('cancel') }}</a>
+{% endblock %}

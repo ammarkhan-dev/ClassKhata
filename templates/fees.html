@@ -1,31 +1,72 @@
 {% extends "base.html" %}
 {% block body %}
+<style>
+.nv{padding:2px 14px;font-size:26px;color:var(--navy);text-decoration:none;line-height:1}
+.mt{font-family:Georgia,serif;font-size:19px;color:var(--navy)}
+.wk,.days{display:grid;grid-template-columns:repeat(7,1fr);text-align:center}
+.wk span{font-size:11px;color:var(--muted);padding:8px 0 4px;letter-spacing:.5px}
+.d{position:relative;padding:9px 0;margin:2px;font-size:14px;border-radius:50%}
+.d.today{background:var(--navy);color:#fff}
+.d i{position:absolute;left:50%;bottom:2px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%}
+.od{background:var(--red)}
+.up{background:var(--gold)}
+.lg{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-top:8px}
+.lg i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px}
+.sm .k{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+.undo{width:auto;background:none;color:var(--muted);padding:4px 6px;font-size:13px;font-weight:500;text-decoration:underline}
+details>summary{list-style:none;cursor:pointer}
+details>summary::-webkit-details-marker{display:none}
+</style>
+{% include "_shared.html" %}
+<h1 class="page">{{ t('nav_fees') }}</h1>
 <div class="card">
-<form method="get" class="row">
-<input type="month" name="month" value="{{ month }}">
-<button style="width:auto">Dekho</button>
-</form>
-<div class="row" style="margin-top:10px">
-<div><div class="muted">Mila</div><div class="big" style="color:#1e9e5a">₹{{ total_paid }}</div></div>
-<div style="text-align:right"><div class="muted">Baaki</div><div class="big" style="color:#d64545">₹{{ total_baaki }}</div></div>
-</div></div>
-{% for i in items %}
-<div class="card" style="border-left:6px solid {{ '#1e9e5a' if i.baaki==0 and i.fee>0 else '#d64545' if i.baaki>0 else '#cfd6e6' }}">
-<div class="row"><b>{{ i.name }}</b><span class="badge">Class {{ i.cls }}</span></div>
-<p class="muted">Fees ₹{{ i.fee }} · Diya ₹{{ i.paid }} · Baaki ₹{{ i.baaki }}</p>
-{% if i.baaki > 0 %}
-<form method="post" action="/pay" class="row">
-<input type="hidden" name="sid" value="{{ i.id }}">
-<input type="hidden" name="month" value="{{ month }}">
-<input name="amount" placeholder="₹ jama kiya" inputmode="numeric">
-<button style="width:auto">💰 Jama</button>
-</form>
-{% if i.link %}<a href="{{ i.link }}" target="_blank" class="badge" style="display:inline-block;margin-top:8px;text-decoration:none">📲 WhatsApp pe yaad dilao</a>{% endif %}
-{% elif i.fee > 0 %}
-<span class="badge" style="background:#dff5e8;color:#1e9e5a">✅ Poori fees jama</span>
+<div class="row"><a href="/fees?month={{ prev }}" class="nv">‹</a><b class="mt">{{ month_label }}</b><a href="/fees?month={{ nxt }}" class="nv">›</a></div>
+<div class="wk">{% for d in wk %}<span>{{ d }}</span>{% endfor %}</div>
+<div class="days">
+{% for w in weeks %}{% for d in w %}
+{% if d == 0 %}<span></span>{% else %}
+<span class="d {{ 'today' if is_cur and d == today.day }}">{{ d }}{% if d in marks %}<i class="{{ 'od' if marks[d][1] else 'up' }}"></i>{% endif %}</span>
 {% endif %}
+{% endfor %}{% endfor %}
 </div>
-{% else %}
-<div class="card muted">Pehle Students me jaake students jodo.</div>
+<div class="lg"><span><i class="od"></i>{{ t('legend_due') }}</span><span><i class="up"></i>{{ t('legend_up') }}</span></div>
+<p class="muted" style="margin:10px 0 0">{{ t('today') }}: {{ today_label }}</p>
+</div>
+<div class="grid2">
+<div class="card sm"><div class="k">{{ t('received') }}</div><div class="big g">₹{{ '{:,}'.format(received) }}</div></div>
+<div class="card sm" onclick="var p=document.getElementById('bycls');p.hidden=!p.hidden" style="cursor:pointer">
+<div class="k">{{ t('pending') }}</div><div class="big r">₹{{ '{:,}'.format(pending) }}</div>
+<div class="muted">{{ due|length }} {{ t('students_pending') }} ▾</div></div>
+</div>
+<div class="card" id="bycls" hidden>
+<div class="sect" style="margin-top:0">{{ t('classwise') }}</div>
+{% for c in [9,10,11,12] %}
+<div class="kv"><span>{{ t('class') }} {{ c }}</span><span>{{ by_cls[c][0] }} {{ t('student_one') if by_cls[c][0] == 1 else t('students_word') }} · ₹{{ '{:,}'.format(by_cls[c][1]) }}</span></div>
 {% endfor %}
+</div>
+<p class="sect">{{ t('due_now') }} · {{ due|length }}</p>
+{% for i in due %}
+<div class="stu">
+<div class="row"><b>{{ i.name }}</b><span class="badge">{{ t('class') }} {{ i.cls }}</span></div>
+<div class="muted" style="margin-top:4px">₹{{ '{:,}'.format(i.baaki) }} · {{ t('due_on') }} {{ i.due_s }}{% if i.late > 0 %} · <span class="r">{{ t('overdue') }} {{ i.late }} {{ t('days') }}</span>{% else %} · {{ t('due_today') }}{% endif %}</div>
+<div class="pa">
+<form method="post" action="/collect" style="flex:1"><input type="hidden" name="sid" value="{{ i.id }}"><input type="hidden" name="month" value="{{ month }}"><button>{{ t('collect') }} ₹{{ '{:,}'.format(i.baaki) }}</button></form>
+{% if i.link %}<a class="btn ghost" href="{{ i.link }}" target="_blank" style="flex:1">{{ t('remind') }}</a>{% endif %}
+</div></div>
+{% else %}
+<div class="card muted">{{ t('nothing_due') }}</div>
+{% endfor %}
+{% if done %}
+<details style="margin-top:6px"><summary class="sect">{{ t('paid_list') }} · {{ done|length }} ▾</summary>
+{% for i in done %}
+<div class="item" style="font-weight:500"><span>{{ i.name }}<br><span class="muted">{{ t('class') }} {{ i.cls }} · {{ t('paid_on') }} {{ i.paid_on or '—' }}</span></span>
+<form method="post" action="/undo" onsubmit="return confirm('{{ t('undo_confirm') }}')"><input type="hidden" name="sid" value="{{ i.id }}"><input type="hidden" name="month" value="{{ month }}"><button class="undo">{{ t('undo') }}</button></form></div>
+{% endfor %}</details>
+{% endif %}
+{% if soon %}
+<details style="margin-top:6px"><summary class="sect">{{ t('upcoming') }} · {{ soon|length }} ▾</summary>
+{% for i in soon %}
+<div class="item" style="font-weight:500"><span>{{ i.name }}<br><span class="muted">{{ t('class') }} {{ i.cls }}</span></span><span class="muted">{{ t('due_on') }} {{ i.due_s }} · ₹{{ '{:,}'.format(i.baaki) }}</span></div>
+{% endfor %}</details>
+{% endif %}
 {% endblock %}

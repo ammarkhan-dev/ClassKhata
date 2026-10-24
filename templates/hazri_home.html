@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+<h1 class="page">{{ t('nav_attendance') }}</h1>
+<form method="get">
+<label style="margin-top:0">{{ t('date') }}</label>
+<input type="date" name="day" value="{{ day }}" max="{{ today }}" onchange="this.form.submit()">
+</form>
+<p class="sect">{{ t('att_pick') }}</p>
+<div class="grid2">
+{% for c in [9,10,11,12] %}
+{% set tot = info.get(c, (0, 0))[0] %}{% set mk = info.get(c, (0, 0))[1] %}
+<a class="cls" href="/hazri/{{ c }}?day={{ day }}">
+<div class="k">{{ t('class') }} {{ c }}</div>
+<div class="n">{{ mk }}<span style="font-size:18px;color:var(--muted)">/{{ tot }}</span></div>
+<div class="u">{{ t('marked') }}</div>
+</a>
+{% endfor %}
+</div>
+{% endblock %}
