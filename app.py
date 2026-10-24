@@ -24,7 +24,7 @@ def close(e):
 def inject():
     return dict(coaching=COACHING_NAME, institute=store.get("institute"))
 
-import i18n, auth, students, hazri, fees, store, records, more
+import i18n, auth, students, hazri, fees, store, records, more, report
 
 @app.route("/")
 def home():
@@ -45,6 +45,7 @@ hazri.setup(app, db)
 fees.setup(app, db)
 records.setup(app, db)
 more.setup(app, db)
+report.setup(app, db)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

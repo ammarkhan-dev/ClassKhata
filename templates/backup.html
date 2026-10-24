@@ -3,6 +3,7 @@
 {% include "_shared.html" %}
 <a class="muted" href="/more" style="text-decoration:none">‹ {{ t('back') }}</a>
 <h1 class="page" style="margin-top:6px">{{ t('backup_title') }}</h1>
+<a class="item" href="/report"><span>{{ t('report_open') }}<br><span class="muted" style="font-weight:400">{{ t('report_hint') }}</span></span><span class="chev">›</span></a>
 <div class="card">
 <p class="muted" style="margin-top:0">{{ t('backup_hint') }}</p>
 <div class="kv"><span>{{ t('last_backup') }}</span><span class="{{ 'r' if due else 'g' }}">{{ last or t('never') }}</span></div>
@@ -10,9 +11,10 @@
 <a class="btn" href="/backup/download">{{ t('backup_btn') }}</a>
 <p class="muted" style="margin-bottom:0">{{ t('backup_note') }}</p>
 </div>
-<p class="sect">{{ t('export_title') }}</p>
+<details style="margin-top:6px"><summary class="sect">{{ t('raw_csv') }} ▾</summary>
 <a class="item" href="/export/students.csv"><span>{{ t('exp_students') }}</span><span class="chev">↓</span></a>
 <a class="item" href="/export/records.csv"><span>{{ t('exp_records') }}</span><span class="chev">↓</span></a>
 <a class="item" href="/export/fees.csv"><span>{{ t('exp_fees') }}</span><span class="chev">↓</span></a>
 <a class="item" href="/export/attendance.csv"><span>{{ t('exp_att') }}</span><span class="chev">↓</span></a>
+</details>
 {% endblock %}

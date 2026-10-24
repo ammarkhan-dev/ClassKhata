@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "_shared.html" %}
+<style>
+@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}header,nav,.noprint{display:none!important}body{background:#fff;padding:0}main{padding:0;max-width:none}.sect{break-after:avoid}}
+.rh{border-bottom:2px solid var(--navy);padding-bottom:12px;margin-bottom:14px}
+.rt{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:6px}
+.rt th{text-align:left;font-size:10.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);padding:7px 5px;border-bottom:1.5px solid var(--navy)}
+.rt td{padding:9px 5px;border-bottom:1px solid var(--line);vertical-align:top}
+.rt .no{width:20px;color:var(--muted)}
+.sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:6px}
+.sum div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 8px}
+.sum b{display:block;font-family:Georgia,serif;font-size:18px;color:var(--navy)}
+.sum span{font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+</style>
+<div class="noprint">
+<a class="muted" href="/backup" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('rep_title') }}</h1>
+<form method="get"><label style="margin-top:0">{{ t('month_word') }}</label>
+<input type="month" name="month" value="{{ mk }}" onchange="this.form.submit()"></form>
+<button style="margin:12px 0 4px" onclick="window.print()">{{ t('save_pdf') }}</button>
+<p class="muted" style="margin-top:6px">{{ t('pdf_howto') }}</p>
+</div>
+<div class="rh" style="margin-top:18px">
+<div style="font-family:Georgia,serif;font-size:24px;color:var(--navy)">{{ institute or coaching }}</div>
+<div style="font-weight:600;margin-top:2px">{{ t('rep_title') }} · {{ month_label }}</div>
+<div class="muted">{{ t('rep_by') }}: {{ user_name }} · {{ today_label }}</div>
+</div>
+<div class="sum">
+<div><b>{{ tot.n }}</b><span>{{ t('rep_students') }}</span></div>
+<div><b class="g">₹{{ '{:,}'.format(tot.collected) }}</b><span>{{ t('received') }}</span></div>
+<div><b class="r">₹{{ '{:,}'.format(tot.pending) }}</b><span>{{ t('pending') }}</span></div>
+<div><b>{% if tot.avg is not none %}{{ tot.avg }}%{% else %}—{% endif %}</b><span>{{ t('att_avg') }}</span></div>
+</div>
+{% for c, g in classes.items() %}
+<p class="sect" style="margin:20px 0 4px">{{ t('class') }} {{ c }} · {{ g.n }} {{ t('student_one') if g.n == 1 else t('students_word') }}</p>
+<p class="muted" style="margin:0 0 6px">{{ t('received') }} ₹{{ '{:,}'.format(g.collected) }} · {{ t('pending') }} ₹{{ '{:,}'.format(g.pending) }} · {{ t('att_avg') }} {% if g.avg is not none %}{{ g.avg }}%{% else %}—{% endif %}</p>
+<table class="rt">
+<tr><th></th><th>{{ t('rep_student') }}</th><th>{{ t('rep_fee') }}</th><th>{{ t('rep_pending_all') }}</th><th>{{ t('rep_att') }}</th></tr>
+{% for i in g.rows %}
+<tr><td class="no">{{ loop.index }}</td><td><b>{{ i.name }}</b></td>
+<td>{% if i.st == 'paid' %}<span class="g">{{ t('paid_list') }}</span>{% elif i.st == 'due' %}<span class="r">₹{{ '{:,}'.format(i.owe) }} {{ t('pending') }}</span>{% elif i.st == 'soon' %}<span class="muted">{{ t('upcoming') }}</span>{% elif i.st == 'nofee' %}<span class="muted">{{ t('no_fee') }}</span>{% else %}—{% endif %}</td>
+<td>{% if i.total %}<span class="r">₹{{ '{:,}'.format(i.total) }}</span>{% else %}<span class="g">₹0</span>{% endif %}</td>
+<td>{% if i.pct is not none %}<span class="pc {{ 'hi' if i.pct >= 75 else ('mid' if i.pct >= 60 else 'lo') }}">{{ i.pct }}%</span>{% else %}—{% endif %}</td></tr>
+{% endfor %}
+</table>
+{% else %}
+<div class="card muted">{{ t('no_students_in_class') }}</div>
+{% endfor %}
+{% endblock %}

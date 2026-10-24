@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b1f3f">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="apple-touch-icon" href="/static/icon-192.png">
+<link rel="apple-touch-icon" href="/static/icon-192.png?v=2">
 <meta name="mobile-web-app-capable" content="yes">
 <title>{{ coaching }}</title>
 <style>
@@ -12,7 +12,7 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);padding-bottom:84px}
 header{background:var(--navy);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
-.brand{font-family:Georgia,serif;font-size:20px;letter-spacing:.4px}
+.brand{font-family:Georgia,serif;font-size:20px;letter-spacing:.4px;display:flex;align-items:center;gap:9px}
 .hr{display:flex;align-items:center;gap:12px;font-size:13px}
 .hr a{color:#dfe6f3;text-decoration:none}
 .lang{display:flex;border:1px solid rgba(255,255,255,.35);border-radius:20px;overflow:hidden}
@@ -59,7 +59,7 @@ nav a.on{color:var(--navy)}
 nav a.on .ic{stroke:var(--gold)}
 .ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 </style></head><body>
-<header><span class="brand">{{ coaching }}</span>
+<header><span class="brand"><svg width="30" height="24" viewBox="96 138 322 242" aria-hidden="true"><polygon points="166,236 346,236 346,326 256,372 166,326" fill="#9a7a2c"/><polygon points="102,230 256,300 410,230 256,160" fill="#0b1f3f"/><polygon points="102,220 256,290 410,220 256,150" fill="#d4ad55"/><rect x="407" y="222" width="6" height="84" fill="#d4ad55"/><circle cx="410" cy="314" r="12" fill="#d4ad55"/></svg>{{ coaching }}</span>
 <span class="hr"><span class="lang"><a href="/lang/en" class="{{ 'on' if lang=='en' }}">EN</a><a href="/lang/hi" class="{{ 'on' if lang=='hi' }}">हिं</a></span>
 {% if user_name %}<a href="/logout">{{ t('logout') }}</a>{% endif %}</span></header>
 <main>{% block body %}{% endblock %}</main>
@@ -68,7 +68,7 @@ nav a.on .ic{stroke:var(--gold)}
 <a href="/students" class="{{ 'on' if request.path.startswith('/students') }}"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.2c2.6.2 4.5 2 4.5 5.3"/></svg>{{ t('nav_students') }}</a>
 <a href="/hazri" class="{{ 'on' if request.path.startswith('/hazri') }}"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>{{ t('nav_attendance') }}</a>
 <a href="/fees" class="{{ 'on' if request.path.startswith('/fees') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M8 5c4.5 0 6.5 1.6 6.5 4s-2 4-6.5 4H7l7 7"/></svg>{{ t('nav_fees') }}</a>
-<a href="/more" class="{{ 'on' if request.path.startswith(('/more', '/backup', '/settings', '/records')) }}"><svg class="ic" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="19" cy="12" r="1.6" fill="currentColor"/></svg>{{ t('nav_more') }}</a>
+<a href="/more" class="{{ 'on' if request.path.startswith(('/more', '/backup', '/settings', '/records', '/report')) }}"><svg class="ic" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="19" cy="12" r="1.6" fill="currentColor"/></svg>{{ t('nav_more') }}</a>
 </nav>{% endif %}
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js")}</script>
 </body></html>

@@ -216,3 +216,35 @@ def pending_all(db):
             n += 1
             amt += owed
     return n, amt
+
+# ---- professional reminder message (uses institute name and your name) ----
+import store
+
+MSG = {
+    "en": ("Dear {parent},\n\nGreetings from {inst}.\n\n"
+           "This is a gentle reminder that the monthly fee for {name} (Class {cls}) "
+           "for {mon} is pending.\n\nFee amount: ₹{amt}\nDue date: {due}\n\n"
+           "Kindly arrange the payment at your earliest convenience. If you have already "
+           "paid, please disregard this message.\n\nThank you for your continued support.\n\n"
+           "Warm regards,\n{sign}"),
+    "hi": ("आदरणीय {parent} जी,\n\n{inst} की ओर से नमस्कार।\n\n"
+           "सादर सूचित किया जाता है कि {name} (कक्षा {cls}) की {mon} माह की फ़ीस बकाया है।\n\n"
+           "फ़ीस राशि: ₹{amt}\nदेय तिथि: {due}\n\n"
+           "कृपया सुविधानुसार शीघ्र भुगतान करने की कृपा करें। यदि आप पहले ही भुगतान कर चुके हैं, "
+           "तो कृपया इस संदेश को अनदेखा करें।\n\nआपके सहयोग के लिए धन्यवाद।\n\n"
+           "सादर,\n{sign}"),
+}
+
+def institute(lang):
+    return store.get("institute") or ("Our Institute" if lang == "en" else "हमारा संस्थान")
+
+def wa_link(r, baaki, dd, y, m, lang):
+    ph = "".join(ch for ch in (r["parent_phone"] or "") if ch.isdigit())
+    if len(ph) != 10:
+        return ""
+    inst = institute(lang)
+    sign = "\n".join(dict.fromkeys(x for x in (session.get("name", ""), inst) if x))
+    parent = r["parent_name"] or ("Parent/Guardian" if lang == "en" else "अभिभावक")
+    msg = MSG[lang].format(parent=parent, inst=inst, amt=f"{baaki:,}", name=r["name"],
+                           cls=r["cls"], mon=f"{MONTHS[lang][m - 1]} {y}", due=fmt(dd, lang), sign=sign)
+    return "https://wa.me/91" + ph + "?text=" + quote(msg)
