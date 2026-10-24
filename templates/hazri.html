@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+<div class="row" style="flex-wrap:wrap">
+{% for c in [9,10,11,12] %}<a href="/hazri?cls={{c}}&day={{day}}" class="badge" style="text-decoration:none;{{ 'background:#0b2a5b;color:#fff' if c==cls }}">Class {{c}}</a>{% endfor %}
+</div>
+<p class="muted">Tareekh: {{ day }} · ✅ {{p}} present · ❌ {{a}} absent</p>
+</div>
+{% for r in rows %}
+<div class="card"><b>{{ r.name }}</b>
+<form method="post" action="/mark" class="row" style="margin-top:8px">
+<input type="hidden" name="sid" value="{{r.id}}">
+<input type="hidden" name="day" value="{{day}}">
+<input type="hidden" name="cls" value="{{cls}}">
+<button name="status" value="P" style="{{ 'background:#1e9e5a' if r.status=='P' else 'background:#e6edfb;color:#0b2a5b' }}">✅ Present</button>
+<button name="status" value="A" style="{{ 'background:#d64545' if r.status=='A' else 'background:#e6edfb;color:#0b2a5b' }}">❌ Absent</button>
+</form></div>
+{% else %}
+<div class="card muted">Is class me koi student nahi.</div>
+{% endfor %}
+{% endblock %}

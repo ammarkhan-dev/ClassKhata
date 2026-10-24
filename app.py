@@ -54,5 +54,7 @@ def delete(sid):
     db().commit()
     return redirect("/students")
 
+import hazri
+hazri.setup(app, db)
 init()
 app.run(host="0.0.0.0", port=5000)
