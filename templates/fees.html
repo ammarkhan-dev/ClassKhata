@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+<form method="get" class="row">
+<input type="month" name="month" value="{{ month }}">
+<button style="width:auto">Dekho</button>
+</form>
+<div class="row" style="margin-top:10px">
+<div><div class="muted">Mila</div><div class="big" style="color:#1e9e5a">₹{{ total_paid }}</div></div>
+<div style="text-align:right"><div class="muted">Baaki</div><div class="big" style="color:#d64545">₹{{ total_baaki }}</div></div>
+</div></div>
+{% for i in items %}
+<div class="card" style="border-left:6px solid {{ '#1e9e5a' if i.baaki==0 and i.fee>0 else '#d64545' if i.baaki>0 else '#cfd6e6' }}">
+<div class="row"><b>{{ i.name }}</b><span class="badge">Class {{ i.cls }}</span></div>
+<p class="muted">Fees ₹{{ i.fee }} · Diya ₹{{ i.paid }} · Baaki ₹{{ i.baaki }}</p>
+{% if i.baaki > 0 %}
+<form method="post" action="/pay" class="row">
+<input type="hidden" name="sid" value="{{ i.id }}">
+<input type="hidden" name="month" value="{{ month }}">
+<input name="amount" placeholder="₹ jama kiya" inputmode="numeric">
+<button style="width:auto">💰 Jama</button>
+</form>
+{% if i.link %}<a href="{{ i.link }}" target="_blank" class="badge" style="display:inline-block;margin-top:8px;text-decoration:none">📲 WhatsApp pe yaad dilao</a>{% endif %}
+{% elif i.fee > 0 %}
+<span class="badge" style="background:#dff5e8;color:#1e9e5a">✅ Poori fees jama</span>
+{% endif %}
+</div>
+{% else %}
+<div class="card muted">Pehle Students me jaake students jodo.</div>
+{% endfor %}
+{% endblock %}

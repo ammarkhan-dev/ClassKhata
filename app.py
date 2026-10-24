@@ -56,5 +56,7 @@ def delete(sid):
 
 import hazri
 hazri.setup(app, db)
+import fees
+fees.setup(app, db)
 init()
 app.run(host="0.0.0.0", port=5000)
