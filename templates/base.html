@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="hi"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ coaching }}</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,sans-serif;background:#f3f5f9;color:#1b2540;padding-bottom:76px}
+header{background:#0b2a5b;color:#fff;padding:18px 16px;font-size:20px;font-weight:700}
+main{padding:16px;max-width:600px;margin:auto}
+.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(11,42,91,.08)}
+.big{font-size:34px;font-weight:800;color:#0b2a5b}
+.muted{color:#6b7794;font-size:14px}
+input,select{width:100%;padding:12px;margin:6px 0;border:1px solid #cfd6e6;border-radius:10px;font-size:16px}
+button{background:#0b2a5b;color:#fff;border:0;border-radius:10px;padding:12px 16px;font-size:16px;font-weight:600;width:100%}
+button.del{background:#fff;color:#c0392b;border:1px solid #f0c4be;width:auto;padding:6px 10px;font-size:13px;margin-top:6px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.badge{background:#e6edfb;color:#0b2a5b;border-radius:20px;padding:3px 10px;font-size:13px;font-weight:600}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid #e1e6f0}
+nav a{flex:1;text-align:center;padding:12px 0;color:#0b2a5b;text-decoration:none;font-size:13px;font-weight:600}
+nav a.off{color:#aab3c8}
+</style></head><body>
+<header>🎓 {{ coaching }}</header>
+<main>{% block body %}{% endblock %}</main>
+<nav>
+<a href="/">🏠<br>Home</a>
+<a href="/students">👥<br>Students</a>
+<a class="off">✅<br>Hazri</a>
+<a class="off">💰<br>Fees</a>
+</nav></body></html>

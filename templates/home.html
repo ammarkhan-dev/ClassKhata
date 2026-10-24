@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card"><div class="muted">Kul students</div><div class="big">{{ total }}</div></div>
+{% for r in rows %}
+<div class="card row"><span>Class {{ r.cls }}</span><span class="badge">{{ r.n }} students</span></div>
+{% endfor %}
+{% if total == 0 %}<div class="card muted">Abhi koi student nahi. Neeche Students me jaake add kar.</div>{% endif %}
+{% endblock %}
