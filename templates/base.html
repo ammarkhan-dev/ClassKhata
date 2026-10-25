@@ -62,18 +62,18 @@ nav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;paddi
 nav a.on{color:#fff;font-weight:700}
 .ic{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 </style></head><body>
-<header>
+{% block hdr %}{% block header %}<header>
 <a class="hl" href="/"><span class="lg"><svg width="32" height="26" viewBox="96 138 322 242" aria-hidden="true"><polygon points="166,236 346,236 346,326 256,372 166,326" fill="#9a7a2c"/><polygon points="102,230 256,300 410,230 256,160" fill="#222f40"/><polygon points="102,220 256,290 410,220 256,150" fill="#d4ad55"/><rect x="407" y="222" width="6" height="84" fill="#d4ad55"/><circle cx="410" cy="314" r="12" fill="#d4ad55"/></svg></span>
 <span class="ht"><small>{% block hsub %}{{ coaching }}{% endblock %}</small><b>{{ institute or coaching }}</b></span></a>
 <span class="hr">{% block hextra %}{% endblock %}<span class="lang"><a href="/lang/en" class="{{ 'on' if lang=='en' }}">EN</a><a href="/lang/hi" class="{{ 'on' if lang=='hi' }}">हिं</a></span></span>
-</header>
+</header>{% endblock %}{% endblock %}
 <main>{% block body %}{% endblock %}</main>
-{% if user_name %}<nav>
+{% block nav %}{% if user_name %}<nav>
 <a href="/" class="{{ 'on' if request.path=='/' }}"><svg class="ic" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>{{ t('nav_home') }}</a>
 <a href="/students" class="{{ 'on' if request.path.startswith('/students') }}"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.2c2.6.2 4.5 2 4.5 5.3"/></svg>{{ t('nav_students') }}</a>
 <a href="/hazri" class="{{ 'on' if request.path.startswith('/hazri') }}"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg>{{ t('nav_attendance') }}</a>
 <a href="/fees" class="{{ 'on' if request.path.startswith('/fees') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M8 5c4.5 0 6.5 1.6 6.5 4s-2 4-6.5 4H7l7 7"/></svg>{{ t('nav_fees') }}</a>
 <a href="/more" class="{{ 'on' if request.path.startswith(('/more', '/backup', '/settings', '/records', '/report', '/batches')) }}"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h11M19 18h1"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg>{{ t('nav_more') }}</a>
-</nav>{% endif %}
+</nav>{% endif %}{% endblock %}
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js")}</script>
 </body></html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+<a class="muted" href="/students/{{ s.id }}" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('mark_absent_dates') }}</h1>
+<p class="muted" style="margin:-8px 0 14px">{{ s.name }}</p>
+{% if err %}<div class="err">{{ t(err) }}</div>{% endif %}
+{% if done is not none %}<div class="card" style="color:var(--green);font-weight:600">{{ t('absent_done').format(n=done) }}{% if skipped %}<br><span class="muted" style="font-weight:400">{{ t('absent_skipped').format(n=skipped) }}</span>{% endif %}</div>{% endif %}
+<form method="post" class="card">
+<label style="margin-top:0">{{ t('from_date') }}</label>
+<input type="date" name="from" value="{{ today }}" max="{{ today }}" required>
+<label>{{ t('to_date') }}</label>
+<input type="date" name="to" value="{{ today }}" max="{{ today }}" required>
+<p class="muted">{{ t('absent_hint') }}</p>
+<button>{{ t('mark_absent_btn') }}</button>
+</form>
+{% endblock %}

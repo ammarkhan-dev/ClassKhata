@@ -1,7 +1,7 @@
 import re
 from datetime import date
 from flask import render_template, request, session
-from fees import fee_history, fmt, MONTHS
+from fees import fee_history, fee_history_s, fmt, MONTHS
 from hazri import STATS, pct
 
 def setup(app, db):
@@ -26,7 +26,7 @@ def setup(app, db):
         for r in rows:
             fee = r["monthly_fee"] or 0
             mine = pay.get(r["id"], {})
-            hist = fee_history(r["admission_date"], fee, mine, today) if fee > 0 else []
+            hist = fee_history_s(db, r["id"], r["admission_date"], fee, mine, today) if fee > 0 else []
             cur = next((h for h in hist if h["key"] == mk), None)
             g = classes.setdefault(r["cls"], dict(rows=[], collected=0, pending=0, pcts=[]))
             item = dict(name=r["name"], st=cur["st"] if cur else ("nofee" if fee == 0 else "none"),

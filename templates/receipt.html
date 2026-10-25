@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "_shared.html" %}
+<style>
+@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}header,nav,.noprint{display:none!important}body{background:#fff;padding:0}main{padding:0;max-width:none}}
+.rc{border:2px solid var(--navy);border-radius:18px;padding:22px;background:#fff}
+.rc h2{margin:0;font-size:24px;color:var(--navy)}
+.am2{font-size:40px;font-weight:700;color:var(--navy);margin:16px 0 4px}
+</style>
+<div class="noprint"><a class="muted" href="/students/{{ p.student_id }}" style="text-decoration:none">‹ {{ t('back') }}</a></div>
+<div class="rc" style="margin-top:10px">
+<div class="row" style="align-items:flex-start"><div><h2>{{ institute or coaching }}</h2><span class="muted">{{ t('fee_receipt') }}</span></div>
+<div style="text-align:right"><span class="muted">{{ t('receipt_no') }}</span><br><b>#{{ no }}</b></div></div>
+<div class="am2">₹{{ '{:,}'.format(p.amount) }}</div>
+<div class="muted" style="margin-bottom:10px">{{ t('amount_word') }}</div>
+<div class="kv"><span>{{ t('rep_student') }}</span><span>{{ st.name }}</span></div>
+<div class="kv"><span>{{ t('class_label') }}</span><span>{{ st.cls }}</span></div>
+<div class="kv"><span>{{ t('month_word') }}</span><span>{{ mon }}</span></div>
+<div class="kv"><span>{{ t('date') }}</span><span>{{ on }}</span></div>
+<div class="kv"><span>{{ t('pay_mode') }}</span><span>{{ t((p.mode or 'Cash')|lower) }}</span></div>
+<div class="kv"><span>{{ t('received_by') }}</span><span>{{ user_name }}</span></div>
+</div>
+<button class="noprint" style="margin-top:14px" onclick="window.print()">{{ t('save_pdf') }}</button>
+<p class="muted noprint">{{ t('pdf_howto') }}</p>
+{% endblock %}

@@ -1,7 +1,7 @@
 import sqlite3
 from datetime import date
 from flask import render_template, request, redirect, abort, session
-from fees import fee_history, parse_d, MONTHS
+from fees import fee_history, fee_history_s, parse_d, MONTHS
 from students import parse, cur_session, session_options, default_end, save_extra, form_page
 
 COLS = "id,name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session,session_end"
@@ -76,7 +76,7 @@ def setup(app, db):
         fee = r["monthly_fee"] or 0
         pm = {x["month"]: x["amt"] for x in db().execute(
             "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (sid,))}
-        hist = fee_history(r["admission_date"], fee, pm, upto) if fee > 0 else []
+        hist = fee_history_s(db, sid, r["admission_date"], fee, pm, upto) if fee > 0 else []
         for h in hist:
             h["label"] = mlabel(lang, h["y"], h["m"])
         info = dict(paid_n=sum(1 for h in hist if h["st"] == "paid"), tot_n=len(hist),

@@ -41,9 +41,12 @@ def parse_d(s):
     except ValueError:
         return None
 
-def eligible(adm, y, m):
+def eligible(adm, y, m, step=1):
     a = parse_d(adm)
-    return a is None or (y, m) >= (a.year, a.month)
+    if a is None:
+        return True
+    k = (y - a.year) * 12 + (m - a.month)
+    return k >= 0 and k % step == 0
 
 def due_date(adm, y, m):
     a = parse_d(adm)
@@ -91,9 +94,10 @@ def setup(app, db):
         marks = {}
         by_cls = {c: [0, 0] for c in (9, 10, 11, 12)}
         for r in rows:
-            if not eligible(r["admission_date"], y, m):
+            a0, stp = sched(db, r["id"], r["admission_date"])
+            if not eligible(a0, y, m, stp):
                 continue
-            dd = due_date(r["admission_date"], y, m)
+            dd = due_date(a0, y, m)
             baaki = max(r["monthly_fee"] - r["paid"], 0)
             received += r["paid"]
             po = parse_d(r["paid_on"])
@@ -124,8 +128,7 @@ def setup(app, db):
             nxt=f"{nx[0]:04d}-{nx[1]:02d}", due=due, done=done, soon=soon,
             received=received, pending=pending, by_cls=by_cls)
 
-    @app.route("/collect", methods=["POST"])
-    def collect():
+    def _old_collect():
         y, m = month_arg(request.form.get("month"))
         mk = f"{y:04d}-{m:02d}"
         try:
@@ -155,16 +158,19 @@ def setup(app, db):
         db().commit()
         return redirect(f"/fees?month={mk}")
 
-def months_since(adm, today):
+def months_since(adm, today, step=1):
     a = parse_d(adm) or today.replace(day=1)
     y, m = a.year, a.month
+    k = 0
     while (y, m) <= (today.year, today.month):
-        yield y, m
+        if k % step == 0:
+            yield y, m
+        k += 1
         y, m = (y + 1, 1) if m == 12 else (y, m + 1)
 
-def fee_history(adm, fee, paid_by_month, today):
+def fee_history(adm, fee, paid_by_month, today, step=1):
     out = []
-    for y, m in months_since(adm, today):
+    for y, m in months_since(adm, today, step):
         key = f"{y:04d}-{m:02d}"
         dd = due_date(adm, y, m)
         paid = paid_by_month.get(key, 0)
@@ -179,23 +185,26 @@ def pending_all(db):
     for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
         pm = {r["month"]: r["amt"] for r in db().execute(
             "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
-        hist = fee_history(s["admission_date"], s["monthly_fee"], pm, today)
+        hist = fee_history_s(db, s["id"], s["admission_date"], s["monthly_fee"], pm, today)
         owed = sum(h["baaki"] for h in hist if h["st"] == "due")
         if owed:
             n += 1
             amt += owed
     return n, amt
 
-def months_since(adm, today):
+def months_since(adm, today, step=1):
     a = parse_d(adm) or today.replace(day=1)
     y, m = a.year, a.month
+    k = 0
     while (y, m) <= (today.year, today.month):
-        yield y, m
+        if k % step == 0:
+            yield y, m
+        k += 1
         y, m = (y + 1, 1) if m == 12 else (y, m + 1)
 
-def fee_history(adm, fee, paid_by_month, today):
+def fee_history(adm, fee, paid_by_month, today, step=1):
     out = []
-    for y, m in months_since(adm, today):
+    for y, m in months_since(adm, today, step):
         key = f"{y:04d}-{m:02d}"
         dd = due_date(adm, y, m)
         paid = paid_by_month.get(key, 0)
@@ -210,7 +219,7 @@ def pending_all(db):
     for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
         pm = {r["month"]: r["amt"] for r in db().execute(
             "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
-        hist = fee_history(s["admission_date"], s["monthly_fee"], pm, today)
+        hist = fee_history_s(db, s["id"], s["admission_date"], s["monthly_fee"], pm, today)
         owed = sum(h["baaki"] for h in hist if h["st"] == "due")
         if owed:
             n += 1
@@ -255,7 +264,7 @@ def owed_map(db):
     for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
         pm = {r["month"]: r["amt"] for r in db().execute(
             "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
-        hist = fee_history(s["admission_date"], s["monthly_fee"], pm, today)
+        hist = fee_history_s(db, s["id"], s["admission_date"], s["monthly_fee"], pm, today)
         out[s["id"]] = sum(h["baaki"] for h in hist if h["st"] == "due")
     return out
 
@@ -265,13 +274,126 @@ def fee_state(db):
     for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
         pm = {r["month"]: r["amt"] for r in db().execute(
             "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
-        hist = fee_history(s["admission_date"], s["monthly_fee"], pm, today)
+        hist = fee_history_s(db, s["id"], s["admission_date"], s["monthly_fee"], pm, today)
         owed = sum(h["baaki"] for h in hist if h["st"] == "due")
         if owed:
             st = "pending"
-        elif any(h["st"] == "soon" for h in hist):
+        elif any(h["st"] == "soon" for h in hist) or not hist:
             st = "upcoming"
         else:
             st = "paid"
         out[s["id"]] = (owed, st)
+    return out
+
+# ---- fee plan: Monthly / Yearly with a billing day ----
+with sqlite3.connect("classkhata.db") as _c:
+    _c.execute("CREATE TABLE IF NOT EXISTS student_fee(student_id INTEGER PRIMARY KEY, bill_start TEXT, fee_type TEXT)")
+
+def first_bill(a, day):
+    y, m = a.year, a.month
+    for _ in range(2):
+        d = date(y, m, day)
+        if d >= a:
+            return d
+        y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+    return a
+
+def fee_plan(form):
+    ft = "yearly" if form.get("fee_type") == "yearly" else "monthly"
+    try:
+        a = date.fromisoformat(form.get("adm", ""))
+    except ValueError:
+        return ft, None
+    try:
+        day = int(form.get("bday", ""))
+    except ValueError:
+        day = a.day
+    if not 1 <= day <= 28:
+        day = min(a.day, 28)
+    return ft, first_bill(a, day).isoformat()
+
+def sched(db, sid, adm):
+    r = db().execute("SELECT bill_start, fee_type FROM student_fee WHERE student_id=?", (sid,)).fetchone()
+    if r and r["bill_start"]:
+        return r["bill_start"], (12 if r["fee_type"] == "yearly" else 1)
+    return adm, 1
+
+def fee_history_s(db, sid, adm, fee, pm, today):
+    a0, stp = sched(db, sid, adm)
+    return fee_history(a0, fee, pm, today, stp)
+
+
+# ---- per-month overrides (amount / due date) ----
+from flask import g
+
+def ov_get(sid, key):
+    try:
+        return (g.get("ov") or {}).get((sid, key))
+    except RuntimeError:
+        return None
+
+def months_since(adm, today):
+    a = parse_d(adm) or today.replace(day=1)
+    y, m = a.year, a.month
+    while (y, m) <= (today.year, today.month):
+        yield y, m
+        y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+
+def fee_history(adm, fee, paid_by_month, today, sid=None):
+    out = []
+    for y, m in months_since(adm, today):
+        key = f"{y:04d}-{m:02d}"
+        ov = ov_get(sid, key)
+        dd = (parse_d(ov[1]) if ov and ov[1] else None) or due_date(adm, y, m)
+        paid = paid_by_month.get(key, 0)
+        amt = ov[0] if ov and ov[0] is not None else fee
+        baaki = max(amt - paid, 0)
+        st = "paid" if baaki == 0 else ("due" if dd <= today else "soon")
+        out.append(dict(y=y, m=m, key=key, due=dd, paid=paid, baaki=baaki, amt=amt, st=st))
+    return out
+
+def _pay_all(db):
+    pay = {}
+    for p in db().execute("SELECT student_id sid, month, SUM(amount) amt FROM payments GROUP BY student_id, month"):
+        pay.setdefault(p["sid"], {})[p["month"]] = p["amt"]
+    return pay
+
+def pending_all(db):
+    today = date.today()
+    pay = _pay_all(db)
+    n = amt = 0
+    for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+        hist = fee_history(s["admission_date"], s["monthly_fee"], pay.get(s["id"], {}), today, sid=s["id"])
+        owed = sum(h["baaki"] for h in hist if h["st"] == "due")
+        if owed:
+            n += 1
+            amt += owed
+    return n, amt
+
+def owed_map(db):
+    today = date.today()
+    pay = _pay_all(db)
+    out = {}
+    for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+        hist = fee_history(s["admission_date"], s["monthly_fee"], pay.get(s["id"], {}), today, sid=s["id"])
+        out[s["id"]] = sum(h["baaki"] for h in hist if h["st"] == "due")
+    return out
+
+def fee_state(db):
+    today = date.today()
+    pay = _pay_all(db)
+    out = {}
+    for s in db().execute("SELECT id, admission_date, monthly_fee FROM students").fetchall():
+        fee = s["monthly_fee"] or 0
+        if fee <= 0:
+            out[s["id"]] = (0, "none")
+            continue
+        hist = fee_history(s["admission_date"], fee, pay.get(s["id"], {}), today, sid=s["id"])
+        owed = sum(h["baaki"] for h in hist if h["st"] == "due")
+        if owed:
+            out[s["id"]] = (owed, "pending")
+        elif not hist or any(h["st"] == "soon" for h in hist):
+            out[s["id"]] = (0, "upcoming")
+        else:
+            out[s["id"]] = (0, "paid")
     return out
