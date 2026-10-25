@@ -1,0 +1,16 @@
+HI10 = {
+"batches": "बैच", "add_batch": "नया बैच जोड़ें", "no_batches": "अभी कोई बैच नहीं है। छात्रों को समूह में रखने के लिए बैच बनाएँ।",
+"batch_title_new": "नया बैच", "batch_title_edit": "बैच बदलें", "batch_name": "बैच का नाम", "batch_ph": "जैसे: कक्षा 12 सुबह",
+"days_label": "दिन", "time_from": "शुरू होने का समय", "time_to": "खत्म होने का समय",
+"err_batch_name": "कृपया बैच का नाम लिखें",
+"delete_batch_confirm": "इस बैच को हटाएँ? छात्र बने रहेंगे, सिर्फ़ बैच का निशान हटेगा।",
+"tab_active": "सक्रिय", "tab_inactive": "निष्क्रिय", "tab_all": "सभी",
+"all_batches": "सभी बैच", "all_classes": "सभी कक्षाएँ", "select_batch": "बैच चुनें", "select_class": "कक्षा चुनें",
+"search_students": "नाम, रोल या फ़ोन से खोजें", "add_short": "जोड़ें",
+"mark_inactive": "निष्क्रिय करें", "inactive_confirm": "इस छात्र को निष्क्रिय (रिकॉर्ड) में भेजें? बाद में वापस ला सकते हैं।",
+"step_basic": "बुनियादी", "step_fee": "फ़ीस", "continue": "आगे बढ़ें",
+"roll_no": "रोल नंबर", "father_name": "पिता / अभिभावक का नाम", "phone_label": "छात्र / अभिभावक का फ़ोन",
+"gender": "लिंग", "male": "लड़का", "female": "लड़की", "other": "अन्य", "address": "पता",
+"fee_hint": "फ़ीस हर माह उसी तारीख़ को देय होगी, जिस दिन प्रवेश हुआ।",
+"batch_pick": "बैच",
+}

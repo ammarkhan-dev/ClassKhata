@@ -1,18 +1,67 @@
 {% extends "base.html" %}
 {% block body %}
-<div class="card">
-<form method="post">
-<input name="name" placeholder="{{ t('ph_name') }}" required>
-<select name="cls"><option>9</option><option>10</option><option>11</option><option>12</option></select>
-<input name="phone" placeholder="{{ t('ph_phone') }}" inputmode="numeric">
-<input name="fee" placeholder="{{ t('ph_fee') }}" inputmode="numeric">
-<button>➕ {{ t('add_student') }}</button>
-</form></div>
-{% for s in rows %}
-<div class="card row">
-<div><b>{{ s.name }}</b><br><span class="muted">{{ s.parent_phone or "-" }} · ₹{{ s.monthly_fee }}{{ t('per_month') }}</span></div>
-<div style="text-align:right"><span class="badge">{{ t('class') }} {{ s.cls }}</span>
-<form method="post" action="/delete/{{ s.id }}" onsubmit="return confirm('{{ t('confirm_delete') }}')"><button class="del">{{ t('remove') }}</button></form></div>
+{% include "_shared.html" %}
+<style>
+.pill{flex:1;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:13px 14px;font-size:15px;font-weight:600;justify-content:space-between}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tab{padding:9px 16px;border-radius:20px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:15px;text-decoration:none;color:var(--ink)}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.sc{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:12px}
+.sh{display:flex;gap:14px;align-items:flex-start;text-decoration:none;color:inherit}
+.sh .av{width:54px;height:54px;border-radius:16px;background:#e6ecf3;color:var(--navy);font-size:22px}
+.si{flex:1;min-width:0}
+.si b{display:block;font-size:17px}
+.btn.wa{background:#e7f3ec;color:var(--green);border:1px solid #cfe6d9}
+.btn.cl{background:#eef2f6;color:var(--navy)}
+.sc .pa .btn{padding:11px;font-size:15px}
+.fab{position:fixed;right:16px;bottom:104px;background:var(--navy);color:#fff;border-radius:18px;padding:15px 22px;font-weight:700;display:flex;gap:8px;align-items:center;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.sheet{position:fixed;inset:0;background:rgba(10,15,25,.5);z-index:50;display:flex;align-items:flex-end}
+.sheet[hidden]{display:none}
+.sp{background:#fff;width:100%;border-radius:24px 24px 0 0;padding:20px 22px 28px;max-height:70vh;overflow:auto}
+.sp h3{margin:0 0 8px;font-size:22px;color:var(--navy)}
+.opt{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:600;font-size:17px}
+.rd{width:22px;height:22px;border-radius:50%;border:2px solid #c3cad6}
+.rd.on{border:7px solid var(--navy)}
+</style>
+<form method="get" style="margin-bottom:12px">
+<input type="hidden" name="tab" value="{{ tab }}"><input type="hidden" name="cls" value="{{ cls or '' }}"><input type="hidden" name="batch" value="{{ bid or '' }}">
+<input type="search" name="q" value="{{ q }}" placeholder="{{ t('search_students') }}">
+</form>
+<div class="row" style="gap:10px;margin-bottom:14px">
+<button type="button" class="pill" onclick="document.getElementById('sh-b').hidden=false"><span>{{ bname or t('all_batches') }}</span><span>⌄</span></button>
+<button type="button" class="pill" onclick="document.getElementById('sh-c').hidden=false"><span>{{ (t('class') ~ ' ' ~ cls) if cls else t('all_classes') }}</span><span>⌄</span></button>
 </div>
+<div class="tabs">
+<a class="tab {{ 'on' if tab == 'active' }}" href="{{ href(tab='active') }}">{{ t('tab_active') }} {{ counts.active }}</a>
+<a class="tab {{ 'on' if tab == 'inactive' }}" href="{{ href(tab='inactive') }}">{{ t('tab_inactive') }} {{ counts.inactive }}</a>
+<a class="tab {{ 'on' if tab == 'all' }}" href="{{ href(tab='all') }}">{{ t('tab_all') }} {{ counts.all }}</a>
+</div>
+{% for r in rows %}
+<div class="sc">
+<a class="sh" href="{{ ('/records/student/' ~ r.id) if r.inactive else ('/students/' ~ r.id) }}">
+<span class="av">{{ r.name[:1]|upper }}</span>
+<span class="si"><b>{{ r.name }}</b><span class="muted">{% if r.roll %}{{ t('roll_no') }} {{ r.roll }} · {% endif %}{{ r.phone or '—' }}</span>
+{% if r.inactive %}<span class="muted" style="display:block">{{ t('session_label') }} {{ r.ses or '—' }}</span>
+{% elif r.owed %}<b class="r" style="color:var(--amber);font-size:16px;margin-top:4px">₹{{ '{:,}'.format(r.owed) }} {{ t('pending') }}</b>{% endif %}</span>
+{% if not r.inactive %}<span class="pc {{ 'mid' if r.owed else 'hi' }}">{{ t('pending') if r.owed else t('paid_list') }}</span>{% endif %}
+</a>
+{% if r.phone %}<div class="pa">
+<a class="btn wa" href="https://wa.me/91{{ r.phone }}" target="_blank">{{ t('whatsapp') }}</a>
+<a class="btn cl" href="tel:{{ r.phone }}">{{ t('call') }}</a>
+</div>{% endif %}
+</div>
+{% else %}
+<div class="card muted">{{ t('no_results') }}</div>
 {% endfor %}
+<a class="fab" href="/students/add"><svg class="ic" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M12 5v14M5 12h14"/></svg>{{ t('add_short') }}</a>
+<div class="sheet" id="sh-b" hidden onclick="if(event.target===this)this.hidden=true"><div class="sp">
+<h3>{{ t('select_batch') }}</h3>
+<a class="opt" href="{{ href(batch='') }}">{{ t('all_batches') }}<i class="rd {{ 'on' if not bid }}"></i></a>
+{% for b in batches %}<a class="opt" href="{{ href(batch=b.id) }}">{{ b.name }}<i class="rd {{ 'on' if bid == b.id }}"></i></a>{% endfor %}
+</div></div>
+<div class="sheet" id="sh-c" hidden onclick="if(event.target===this)this.hidden=true"><div class="sp">
+<h3>{{ t('select_class') }}</h3>
+<a class="opt" href="{{ href(cls='') }}">{{ t('all_classes') }}<i class="rd {{ 'on' if not cls }}"></i></a>
+{% for c in [9,10,11,12] %}<a class="opt" href="{{ href(cls=c) }}">{{ t('class') }} {{ c }}<i class="rd {{ 'on' if cls == c }}"></i></a>{% endfor %}
+</div></div>
 {% endblock %}

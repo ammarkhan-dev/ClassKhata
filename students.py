@@ -1,7 +1,9 @@
 import sqlite3
 from datetime import date
+from urllib.parse import urlencode
 from flask import render_template, request, redirect, abort, session
-from fees import fee_history, fmt, MONTHS
+from fees import fee_history, fmt, MONTHS, owed_map
+from batches import days_text, time_text
 
 def cur_session():
     t = date.today()
@@ -24,6 +26,12 @@ def digits10(s):
         d = d[-10:]
     return d if len(d) == 10 else None
 
+def to_int(v):
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return None
+
 def parse(form):
     name = form.get("name", "").strip()
     if not name:
@@ -39,22 +47,38 @@ def parse(form):
         return None, "err_fee"
     try:
         adm = date.fromisoformat(form.get("adm", "")).isoformat()
-    except ValueError:
-        return None, "err_date"
-    try:
-        cls = int(form.get("cls", 0))
-    except ValueError:
-        cls = 0
-    if cls not in (9, 10, 11, 12):
-        return None, "err_student_name"
-    ses = form.get("ses", "").strip() or cur_session()
-    try:
         end = date.fromisoformat(form.get("end", "")).isoformat()
     except ValueError:
         return None, "err_date"
     if end <= adm:
         return None, "err_end"
+    cls = to_int(form.get("cls"))
+    if cls not in (9, 10, 11, 12):
+        return None, "err_student_name"
+    ses = form.get("ses", "").strip() or cur_session()
     return (name, cls, form.get("parent_name", "").strip(), phone, fee, adm, ses, end), None
+
+def next_roll(db):
+    m = db().execute("SELECT MAX(CAST(roll AS INTEGER)) FROM student_extra").fetchone()[0] or 0
+    return f"{m + 1:04d}"
+
+def save_extra(db, sid, form):
+    g = form.get("gender", "")
+    roll = form.get("roll", "").strip()[:12] or next_roll(db)
+    db().execute("INSERT OR REPLACE INTO student_extra(student_id,roll,gender,address) VALUES(?,?,?,?)",
+                 (sid, roll, g if g in ("Male", "Female", "Other") else "", form.get("address", "").strip()[:200]))
+    db().execute("DELETE FROM student_batches WHERE student_id=?", (sid,))
+    for b in form.getlist("batch"):
+        if b.isdigit():
+            db().execute("INSERT OR IGNORE INTO student_batches VALUES(?,?)", (sid, int(b)))
+    db().commit()
+
+def form_page(db, s, err, action, title_key):
+    bl = [dict(id=r["id"], name=r["name"], days_s=days_text(r["days"]), time_s=time_text(r["t_from"], r["t_to"]))
+          for r in db().execute("SELECT * FROM batches ORDER BY name COLLATE NOCASE")]
+    sel = [int(b) for b in s.get("batch_ids", []) if str(b).isdigit()]
+    return render_template("student_form.html", s=s, err=err, action=action, title_key=title_key,
+                           sessions=session_options(s.get("acad_session")), batches=bl, sel=sel)
 
 def setup(app, db):
     with sqlite3.connect("classkhata.db") as c:
@@ -73,39 +97,68 @@ def setup(app, db):
             abort(404)
         return s
 
-    def form_page(s, err, action, title_key):
-        return render_template("student_form.html", s=s, err=err, action=action,
-                               title_key=title_key,
-                               sessions=session_options(s.get("acad_session")))
-
     def keep(s):
         f = request.form
-        s.update(name=f.get("name", ""), cls=f.get("cls", "9"),
-                 parent_name=f.get("parent_name", ""), parent_phone=f.get("phone", ""),
-                 monthly_fee=f.get("fee", ""), admission_date=f.get("adm", ""),
-                 acad_session=f.get("ses", ""), session_end=f.get("end", ""))
+        s.update(name=f.get("name", ""), cls=f.get("cls", "9"), parent_name=f.get("parent_name", ""),
+                 parent_phone=f.get("phone", ""), monthly_fee=f.get("fee", ""),
+                 admission_date=f.get("adm", ""), acad_session=f.get("ses", ""),
+                 session_end=f.get("end", ""), roll=f.get("roll", ""), gender=f.get("gender", ""),
+                 address=f.get("address", ""), batch_ids=f.getlist("batch"))
         return s
 
     NEW = "INSERT INTO students(name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session,session_end) VALUES(?,?,?,?,?,?,?,?)"
     UPD = "UPDATE students SET name=?,cls=?,parent_name=?,parent_phone=?,monthly_fee=?,admission_date=?,acad_session=?,session_end=? WHERE id=?"
 
-    @app.route("/students")
-    def students():
-        q = request.args.get("q", "").strip()
+    def fetch(table, q, cls, bid):
+        sql = (f"SELECT t.id, t.name, t.cls, t.parent_phone, t.acad_session, x.roll FROM {table} t "
+               "LEFT JOIN student_extra x ON x.student_id=t.id WHERE 1=1")
+        args = []
         if q:
             like = "%" + q.replace("%", "").replace("_", "") + "%"
-            found = db().execute("SELECT id, name, cls FROM students WHERE name LIKE ? ORDER BY name COLLATE NOCASE LIMIT 50", (like,)).fetchall()
-            return render_template("students_home.html", q=q, found=found, counts={})
-        rows = db().execute("SELECT cls, COUNT(*) n FROM students GROUP BY cls").fetchall()
-        return render_template("students_home.html", q="", found=None,
-                               counts={r["cls"]: r["n"] for r in rows})
+            sql += " AND (t.name LIKE ? OR x.roll LIKE ? OR t.parent_phone LIKE ?)"
+            args += [like, like, like]
+        if cls:
+            sql += " AND t.cls=?"
+            args.append(cls)
+        if bid:
+            sql += " AND t.id IN (SELECT student_id FROM student_batches WHERE batch_id=?)"
+            args.append(bid)
+        return db().execute(sql + " ORDER BY t.name COLLATE NOCASE", args).fetchall()
+
+    @app.route("/students")
+    def students():
+        tab = request.args.get("tab", "active")
+        if tab not in ("active", "inactive", "all"):
+            tab = "active"
+        q = request.args.get("q", "").strip()[:40]
+        cls = to_int(request.args.get("cls"))
+        cls = cls if cls in (9, 10, 11, 12) else None
+        bid = to_int(request.args.get("batch"))
+        owed = owed_map(db)
+
+        def card(r, inactive):
+            return dict(id=r["id"], name=r["name"], phone=r["parent_phone"] or "", roll=r["roll"] or "",
+                        ses=r["acad_session"] or "", inactive=inactive,
+                        owed=0 if inactive else owed.get(r["id"], 0))
+
+        act = [card(r, False) for r in fetch("students", q, cls, bid)]
+        ina = [card(r, True) for r in fetch("records", q, cls, bid)]
+        rows = act if tab == "active" else (ina if tab == "inactive" else sorted(act + ina, key=lambda c: c["name"].lower()))
+        bl = [dict(id=b["id"], name=b["name"]) for b in db().execute("SELECT id, name FROM batches ORDER BY name COLLATE NOCASE")]
+        bname = next((b["name"] for b in bl if b["id"] == bid), "")
+
+        def href(**over):
+            p = dict(tab=tab, q=q, cls=cls or "", batch=bid or "")
+            p.update(over)
+            return "/students?" + urlencode({k: v for k, v in p.items() if v not in ("", None)})
+
+        return render_template("students.html", rows=rows, tab=tab, q=q, cls=cls, bid=bid,
+            counts=dict(active=len(act), inactive=len(ina), all=len(act) + len(ina)),
+            batches=bl, bname=bname, href=href)
 
     @app.route("/students/class/<int:cls>")
     def students_class(cls):
-        if cls not in (9, 10, 11, 12):
-            abort(404)
-        rows = db().execute("SELECT id, name FROM students WHERE cls=? ORDER BY name COLLATE NOCASE", (cls,)).fetchall()
-        return render_template("class_list.html", rows=rows, cls=cls)
+        return redirect(f"/students?cls={cls}")
 
     @app.route("/students/<int:sid>")
     def student_detail(sid):
@@ -134,41 +187,60 @@ def setup(app, db):
             (SELECT COUNT(DISTINCT y.day) FROM attendance y JOIN students t ON t.id=y.student_id
              WHERE t.cls=? AND y.day>=?) AS tot""", (sid, adm, s["cls"], adm)).fetchone()
         pct = round(100 * r["pres"] / r["tot"]) if r["tot"] else None
-        return render_template("student_detail.html", s=s, hist=hist, info=info, att=r, pct=pct)
+        ex = db().execute("SELECT * FROM student_extra WHERE student_id=?", (sid,)).fetchone()
+        blist = [b["name"] for b in db().execute(
+            "SELECT b.name FROM student_batches sb JOIN batches b ON b.id=sb.batch_id WHERE sb.student_id=? ORDER BY b.name", (sid,))]
+        return render_template("student_detail.html", s=s, hist=hist, info=info, att=r, pct=pct, ex=ex, blist=blist)
 
     @app.route("/students/add", methods=["GET", "POST"])
     def student_add():
         s = dict(name="", cls=9, parent_name="", parent_phone="", monthly_fee="",
                  admission_date=date.today().isoformat(), acad_session=cur_session(),
-                 session_end=default_end(cur_session()))
+                 session_end=default_end(cur_session()), roll=next_roll(db), gender="", address="", batch_ids=[])
         err = None
         if request.method == "POST":
             v, err = parse(request.form)
             if not err:
-                db().execute(NEW, v)
+                cur = db().execute(NEW, v)
                 db().commit()
-                return redirect(f"/students/class/{v[1]}")
+                save_extra(db, cur.lastrowid, request.form)
+                return redirect("/students")
             s = keep(s)
-        return form_page(s, err, "/students/add", "add_student_title")
+        return form_page(db, s, err, "/students/add", "add_student_title")
 
     @app.route("/students/<int:sid>/edit", methods=["GET", "POST"])
     def student_edit(sid):
         s = dict(get_student(sid))
+        ex = db().execute("SELECT * FROM student_extra WHERE student_id=?", (sid,)).fetchone()
+        s.update(roll=ex["roll"] if ex else "", gender=ex["gender"] if ex else "", address=ex["address"] if ex else "",
+                 batch_ids=[b[0] for b in db().execute("SELECT batch_id FROM student_batches WHERE student_id=?", (sid,))])
         err = None
         if request.method == "POST":
             v, err = parse(request.form)
             if not err:
                 db().execute(UPD, v + (sid,))
                 db().commit()
+                save_extra(db, sid, request.form)
                 return redirect(f"/students/{sid}")
             s = keep(s)
-        return form_page(s, err, f"/students/{sid}/edit", "edit_student_title")
+        return form_page(db, s, err, f"/students/{sid}/edit", "edit_student_title")
+
+    @app.route("/students/<int:sid>/inactive", methods=["POST"])
+    def student_inactive(sid):
+        get_student(sid)
+        cols = "id,name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session,session_end"
+        db().execute(f"INSERT OR REPLACE INTO records({cols},archived_on) SELECT {cols},? FROM students WHERE id=?",
+                     (date.today().isoformat(), sid))
+        db().execute("DELETE FROM students WHERE id=?", (sid,))
+        db().commit()
+        return redirect("/students?tab=inactive")
 
     @app.route("/students/<int:sid>/delete", methods=["POST"])
     def student_delete(sid):
-        cls = get_student(sid)["cls"]
-        for tbl in ("attendance", "payments"):
+        get_student(sid)
+        for tbl in ("attendance", "payments", "student_batches"):
             db().execute(f"DELETE FROM {tbl} WHERE student_id=?", (sid,))
+        db().execute("DELETE FROM student_extra WHERE student_id=?", (sid,))
         db().execute("DELETE FROM students WHERE id=?", (sid,))
         db().commit()
-        return redirect(f"/students/class/{cls}")
+        return redirect("/students")

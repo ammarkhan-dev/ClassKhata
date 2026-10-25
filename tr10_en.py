@@ -1,0 +1,16 @@
+EN10 = {
+"batches": "Batches", "add_batch": "Add new batch", "no_batches": "No batches yet. Create one to group your students.",
+"batch_title_new": "New batch", "batch_title_edit": "Edit batch", "batch_name": "Batch name", "batch_ph": "e.g. Class 12 Morning",
+"days_label": "Days", "time_from": "Start time", "time_to": "End time",
+"err_batch_name": "Please enter a batch name",
+"delete_batch_confirm": "Delete this batch? Students stay, only the batch tag is removed.",
+"tab_active": "Active", "tab_inactive": "Inactive", "tab_all": "All",
+"all_batches": "All batches", "all_classes": "All classes", "select_batch": "Select batch", "select_class": "Select class",
+"search_students": "Search by name, roll or phone", "add_short": "Add",
+"mark_inactive": "Mark inactive", "inactive_confirm": "Move this student to Inactive (Records)? You can restore later.",
+"step_basic": "Basic", "step_fee": "Fee", "continue": "Continue",
+"roll_no": "Roll number", "father_name": "Father's / guardian's name", "phone_label": "Student / parent phone",
+"gender": "Gender", "male": "Male", "female": "Female", "other": "Other", "address": "Address",
+"fee_hint": "Fees are due on the same day every month, starting from the admission date.",
+"batch_pick": "Batches",
+}

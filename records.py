@@ -2,7 +2,7 @@ import sqlite3
 from datetime import date
 from flask import render_template, request, redirect, abort, session
 from fees import fee_history, parse_d, MONTHS
-from students import parse, cur_session, session_options, default_end
+from students import parse, cur_session, session_options, default_end, save_extra, form_page
 
 COLS = "id,name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session,session_end"
 
@@ -122,9 +122,11 @@ def setup(app, db):
         if request.method == "POST":
             v, err = parse(request.form)
             if not err:
-                db().execute("INSERT INTO students(name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session,session_end) VALUES(?,?,?,?,?,?,?,?)", v)
+                cur = db().execute("INSERT INTO students(name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session,session_end) VALUES(?,?,?,?,?,?,?,?)", v)
                 db().commit()
-                return redirect(f"/students/class/{v[1]}")
+                save_extra(db, cur.lastrowid, request.form)
+                return redirect(f"/students?cls={v[1]}")
             s = keep_form(s)
-        return render_template("student_form.html", s=s, err=err, action=f"/records/{sid}/readmit",
+        return form_page(db, s, err, f"/records/{sid}/readmit", "readmit_title")
+        _unused = dict(
                                title_key="readmit_title", sessions=session_options(s.get("acad_session")))

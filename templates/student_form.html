@@ -1,29 +1,79 @@
 {% extends "base.html" %}
 {% block body %}
+<style>
+.stp{display:flex;align-items:flex-start;gap:10px;margin:2px 0 18px}
+.stp .sp{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:13px;font-weight:600}
+.stp .c{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:#e8edf3;color:var(--muted)}
+.stp .c.on{background:var(--navy);color:#fff}
+.stp .ln{flex:1;height:2px;background:var(--line);margin-top:19px}
+.seg{display:flex;background:#eef2f6;border-radius:14px;padding:4px}
+.sg{flex:1;margin:0;text-transform:none;letter-spacing:0}
+.sg input{display:none}
+.sg span{display:block;padding:11px 0;text-align:center;border-radius:11px;font-weight:600;font-size:15px;color:var(--muted)}
+.sg input:checked+span{background:#fff;color:var(--navy);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.bx{display:flex;gap:14px;align-items:center;margin:0 0 10px;padding:14px;border:1.5px solid var(--line);border-radius:16px;text-transform:none;letter-spacing:0;font-size:15px;color:var(--ink);background:#fff}
+.bx input{width:22px;height:22px;padding:0;margin:0;flex:none;accent-color:var(--navy)}
+.bx small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.ph{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;background:#fff;padding-left:14px}
+.ph b{margin-right:8px}
+.ph input{border:0;border-radius:0;padding-left:0;background:transparent}
+.ph input:focus{outline:none}
+</style>
 <h1 class="page">{{ t(title_key) }}</h1>
+<div class="stp">
+<div class="sp"><span class="c on" id="d1">1</span>{{ t('step_basic') }}</div><span class="ln"></span>
+<div class="sp"><span class="c" id="d2">2</span>{{ t('step_fee') }}</div>
+</div>
 {% if err %}<div class="err">{{ t(err) }}</div>{% endif %}
-<form method="post" action="{{ action }}" class="card">
-<label>{{ t('student_name') }}</label>
+<form method="post" action="{{ action }}" id="sf">
+<div id="s1">
+<label style="margin-top:0">{{ t('student_name') }} *</label>
 <input name="name" value="{{ s.name }}" required autofocus>
+<label>{{ t('roll_no') }}</label>
+<input name="roll" value="{{ s.roll }}" inputmode="numeric" placeholder="0001">
+<label>{{ t('phone_label') }} *</label>
+<div class="ph"><b>+91</b><input name="phone" value="{{ s.parent_phone or '' }}" inputmode="numeric" placeholder="98200 41000" required></div>
+<label>{{ t('father_name') }}</label>
+<input name="parent_name" value="{{ s.parent_name or '' }}">
 <label>{{ t('class_label') }}</label>
 <select name="cls">{% for c in [9,10,11,12] %}<option value="{{ c }}" {{ 'selected' if s.cls|string == c|string }}>{{ t('class') }} {{ c }}</option>{% endfor %}</select>
-<label>{{ t('parent_name') }}</label>
-<input name="parent_name" value="{{ s.parent_name or '' }}" required>
-<label>{{ t('parent_phone') }}</label>
-<input name="phone" value="{{ s.parent_phone or '' }}" inputmode="numeric" required>
-<label>{{ t('monthly_fee') }}</label>
-<input name="fee" value="{{ s.monthly_fee }}" inputmode="numeric" required>
 <label>{{ t('admission_date') }}</label>
 <input type="date" name="adm" value="{{ s.admission_date or '' }}" required>
 <label>{{ t('session_label') }}</label>
 <select name="ses">{% for o in sessions %}<option {{ 'selected' if o == s.acad_session }}>{{ o }}</option>{% endfor %}</select>
 <label>{{ t('session_end') }}</label>
 <input type="date" name="end" id="endd" value="{{ s.session_end or '' }}" required>
+<label>{{ t('gender') }}</label>
+<div class="seg">
+<label class="sg"><input type="radio" name="gender" value="Male" {{ 'checked' if s.gender == 'Male' }}><span>{{ t('male') }}</span></label>
+<label class="sg"><input type="radio" name="gender" value="Female" {{ 'checked' if s.gender == 'Female' }}><span>{{ t('female') }}</span></label>
+<label class="sg"><input type="radio" name="gender" value="Other" {{ 'checked' if s.gender == 'Other' }}><span>{{ t('other') }}</span></label>
+</div>
+<label>{{ t('address') }}</label>
+<input name="address" value="{{ s.address or '' }}">
+<label>{{ t('batch_pick') }}</label>
+{% for b in batches %}<label class="bx"><input type="checkbox" name="batch" value="{{ b.id }}" {{ 'checked' if b.id in sel }}><span><b>{{ b.name }}</b><small>{{ b.days_s }}{% if b.time_s %} · {{ b.time_s }}{% endif %}</small></span></label>
+{% else %}<p class="muted" style="margin-top:0">{{ t('no_batches') }}</p>{% endfor %}
+<a class="btn ghost" href="/batches/new?next={{ action }}" style="margin-top:0">+ {{ t('add_batch') }}</a>
+<div style="height:16px"></div>
+<button type="button" onclick="go(2)">{{ t('continue') }}</button>
+</div>
+<div id="s2" hidden>
+<label style="margin-top:0">{{ t('monthly_fee') }} *</label>
+<input name="fee" value="{{ s.monthly_fee }}" inputmode="numeric" required>
+<p class="muted">{{ t('fee_hint') }}</p>
+<div style="height:10px"></div>
+<div class="row"><button type="button" class="btn ghost" style="margin:0" onclick="go(1)">{{ t('back') }}</button><button>{{ t('save') }}</button></div>
+</div>
+</form>
 <script>
+function go(n){
+ if(n==2){var f=document.querySelectorAll('#s1 input,#s1 select');for(var i=0;i<f.length;i++){if(!f[i].checkValidity()){f[i].reportValidity();return}}}
+ document.getElementById('s1').hidden=(n==2);document.getElementById('s2').hidden=(n==1);
+ document.getElementById('d1').className='c'+(n==1?' on':'');document.getElementById('d2').className='c'+(n==2?' on':'');
+ window.scrollTo(0,0);
+}
+document.getElementById('s1').addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.tagName==='INPUT'){e.preventDefault();go(2)}});
 document.querySelector('select[name=ses]').addEventListener('change',function(){var y=parseInt(this.value.slice(0,4));if(y){document.getElementById('endd').value=(y+1)+'-03-31'}});
 </script>
-<div style="height:18px"></div>
-<button>{{ t('save') }}</button>
-</form>
-<a class="btn ghost" href="javascript:history.back()">{{ t('cancel') }}</a>
 {% endblock %}

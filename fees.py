@@ -248,3 +248,13 @@ def wa_link(r, baaki, dd, y, m, lang):
     msg = MSG[lang].format(parent=parent, inst=inst, amt=f"{baaki:,}", name=r["name"],
                            cls=r["cls"], mon=f"{MONTHS[lang][m - 1]} {y}", due=fmt(dd, lang), sign=sign)
     return "https://wa.me/91" + ph + "?text=" + quote(msg)
+
+def owed_map(db):
+    today = date.today()
+    out = {}
+    for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+        pm = {r["month"]: r["amt"] for r in db().execute(
+            "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
+        hist = fee_history(s["admission_date"], s["monthly_fee"], pm, today)
+        out[s["id"]] = sum(h["baaki"] for h in hist if h["st"] == "due")
+    return out

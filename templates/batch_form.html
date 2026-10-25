@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+.dys{display:flex;flex-wrap:wrap;gap:8px}
+.dy{margin:0;text-transform:none;letter-spacing:0}
+.dy input{display:none}
+.dy span{display:block;padding:10px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-weight:600;font-size:14px;color:var(--ink)}
+.dy input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+</style>
+<a class="muted" href="{{ nxt or '/batches' }}" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('batch_title_edit') if b else t('batch_title_new') }}</h1>
+{% if err %}<div class="err">{{ t(err) }}</div>{% endif %}
+<form method="post" class="card">
+<input type="hidden" name="next" value="{{ nxt }}">
+<label style="margin-top:0">{{ t('batch_name') }}</label>
+<input name="name" value="{{ b.name if b else '' }}" placeholder="{{ t('batch_ph') }}" required autofocus>
+<label>{{ t('days_label') }}</label>
+<div class="dys">{% for d in DAYS %}<label class="dy"><input type="checkbox" name="day" value="{{ d }}" {{ 'checked' if d in sel }}><span>{{ d }}</span></label>{% endfor %}</div>
+<label>{{ t('time_from') }}</label>
+<input type="time" name="t_from" value="{{ b.t_from if b else '08:00' }}">
+<label>{{ t('time_to') }}</label>
+<input type="time" name="t_to" value="{{ b.t_to if b else '09:00' }}">
+<div style="height:18px"></div>
+<button>{{ t('save') }}</button>
+</form>
+{% if b %}<form method="post" action="/batches/{{ b.id }}/delete" onsubmit="return confirm('{{ t('delete_batch_confirm') }}')"><button class="btn danger">{{ t('delete') }}</button></form>{% endif %}
+{% endblock %}

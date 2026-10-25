@@ -16,6 +16,10 @@
 <div class="card">
 <div class="kv"><span>{{ t('parent_name') }}</span><span>{{ s.parent_name or '—' }}</span></div>
 <div class="kv"><span>{{ t('parent_phone') }}</span><span>{{ s.parent_phone or '—' }}</span></div>
+<div class="kv"><span>{{ t('roll_no') }}</span><span>{{ ex.roll if ex and ex.roll else '—' }}</span></div>
+<div class="kv"><span>{{ t('gender') }}</span><span>{{ ex.gender if ex and ex.gender else '—' }}</span></div>
+<div class="kv"><span>{{ t('address') }}</span><span>{{ ex.address if ex and ex.address else '—' }}</span></div>
+<div class="kv"><span>{{ t('batches') }}</span><span>{{ blist|join(', ') if blist else '—' }}</span></div>
 <div class="kv"><span>{{ t('monthly_fee') }}</span><span>₹{{ s.monthly_fee }}</span></div>
 <div class="kv"><span>{{ t('admission_date') }}</span><span>{{ s.admission_date or '—' }}</span></div>
 <div class="kv"><span>{{ t('session_label') }}</span><span>{{ s.acad_session or '—' }}</span></div>
@@ -46,6 +50,7 @@
 {% if pct is not none %}<span class="pc {{ 'hi' if pct >= 75 else ('mid' if pct >= 60 else 'lo') }}">{{ pct }}%</span>{% else %}<span class="chev">›</span>{% endif %}</a>
 <div style="height:8px"></div>
 <a class="btn" href="/students/{{ s.id }}/edit">{{ t('edit') }}</a>
+<form method="post" action="/students/{{ s.id }}/inactive" onsubmit="return confirm('{{ t('inactive_confirm') }}')"><button class="btn ghost">{{ t('mark_inactive') }}</button></form>
 <form method="post" action="/students/{{ s.id }}/delete" onsubmit="return confirm('{{ t('delete_confirm') }}')" style="margin-top:10px">
 <button class="btn danger">{{ t('delete') }}</button></form>
 {% endblock %}
