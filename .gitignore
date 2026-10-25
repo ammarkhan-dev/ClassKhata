@@ -5,7 +5,3 @@ __pycache__/
 .secret
 .secret
 .password
-*.bak
-classkhata-report.txt
-audit.py
-patch2.py

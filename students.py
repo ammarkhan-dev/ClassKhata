@@ -2,7 +2,7 @@ import sqlite3
 from datetime import date
 from urllib.parse import urlencode
 from flask import render_template, request, redirect, abort, session
-from fees import fee_history, fmt, MONTHS, owed_map, fee_state, fee_history_s, fee_plan, sched, wa_link
+from fees import fee_history, fmt, MONTHS, owed_map, fee_state, fee_history_s, fee_plan, sched
 from batches import days_text, time_text
 
 def cur_session():
@@ -79,9 +79,8 @@ def form_page(db, s, err, action, title_key):
     bl = [dict(id=r["id"], name=r["name"], days_s=days_text(r["days"]), time_s=time_text(r["t_from"], r["t_to"]))
           for r in db().execute("SELECT * FROM batches ORDER BY name COLLATE NOCASE")]
     sel = [int(b) for b in s.get("batch_ids", []) if str(b).isdigit()]
-    if "fee_type" not in s:
-        r = db().execute("SELECT bill_start, fee_type FROM student_fee WHERE student_id=?", (s.get("id", 0),)).fetchone()
-        s["fee_type"] = r["fee_type"] if r else "monthly"
+    if "bday" not in s:
+        r = db().execute("SELECT bill_start FROM student_fee WHERE student_id=?", (s.get("id", 0),)).fetchone()
         s["bday"] = int(r["bill_start"][8:10]) if r and r["bill_start"] else ""
     return render_template("student_form.html", s=s, err=err, action=action, title_key=title_key,
                            sessions=session_options(s.get("acad_session")), batches=bl, sel=sel)
@@ -110,7 +109,7 @@ def setup(app, db):
                  admission_date=f.get("adm", ""), acad_session=f.get("ses", ""),
                  session_end=f.get("end", ""), roll=f.get("roll", ""), gender=f.get("gender", ""),
                  address=f.get("address", ""), batch_ids=f.getlist("batch"),
-                 fee_type=f.get("fee_type", "monthly"), bday=f.get("bday", ""))
+                 bday=f.get("bday", ""))
         return s
 
     NEW = "INSERT INTO students(name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session,session_end) VALUES(?,?,?,?,?,?,?,?)"
@@ -183,7 +182,8 @@ def setup(app, db):
     def students_class(cls):
         return redirect(f"/students?cls={cls}")
 
-    def _old_detail(sid):
+    @app.route("/students/<int:sid>")
+    def student_detail(sid):
         s = get_student(sid)
         lang = session.get("lang", "en")
         if lang not in MONTHS:
@@ -196,14 +196,13 @@ def setup(app, db):
         for h in hist:
             nm = MONTHS[lang][h["m"] - 1]
             h["label"] = (nm[:3] if lang == "en" else nm) + " " + str(h["y"])[2:]
-        due = [h for h in hist if h["st"] == "due"]
+            h["due_s"] = fmt(h["due"], lang)
+            h["late"] = (today - h["due"]).days
         counted = [h for h in hist if h["st"] != "soon"]
-        up = sum(h["baaki"] for h in hist if h["st"] == "soon")
-        if fee > 0 and not hist:
-            up = fee
-        tiles = dict(pending=sum(h["baaki"] for h in due), collected=sum(pm.values()), upcoming=up,
-                     paid_n=sum(1 for h in counted if h["st"] == "paid"), tot_n=len(counted))
-        remind = wa_link(s, due[0]["baaki"], due[0]["due"], due[0]["y"], due[0]["m"], lang) if due else ""
+        info = dict(cur=hist[-1] if hist else None,
+                    paid_n=sum(1 for h in counted if h["st"] == "paid"), tot_n=len(counted),
+                    total_paid=sum(pm.values()),
+                    pending=sum(h["baaki"] for h in hist if h["st"] == "due"))
         adm = s["admission_date"] or "0000-00-00"
         r = db().execute("""SELECT
             (SELECT COUNT(*) FROM attendance x WHERE x.student_id=? AND x.status='P' AND x.day>=?) AS pres,
@@ -211,17 +210,10 @@ def setup(app, db):
              WHERE t.cls=? AND y.day>=?) AS tot""", (sid, adm, s["cls"], adm)).fetchone()
         pct = round(100 * r["pres"] / r["tot"]) if r["tot"] else None
         ex = db().execute("SELECT * FROM student_extra WHERE student_id=?", (sid,)).fetchone()
-        pays = []
-        for p in db().execute("SELECT month, amount, paid_on FROM payments WHERE student_id=? ORDER BY paid_on DESC, id DESC LIMIT 30", (sid,)):
-            try:
-                nm = MONTHS[lang][int(p["month"][5:7]) - 1]
-                lab = (nm[:3] if lang == "en" else nm) + " " + p["month"][2:4]
-                po = fmt(date.fromisoformat(p["paid_on"]), lang)
-            except (ValueError, TypeError, IndexError):
-                lab, po = p["month"], p["paid_on"] or ""
-            pays.append(dict(label=lab, amount=p["amount"], paid_on=po))
-        return render_template("student_detail.html", s=s, tiles=tiles, hist=hist, pays=pays,
-                               remind=remind, pct=pct, ex=ex)
+        blist = [b["name"] for b in db().execute(
+            "SELECT b.name FROM student_batches sb JOIN batches b ON b.id=sb.batch_id WHERE sb.student_id=? ORDER BY b.name", (sid,))]
+        return render_template("student_detail.html", s=s, hist=hist, info=info, att=r, pct=pct, ex=ex, blist=blist,
+                               sch=sched(db, sid, s["admission_date"]))
 
     @app.route("/students/add", methods=["GET", "POST"])
     def student_add():
@@ -269,7 +261,7 @@ def setup(app, db):
     @app.route("/students/<int:sid>/delete", methods=["POST"])
     def student_delete(sid):
         get_student(sid)
-        for tbl in ("attendance", "payments", "student_batches", "entry_ov", "entry_log"):
+        for tbl in ("attendance", "payments", "student_batches"):
             db().execute(f"DELETE FROM {tbl} WHERE student_id=?", (sid,))
         db().execute("DELETE FROM student_extra WHERE student_id=?", (sid,))
         db().execute("DELETE FROM students WHERE id=?", (sid,))

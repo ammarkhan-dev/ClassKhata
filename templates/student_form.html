@@ -59,43 +59,36 @@
 <button type="button" onclick="go(2)">{{ t('continue') }}</button>
 </div>
 <div id="s2" hidden>
-<label style="margin-top:0">{{ t('set_fee') }}</label>
-<div class="seg">
-<label class="sg"><input type="radio" name="fee_type" value="monthly" {{ 'checked' if s.fee_type != 'yearly' }}><span>{{ t('fee_monthly') }}</span></label>
-<label class="sg"><input type="radio" name="fee_type" value="yearly" {{ 'checked' if s.fee_type == 'yearly' }}><span>{{ t('fee_yearly') }}</span></label>
-</div>
-<label id="flb">{{ t('monthly_fee') }} *</label>
-<input name="fee" value="{{ s.monthly_fee }}" inputmode="numeric" required>
+<label style="margin-top:0">{{ t('monthly_fee') }} *</label>
+<div class="ph"><b>₹</b><input name="fee" value="{{ s.monthly_fee }}" inputmode="numeric" placeholder="300" required></div>
 <label>{{ t('billing_day') }} *</label>
-<select name="bday" id="bd">{% for d in range(1, 29) %}<option value="{{ d }}" {{ 'selected' if s.bday|string == d|string }}>{{ d }}</option>{% endfor %}</select>
+<div class="ph" style="padding-right:14px">
+<select name="bday" id="bd" style="border:0;padding-left:0;background:transparent;-webkit-appearance:none;appearance:none">{% for d in range(1, 29) %}{% set sfx = 'th' if 11 <= d <= 13 else {1:'st',2:'nd',3:'rd'}.get(d % 10, 'th') %}<option value="{{ d }}" {{ 'selected' if s.bday|string == d|string }}>{{ t('bill_ord').format(d=d, s=sfx) }}</option>{% endfor %}</select>
+<svg class="ic" viewBox="0 0 24 24" style="stroke:var(--navy);flex:none"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>
+</div>
 <div id="fnote" style="background:#fff8e6;color:#7a5a00;border-radius:12px;padding:14px;margin-top:12px;font-size:14px"></div>
-<p class="muted">{{ t('billing_hint') }}</p>
-<div style="height:10px"></div>
-<div class="row"><button type="button" class="btn ghost" style="margin:0" onclick="go(1)">{{ t('back') }}</button><button>{{ t('save') }}</button></div>
+<div style="height:16px"></div>
+<div class="row"><button type="button" class="btn ghost" style="margin:0" onclick="go(1)">{{ t('back') }}</button><button>{{ t('save_student') }}</button></div>
 </div>
 <script>
 (function(){
 var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-var NOTE={{ t('fee_note')|tojson }}, LM={{ t('monthly_fee')|tojson }}, LY={{ t('fee_yearly_amt')|tojson }};
+var NOW={{ t('fee_now')|tojson }}, ON={{ t('fee_on')|tojson }};
 var touched={{ 'true' if s.bday else 'false' }};
 var sel=document.getElementById('bd'), adm=document.querySelector('[name=adm]');
-function fmt(d){return d.getDate()+' '+M[d.getMonth()]+' '+d.getFullYear()}
+function fmt(d){return d.getDate()+' '+M[d.getMonth()]}
 function fe(){
- var yr=document.querySelector('[name=fee_type]:checked').value==='yearly';
- document.getElementById('flb').textContent=(yr?LY:LM)+' *';
  if(!adm.value)return;
  var a=new Date(adm.value+'T00:00:00');
  if(!touched){sel.value=Math.min(28,a.getDate())}
  var d=parseInt(sel.value,10);
  var f=new Date(a.getFullYear(),a.getMonth(),d);
- if(f<a){f=new Date(a.getFullYear(),a.getMonth()+1,d)}
- var e=yr?new Date(f.getFullYear()+1,f.getMonth(),d):new Date(f.getFullYear(),f.getMonth()+1,d);
- document.getElementById('fnote').textContent=NOTE.replace(/\{a\}/g,fmt(f)).replace('{b}',fmt(e));
+ var e=new Date(a.getFullYear(),a.getMonth()+1,d);
+ var tx=(f<=a?NOW:ON).replace(/\{a\}/g,fmt(f)).replace('{b}',fmt(e));
+ document.getElementById('fnote').textContent=tx;
 }
 sel.addEventListener('change',function(){touched=true;fe()});
 adm.addEventListener('change',fe);
-var r=document.querySelectorAll('[name=fee_type]');
-for(var i=0;i<r.length;i++){r[i].addEventListener('change',fe)}
 fe();
 })();
 </script>

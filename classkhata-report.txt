@@ -1,0 +1,1185 @@
+
+======== ENV ========
+time: 2026-10-25T16:42:33 | python: 3.13.13 | folder: /data/data/com.termux/files/home/classkhata
+flask 3.1.3
+werkzeug 3.1.9
+
+======== FILES (path | lines | bytes | modified) ========
+.gitignore | 12 | 106 | 25 Oct 15:55
+= | 1 | 0 | 25 Oct 16:34
+app.py | 56 | 1636 | 25 Oct 15:55
+audit.py | 145 | 5637 | 25 Oct 16:42
+auth.py | 110 | 4120 | 24 Oct 21:56
+batches.py | 95 | 4008 | 25 Oct 14:57
+dash.py | 51 | 2286 | 25 Oct 10:42
+entry.py | 193 | 9429 | 25 Oct 16:41
+entry.py.before-billing-cycle-fix | 193 | 9429 | 25 Oct 15:47
+entry.py.before-fee-fix | 193 | 9429 | 25 Oct 16:13
+fees.py | 454 | 18927 | 25 Oct 16:41
+hazri.py | 119 | 5205 | 24 Oct 16:31
+i18n.py | 27 | 792 | 24 Oct 21:43
+institute.txt | 2 | 22 | 24 Oct 16:06
+make_icons.py | 79 | 2632 | 25 Oct 10:43
+more.py | 113 | 4786 | 25 Oct 11:40
+patch2.py | 202 | 8202 | 25 Oct 16:41
+records.py | 133 | 6683 | 25 Oct 15:19
+report.py | 54 | 2564 | 25 Oct 15:19
+store.py | 19 | 451 | 24 Oct 21:43
+students.py | 278 | 13227 | 25 Oct 16:41
+studentview.py | 80 | 3818 | 25 Oct 16:38
+sw.js | 12 | 695 | 24 Oct 21:56
+tr10_en.py | 17 | 1250 | 25 Oct 10:58
+tr10_hi.py | 17 | 2159 | 25 Oct 10:58
+tr11_en.py | 7 | 347 | 25 Oct 16:35
+tr11_hi.py | 7 | 545 | 25 Oct 16:35
+tr12_en.py | 13 | 997 | 25 Oct 16:40
+tr12_hi.py | 13 | 1748 | 25 Oct 16:40
+tr13_en.py | 15 | 984 | 25 Oct 16:38
+tr13_hi.py | 15 | 1807 | 25 Oct 16:38
+tr2_en.py | 13 | 879 | 24 Oct 15:59
+tr2_hi.py | 13 | 1485 | 24 Oct 15:59
+tr3_en.py | 9 | 565 | 24 Oct 16:05
+tr3_hi.py | 9 | 943 | 24 Oct 16:05
+tr4_en.py | 10 | 551 | 24 Oct 16:30
+tr4_hi.py | 10 | 907 | 24 Oct 16:30
+tr5_en.py | 17 | 1103 | 24 Oct 21:43
+tr5_hi.py | 17 | 2187 | 24 Oct 21:43
+tr6_en.py | 4 | 115 | 24 Oct 21:52
+tr6_hi.py | 4 | 231 | 24 Oct 21:52
+tr7_en.py | 13 | 787 | 24 Oct 21:56
+tr7_hi.py | 13 | 1460 | 24 Oct 21:56
+tr8_en.py | 10 | 588 | 24 Oct 22:08
+tr8_hi.py | 10 | 1059 | 24 Oct 22:08
+tr9_en.py | 13 | 791 | 25 Oct 10:42
+tr9_hi.py | 13 | 1318 | 25 Oct 10:42
+tr_en.py | 20 | 1455 | 24 Oct 15:36
+tr_hi.py | 20 | 2432 | 24 Oct 15:38
+backup-branding-20261025-113739/app.py | 53 | 1567 | 25 Oct 10:59
+backup-branding-20261025-113739/more.py | 113 | 4786 | 25 Oct 10:43
+backup-branding-20261025-113739/templates/base.html | 80 | 7648 | 25 Oct 10:59
+backup-classflow/base.html | 80 | 7648 | 25 Oct 10:59
+backup-classflow/home.html | 47 | 3516 | 25 Oct 10:42
+backup-classflow/make_icons.py | 79 | 2632 | 25 Oct 10:43
+backup-classflow/sw.js | 12 | 695 | 24 Oct 21:56
+classkhata/.gitignore | 8 | 59 | 24 Oct 21:08
+classkhata/app.py | 46 | 1192 | 24 Oct 21:08
+classkhata/auth.py | 103 | 3760 | 24 Oct 21:08
+classkhata/fees.py | 219 | 9446 | 24 Oct 21:08
+classkhata/hazri.py | 119 | 5205 | 24 Oct 21:08
+classkhata/i18n.py | 20 | 511 | 24 Oct 21:08
+classkhata/institute.txt | 2 | 22 | 24 Oct 21:08
+classkhata/students.py | 165 | 7060 | 24 Oct 21:08
+classkhata/tr2_en.py | 13 | 879 | 24 Oct 21:08
+classkhata/tr2_hi.py | 13 | 1485 | 24 Oct 21:08
+classkhata/tr3_en.py | 9 | 565 | 24 Oct 21:08
+classkhata/tr3_hi.py | 9 | 943 | 24 Oct 21:08
+classkhata/tr4_en.py | 10 | 551 | 24 Oct 21:08
+classkhata/tr4_hi.py | 10 | 907 | 24 Oct 21:08
+classkhata/tr_en.py | 20 | 1455 | 24 Oct 21:08
+classkhata/tr_hi.py | 20 | 2432 | 24 Oct 21:08
+classkhata/templates/_shared.html | 36 | 1894 | 24 Oct 21:08
+classkhata/templates/base.html | 70 | 6189 | 24 Oct 21:08
+classkhata/templates/class_list.html | 14 | 653 | 24 Oct 21:08
+classkhata/templates/fees.html | 73 | 4683 | 24 Oct 21:08
+classkhata/templates/hazri.html | 22 | 1124 | 24 Oct 21:08
+classkhata/templates/hazri_class.html | 33 | 1873 | 24 Oct 21:08
+classkhata/templates/hazri_home.html | 20 | 704 | 24 Oct 21:08
+classkhata/templates/hazri_student.html | 29 | 1620 | 24 Oct 21:08
+classkhata/templates/home.html | 32 | 1154 | 24 Oct 21:08
+classkhata/templates/login.html | 13 | 535 | 24 Oct 21:08
+classkhata/templates/signup.html | 19 | 870 | 24 Oct 21:08
+classkhata/templates/student_detail.html | 51 | 3186 | 24 Oct 21:08
+classkhata/templates/student_form.html | 25 | 1302 | 24 Oct 21:08
+classkhata/templates/students.html | 19 | 915 | 24 Oct 21:08
+classkhata/templates/students_home.html | 28 | 1031 | 24 Oct 21:08
+templates/_shared.html | 86 | 5185 | 25 Oct 16:40
+templates/alerts.html | 11 | 417 | 25 Oct 10:43
+templates/backup.html | 21 | 1342 | 24 Oct 22:08
+templates/base.html | 80 | 7738 | 25 Oct 16:41
+templates/batch_form.html | 30 | 1819 | 25 Oct 16:36
+templates/batches.html | 12 | 787 | 25 Oct 16:36
+templates/class_list.html | 14 | 653 | 24 Oct 16:00
+templates/entry.html | 59 | 4303 | 25 Oct 16:41
+templates/fees.html | 73 | 4683 | 24 Oct 16:06
+templates/hazri.html | 22 | 1124 | 24 Oct 15:37
+templates/hazri_class.html | 33 | 1873 | 24 Oct 16:31
+templates/hazri_home.html | 20 | 704 | 24 Oct 16:06
+templates/hazri_student.html | 29 | 1620 | 24 Oct 16:31
+templates/home.html | 47 | 3516 | 25 Oct 10:42
+templates/login.html | 13 | 548 | 24 Oct 21:44
+templates/more.html | 35 | 2657 | 25 Oct 10:59
+templates/profile.html | 74 | 5895 | 25 Oct 16:41
+templates/receipt.html | 26 | 1713 | 25 Oct 16:41
+templates/record_detail.html | 34 | 2327 | 24 Oct 21:44
+templates/records.html | 30 | 1559 | 24 Oct 21:44
+templates/report.html | 51 | 3710 | 24 Oct 22:08
+templates/settings.html | 13 | 556 | 24 Oct 21:43
+templates/signup.html | 20 | 893 | 24 Oct 21:52
+templates/student_absent.html | 17 | 993 | 25 Oct 16:39
+templates/student_batches.html | 19 | 1210 | 25 Oct 16:39
+templates/student_card.html | 56 | 4133 | 25 Oct 16:38
+templates/student_detail.html | 102 | 10372 | 25 Oct 16:39
+templates/student_form.html | 114 | 7275 | 25 Oct 15:19
+templates/students.html | 96 | 7880 | 25 Oct 16:36
+templates/students_home.html | 29 | 1091 | 24 Oct 21:44
+
+======== GIT ========
+ba5c1d3 Student profile, payment entry, patch fixes
+1a37378 Students: filter, sort, search icon, batch capacity
+637bc19 Students list, batches, new add form
+54d21e8 New dashboard and theme
+c6e156e Report, reminder message, new logo
+0647750 Part D: backup, export, installable app
+062fa02 Signup form: name, password, institute
+2dd5e94 Production settings
+a178ca9 Fee history, attendance history, search, home summary
+d075004 Din 4: fees
+1d788a3 Din 3: hazri
+31bf7f9 Din 2: dashboard aur students
+4f0310b Din 1: pehla page
+2894aa0 Din 1: pehla page
+-- status:
+M fees.py
+ M templates/_shared.html
+ M templates/student_detail.html
+?? =
+?? entry.py.before-billing-cycle-fix
+?? entry.py.before-fee-fix
+-- tracked sensitive files (khali hona chahiye):
+
+-- .gitignore:
+__pycache__/
+*.db
+.env
+.password
+.secret
+.secret
+.password
+*.bak
+classkhata-report.txt
+audit.py
+patch2.py
+
+======== ROUTES (url | methods | endpoint)  [import app] ========
+/ | GET | home
+/alerts | GET | alerts
+/backup | GET | backup
+/backup/download | GET | backup_download
+/batches | GET | batches
+/batches/<int:bid>/delete | POST | batch_delete
+/batches/<int:bid>/edit | GET,POST | batch_edit
+/batches/new | GET,POST | batch_new
+/collect | POST | collect
+/export/<kind>.csv | GET | export
+/fees | GET | fees
+/hazri | GET | hazri
+/hazri/<int:cls> | GET | hazri_class
+/hazri/student/<int:sid> | GET | hazri_student
+/lang/<code> | GET | set_lang
+/login | GET,POST | login
+/logout | GET | logout
+/manifest.webmanifest | GET | manifest
+/mark | POST | mark
+/mark_all | POST | mark_all
+/more | GET | more
+/receipt/<int:pid> | GET | receipt
+/records | GET | records
+/records/<int:sid>/readmit | GET,POST | record_readmit
+/records/<int:sid>/restore | POST | record_restore
+/records/end | POST | end_session
+/records/student/<int:sid> | GET | record_detail
+/report | GET | report
+/settings | GET,POST | settings
+/signup | GET,POST | signup
+/static/<path:filename> | GET | static
+/students | GET | students
+/students/<int:sid> | GET | student_detail
+/students/<int:sid>/absent | GET,POST | student_absent
+/students/<int:sid>/batches | GET,POST | student_batches
+/students/<int:sid>/card | GET | student_card
+/students/<int:sid>/delete | POST | student_delete
+/students/<int:sid>/edit | GET,POST | student_edit
+/students/<int:sid>/entry/<month> | GET | entry_page
+/students/<int:sid>/entry/<month>/pay | POST | entry_pay
+/students/<int:sid>/entry/<month>/save | POST | entry_save
+/students/<int:sid>/entry/<month>/undo | POST | entry_undo
+/students/<int:sid>/inactive | POST | student_inactive
+/students/add | GET,POST | student_add
+/students/class/<int:cls> | GET | students_class
+/sw.js | GET | sw
+/undo | POST | undo
+
+======== DATABASE (sirf table ka dhancha aur row ginti, koi data nahi) ========
+-- attendance: 0 rows
+CREATE TABLE attendance( student_id INTEGER, day TEXT, status TEXT, PRIMARY KEY(student_id, day))
+-- batches: 1 rows
+CREATE TABLE batches(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, days TEXT, t_from TEXT, t_to TEXT, capacity INTEGER)
+-- entry_log: 0 rows
+CREATE TABLE entry_log(id INTEGER PRIMARY KEY AUTOINCREMENT, student_id INTEGER, month TEXT, at TEXT, code TEXT, a TEXT, b TEXT)
+-- entry_ov: 0 rows
+CREATE TABLE entry_ov(student_id INTEGER, month TEXT, amount INTEGER, due_date TEXT, PRIMARY KEY(student_id, month))
+-- payments: 0 rows
+CREATE TABLE payments( id INTEGER PRIMARY KEY AUTOINCREMENT, student_id INTEGER, month TEXT, amount INTEGER, paid_on TEXT, mode TEXT DEFAULT 'Cash')
+-- records: 0 rows
+CREATE TABLE records( id INTEGER PRIMARY KEY, name TEXT, cls INTEGER, parent_name TEXT, parent_phone TEXT, monthly_fee INTEGER, admission_date TEXT, acad_session TEXT, session_end TEXT, archived_on TEXT)
+-- settings: 2 rows
+CREATE TABLE settings(k TEXT PRIMARY KEY, v TEXT)
+-- student_batches: 1 rows
+CREATE TABLE student_batches(student_id INTEGER, batch_id INTEGER, PRIMARY KEY(student_id, batch_id))
+-- student_extra: 1 rows
+CREATE TABLE student_extra(student_id INTEGER PRIMARY KEY, roll TEXT, gender TEXT, address TEXT)
+-- student_fee: 2 rows
+CREATE TABLE student_fee(student_id INTEGER PRIMARY KEY, bill_start TEXT, fee_type TEXT)
+-- students: 1 rows
+CREATE TABLE students( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, cls INTEGER NOT NULL, parent_phone TEXT, monthly_fee INTEGER DEFAULT 0, parent_name TEXT, admission_date TEXT, acad_session TEXT, session_end TEXT)
+-- users: 1 rows
+CREATE TABLE users( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE COLLATE NOCASE NOT NULL, pw_hash TEXT NOT NULL, lang TEXT DEFAULT 'en')
+
+======== PYTHON FILES (functions@line, routes) ========
+## app.py
+  db@11 | close@18 | inject@24 | _old_home@29
+## auth.py
+  q@10 | setup@20 | no_users@30 | who@34 | guard app.before_request@38 | signup app.route('/signup', methods=['GET', 'POST'])@47 | login app.route('/login', methods=['GET', 'POST'])@77 | logout app.route('/logout')@93 | set_lang app.route('/lang/<code>')@100
+## batches.py
+  t12@6 | days_text@13 | time_text@18 | valid_time@21 | init@24 | setup@32 | safe_next@35 | save@38 | batches app.route('/batches')@55 | batch_new app.route('/batches/new', methods=['GET', 'POST'])@64 | batch_edit app.route('/batches/<int:bid>/edit', methods=['GET', 'POST'])@76 | batch_delete app.route('/batches/<int:bid>/delete', methods=['POST'])@90
+## dash.py
+  greeting@6 | alert_list@10 | setup@30 | q@31 | home app.route('/')@35 | alerts app.route('/alerts')@49
+## entry.py
+  lang_now@7 | mname@11 | sd@15 | sdm@18 | nxt@21 | entry_target@24 | entry_info@34 | log@49 | record_payment@53 | setup@64 | load_ov app.before_request@72 | student_detail app.route('/students/<int:sid>')@79 | entry_page app.route('/students/<int:sid>/entry/<month>')@117 | entry_save app.route('/students/<int:sid>/entry/<month>/save', methods=['POST'])@134 | entry_pay app.route('/students/<int:sid>/entry/<month>/pay', methods=['POST'])@154 | entry_undo app.route('/students/<int:sid>/entry/<month>/undo', methods=['POST'])@161 | collect app.route('/collect', methods=['POST'])@169 | receipt app.route('/receipt/<int:pid>')@180
+## fees.py
+  fmt@26 | institute@29 | parse_d@38 | eligible@44 | due_date@51 | wa_link@56 | setup@65 | month_arg@71 | fees app.route('/fees')@80 | _old_collect@131 | undo app.route('/undo', methods=['POST'])@150 | months_since@161 | fee_history@171 | pending_all@182 | months_since@195 | fee_history@205 | pending_all@216 | institute@247 | wa_link@250 | owed_map@261 | fee_state@271 | first_bill@292 | fee_plan@301 | sched@315 | fee_history_s@321 | ov_get@329 | months_since@335 | fee_history@342 | _pay_all@355 | pending_all@361 | owed_map@373 | fee_state@382 | fee_state@401 | first_bill@422 | fee_plan@431 | sched@445 | fee_history_s@451
+  DUPLICATE (do baar likhe) names: MSG, institute, wa_link, months_since, fee_history, pending_all, owed_map, fee_state, first_bill, fee_plan, sched, fee_history_s
+## hazri.py
+  pct@11 | pick_day@14 | month_arg@21 | setup@29 | hazri app.route('/hazri')@36 | hazri_class app.route('/hazri/<int:cls>')@47 | hazri_student app.route('/hazri/student/<int:sid>')@62 | mark app.route('/mark', methods=['POST'])@91 | mark_all app.route('/mark_all', methods=['POST'])@107
+## i18n.py
+  load@6 | setup@20 | inject@22 | t@24
+## make_icons.py
+  inside@13 | bbox@32 | chunk@40 | make@44
+## more.py
+  safe@8 | csv_response@14 | backup_info@23 | setup@49 | settings app.route('/settings', methods=['GET', 'POST'])@51 | more app.route('/more')@61 | backup app.route('/backup')@66 | backup_download app.route('/backup/download')@71 | export app.route('/export/<kind>.csv')@89 | manifest app.route('/manifest.webmanifest')@97 | sw app.route('/sw.js')@109
+## records.py
+  archive@9 | keep_form@14 | mlabel@22 | setup@26 | auto_archive app.before_request@34 | get_record@46 | records app.route('/records')@53 | end_session app.route('/records/end', methods=['POST'])@62 | record_detail app.route('/records/student/<int:sid>')@69 | record_restore app.route('/records/<int:sid>/restore', methods=['POST'])@105 | record_readmit app.route('/records/<int:sid>/readmit', methods=['GET', 'POST'])@115
+## report.py
+  setup@7 | report app.route('/report')@9
+## store.py
+  _c@3 | get@8 | put@14
+## students.py
+  cur_session@8 | session_options@13 | default_end@20 | digits10@23 | to_int@29 | parse@35 | next_roll@61 | save_extra@65 | form_page@78 | setup@89 | get_student@100 | keep@106 | fetch@119 | students app.route('/students')@136 | card@152 | href@174 | students_class app.route('/students/class/<int:cls>')@183 | _old_detail@186 | student_add app.route('/students/add', methods=['GET', 'POST'])@227 | student_edit app.route('/students/<int:sid>/edit', methods=['GET', 'POST'])@243 | student_inactive app.route('/students/<int:sid>/inactive', methods=['POST'])@260 | student_delete app.route('/students/<int:sid>/delete', methods=['POST'])@270
+## studentview.py
+  setup@7 | get@8 | student_card app.route('/students/<int:sid>/card')@15 | student_batches app.route('/students/<int:sid>/batches', methods=['GET', 'POST'])@36 | student_absent app.route('/students/<int:sid>/absent', methods=['GET', 'POST'])@51
+## tr10_en.py
+  
+## tr10_hi.py
+  
+## tr11_en.py
+  
+## tr11_hi.py
+  
+## tr12_en.py
+  
+## tr12_hi.py
+  
+## tr13_en.py
+  
+## tr13_hi.py
+  
+## tr2_en.py
+  
+## tr2_hi.py
+  
+## tr3_en.py
+  
+## tr3_hi.py
+  
+## tr4_en.py
+  
+## tr4_hi.py
+  
+## tr5_en.py
+  
+## tr5_hi.py
+  
+## tr6_en.py
+  
+## tr6_hi.py
+  
+## tr7_en.py
+  
+## tr7_hi.py
+  
+## tr8_en.py
+  
+## tr8_hi.py
+  
+## tr9_en.py
+  
+## tr9_hi.py
+  
+## tr_en.py
+  
+## tr_hi.py
+  
+
+======== TEMPLATES (name | lines | extends | blocks | t-keys) ========
+_shared.html | 86 | - | - | 0
+alerts.html | 11 | base.html | body | 3
+backup.html | 21 | base.html | body | 14
+base.html | 80 | - | hdr,header,hsub,hextra,body,nav | 5
+batch_form.html | 30 | base.html | body | 13
+batches.html | 12 | base.html | body | 6
+class_list.html | 14 | base.html | body | 6
+entry.html | 59 | base.html | header,nav,body | 20
+fees.html | 73 | base.html | body | 24
+hazri.html | 22 | base.html | body | 5
+hazri_class.html | 33 | base.html | body | 8
+hazri_home.html | 20 | base.html | body | 5
+hazri_student.html | 29 | base.html | body | 7
+home.html | 47 | base.html | hsub,hextra,body | 12
+login.html | 13 | base.html | body | 5
+more.html | 35 | base.html | body | 14
+profile.html | 74 | base.html | header,nav,body | 25
+receipt.html | 26 | base.html | body | 12
+record_detail.html | 34 | base.html | body | 17
+records.html | 30 | base.html | body | 11
+report.html | 51 | base.html | body | 21
+settings.html | 13 | base.html | body | 5
+signup.html | 20 | base.html | body | 8
+student_absent.html | 17 | base.html | body | 8
+student_batches.html | 19 | base.html | body | 5
+student_card.html | 56 | base.html | body | 23
+student_detail.html | 102 | base.html | hdr,body | 24
+student_form.html | 114 | base.html | body | 30
+students.html | 96 | base.html | body | 28
+students_home.html | 29 | base.html | body | 9
+translation keys: en 281 | hi 281
+template me use hue par EN me nahi: ['bill_monthly', 'bill_yearly', 'billing_day', 'billing_hint', 'fee_monthly', 'fee_note', 'fee_yearly', 'fee_yearly_amt', 'fee_yearly_label', 'log_', 'set_fee']
+template me use hue par HI me nahi: ['bill_monthly', 'bill_yearly', 'billing_day', 'billing_hint', 'fee_monthly', 'fee_note', 'fee_yearly', 'fee_yearly_amt', 'fee_yearly_label', 'log_', 'set_fee']
+EN hai par HI me nahi: koi nahi
+
+======== KEY LINES ========
+fees.py:29:def institute(lang):
+fees.py:38:def parse_d(s):
+fees.py:44:def eligible(adm, y, m, step=1):
+fees.py:51:def due_date(adm, y, m):
+fees.py:56:def wa_link(r, baaki, dd, y, m, lang):
+fees.py:100:            dd = due_date(a0, y, m)
+fees.py:101:            baaki = max(r["monthly_fee"] - r["paid"], 0)
+fees.py:131:    def _old_collect():
+fees.py:161:def months_since(adm, today, step=1):
+fees.py:171:def fee_history(adm, fee, paid_by_month, today, step=1):
+fees.py:175:        dd = due_date(adm, y, m)
+fees.py:177:        baaki = max(fee - paid, 0)
+fees.py:182:def pending_all(db):
+fees.py:195:def months_since(adm, today, step=1):
+fees.py:205:def fee_history(adm, fee, paid_by_month, today, step=1):
+fees.py:209:        dd = due_date(adm, y, m)
+fees.py:211:        baaki = max(fee - paid, 0)
+fees.py:216:def pending_all(db):
+fees.py:247:def institute(lang):
+fees.py:250:def wa_link(r, baaki, dd, y, m, lang):
+fees.py:261:def owed_map(db):
+fees.py:271:def fee_state(db):
+fees.py:321:def fee_history_s(db, sid, adm, fee, pm, today):
+fees.py:329:def ov_get(sid, key):
+fees.py:335:def months_since(adm, today):
+fees.py:342:def fee_history(adm, fee, paid_by_month, today, sid=None):
+fees.py:350:        baaki = max(amt - paid, 0)
+fees.py:361:def pending_all(db):
+fees.py:373:def owed_map(db):
+fees.py:382:def fee_state(db):
+fees.py:401:def fee_state(db):
+fees.py:451:def fee_history_s(db, sid, adm, fee, pm, today):
+students.py:186:    def _old_detail(sid):
+entry.py:41:    baaki = max(amt - p["a"], 0)
+entry.py:168:    @app.route("/collect", methods=["POST"])
+
+======== FULL FILE: app.py ========
+   1  import sqlite3
+   2  from datetime import date
+   3  from flask import Flask, render_template, g
+   4  
+   5  import os
+   6  app = Flask(__name__)
+   7  app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Lax", SESSION_COOKIE_SECURE=bool(os.environ.get("CK_PROD")))
+   8  COACHING_NAME = "ClassKhata"
+   9  DB = "classkhata.db"
+  10  
+  11  def db():
+  12      if "db" not in g:
+  13          g.db = sqlite3.connect(DB)
+  14          g.db.row_factory = sqlite3.Row
+  15      return g.db
+  16  
+  17  @app.teardown_appcontext
+  18  def close(e):
+  19      d = g.pop("db", None)
+  20      if d:
+  21          d.close()
+  22  
+  23  @app.context_processor
+  24  def inject():
+  25      return dict(coaching=COACHING_NAME, institute=store.get("institute"))
+  26  
+  27  import i18n, auth, students, hazri, fees, store, records, more, report, dash, batches, studentview, entry
+  28  
+  29  def _old_home():
+  30      rows = db().execute("SELECT cls, COUNT(*) n FROM students GROUP BY cls").fetchall()
+  31      counts = {r["cls"]: r["n"] for r in rows}
+  32      att = {r["status"]: r["n"] for r in db().execute(
+  33          "SELECT status, COUNT(*) n FROM attendance WHERE day=? GROUP BY status",
+  34          (date.today().isoformat(),))}
+  35      pn, pa = fees.pending_all(db)
+  36      return render_template("home.html", total=sum(counts.values()), counts=counts,
+  37                             p=att.get("P", 0), a=att.get("A", 0), pn=pn, pa=pa,
+  38                             ses=students.cur_session())
+  39  
+  40  i18n.setup(app)
+  41  auth.setup(app)
+  42  students.setup(app, db)
+  43  hazri.setup(app, db)
+  44  fees.setup(app, db)
+  45  records.setup(app, db)
+  46  more.setup(app, db)
+  47  report.setup(app, db)
+  48  dash.setup(app, db)
+  49  batches.setup(app, db)
+  50  studentview.setup(app, db)
+  51  
+  52  entry.setup(app, db)
+  53  
+  54  if __name__ == "__main__":
+  55      app.run(host="0.0.0.0", port=5000)
+
+======== FULL FILE: fees.py ========
+   1  import re, sqlite3, calendar
+   2  from datetime import date
+   3  from urllib.parse import quote
+   4  from flask import render_template, request, redirect, session
+   5  
+   6  MONTHS = {
+   7      "en": ["January", "February", "March", "April", "May", "June", "July",
+   8             "August", "September", "October", "November", "December"],
+   9      "hi": ["जनवरी", "फ़रवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई",
+  10             "अगस्त", "सितंबर", "अक्टूबर", "नवंबर", "दिसंबर"],
+  11  }
+  12  WEEK = {"en": ["S", "M", "T", "W", "T", "F", "S"],
+  13          "hi": ["र", "सो", "मं", "बु", "गु", "शु", "श"]}
+  14  
+  15  MSG = {
+  16      "en": ("Dear {parent},\n\nThis is a gentle reminder from {inst}. The fee of ₹{amt} "
+  17             "for {name} (Class {cls}) for {mon} is pending, with the due date {due}.\n\n"
+  18             "Kindly arrange the payment at your earliest convenience. If you have already "
+  19             "paid, please ignore this message.\n\nThank you,\n{inst}"),
+  20      "hi": ("आदरणीय {parent} जी,\n\n{inst} की ओर से सादर सूचना है कि {name} (कक्षा {cls}) "
+  21             "की {mon} माह की ₹{amt} फ़ीस बकाया है। देय तिथि: {due}।\n\n"
+  22             "कृपया शीघ्र भुगतान करने की कृपा करें। यदि आप भुगतान कर चुके हैं, "
+  23             "तो कृपया इस संदेश को अनदेखा करें।\n\nधन्यवाद,\n{inst}"),
+  24  }
+  25  
+  26  def fmt(d, lang):
+  27      return f"{d.day} {MONTHS[lang][d.month - 1]} {d.year}"
+  28  
+  29  def institute(lang):
+  30      try:
+  31          n = open("institute.txt", encoding="utf-8").read().strip()
+  32          if n:
+  33              return n
+  34      except OSError:
+  35          pass
+  36      return "Our Institute" if lang == "en" else "हमारा संस्थान"
+  37  
+  38  def parse_d(s):
+  39      try:
+  40          return date.fromisoformat(s) if s else None
+  41      except ValueError:
+  42          return None
+  43  
+  44  def eligible(adm, y, m, step=1):
+  45      a = parse_d(adm)
+  46      if a is None:
+  47          return True
+  48      k = (y - a.year) * 12 + (m - a.month)
+  49      return k >= 0 and k % step == 0
+  50  
+  51  def due_date(adm, y, m):
+  52      a = parse_d(adm)
+  53      day = a.day if a else 1
+  54      return date(y, m, min(day, calendar.monthrange(y, m)[1]))
+  55  
+  56  def wa_link(r, baaki, dd, y, m, lang):
+  57      ph = "".join(ch for ch in (r["parent_phone"] or "") if ch.isdigit())
+  58      if len(ph) != 10:
+  59          return ""
+  60      parent = r["parent_name"] or ("Parent/Guardian" if lang == "en" else "अभिभावक")
+  61      msg = MSG[lang].format(parent=parent, inst=institute(lang), amt=baaki, name=r["name"],
+  62                             cls=r["cls"], mon=f"{MONTHS[lang][m - 1]} {y}", due=fmt(dd, lang))
+  63      return "https://wa.me/91" + ph + "?text=" + quote(msg)
+  64  
+  65  def setup(app, db):
+  66      with sqlite3.connect("classkhata.db") as c:
+  67          c.execute("""CREATE TABLE IF NOT EXISTS payments(
+  68              id INTEGER PRIMARY KEY AUTOINCREMENT,
+  69              student_id INTEGER, month TEXT, amount INTEGER, paid_on TEXT)""")
+  70  
+  71      def month_arg(val):
+  72          if val and re.fullmatch(r"\d{4}-\d{2}", val):
+  73              y, m = int(val[:4]), int(val[5:])
+  74              if 1 <= m <= 12 and 2000 <= y <= 2100:
+  75                  return y, m
+  76          t = date.today()
+  77          return t.year, t.month
+  78  
+  79      @app.route("/fees")
+  80      def fees():
+  81          lang = session.get("lang", "en")
+  82          if lang not in MONTHS:
+  83              lang = "en"
+  84          today = date.today()
+  85          y, m = month_arg(request.args.get("month"))
+  86          mk = f"{y:04d}-{m:02d}"
+  87          rows = db().execute("""SELECT s.*,
+  88              COALESCE((SELECT SUM(amount) FROM payments p WHERE p.student_id=s.id AND p.month=?), 0) AS paid,
+  89              (SELECT MAX(paid_on) FROM payments p WHERE p.student_id=s.id AND p.month=?) AS paid_on
+  90              FROM students s WHERE s.monthly_fee > 0
+  91              ORDER BY s.cls, s.name COLLATE NOCASE""", (mk, mk)).fetchall()
+  92          due, done, soon = [], [], []
+  93          received = pending = 0
+  94          marks = {}
+  95          by_cls = {c: [0, 0] for c in (9, 10, 11, 12)}
+  96          for r in rows:
+  97              a0, stp = sched(db, r["id"], r["admission_date"])
+  98              if not eligible(a0, y, m, stp):
+  99                  continue
+ 100              dd = due_date(a0, y, m)
+ 101              baaki = max(r["monthly_fee"] - r["paid"], 0)
+ 102              received += r["paid"]
+ 103              po = parse_d(r["paid_on"])
+ 104              it = dict(id=r["id"], name=r["name"], cls=r["cls"], fee=r["monthly_fee"],
+ 105                        baaki=baaki, due_s=fmt(dd, lang), late=(today - dd).days,
+ 106                        paid_on=fmt(po, lang) if po else "")
+ 107              if baaki == 0:
+ 108                  done.append(it)
+ 109                  continue
+ 110              dot = marks.setdefault(dd.day, [0, dd <= today])
+ 111              dot[0] += 1
+ 112              if dd <= today:
+ 113                  it["link"] = wa_link(r, baaki, dd, y, m, lang)
+ 114                  due.append(it)
+ 115                  pending += baaki
+ 116                  if r["cls"] in by_cls:
+ 117                      by_cls[r["cls"]][0] += 1
+ 118                      by_cls[r["cls"]][1] += baaki
+ 119              else:
+ 120                  soon.append(it)
+ 121          due.sort(key=lambda i: (-i["late"], i["cls"], i["name"].lower()))
+ 122          pv = (y - 1, 12) if m == 1 else (y, m - 1)
+ 123          nx = (y + 1, 1) if m == 12 else (y, m + 1)
+ 124          return render_template("fees.html", month=mk, month_label=f"{MONTHS[lang][m - 1]} {y}",
+ 125              weeks=calendar.Calendar(6).monthdayscalendar(y, m), marks=marks, wk=WEEK[lang],
+ 126              is_cur=(y == today.year and m == today.month), today=today,
+ 127              today_label=fmt(today, lang), prev=f"{pv[0]:04d}-{pv[1]:02d}",
+ 128              nxt=f"{nx[0]:04d}-{nx[1]:02d}", due=due, done=done, soon=soon,
+ 129              received=received, pending=pending, by_cls=by_cls)
+ 130  
+ 131      def _old_collect():
+ 132          y, m = month_arg(request.form.get("month"))
+ 133          mk = f"{y:04d}-{m:02d}"
+ 134          try:
+ 135              sid = int(request.form.get("sid", 0))
+ 136          except ValueError:
+ 137              sid = 0
+ 138          s = db().execute("SELECT monthly_fee FROM students WHERE id=?", (sid,)).fetchone()
+ 139          if s:
+ 140              paid = db().execute("SELECT COALESCE(SUM(amount),0) FROM payments WHERE student_id=? AND month=?",
+ 141                                  (sid, mk)).fetchone()[0]
+ 142              left = s["monthly_fee"] - paid
+ 143              if left > 0:
+ 144                  db().execute("INSERT INTO payments(student_id,month,amount,paid_on) VALUES(?,?,?,?)",
+ 145                               (sid, mk, left, date.today().isoformat()))
+ 146                  db().commit()
+ 147          return redirect(f"/fees?month={mk}")
+ 148  
+ 149      @app.route("/undo", methods=["POST"])
+ 150      def undo():
+ 151          y, m = month_arg(request.form.get("month"))
+ 152          mk = f"{y:04d}-{m:02d}"
+ 153          try:
+ 154              sid = int(request.form.get("sid", 0))
+ 155          except ValueError:
+ 156              sid = 0
+ 157          db().execute("DELETE FROM payments WHERE student_id=? AND month=?", (sid, mk))
+ 158          db().commit()
+ 159          return redirect(f"/fees?month={mk}")
+ 160  
+ 161  def months_since(adm, today, step=1):
+ 162      a = parse_d(adm) or today.replace(day=1)
+ 163      y, m = a.year, a.month
+ 164      k = 0
+ 165      while (y, m) <= (today.year, today.month):
+ 166          if k % step == 0:
+ 167              yield y, m
+ 168          k += 1
+ 169          y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+ 170  
+ 171  def fee_history(adm, fee, paid_by_month, today, step=1):
+ 172      out = []
+ 173      for y, m in months_since(adm, today, step):
+ 174          key = f"{y:04d}-{m:02d}"
+ 175          dd = due_date(adm, y, m)
+ 176          paid = paid_by_month.get(key, 0)
+ 177          baaki = max(fee - paid, 0)
+ 178          st = "paid" if baaki == 0 else ("due" if dd <= today else "soon")
+ 179          out.append(dict(y=y, m=m, key=key, due=dd, paid=paid, baaki=baaki, st=st))
+ 180      return out
+ 181  
+ 182  def pending_all(db):
+ 183      today = date.today()
+ 184      n = amt = 0
+ 185      for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+ 186          pm = {r["month"]: r["amt"] for r in db().execute(
+ 187              "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
+ 188          hist = fee_history_s(db, s["id"], s["admission_date"], s["monthly_fee"], pm, today)
+ 189          owed = sum(h["baaki"] for h in hist if h["st"] == "due")
+ 190          if owed:
+ 191              n += 1
+ 192              amt += owed
+ 193      return n, amt
+ 194  
+ 195  def months_since(adm, today, step=1):
+ 196      a = parse_d(adm) or today.replace(day=1)
+ 197      y, m = a.year, a.month
+ 198      k = 0
+ 199      while (y, m) <= (today.year, today.month):
+ 200          if k % step == 0:
+ 201              yield y, m
+ 202          k += 1
+ 203          y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+ 204  
+ 205  def fee_history(adm, fee, paid_by_month, today, step=1):
+ 206      out = []
+ 207      for y, m in months_since(adm, today, step):
+ 208          key = f"{y:04d}-{m:02d}"
+ 209          dd = due_date(adm, y, m)
+ 210          paid = paid_by_month.get(key, 0)
+ 211          baaki = max(fee - paid, 0)
+ 212          st = "paid" if baaki == 0 else ("due" if dd <= today else "soon")
+ 213          out.append(dict(y=y, m=m, key=key, due=dd, paid=paid, baaki=baaki, st=st))
+ 214      return out
+ 215  
+ 216  def pending_all(db):
+ 217      today = date.today()
+ 218      n = amt = 0
+ 219      for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+ 220          pm = {r["month"]: r["amt"] for r in db().execute(
+ 221              "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
+ 222          hist = fee_history_s(db, s["id"], s["admission_date"], s["monthly_fee"], pm, today)
+ 223          owed = sum(h["baaki"] for h in hist if h["st"] == "due")
+ 224          if owed:
+ 225              n += 1
+ 226              amt += owed
+ 227      return n, amt
+ 228  
+ 229  # ---- professional reminder message (uses institute name and your name) ----
+ 230  import store
+ 231  
+ 232  MSG = {
+ 233      "en": ("Dear {parent},\n\nGreetings from {inst}.\n\n"
+ 234             "This is a gentle reminder that the monthly fee for {name} (Class {cls}) "
+ 235             "for {mon} is pending.\n\nFee amount: ₹{amt}\nDue date: {due}\n\n"
+ 236             "Kindly arrange the payment at your earliest convenience. If you have already "
+ 237             "paid, please disregard this message.\n\nThank you for your continued support.\n\n"
+ 238             "Warm regards,\n{sign}"),
+ 239      "hi": ("आदरणीय {parent} जी,\n\n{inst} की ओर से नमस्कार।\n\n"
+ 240             "सादर सूचित किया जाता है कि {name} (कक्षा {cls}) की {mon} माह की फ़ीस बकाया है।\n\n"
+ 241             "फ़ीस राशि: ₹{amt}\nदेय तिथि: {due}\n\n"
+ 242             "कृपया सुविधानुसार शीघ्र भुगतान करने की कृपा करें। यदि आप पहले ही भुगतान कर चुके हैं, "
+ 243             "तो कृपया इस संदेश को अनदेखा करें।\n\nआपके सहयोग के लिए धन्यवाद।\n\n"
+ 244             "सादर,\n{sign}"),
+ 245  }
+ 246  
+ 247  def institute(lang):
+ 248      return store.get("institute") or ("Our Institute" if lang == "en" else "हमारा संस्थान")
+ 249  
+ 250  def wa_link(r, baaki, dd, y, m, lang):
+ 251      ph = "".join(ch for ch in (r["parent_phone"] or "") if ch.isdigit())
+ 252      if len(ph) != 10:
+ 253          return ""
+ 254      inst = institute(lang)
+ 255      sign = "\n".join(dict.fromkeys(x for x in (session.get("name", ""), inst) if x))
+ 256      parent = r["parent_name"] or ("Parent/Guardian" if lang == "en" else "अभिभावक")
+ 257      msg = MSG[lang].format(parent=parent, inst=inst, amt=f"{baaki:,}", name=r["name"],
+ 258                             cls=r["cls"], mon=f"{MONTHS[lang][m - 1]} {y}", due=fmt(dd, lang), sign=sign)
+ 259      return "https://wa.me/91" + ph + "?text=" + quote(msg)
+ 260  
+ 261  def owed_map(db):
+ 262      today = date.today()
+ 263      out = {}
+ 264      for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+ 265          pm = {r["month"]: r["amt"] for r in db().execute(
+ 266              "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
+ 267          hist = fee_history_s(db, s["id"], s["admission_date"], s["monthly_fee"], pm, today)
+ 268          out[s["id"]] = sum(h["baaki"] for h in hist if h["st"] == "due")
+ 269      return out
+ 270  
+ 271  def fee_state(db):
+ 272      today = date.today()
+ 273      out = {}
+ 274      for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+ 275          pm = {r["month"]: r["amt"] for r in db().execute(
+ 276              "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
+ 277          hist = fee_history_s(db, s["id"], s["admission_date"], s["monthly_fee"], pm, today)
+ 278          owed = sum(h["baaki"] for h in hist if h["st"] == "due")
+ 279          if owed:
+ 280              st = "pending"
+ 281          elif any(h["st"] == "soon" for h in hist) or not hist:
+ 282              st = "upcoming"
+ 283          else:
+ 284              st = "paid"
+ 285          out[s["id"]] = (owed, st)
+ 286      return out
+ 287  
+ 288  # ---- fee plan: Monthly / Yearly with a billing day ----
+ 289  with sqlite3.connect("classkhata.db") as _c:
+ 290      _c.execute("CREATE TABLE IF NOT EXISTS student_fee(student_id INTEGER PRIMARY KEY, bill_start TEXT, fee_type TEXT)")
+ 291  
+ 292  def first_bill(a, day):
+ 293      y, m = a.year, a.month
+ 294      for _ in range(2):
+ 295          d = date(y, m, day)
+ 296          if d >= a:
+ 297              return d
+ 298          y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+ 299      return a
+ 300  
+ 301  def fee_plan(form):
+ 302      ft = "yearly" if form.get("fee_type") == "yearly" else "monthly"
+ 303      try:
+ 304          a = date.fromisoformat(form.get("adm", ""))
+ 305      except ValueError:
+ 306          return ft, None
+ 307      try:
+ 308          day = int(form.get("bday", ""))
+ 309      except ValueError:
+ 310          day = a.day
+ 311      if not 1 <= day <= 28:
+ 312          day = min(a.day, 28)
+ 313      return ft, first_bill(a, day).isoformat()
+ 314  
+ 315  def sched(db, sid, adm):
+ 316      r = db().execute("SELECT bill_start, fee_type FROM student_fee WHERE student_id=?", (sid,)).fetchone()
+ 317      if r and r["bill_start"]:
+ 318          return r["bill_start"], (12 if r["fee_type"] == "yearly" else 1)
+ 319      return adm, 1
+ 320  
+ 321  def fee_history_s(db, sid, adm, fee, pm, today):
+ 322      a0, stp = sched(db, sid, adm)
+ 323      return fee_history(a0, fee, pm, today, stp)
+ 324  
+ 325  
+ 326  # ---- per-month overrides (amount / due date) ----
+ 327  from flask import g
+ 328  
+ 329  def ov_get(sid, key):
+ 330      try:
+ 331          return (g.get("ov") or {}).get((sid, key))
+ 332      except RuntimeError:
+ 333          return None
+ 334  
+ 335  def months_since(adm, today):
+ 336      a = parse_d(adm) or today.replace(day=1)
+ 337      y, m = a.year, a.month
+ 338      while (y, m) <= (today.year, today.month):
+ 339          yield y, m
+ 340          y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+ 341  
+ 342  def fee_history(adm, fee, paid_by_month, today, sid=None):
+ 343      out = []
+ 344      for y, m in months_since(adm, today):
+ 345          key = f"{y:04d}-{m:02d}"
+ 346          ov = ov_get(sid, key)
+ 347          dd = (parse_d(ov[1]) if ov and ov[1] else None) or due_date(adm, y, m)
+ 348          paid = paid_by_month.get(key, 0)
+ 349          amt = ov[0] if ov and ov[0] is not None else fee
+ 350          baaki = max(amt - paid, 0)
+ 351          st = "paid" if baaki == 0 else ("due" if dd <= today else "soon")
+ 352          out.append(dict(y=y, m=m, key=key, due=dd, paid=paid, baaki=baaki, amt=amt, st=st))
+ 353      return out
+ 354  
+ 355  def _pay_all(db):
+ 356      pay = {}
+ 357      for p in db().execute("SELECT student_id sid, month, SUM(amount) amt FROM payments GROUP BY student_id, month"):
+ 358          pay.setdefault(p["sid"], {})[p["month"]] = p["amt"]
+ 359      return pay
+ 360  
+ 361  def pending_all(db):
+ 362      today = date.today()
+ 363      pay = _pay_all(db)
+ 364      n = amt = 0
+ 365      for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+ 366          hist = fee_history(s["admission_date"], s["monthly_fee"], pay.get(s["id"], {}), today, sid=s["id"])
+ 367          owed = sum(h["baaki"] for h in hist if h["st"] == "due")
+ 368          if owed:
+ 369              n += 1
+ 370              amt += owed
+ 371      return n, amt
+ 372  
+ 373  def owed_map(db):
+ 374      today = date.today()
+ 375      pay = _pay_all(db)
+ 376      out = {}
+ 377      for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+ 378          hist = fee_history(s["admission_date"], s["monthly_fee"], pay.get(s["id"], {}), today, sid=s["id"])
+ 379          out[s["id"]] = sum(h["baaki"] for h in hist if h["st"] == "due")
+ 380      return out
+ 381  
+ 382  def fee_state(db):
+ 383      today = date.today()
+ 384      pay = _pay_all(db)
+ 385      out = {}
+ 386      for s in db().execute("SELECT id, admission_date, monthly_fee FROM students").fetchall():
+ 387          fee = s["monthly_fee"] or 0
+ 388          if fee <= 0:
+ 389              out[s["id"]] = (0, "none")
+ 390              continue
+ 391          hist = fee_history(s["admission_date"], fee, pay.get(s["id"], {}), today, sid=s["id"])
+ 392          owed = sum(h["baaki"] for h in hist if h["st"] == "due")
+ 393          if owed:
+ 394              out[s["id"]] = (owed, "pending")
+ 395          elif not hist or any(h["st"] == "soon" for h in hist):
+ 396              out[s["id"]] = (0, "upcoming")
+ 397          else:
+ 398              out[s["id"]] = (0, "paid")
+ 399      return out
+ 400  
+ 401  def fee_state(db):
+ 402      today = date.today()
+ 403      out = {}
+ 404      for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+ 405          pm = {r["month"]: r["amt"] for r in db().execute(
+ 406              "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
+ 407          hist = fee_history(s["admission_date"], s["monthly_fee"], pm, today)
+ 408          owed = sum(h["baaki"] for h in hist if h["st"] == "due")
+ 409          if owed:
+ 410              st = "pending"
+ 411          elif any(h["st"] == "soon" for h in hist):
+ 412              st = "upcoming"
+ 413          else:
+ 414              st = "paid"
+ 415          out[s["id"]] = (owed, st)
+ 416      return out
+ 417  
+ 418  # ---- fee plan: Monthly / Yearly with a billing day ----
+ 419  with sqlite3.connect("classkhata.db") as _c:
+ 420      _c.execute("CREATE TABLE IF NOT EXISTS student_fee(student_id INTEGER PRIMARY KEY, bill_start TEXT, fee_type TEXT)")
+ 421  
+ 422  def first_bill(a, day):
+ 423      y, m = a.year, a.month
+ 424      for _ in range(2):
+ 425          d = date(y, m, day)
+ 426          if d >= a:
+ 427              return d
+ 428          y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+ 429      return a
+ 430  
+ 431  def fee_plan(form):
+ 432      ft = "yearly" if form.get("fee_type") == "yearly" else "monthly"
+ 433      try:
+ 434          a = date.fromisoformat(form.get("adm", ""))
+ 435      except ValueError:
+ 436          return ft, None
+ 437      try:
+ 438          day = int(form.get("bday", ""))
+ 439      except ValueError:
+ 440          day = a.day
+ 441      if not 1 <= day <= 28:
+ 442          day = min(a.day, 28)
+ 443      return ft, first_bill(a, day).isoformat()
+ 444  
+ 445  def sched(db, sid, adm):
+ 446      r = db().execute("SELECT bill_start, fee_type FROM student_fee WHERE student_id=?", (sid,)).fetchone()
+ 447      if r and r["bill_start"]:
+ 448          return r["bill_start"], (12 if r["fee_type"] == "yearly" else 1)
+ 449      return adm, 1
+ 450  
+ 451  def fee_history_s(db, sid, adm, fee, pm, today):
+ 452      a0, stp = sched(db, sid, adm)
+ 453      return fee_history(a0, fee, pm, today, stp)
+
+======== FULL FILE: students.py ========
+   1  import sqlite3
+   2  from datetime import date
+   3  from urllib.parse import urlencode
+   4  from flask import render_template, request, redirect, abort, session
+   5  from fees import fee_history, fmt, MONTHS, owed_map, fee_state, fee_history_s, fee_plan, sched, wa_link
+   6  from batches import days_text, time_text
+   7  
+   8  def cur_session():
+   9      t = date.today()
+  10      y = t.year if t.month >= 4 else t.year - 1
+  11      return f"{y}-{(y + 1) % 100:02d}"
+  12  
+  13  def session_options(extra=None):
+  14      y = int(cur_session()[:4])
+  15      opts = [f"{k}-{(k + 1) % 100:02d}" for k in (y - 1, y, y + 1)]
+  16      if extra and extra not in opts:
+  17          opts.append(extra)
+  18      return opts
+  19  
+  20  def default_end(ses):
+  21      return f"{int(ses[:4]) + 1}-03-31"
+  22  
+  23  def digits10(s):
+  24      d = "".join(ch for ch in s if ch.isdigit())
+  25      if len(d) > 10 and d.startswith("91"):
+  26          d = d[-10:]
+  27      return d if len(d) == 10 else None
+  28  
+  29  def to_int(v):
+  30      try:
+  31          return int(v)
+  32      except (TypeError, ValueError):
+  33          return None
+  34  
+  35  def parse(form):
+  36      name = form.get("name", "").strip()
+  37      if not name:
+  38          return None, "err_student_name"
+  39      phone = digits10(form.get("phone", ""))
+  40      if not phone:
+  41          return None, "err_phone"
+  42      try:
+  43          fee = int(form.get("fee", ""))
+  44      except ValueError:
+  45          fee = -1
+  46      if fee < 0:
+  47          return None, "err_fee"
+  48      try:
+  49          adm = date.fromisoformat(form.get("adm", "")).isoformat()
+  50          end = date.fromisoformat(form.get("end", "")).isoformat()
+  51      except ValueError:
+  52          return None, "err_date"
+  53      if end <= adm:
+  54          return None, "err_end"
+  55      cls = to_int(form.get("cls"))
+  56      if cls not in (9, 10, 11, 12):
+  57          return None, "err_student_name"
+  58      ses = form.get("ses", "").strip() or cur_session()
+  59      return (name, cls, form.get("parent_name", "").strip(), phone, fee, adm, ses, end), None
+  60  
+  61  def next_roll(db):
+  62      m = db().execute("SELECT MAX(CAST(roll AS INTEGER)) FROM student_extra").fetchone()[0] or 0
+  63      return f"{m + 1:04d}"
+  64  
+  65  def save_extra(db, sid, form):
+  66      g = form.get("gender", "")
+  67      roll = form.get("roll", "").strip()[:12] or next_roll(db)
+  68      db().execute("INSERT OR REPLACE INTO student_extra(student_id,roll,gender,address) VALUES(?,?,?,?)",
+  69                   (sid, roll, g if g in ("Male", "Female", "Other") else "", form.get("address", "").strip()[:200]))
+  70      db().execute("DELETE FROM student_batches WHERE student_id=?", (sid,))
+  71      for b in form.getlist("batch"):
+  72          if b.isdigit():
+  73              db().execute("INSERT OR IGNORE INTO student_batches VALUES(?,?)", (sid, int(b)))
+  74      ft, bs = fee_plan(form)
+  75      db().execute("INSERT OR REPLACE INTO student_fee(student_id,bill_start,fee_type) VALUES(?,?,?)", (sid, bs, ft))
+  76      db().commit()
+  77  
+  78  def form_page(db, s, err, action, title_key):
+  79      bl = [dict(id=r["id"], name=r["name"], days_s=days_text(r["days"]), time_s=time_text(r["t_from"], r["t_to"]))
+  80            for r in db().execute("SELECT * FROM batches ORDER BY name COLLATE NOCASE")]
+  81      sel = [int(b) for b in s.get("batch_ids", []) if str(b).isdigit()]
+  82      if "fee_type" not in s:
+  83          r = db().execute("SELECT bill_start, fee_type FROM student_fee WHERE student_id=?", (s.get("id", 0),)).fetchone()
+  84          s["fee_type"] = r["fee_type"] if r else "monthly"
+  85          s["bday"] = int(r["bill_start"][8:10]) if r and r["bill_start"] else ""
+  86      return render_template("student_form.html", s=s, err=err, action=action, title_key=title_key,
+  87                             sessions=session_options(s.get("acad_session")), batches=bl, sel=sel)
+  88  
+  89  def setup(app, db):
+  90      with sqlite3.connect("classkhata.db") as c:
+  91          c.execute("""CREATE TABLE IF NOT EXISTS students(
+  92              id INTEGER PRIMARY KEY AUTOINCREMENT,
+  93              name TEXT NOT NULL, cls INTEGER NOT NULL,
+  94              parent_phone TEXT, monthly_fee INTEGER DEFAULT 0)""")
+  95          have = [r[1] for r in c.execute("PRAGMA table_info(students)")]
+  96          for col in ("parent_name", "admission_date", "acad_session", "session_end"):
+  97              if col not in have:
+  98                  c.execute(f"ALTER TABLE students ADD COLUMN {col} TEXT")
+  99  
+ 100      def get_student(sid):
+ 101          s = db().execute("SELECT * FROM students WHERE id=?", (sid,)).fetchone()
+ 102          if not s:
+ 103              abort(404)
+ 104          return s
+ 105  
+ 106      def keep(s):
+ 107          f = request.form
+ 108          s.update(name=f.get("name", ""), cls=f.get("cls", "9"), parent_name=f.get("parent_name", ""),
+ 109                   parent_phone=f.get("phone", ""), monthly_fee=f.get("fee", ""),
+ 110                   admission_date=f.get("adm", ""), acad_session=f.get("ses", ""),
+ 111                   session_end=f.get("end", ""), roll=f.get("roll", ""), gender=f.get("gender", ""),
+ 112                   address=f.get("address", ""), batch_ids=f.getlist("batch"),
+ 113                   fee_type=f.get("fee_type", "monthly"), bday=f.get("bday", ""))
+ 114          return s
+ 115  
+ 116      NEW = "INSERT INTO students(name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session,session_end) VALUES(?,?,?,?,?,?,?,?)"
+ 117      UPD = "UPDATE students SET name=?,cls=?,parent_name=?,parent_phone=?,monthly_fee=?,admission_date=?,acad_session=?,session_end=? WHERE id=?"
+ 118  
+ 119      def fetch(table, q, cls, bid):
+ 120          sql = (f"SELECT t.id, t.name, t.cls, t.parent_phone, t.acad_session, x.roll FROM {table} t "
+ 121                 "LEFT JOIN student_extra x ON x.student_id=t.id WHERE 1=1")
+ 122          args = []
+ 123          if q:
+ 124              like = "%" + q.replace("%", "").replace("_", "") + "%"
+ 125              sql += " AND (t.name LIKE ? OR x.roll LIKE ? OR t.parent_phone LIKE ?)"
+ 126              args += [like, like, like]
+ 127          if cls:
+ 128              sql += " AND t.cls=?"
+ 129              args.append(cls)
+ 130          if bid:
+ 131              sql += " AND t.id IN (SELECT student_id FROM student_batches WHERE batch_id=?)"
+ 132              args.append(bid)
+ 133          return db().execute(sql + " ORDER BY t.name COLLATE NOCASE", args).fetchall()
+ 134  
+ 135      @app.route("/students")
+ 136      def students():
+ 137          stt = request.args.get("status", "active")
+ 138          if stt not in ("active", "inactive", "all"):
+ 139              stt = "active"
+ 140          fee = request.args.get("fee", "")
+ 141          if fee not in ("paid", "pending", "upcoming"):
+ 142              fee = ""
+ 143          srt = request.args.get("sort", "name")
+ 144          if srt not in ("name", "recent", "due"):
+ 145              srt = "name"
+ 146          q = request.args.get("q", "").strip()[:40]
+ 147          cls = to_int(request.args.get("cls"))
+ 148          cls = cls if cls in (9, 10, 11, 12) else None
+ 149          bid = to_int(request.args.get("batch"))
+ 150          state = fee_state(db)
+ 151  
+ 152          def card(r, inactive):
+ 153              o, st = (0, "") if inactive else state.get(r["id"], (0, "paid"))
+ 154              return dict(id=r["id"], name=r["name"], phone=r["parent_phone"] or "", roll=r["roll"] or "",
+ 155                          ses=r["acad_session"] or "", inactive=inactive, owed=o, fst=st)
+ 156  
+ 157          rows = []
+ 158          if stt in ("active", "all"):
+ 159              rows += [card(r, False) for r in fetch("students", q, cls, bid)]
+ 160          if stt in ("inactive", "all"):
+ 161              rows += [card(r, True) for r in fetch("records", q, cls, bid)]
+ 162          if fee:
+ 163              rows = [c for c in rows if c["fst"] == fee]
+ 164          if srt == "recent":
+ 165              rows.sort(key=lambda c: c["id"], reverse=True)
+ 166          elif srt == "due":
+ 167              rows.sort(key=lambda c: (-c["owed"], c["name"].lower()))
+ 168          else:
+ 169              rows.sort(key=lambda c: c["name"].lower())
+ 170          bl = [dict(id=b["id"], name=b["name"]) for b in db().execute("SELECT id, name FROM batches ORDER BY name COLLATE NOCASE")]
+ 171          bname = next((b["name"] for b in bl if b["id"] == bid), "")
+ 172          nf = (stt != "active") + (fee != "") + (srt != "name")
+ 173  
+ 174          def href(**over):
+ 175              p = dict(status=stt, fee=fee, sort=srt, q=q, cls=cls or "", batch=bid or "")
+ 176              p.update(over)
+ 177              return "/students?" + urlencode({k: v for k, v in p.items() if v not in ("", None)})
+ 178  
+ 179          return render_template("students.html", rows=rows, status=stt, fee=fee, sort=srt, q=q,
+ 180                                 cls=cls, bid=bid, nf=nf, batches=bl, bname=bname, href=href)
+ 181  
+ 182      @app.route("/students/class/<int:cls>")
+ 183      def students_class(cls):
+ 184          return redirect(f"/students?cls={cls}")
+ 185  
+ 186      def _old_detail(sid):
+ 187          s = get_student(sid)
+ 188          lang = session.get("lang", "en")
+ 189          if lang not in MONTHS:
+ 190              lang = "en"
+ 191          today = date.today()
+ 192          fee = s["monthly_fee"] or 0
+ 193          pm = {r["month"]: r["amt"] for r in db().execute(
+ 194              "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (sid,))}
+ 195          hist = fee_history_s(db, sid, s["admission_date"], fee, pm, today) if fee > 0 else []
+ 196          for h in hist:
+ 197              nm = MONTHS[lang][h["m"] - 1]
+ 198              h["label"] = (nm[:3] if lang == "en" else nm) + " " + str(h["y"])[2:]
+ 199          due = [h for h in hist if h["st"] == "due"]
+ 200          counted = [h for h in hist if h["st"] != "soon"]
+ 201          up = sum(h["baaki"] for h in hist if h["st"] == "soon")
+ 202          if fee > 0 and not hist:
+ 203              up = fee
+ 204          tiles = dict(pending=sum(h["baaki"] for h in due), collected=sum(pm.values()), upcoming=up,
+ 205                       paid_n=sum(1 for h in counted if h["st"] == "paid"), tot_n=len(counted))
+ 206          remind = wa_link(s, due[0]["baaki"], due[0]["due"], due[0]["y"], due[0]["m"], lang) if due else ""
+ 207          adm = s["admission_date"] or "0000-00-00"
+ 208          r = db().execute("""SELECT
+ 209              (SELECT COUNT(*) FROM attendance x WHERE x.student_id=? AND x.status='P' AND x.day>=?) AS pres,
+ 210              (SELECT COUNT(DISTINCT y.day) FROM attendance y JOIN students t ON t.id=y.student_id
+ 211               WHERE t.cls=? AND y.day>=?) AS tot""", (sid, adm, s["cls"], adm)).fetchone()
+ 212          pct = round(100 * r["pres"] / r["tot"]) if r["tot"] else None
+ 213          ex = db().execute("SELECT * FROM student_extra WHERE student_id=?", (sid,)).fetchone()
+ 214          pays = []
+ 215          for p in db().execute("SELECT month, amount, paid_on FROM payments WHERE student_id=? ORDER BY paid_on DESC, id DESC LIMIT 30", (sid,)):
+ 216              try:
+ 217                  nm = MONTHS[lang][int(p["month"][5:7]) - 1]
+ 218                  lab = (nm[:3] if lang == "en" else nm) + " " + p["month"][2:4]
+ 219                  po = fmt(date.fromisoformat(p["paid_on"]), lang)
+ 220              except (ValueError, TypeError, IndexError):
+ 221                  lab, po = p["month"], p["paid_on"] or ""
+ 222              pays.append(dict(label=lab, amount=p["amount"], paid_on=po))
+ 223          return render_template("student_detail.html", s=s, tiles=tiles, hist=hist, pays=pays,
+ 224                                 remind=remind, pct=pct, ex=ex)
+ 225  
+ 226      @app.route("/students/add", methods=["GET", "POST"])
+ 227      def student_add():
+ 228          s = dict(name="", cls=9, parent_name="", parent_phone="", monthly_fee="",
+ 229                   admission_date=date.today().isoformat(), acad_session=cur_session(),
+ 230                   session_end=default_end(cur_session()), roll=next_roll(db), gender="", address="", batch_ids=[])
+ 231          err = None
+ 232          if request.method == "POST":
+ 233              v, err = parse(request.form)
+ 234              if not err:
+ 235                  cur = db().execute(NEW, v)
+ 236                  db().commit()
+ 237                  save_extra(db, cur.lastrowid, request.form)
+ 238                  return redirect("/students")
+ 239              s = keep(s)
+ 240          return form_page(db, s, err, "/students/add", "add_student_title")
+ 241  
+ 242      @app.route("/students/<int:sid>/edit", methods=["GET", "POST"])
+ 243      def student_edit(sid):
+ 244          s = dict(get_student(sid))
+ 245          ex = db().execute("SELECT * FROM student_extra WHERE student_id=?", (sid,)).fetchone()
+ 246          s.update(roll=ex["roll"] if ex else "", gender=ex["gender"] if ex else "", address=ex["address"] if ex else "",
+ 247                   batch_ids=[b[0] for b in db().execute("SELECT batch_id FROM student_batches WHERE student_id=?", (sid,))])
+ 248          err = None
+ 249          if request.method == "POST":
+ 250              v, err = parse(request.form)
+ 251              if not err:
+ 252                  db().execute(UPD, v + (sid,))
+ 253                  db().commit()
+ 254                  save_extra(db, sid, request.form)
+ 255                  return redirect(f"/students/{sid}")
+ 256              s = keep(s)
+ 257          return form_page(db, s, err, f"/students/{sid}/edit", "edit_student_title")
+ 258  
+ 259      @app.route("/students/<int:sid>/inactive", methods=["POST"])
+ 260      def student_inactive(sid):
+ 261          get_student(sid)
+ 262          cols = "id,name,cls,parent_name,parent_phone,monthly_fee,admission_date,acad_session,session_end"
+ 263          db().execute(f"INSERT OR REPLACE INTO records({cols},archived_on) SELECT {cols},? FROM students WHERE id=?",
+ 264                       (date.today().isoformat(), sid))
+ 265          db().execute("DELETE FROM students WHERE id=?", (sid,))
+ 266          db().commit()
+ 267          return redirect("/students?status=inactive")
+ 268  
+ 269      @app.route("/students/<int:sid>/delete", methods=["POST"])
+ 270      def student_delete(sid):
+ 271          get_student(sid)
+ 272          for tbl in ("attendance", "payments", "student_batches", "entry_ov", "entry_log"):
+ 273              db().execute(f"DELETE FROM {tbl} WHERE student_id=?", (sid,))
+ 274          db().execute("DELETE FROM student_extra WHERE student_id=?", (sid,))
+ 275          db().execute("DELETE FROM students WHERE id=?", (sid,))
+ 276          db().commit()
+ 277          return redirect("/students")

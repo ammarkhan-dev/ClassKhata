@@ -1,73 +1,57 @@
 {% extends "base.html" %}
-{% block hdr %}{% endblock %}
 {% block body %}
 {% include "_shared.html" %}
-<style>
-.ph{margin:-16px -16px 16px;background:var(--navy);color:#fff;padding:14px 16px 18px}
-.pt{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.r2{display:flex;gap:4px}
-.ico{width:44px;height:44px;padding:0;background:transparent;color:#fff;border:0;border-radius:12px;display:flex;align-items:center;justify-content:center;text-decoration:none}
-.ico:active{background:rgba(255,255,255,.14)}
-.ico .ic{stroke:#fff;width:24px;height:24px}
-.pn{display:flex;gap:14px;align-items:center;margin-bottom:16px}
-.pav{width:72px;height:72px;border-radius:22px;background:#dfe7f0;color:var(--navy);font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
-.pn b{display:block;font-size:28px;line-height:1.1;overflow-wrap:anywhere}
-.ps{color:#b4c0d3;font-size:15px;margin-top:4px}
-.pb{display:flex;gap:10px}
-.pb a{flex:1;display:flex;align-items:center;justify-content:center;padding:14px;border-radius:14px;font-weight:700;text-decoration:none}
-.tl{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.tl>div{background:#f6f8fb;border-radius:16px;padding:12px}
-.tl small{display:block;color:var(--muted);font-size:13px}
-.tl b{display:block;font-size:21px;margin-top:4px}
-.ln{display:flex;align-items:center;gap:14px;padding:15px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:700;font-size:17px}
-.ln:first-child{border-top:0}
-.ln .ic{width:24px;height:24px;stroke:var(--navy);flex:none}
-.ln .ch{margin-left:auto;color:#b5bcc8;font-size:22px;font-weight:400}
-.ln .pc{margin-left:auto}
-.ln .pc+.ch{margin-left:8px}
-.sheet{position:fixed;inset:0;background:rgba(10,15,25,.5);z-index:50;display:flex;align-items:flex-end}
-.sheet[hidden]{display:none}
-.sp{background:#fff;width:100%;border-radius:24px 24px 0 0;padding:20px 22px 28px;max-height:85vh;overflow:auto}
-.mi{display:flex;align-items:center;gap:14px;padding:16px 0;color:var(--ink);text-decoration:none;font-weight:600;font-size:17px;background:none;border:0;width:100%;justify-content:flex-start;border-radius:0;font-family:inherit}
-.mi.rd2{color:var(--red)}
-</style>
-<div class="ph">
-<div class="pt">
-<a class="ico" href="/students" aria-label="{{ t('back') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
-<div class="r2">
-<a class="ico" href="/students/{{ s.id }}/card" aria-label="{{ t('card_title') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></a>
-<a class="ico" href="/students/{{ s.id }}/edit" aria-label="{{ t('edit') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg></a>
-<button type="button" class="ico" onclick="document.getElementById('mn').hidden=false"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6" fill="#fff"/><circle cx="12" cy="12" r="1.6" fill="#fff"/><circle cx="12" cy="19" r="1.6" fill="#fff"/></svg></button>
-</div></div>
-<div class="pn"><span class="pav">{{ s.name[:1]|upper }}</span>
-<div><b>{{ s.name }}</b><div class="ps">{{ s.cls }} · {{ t('roll_no') }} {{ ex.roll if ex and ex.roll else '—' }}{% if s.parent_phone %} · +91 {{ s.parent_phone }}{% endif %}</div></div></div>
-{% if s.parent_phone %}<div class="pb"><a href="https://wa.me/91{{ s.parent_phone }}" target="_blank" style="background:#e7f3ec;color:var(--green)">{{ t('whatsapp') }}</a><a href="tel:{{ s.parent_phone }}" style="background:rgba(255,255,255,.12);color:#fff">{{ t('call') }}</a></div>{% endif %}
+<a class="muted" href="/students/class/{{ s.cls }}" style="text-decoration:none">‹ {{ t('class') }} {{ s.cls }}</a>
+<div class="row" style="justify-content:flex-start;gap:14px;margin:12px 0 16px">
+<div class="av">{{ s.name[:1]|upper }}</div>
+<div><h1 class="page" style="margin:0;font-size:24px">{{ s.name }}</h1>
+<span class="muted">{{ t('class') }} {{ s.cls }} · {{ s.acad_session or '—' }}</span></div>
 </div>
-<div class="card"><h3 style="margin:0 0 12px;font-size:20px;color:var(--navy)">{{ t('fee_status') }}</h3>
-<div class="tl">
-<div><small>{{ t('pending') }}</small><b style="color:{{ 'var(--red)' if tiles.pending else 'var(--ink)' }}">₹{{ '{:,}'.format(tiles.pending) }}</b></div>
-<div><small>{{ t('collected') }}</small><b style="color:var(--green)">₹{{ '{:,}'.format(tiles.collected) }}</b></div>
-<div><small>{{ t('upcoming') }}</small><b style="color:#2a5db0">₹{{ '{:,}'.format(tiles.upcoming) }}</b></div>
+<div class="pa" style="margin-bottom:12px">
+{% if s.parent_phone %}
+<a class="btn ghost" href="tel:{{ s.parent_phone }}">{{ t('call') }}</a>
+<a class="btn ghost" href="https://wa.me/91{{ s.parent_phone }}" target="_blank">{{ t('whatsapp') }}</a>
+{% endif %}
 </div>
-{% if hist %}<div style="margin-top:14px"><div class="muted" style="margin-bottom:8px">{{ tiles.paid_n }}/{{ tiles.tot_n }} {{ t('months_paid') }}</div>
-{% for h in hist %}<a class="chip {{ h.st }}" href="/fees?month={{ h.key }}">{{ h.label }}</a>{% endfor %}</div>{% endif %}
+<div class="card">
+<div class="kv"><span>{{ t('parent_name') }}</span><span>{{ s.parent_name or '—' }}</span></div>
+<div class="kv"><span>{{ t('parent_phone') }}</span><span>{{ s.parent_phone or '—' }}</span></div>
+<div class="kv"><span>{{ t('roll_no') }}</span><span>{{ ex.roll if ex and ex.roll else '—' }}</span></div>
+<div class="kv"><span>{{ t('gender') }}</span><span>{{ ex.gender if ex and ex.gender else '—' }}</span></div>
+<div class="kv"><span>{{ t('address') }}</span><span>{{ ex.address if ex and ex.address else '—' }}</span></div>
+<div class="kv"><span>{{ t('batches') }}</span><span>{{ blist|join(', ') if blist else '—' }}</span></div>
+<div class="kv"><span>{{ t('monthly_fee') }}</span><span>₹{{ s.monthly_fee }}</span></div>
+<div class="kv"><span>{{ t('billing_day') }}</span><span>{% if sch[0] %}{{ t('bill_monthly').format(d=sch[0][8:10]|int) }}{% else %}—{% endif %}</span></div>
+<div class="kv"><span>{{ t('admission_date') }}</span><span>{{ s.admission_date or '—' }}</span></div>
+<div class="kv"><span>{{ t('session_label') }}</span><span>{{ s.acad_session or '—' }}</span></div>
+<div class="kv"><span>{{ t('session_end') }}</span><span>{{ s.session_end or '—' }}</span></div>
 </div>
-<div class="card" style="padding:4px 18px">
-<a class="ln" href="/hazri/student/{{ s.id }}"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg><span>{{ t('att_history') }}</span>{% if pct is not none %}<span class="pc {{ 'hi' if pct >= 75 else ('mid' if pct >= 60 else 'lo') }}">{{ pct }}%</span>{% endif %}<span class="ch">›</span></a>
-<a class="ln" href="/students/{{ s.id }}/card"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.6 1.7-2.2 3-2.2s2.4.6 3 2.2M14.5 10h4M14.5 13.5h3"/></svg><span>{{ t('student_details_pdf') }}</span><span class="ch">›</span></a>
-{% if remind %}<a class="ln" href="{{ remind }}" target="_blank"><svg class="ic" viewBox="0 0 24 24"><path d="M4 20l1.2-4A8 8 0 1 1 8 18.8z"/></svg><span>{{ t('send_reminder_wa') }}</span><span class="ch">›</span></a>
-{% else %}<div class="ln" style="color:var(--muted);font-weight:500"><svg class="ic" viewBox="0 0 24 24" style="stroke:var(--muted)"><path d="M4 20l1.2-4A8 8 0 1 1 8 18.8z"/></svg><span>{{ t('no_pending_fee') }}</span></div>{% endif %}
+<p class="sect">{{ t('fee_status') }}</p>
+<div class="card">
+{% set c = info.cur %}
+{% if c %}
+<div class="row" style="margin-bottom:6px"><b style="font-size:17px">{{ c.label }}</b>
+{% if c.st == 'paid' %}<span class="pc hi">{{ t('paid_list') }}</span>
+{% elif c.st == 'due' %}<span class="pc lo">{% if c.late > 0 %}{{ t('overdue') }} {{ c.late }} {{ t('days') }}{% else %}{{ t('due_today') }}{% endif %}</span>
+{% else %}<span class="pc mid">{{ t('upcoming') }} · {{ t('due_on') }} {{ c.due_s }}</span>{% endif %}</div>
+{% endif %}
+<div class="kv"><span>{{ t('months_paid') }}</span><span>{{ info.paid_n }}/{{ info.tot_n }}</span></div>
+<div class="kv"><span>{{ t('total_paid') }}</span><span class="g">₹{{ '{:,}'.format(info.total_paid) }}</span></div>
+<div class="kv"><span>{{ t('pending') }}</span><span class="{{ 'r' if info.pending else 'g' }}">₹{{ '{:,}'.format(info.pending) }}</span></div>
 </div>
-<div class="card"><h3 style="margin:0 0 6px;font-size:20px;color:var(--navy)">{{ t('payments') }}</h3>
-{% for p in pays %}<div class="kv"><span>{{ p.label }}<br><span class="muted">{{ p.paid_on }}</span></span><span class="g">₹{{ '{:,}'.format(p.amount) }}</span></div>
-{% else %}<div class="muted">{{ t('no_payments') }}</div>{% endfor %}
+{% if hist %}
+<p class="sect">{{ t('fee_history') }}</p>
+<div class="card">
+{% for h in hist %}<a class="chip {{ h.st }}" href="/fees?month={{ h.key }}">{{ h.label }}</a>{% endfor %}
+<div class="muted" style="margin-top:4px">{{ t('tap_unpaid') }}</div>
 </div>
-<div class="sheet" id="mn" hidden onclick="if(event.target===this)this.hidden=true"><div class="sp">
-<div class="row" style="justify-content:flex-start;gap:12px;margin-bottom:6px"><span class="pav" style="width:46px;height:46px;border-radius:14px;font-size:20px">{{ s.name[:1]|upper }}</span><div><b>{{ s.name }}</b><br><span class="muted">{{ ex.roll if ex and ex.roll else '' }}</span></div></div>
-<a class="mi" href="/students/{{ s.id }}/edit">{{ t('edit_details') }}</a>
-<a class="mi" href="/students/{{ s.id }}/batches">{{ t('change_batches') }}</a>
-<a class="mi" href="/students/{{ s.id }}/absent">{{ t('mark_absent_dates') }}</a>
-<form method="post" action="/students/{{ s.id }}/inactive" onsubmit="return confirm('{{ t('inactive_confirm') }}')"><button class="mi">{{ t('mark_inactive') }}</button></form>
-<form method="post" action="/students/{{ s.id }}/delete" onsubmit="return confirm('{{ t('delete_confirm') }}')"><button class="mi rd2">{{ t('delete_student') }}</button></form>
-</div></div>
+{% endif %}
+<p class="sect">{{ t('att_history') }}</p>
+<a class="item" href="/hazri/student/{{ s.id }}"><span>{{ t('att_overall') }}<br><span class="muted">{{ att.pres }}/{{ att.tot }} {{ t('class_days') }} · {{ t('since_joining') }}</span></span>
+{% if pct is not none %}<span class="pc {{ 'hi' if pct >= 75 else ('mid' if pct >= 60 else 'lo') }}">{{ pct }}%</span>{% else %}<span class="chev">›</span>{% endif %}</a>
+<div style="height:8px"></div>
+<a class="btn" href="/students/{{ s.id }}/edit">{{ t('edit') }}</a>
+<form method="post" action="/students/{{ s.id }}/inactive" onsubmit="return confirm('{{ t('inactive_confirm') }}')"><button class="btn ghost">{{ t('mark_inactive') }}</button></form>
+<form method="post" action="/students/{{ s.id }}/delete" onsubmit="return confirm('{{ t('delete_confirm') }}')" style="margin-top:10px">
+<button class="btn danger">{{ t('delete') }}</button></form>
 {% endblock %}
