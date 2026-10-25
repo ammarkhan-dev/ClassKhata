@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+<a class="muted" href="/" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('alerts') }}</h1>
+{% for a in items %}
+<a class="item" href="{{ a.url }}"><span>{{ t(a.key).format(n=a.n, amt=a.amt) }}</span><span class="chev">›</span></a>
+{% else %}
+<div class="card muted">{{ t('no_alerts') }}</div>
+{% endfor %}
+{% endblock %}

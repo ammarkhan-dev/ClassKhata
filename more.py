@@ -98,11 +98,11 @@ def setup(app, db):
         m = {"name": store.get("institute") or "ClassKhata", "short_name": "ClassKhata",
              "description": "Coaching management: students, attendance and fees",
              "start_url": "/", "scope": "/", "display": "standalone",
-             "background_color": "#0b1f3f", "theme_color": "#0b1f3f",
+             "background_color": "#222f40", "theme_color": "#222f40",
              "icons": [
-                 {"src": "/static/icon-192.png?v=2", "sizes": "192x192", "type": "image/png", "purpose": "any"},
-                 {"src": "/static/icon-512.png?v=2", "sizes": "512x512", "type": "image/png", "purpose": "any"},
-                 {"src": "/static/icon-512.png?v=2", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}
+                 {"src": "/static/icon-192.png?v=3", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+                 {"src": "/static/icon-512.png?v=3", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+                 {"src": "/static/icon-512.png?v=3", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}
         return Response(json.dumps(m), mimetype="application/manifest+json")
 
     @app.route("/sw.js")

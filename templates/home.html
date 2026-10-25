@@ -1,40 +1,46 @@
 {% extends "base.html" %}
+{% block hsub %}{{ t(greet) }}{% endblock %}
+{% block hextra %}<a class="bell" href="/alerts" aria-label="{{ t('alerts') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>{% if n_alerts %}<i></i>{% endif %}</a>{% endblock %}
 {% block body %}
 <style>
-.hero>*{position:relative;z-index:1}
-.hero .inst{font-family:Georgia,serif;font-size:23px;line-height:1.2;padding-right:48px;display:block}
-.hero .who{font-size:13px;color:#c4cee3;margin-top:5px}
-.hero .rule{height:1px;width:44px;background:rgba(184,145,58,.7);margin:16px 0 14px}
+.duo,.trio{display:grid;gap:0}
+.duo{grid-template-columns:1fr 1fr}
+.trio{grid-template-columns:1fr 1fr 1fr}
+.duo>div+div,.trio>div+div{border-left:1px solid var(--line);padding-left:14px}
+.trio>div{padding-right:6px}
+.dl{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:14px}
+.dl .ic{width:16px;height:16px}
+.dn{font-size:30px;font-weight:700;margin-top:5px;line-height:1.15}
+.trio .dn{font-size:24px}
+.dn small{font-size:13px;font-weight:400;color:var(--muted)}
+.g{color:var(--green)}
+.am{color:var(--amber)}
+.qt{margin:0 0 14px;font-size:22px;font-weight:700;color:var(--navy)}
+.qa{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.qa a{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 6px 14px;background:#eef2f6;border-radius:18px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;text-align:center}
+.qa a:active{background:#e4eaf0}
+.qi{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.qi .ic{stroke:#fff;width:26px;height:26px}
 </style>
-<div class="hero">
-{% if institute %}<div class="inst">{{ institute }}</div>{% else %}<a class="inst" href="/settings" style="color:#e9d9ab;text-decoration:none;font-size:17px">+ {{ t('institute_name') }}</a>{% endif %}
-<div class="who">{{ user_name }}</div>
-<div class="rule"></div>
-<div class="lbl">{{ t('total_label') }}</div>
-<div class="num">{{ total }}</div>
-<div class="sub">{{ t('across') }} · {{ t('session_label') }} {{ ses }}</div>
+<div class="card duo">
+<div><div class="dl"><svg class="ic" viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M8 5c4.5 0 6.5 1.6 6.5 4s-2 4-6.5 4H7l7 7"/></svg>{{ t('today_collection') }}</div>
+<div class="dn g">₹{{ '{:,}'.format(today_coll) }}</div></div>
+<div><div class="dl"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg>{{ t('today_att') }}</div>
+<div class="dn">{{ p }} <small>{{ t('present') }} · {{ pct }}%</small></div></div>
 </div>
-<div class="grid2">
-{% for c in [9,10,11,12] %}
-<a class="cls" href="/students/class/{{ c }}">
-<div class="k">{{ t('class') }} {{ c }}</div>
-<div class="n">{{ counts.get(c, 0) }}</div>
-<div class="u">{{ t('student_one') if counts.get(c, 0) == 1 else t('students_word') }}</div>
-</a>
-{% endfor %}
+<div class="card trio">
+<div><div class="dl"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>{{ t('pending') }}</div>
+<div class="dn am">₹{{ '{:,}'.format(pa) }}</div></div>
+<div><div class="dl"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.2c2.6.2 4.5 2 4.5 5.3"/></svg>{{ t('nav_students') }}</div>
+<div class="dn">{{ total }} <small>{{ ncls }} {{ t('classes_word') }}</small></div></div>
+<div><div class="dl"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>{{ t('this_month') }}</div>
+<div class="dn g">₹{{ '{:,}'.format(month_coll) }}</div></div>
 </div>
-<p class="sect">{{ t('today') }}</p>
-<div class="grid2">
-<a class="cls" href="/hazri">
-<div class="k">{{ t('today_att') }}</div>
-<div class="n" style="color:var(--green)">{{ p }}</div>
-<div class="u">{{ t('present') }} · {{ a }} {{ t('absent') }}</div>
-</a>
-<a class="cls" href="/fees">
-<div class="k">{{ t('fees_pending_all') }}</div>
-<div class="n" style="color:var(--red);font-size:29px;padding:5px 0">₹{{ '{:,}'.format(pa) }}</div>
-<div class="u">{{ pn }} {{ t('student_one') if pn == 1 else t('students_word') }} · {{ t('all_months') }}</div>
-</a>
-</div>
-<p style="text-align:center;margin-top:22px"><a class="muted" href="/settings">{{ t('settings') }}</a></p>
+<div class="card">
+<h3 class="qt">{{ t('quick_actions') }}</h3>
+<div class="qa">
+<a href="/students/add"><span class="qi" style="background:#222f40"><svg class="ic" viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20c0-3.6 2.9-6 6.5-6 1.4 0 2.7.4 3.7 1"/><path d="M18 14v6M15 17h6"/></svg></span>{{ t('qa_add') }}</a>
+<a href="/hazri"><span class="qi" style="background:#3a566e"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg></span>{{ t('qa_mark') }}</a>
+<a href="/fees"><span class="qi" style="background:#3a566e"><svg class="ic" viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M8 5c4.5 0 6.5 1.6 6.5 4s-2 4-6.5 4H7l7 7"/></svg></span>{{ t('qa_collect') }}</a>
+</div></div>
 {% endblock %}

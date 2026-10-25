@@ -1,12 +1,24 @@
 {% extends "base.html" %}
 {% block body %}
 {% include "_shared.html" %}
+<style>
+.grp{background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 18px;margin-bottom:14px}
+.grp .gl{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);padding:14px 0 6px;font-weight:600}
+.grp a{display:flex;align-items:center;gap:14px;padding:15px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:600}
+.grp a:first-of-type{border-top:0}
+.grp a .ic{width:22px;height:22px;stroke:var(--navy);flex:none}
+.grp a .ch{margin-left:auto;color:#b5bcc8;font-size:22px;font-weight:400}
+</style>
 <h1 class="page">{{ t('nav_more') }}</h1>
-<a class="item" href="/records"><span>{{ t('records') }}<br><span class="muted" style="font-weight:400">{{ t('records_sub') }}</span></span><span class="chev">›</span></a>
-<a class="item" href="/report"><span>{{ t('report_open') }}</span><span class="chev">›</span></a>
-<a class="item" href="/backup"><span>{{ t('backup_title') }}{% if due %} <span class="pc lo" style="margin-left:6px">{{ t('backup_due') }}</span>{% endif %}</span><span class="chev">›</span></a>
-<a class="item" href="/settings"><span>{{ t('settings') }}</span><span class="chev">›</span></a>
-<div class="card" id="inst-card" style="margin-top:18px">
+<div class="grp"><div class="gl">{{ t('sec_inst') }}</div>
+<a href="/settings"><svg class="ic" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v9h14v-9M9 19v-5h6v5"/></svg>{{ t('institute_profile') }}<span class="ch">›</span></a>
+<a href="/records"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M8 11h8M8 15h8"/></svg>{{ t('records') }}<span class="ch">›</span></a></div>
+<div class="grp"><div class="gl">{{ t('sec_ops') }}</div>
+<a href="/report"><svg class="ic" viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>{{ t('report_open') }}<span class="ch">›</span></a>
+<a href="/backup"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>{{ t('reports_export') }}{% if due %}<span class="pc lo" style="margin-left:6px">{{ t('backup_due') }}</span>{% endif %}<span class="ch">›</span></a></div>
+<div class="grp"><div class="gl">{{ t('sec_app') }}</div>
+<a href="/logout" style="color:var(--red)"><svg class="ic" viewBox="0 0 24 24" style="stroke:var(--red)"><path d="M9 4H5v16h4"/><path d="M16 8l4 4-4 4M20 12H9"/></svg>{{ t('logout') }}<span class="ch">›</span></a></div>
+<div class="card" id="inst-card">
 <b>{{ t('install_app') }}</b>
 <p class="muted">{{ t('install_hint') }}</p>
 <button id="inst-btn" hidden>{{ t('install_app') }}</button>
