@@ -26,6 +26,8 @@ def init():
         c.execute("CREATE TABLE IF NOT EXISTS batches(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, days TEXT, t_from TEXT, t_to TEXT)")
         c.execute("CREATE TABLE IF NOT EXISTS student_batches(student_id INTEGER, batch_id INTEGER, PRIMARY KEY(student_id, batch_id))")
         c.execute("CREATE TABLE IF NOT EXISTS student_extra(student_id INTEGER PRIMARY KEY, roll TEXT, gender TEXT, address TEXT)")
+        if "capacity" not in [r[1] for r in c.execute("PRAGMA table_info(batches)")]:
+            c.execute("ALTER TABLE batches ADD COLUMN capacity INTEGER")
 
 def setup(app, db):
     init()
@@ -40,10 +42,12 @@ def setup(app, db):
             return "err_batch_name"
         days = ",".join(d for d in DAYS if d in f.getlist("day"))
         a, b = valid_time(f.get("t_from", "")), valid_time(f.get("t_to", ""))
+        cap = f.get("capacity", "").strip()
+        cap = int(cap) if cap.isdigit() and 0 < int(cap) < 10000 else None
         if bid is None:
-            db().execute("INSERT INTO batches(name,days,t_from,t_to) VALUES(?,?,?,?)", (name, days, a, b))
+            db().execute("INSERT INTO batches(name,days,t_from,t_to,capacity) VALUES(?,?,?,?,?)", (name, days, a, b, cap))
         else:
-            db().execute("UPDATE batches SET name=?,days=?,t_from=?,t_to=? WHERE id=?", (name, days, a, b, bid))
+            db().execute("UPDATE batches SET name=?,days=?,t_from=?,t_to=?,capacity=? WHERE id=?", (name, days, a, b, cap, bid))
         db().commit()
         return None
 
@@ -52,7 +56,7 @@ def setup(app, db):
         rows = db().execute("""SELECT b.*, (SELECT COUNT(*) FROM student_batches sb
             JOIN students s ON s.id=sb.student_id WHERE sb.batch_id=b.id) n
             FROM batches b ORDER BY b.name COLLATE NOCASE""").fetchall()
-        items = [dict(id=r["id"], name=r["name"], n=r["n"], days_s=days_text(r["days"]),
+        items = [dict(id=r["id"], name=r["name"], n=r["n"], cap=r["capacity"], days_s=days_text(r["days"]),
                       time_s=time_text(r["t_from"], r["t_to"])) for r in rows]
         return render_template("batches.html", rows=items)
 

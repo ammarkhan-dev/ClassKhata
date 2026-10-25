@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block body %}
-<a class="muted" href="/more" style="text-decoration:none">‹ {{ t('back') }}</a>
+<a class="muted" href="/students" style="text-decoration:none">‹ {{ t('back') }}</a>
 <h1 class="page" style="margin-top:6px">{{ t('batches') }}</h1>
 {% for b in rows %}
-<a class="item" href="/batches/{{ b.id }}/edit" style="align-items:flex-start"><span><b>{{ b.name }}</b><br><span class="muted" style="font-weight:400">{{ b.days_s }}{% if b.time_s %} · {{ b.time_s }}{% endif %}</span><br><span class="muted" style="font-weight:400">{{ b.n }} {{ t('student_one') if b.n == 1 else t('students_word') }}</span></span><span class="chev">›</span></a>
+<a class="item" href="/batches/{{ b.id }}/edit" style="align-items:flex-start"><span><b>{{ b.name }}</b><br><span class="muted" style="font-weight:400">{{ b.days_s }}{% if b.time_s %} · {{ b.time_s }}{% endif %}</span><br><span class="muted" style="font-weight:400">{{ b.n }}{% if b.cap %}/{{ b.cap }}{% endif %} {{ t('student_one') if b.n == 1 else t('students_word') }}</span></span><span class="chev">›</span></a>
 {% else %}
 <div class="card muted">{{ t('no_batches') }}</div>
 {% endfor %}

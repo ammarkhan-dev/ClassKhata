@@ -20,6 +20,8 @@
 <input type="time" name="t_from" value="{{ b.t_from if b else '08:00' }}">
 <label>{{ t('time_to') }}</label>
 <input type="time" name="t_to" value="{{ b.t_to if b else '09:00' }}">
+<label>{{ t('capacity') }}</label>
+<input name="capacity" value="{{ b.capacity if b and b.capacity else '' }}" inputmode="numeric" placeholder="{{ t('capacity_ph') }}">
 <div style="height:18px"></div>
 <button>{{ t('save') }}</button>
 </form>

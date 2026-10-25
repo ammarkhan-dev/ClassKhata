@@ -258,3 +258,20 @@ def owed_map(db):
         hist = fee_history(s["admission_date"], s["monthly_fee"], pm, today)
         out[s["id"]] = sum(h["baaki"] for h in hist if h["st"] == "due")
     return out
+
+def fee_state(db):
+    today = date.today()
+    out = {}
+    for s in db().execute("SELECT id, admission_date, monthly_fee FROM students WHERE monthly_fee > 0").fetchall():
+        pm = {r["month"]: r["amt"] for r in db().execute(
+            "SELECT month, SUM(amount) amt FROM payments WHERE student_id=? GROUP BY month", (s["id"],))}
+        hist = fee_history(s["admission_date"], s["monthly_fee"], pm, today)
+        owed = sum(h["baaki"] for h in hist if h["st"] == "due")
+        if owed:
+            st = "pending"
+        elif any(h["st"] == "soon" for h in hist):
+            st = "upcoming"
+        else:
+            st = "paid"
+        out[s["id"]] = (owed, st)
+    return out

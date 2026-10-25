@@ -2,7 +2,7 @@ import sqlite3
 from datetime import date
 from urllib.parse import urlencode
 from flask import render_template, request, redirect, abort, session
-from fees import fee_history, fmt, MONTHS, owed_map
+from fees import fee_history, fmt, MONTHS, owed_map, fee_state
 from batches import days_text, time_text
 
 def cur_session():
@@ -127,34 +127,50 @@ def setup(app, db):
 
     @app.route("/students")
     def students():
-        tab = request.args.get("tab", "active")
-        if tab not in ("active", "inactive", "all"):
-            tab = "active"
+        stt = request.args.get("status", "active")
+        if stt not in ("active", "inactive", "all"):
+            stt = "active"
+        fee = request.args.get("fee", "")
+        if fee not in ("paid", "pending", "upcoming"):
+            fee = ""
+        srt = request.args.get("sort", "name")
+        if srt not in ("name", "recent", "due"):
+            srt = "name"
         q = request.args.get("q", "").strip()[:40]
         cls = to_int(request.args.get("cls"))
         cls = cls if cls in (9, 10, 11, 12) else None
         bid = to_int(request.args.get("batch"))
-        owed = owed_map(db)
+        state = fee_state(db)
 
         def card(r, inactive):
+            o, st = (0, "") if inactive else state.get(r["id"], (0, "paid"))
             return dict(id=r["id"], name=r["name"], phone=r["parent_phone"] or "", roll=r["roll"] or "",
-                        ses=r["acad_session"] or "", inactive=inactive,
-                        owed=0 if inactive else owed.get(r["id"], 0))
+                        ses=r["acad_session"] or "", inactive=inactive, owed=o, fst=st)
 
-        act = [card(r, False) for r in fetch("students", q, cls, bid)]
-        ina = [card(r, True) for r in fetch("records", q, cls, bid)]
-        rows = act if tab == "active" else (ina if tab == "inactive" else sorted(act + ina, key=lambda c: c["name"].lower()))
+        rows = []
+        if stt in ("active", "all"):
+            rows += [card(r, False) for r in fetch("students", q, cls, bid)]
+        if stt in ("inactive", "all"):
+            rows += [card(r, True) for r in fetch("records", q, cls, bid)]
+        if fee:
+            rows = [c for c in rows if c["fst"] == fee]
+        if srt == "recent":
+            rows.sort(key=lambda c: c["id"], reverse=True)
+        elif srt == "due":
+            rows.sort(key=lambda c: (-c["owed"], c["name"].lower()))
+        else:
+            rows.sort(key=lambda c: c["name"].lower())
         bl = [dict(id=b["id"], name=b["name"]) for b in db().execute("SELECT id, name FROM batches ORDER BY name COLLATE NOCASE")]
         bname = next((b["name"] for b in bl if b["id"] == bid), "")
+        nf = (stt != "active") + (fee != "") + (srt != "name")
 
         def href(**over):
-            p = dict(tab=tab, q=q, cls=cls or "", batch=bid or "")
+            p = dict(status=stt, fee=fee, sort=srt, q=q, cls=cls or "", batch=bid or "")
             p.update(over)
             return "/students?" + urlencode({k: v for k, v in p.items() if v not in ("", None)})
 
-        return render_template("students.html", rows=rows, tab=tab, q=q, cls=cls, bid=bid,
-            counts=dict(active=len(act), inactive=len(ina), all=len(act) + len(ina)),
-            batches=bl, bname=bname, href=href)
+        return render_template("students.html", rows=rows, status=stt, fee=fee, sort=srt, q=q,
+                               cls=cls, bid=bid, nf=nf, batches=bl, bname=bname, href=href)
 
     @app.route("/students/class/<int:cls>")
     def students_class(cls):
@@ -233,7 +249,7 @@ def setup(app, db):
                      (date.today().isoformat(), sid))
         db().execute("DELETE FROM students WHERE id=?", (sid,))
         db().commit()
-        return redirect("/students?tab=inactive")
+        return redirect("/students?status=inactive")
 
     @app.route("/students/<int:sid>/delete", methods=["POST"])
     def student_delete(sid):
