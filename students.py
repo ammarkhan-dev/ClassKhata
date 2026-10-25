@@ -131,8 +131,7 @@ def setup(app, db):
             args.append(bid)
         return db().execute(sql + " ORDER BY t.name COLLATE NOCASE", args).fetchall()
 
-    @app.route("/students")
-    def students():
+    def _old_students():
         stt = request.args.get("status", "active")
         if stt not in ("active", "inactive", "all"):
             stt = "active"
@@ -182,8 +181,7 @@ def setup(app, db):
     def students_class(cls):
         return redirect(f"/students?cls={cls}")
 
-    @app.route("/students/<int:sid>")
-    def student_detail(sid):
+    def _old_student_detail(sid):
         s = get_student(sid)
         lang = session.get("lang", "en")
         if lang not in MONTHS:

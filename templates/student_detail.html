@@ -1,57 +1,105 @@
 {% extends "base.html" %}
+{% block hdr %}
+<style>
+header.dk{display:block;padding:14px 16px 20px}
+.hb{position:relative;width:46px;height:46px;padding:0;border-radius:14px;background:rgba(255,255,255,.12);color:#fff;border:0;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.hb .ic{stroke:#fff}
+.avw{position:relative;flex:none}
+.avt{width:80px;height:80px;border-radius:24px;background:#e6ecf3;color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;overflow:hidden}
+.avt img{width:100%;height:100%;object-fit:cover}
+.cam{position:absolute;right:-6px;bottom:-6px;width:32px;height:32px;border-radius:50%;background:#fff;color:var(--navy);border:0;padding:0;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.cam .ic{width:17px;height:17px;stroke:var(--navy)}
+.nm{display:block;font-size:26px;line-height:1.15;font-weight:700;overflow-wrap:anywhere}
+.sb{color:#b4c0d3;font-size:15px;margin-top:4px}
+.cr{display:flex;gap:10px;margin-top:18px}
+.cr a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;border-radius:14px;font-weight:700;text-decoration:none}
+.cr .ic{width:20px;height:20px}
+</style>
+<header class="dk">
+<div class="row" style="margin-bottom:14px">
+<a class="hb" href="/students" aria-label="{{ t('back') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
+<div class="row" style="gap:6px">
+<a class="hb" href="/students/{{ s.id }}/card" aria-label="{{ t('card_title') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></a>
+<a class="hb" href="/students/{{ s.id }}/edit" aria-label="{{ t('edit') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg></a>
+<button type="button" class="hb" onclick="document.getElementById('mn').hidden=false"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6" fill="#fff"/><circle cx="12" cy="12" r="1.6" fill="#fff"/><circle cx="12" cy="19" r="1.6" fill="#fff"/></svg></button>
+</div></div>
+<div class="row" style="justify-content:flex-start;gap:16px">
+<div class="avw"><div class="avt">{% if has_photo %}<img src="/students/{{ s.id }}/photo" alt="">{% else %}{{ s.name[:1]|upper }}{% endif %}</div>
+<button type="button" class="cam" onclick="document.getElementById('pf').click()"><svg class="ic" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></button></div>
+<div style="min-width:0"><b class="nm">{{ s.name }}</b><div class="sb">{{ s.cls }}{% if ex and ex.roll %} · {{ t('roll_short') }} {{ ex.roll }}{% endif %}{% if s.parent_phone %} · +91 {{ s.parent_phone }}{% endif %}</div></div>
+</div>
+{% if s.parent_phone %}<div class="cr">
+<a href="https://wa.me/91{{ s.parent_phone }}" target="_blank" style="background:#e7f3ec;color:#1f7a45"><svg class="ic" viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19z"/><path d="M9 10c.6 2.3 2.7 4.4 5 5"/></svg>{{ t('whatsapp') }}</a>
+<a href="tel:{{ s.parent_phone }}" style="background:rgba(255,255,255,.12);color:#fff"><svg class="ic" viewBox="0 0 24 24" style="stroke:#fff"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>{{ t('call') }}</a>
+</div>{% endif %}
+<input type="file" id="pf" accept="image/*" hidden>
+</header>
+{% endblock %}
 {% block body %}
 {% include "_shared.html" %}
-<a class="muted" href="/students/class/{{ s.cls }}" style="text-decoration:none">‹ {{ t('class') }} {{ s.cls }}</a>
-<div class="row" style="justify-content:flex-start;gap:14px;margin:12px 0 16px">
-<div class="av">{{ s.name[:1]|upper }}</div>
-<div><h1 class="page" style="margin:0;font-size:24px">{{ s.name }}</h1>
-<span class="muted">{{ t('class') }} {{ s.cls }} · {{ s.acad_session or '—' }}</span></div>
-</div>
-<div class="pa" style="margin-bottom:12px">
-{% if s.parent_phone %}
-<a class="btn ghost" href="tel:{{ s.parent_phone }}">{{ t('call') }}</a>
-<a class="btn ghost" href="https://wa.me/91{{ s.parent_phone }}" target="_blank">{{ t('whatsapp') }}</a>
-{% endif %}
+<style>
+.ct{margin:0 0 12px;font-size:19px;color:#4b5b72;font-weight:600}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tiles div{background:#f7f9fb;border-radius:16px;padding:14px 12px}
+.tiles span{display:block;font-size:13px;color:var(--muted)}
+.tiles b{display:block;font-size:21px;margin-top:6px}
+.lst{padding:4px 18px}
+.lst a,.lst .nl{display:flex;align-items:center;gap:14px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.lst>:first-child{border-top:0}
+.li{width:48px;height:48px;border-radius:14px;background:#eef2f6;display:flex;align-items:center;justify-content:center;flex:none}
+.li .ic{stroke:var(--navy)}
+.chv{margin-left:auto;color:#b5bcc8;font-size:22px}
+.pr{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:14px 0;border-top:1px solid var(--line)}
+.pr:first-of-type{border-top:0}
+.pc.up{background:#e8eefb;color:#2f4f9a}
+.cb{width:auto;padding:7px 14px;font-size:14px;margin-top:8px;border-radius:10px}
+.sheet{position:fixed;inset:0;background:rgba(10,15,25,.5);z-index:50;display:flex;align-items:flex-end}
+.sheet[hidden]{display:none}
+.sp{background:#fff;width:100%;border-radius:24px 24px 0 0;padding:20px 22px 28px;max-height:85vh;overflow:auto}
+.mi{display:flex;align-items:center;padding:16px 0;color:var(--ink);text-decoration:none;font-weight:600;font-size:17px;background:none;border:0;width:100%;justify-content:flex-start;border-radius:0;font-family:inherit;border-top:1px solid var(--line)}
+.mi.rd2{color:var(--red)}
+</style>
+<div class="card"><h3 class="ct">{{ t('fee_status') }}</h3>
+<div class="tiles">
+<div><span>{{ t('pending') }}</span><b style="color:{{ 'var(--amber)' if pend else 'var(--ink)' }}">₹{{ '{:,}'.format(pend) }}</b></div>
+<div><span>{{ t('collected') }}</span><b class="g">₹{{ '{:,}'.format(coll) }}</b></div>
+<div><span>{{ t('upcoming') }}</span><b style="color:#2f4f9a">₹{{ '{:,}'.format(upc) }}</b></div>
+</div></div>
+<div class="card lst">
+<a href="/hazri/student/{{ s.id }}"><span class="li"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span><b>{{ t('att_history') }}</b>{% if pct is not none %}<span class="pc {{ 'hi' if pct >= 75 else ('mid' if pct >= 60 else 'lo') }}" style="margin-left:auto">{{ pct }}%</span><span class="chv" style="margin-left:6px">›</span>{% else %}<span class="chv">›</span>{% endif %}</a>
+<a href="/students/{{ s.id }}/card"><span class="li"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2.5"/><circle cx="9" cy="11" r="2"/><path d="M6.5 16c.5-1.6 1.7-2.4 2.5-2.4s2 .8 2.5 2.4M14 10h4M14 13h3"/></svg></span><b>{{ t('student_details_pdf') }}</b><span class="chv">›</span></a>
+{% if remind %}<a href="{{ remind }}" target="_blank"><span class="li"><svg class="ic" viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19z"/><path d="M9 10c.6 2.3 2.7 4.4 5 5"/></svg></span><b>{{ t('send_reminder_wa') }}</b><span class="chv">›</span></a>
+{% else %}<div class="nl" style="color:var(--muted)"><span class="li"><svg class="ic" viewBox="0 0 24 24" style="stroke:var(--muted)"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19z"/></svg></span><b style="font-weight:500">{{ t('no_pending_fee') }}</b></div>{% endif %}
 </div>
 <div class="card">
-<div class="kv"><span>{{ t('parent_name') }}</span><span>{{ s.parent_name or '—' }}</span></div>
-<div class="kv"><span>{{ t('parent_phone') }}</span><span>{{ s.parent_phone or '—' }}</span></div>
-<div class="kv"><span>{{ t('roll_no') }}</span><span>{{ ex.roll if ex and ex.roll else '—' }}</span></div>
-<div class="kv"><span>{{ t('gender') }}</span><span>{{ ex.gender if ex and ex.gender else '—' }}</span></div>
-<div class="kv"><span>{{ t('address') }}</span><span>{{ ex.address if ex and ex.address else '—' }}</span></div>
-<div class="kv"><span>{{ t('batches') }}</span><span>{{ blist|join(', ') if blist else '—' }}</span></div>
-<div class="kv"><span>{{ t('monthly_fee') }}</span><span>₹{{ s.monthly_fee }}</span></div>
-<div class="kv"><span>{{ t('billing_day') }}</span><span>{% if sch[0] %}{{ t('bill_monthly').format(d=sch[0][8:10]|int) }}{% else %}—{% endif %}</span></div>
-<div class="kv"><span>{{ t('admission_date') }}</span><span>{{ s.admission_date or '—' }}</span></div>
-<div class="kv"><span>{{ t('session_label') }}</span><span>{{ s.acad_session or '—' }}</span></div>
-<div class="kv"><span>{{ t('session_end') }}</span><span>{{ s.session_end or '—' }}</span></div>
+<div class="row" style="margin-bottom:4px"><h3 class="ct" style="margin:0">{{ t('payments') }}</h3><a href="/students/{{ s.id }}/receipts" style="color:var(--navy);font-weight:600;text-decoration:none">{{ t('receipts') }}</a></div>
+{% for e in entries %}
+<div class="pr"><div><b>{{ e.label }}</b><div class="muted">{{ e.span }}</div></div>
+<div style="text-align:right"><b>₹{{ '{:,}'.format(fee) }}</b><div style="margin-top:4px"><span class="pc {{ 'hi' if e.st == 'paid' else ('lo' if e.st == 'due' else 'up') }}">{{ t('paid_list') if e.st == 'paid' else (t('pending') if e.st == 'due' else t('upcoming')) }}</span></div>
+{% if e.st != 'paid' %}<form method="post" action="/students/{{ s.id }}/pay/{{ e.key }}"><button class="cb">{{ t('collect_btn') }}</button></form>{% elif e.pid %}<a href="/receipt/{{ e.pid }}" style="display:inline-block;margin-top:8px;color:var(--navy);font-weight:600;font-size:14px;text-decoration:none">{{ t('receipt_word') }} ›</a>{% endif %}</div></div>
+{% else %}<p class="muted" style="margin:10px 0 0">{{ t('no_payments') }}</p>{% endfor %}
 </div>
-<p class="sect">{{ t('fee_status') }}</p>
-<div class="card">
-{% set c = info.cur %}
-{% if c %}
-<div class="row" style="margin-bottom:6px"><b style="font-size:17px">{{ c.label }}</b>
-{% if c.st == 'paid' %}<span class="pc hi">{{ t('paid_list') }}</span>
-{% elif c.st == 'due' %}<span class="pc lo">{% if c.late > 0 %}{{ t('overdue') }} {{ c.late }} {{ t('days') }}{% else %}{{ t('due_today') }}{% endif %}</span>
-{% else %}<span class="pc mid">{{ t('upcoming') }} · {{ t('due_on') }} {{ c.due_s }}</span>{% endif %}</div>
-{% endif %}
-<div class="kv"><span>{{ t('months_paid') }}</span><span>{{ info.paid_n }}/{{ info.tot_n }}</span></div>
-<div class="kv"><span>{{ t('total_paid') }}</span><span class="g">₹{{ '{:,}'.format(info.total_paid) }}</span></div>
-<div class="kv"><span>{{ t('pending') }}</span><span class="{{ 'r' if info.pending else 'g' }}">₹{{ '{:,}'.format(info.pending) }}</span></div>
-</div>
-{% if hist %}
-<p class="sect">{{ t('fee_history') }}</p>
-<div class="card">
-{% for h in hist %}<a class="chip {{ h.st }}" href="/fees?month={{ h.key }}">{{ h.label }}</a>{% endfor %}
-<div class="muted" style="margin-top:4px">{{ t('tap_unpaid') }}</div>
-</div>
-{% endif %}
-<p class="sect">{{ t('att_history') }}</p>
-<a class="item" href="/hazri/student/{{ s.id }}"><span>{{ t('att_overall') }}<br><span class="muted">{{ att.pres }}/{{ att.tot }} {{ t('class_days') }} · {{ t('since_joining') }}</span></span>
-{% if pct is not none %}<span class="pc {{ 'hi' if pct >= 75 else ('mid' if pct >= 60 else 'lo') }}">{{ pct }}%</span>{% else %}<span class="chev">›</span>{% endif %}</a>
-<div style="height:8px"></div>
-<a class="btn" href="/students/{{ s.id }}/edit">{{ t('edit') }}</a>
-<form method="post" action="/students/{{ s.id }}/inactive" onsubmit="return confirm('{{ t('inactive_confirm') }}')"><button class="btn ghost">{{ t('mark_inactive') }}</button></form>
-<form method="post" action="/students/{{ s.id }}/delete" onsubmit="return confirm('{{ t('delete_confirm') }}')" style="margin-top:10px">
-<button class="btn danger">{{ t('delete') }}</button></form>
+<div class="sheet" id="mn" hidden onclick="if(event.target===this)this.hidden=true"><div class="sp">
+<b style="font-size:18px">{{ s.name }}</b>
+<a class="mi" href="/students/{{ s.id }}/edit" style="margin-top:10px">{{ t('edit_details') }}</a>
+<a class="mi" href="/students/{{ s.id }}/batches">{{ t('change_batches') }}</a>
+<a class="mi" href="/students/{{ s.id }}/absent">{{ t('mark_absent_dates') }}</a>
+<form method="post" action="/students/{{ s.id }}/inactive" onsubmit="return confirm('{{ t('inactive_confirm') }}')"><button class="mi">{{ t('mark_inactive') }}</button></form>
+<form method="post" action="/students/{{ s.id }}/delete" onsubmit="return confirm('{{ t('delete_confirm') }}')"><button class="mi rd2">{{ t('delete_student') }}</button></form>
+</div></div>
+<script>
+document.getElementById('pf').addEventListener('change',function(){
+ var f=this.files[0];if(!f)return;
+ var im=new Image();
+ im.onload=function(){
+  var k=Math.min(1,360/Math.max(im.width,im.height)),c=document.createElement('canvas');
+  c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);
+  c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+  c.toBlob(function(b){var fd=new FormData();fd.append('photo',b,'p.jpg');
+   fetch('/students/{{ s.id }}/photo',{method:'POST',body:fd,credentials:'same-origin'}).then(function(){location.reload()});
+  },'image/jpeg',0.82);
+ };
+ im.src=URL.createObjectURL(f);
+});
+</script>
 {% endblock %}

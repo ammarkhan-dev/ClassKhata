@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+.bx{display:flex;gap:14px;align-items:center;margin:0 0 10px;padding:14px;border:1.5px solid var(--line);border-radius:16px;text-transform:none;letter-spacing:0;font-size:15px;color:var(--ink);background:#fff}
+.bx input{width:22px;height:22px;padding:0;margin:0;flex:none;accent-color:var(--navy)}
+.bx small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+</style>
+<a class="muted" href="/students/{{ s.id }}" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('change_batches') }}</h1>
+<p class="muted" style="margin:-8px 0 14px">{{ s.name }}</p>
+<form method="post">
+{% for b in batches %}<label class="bx"><input type="checkbox" name="batch" value="{{ b.id }}" {{ 'checked' if b.id in sel }}><span><b>{{ b.name }}</b><small>{{ b.days_s }}{% if b.time_s %} · {{ b.time_s }}{% endif %}</small></span></label>
+{% else %}<div class="card muted">{{ t('no_batches') }}</div>{% endfor %}
+<a class="btn ghost" href="/batches/new?next=/students/{{ s.id }}/batches" style="margin-top:0">+ {{ t('add_batch') }}</a>
+<div style="height:14px"></div>
+<button>{{ t('save') }}</button>
+</form>
+{% endblock %}

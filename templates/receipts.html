@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block body %}
+<a class="muted" href="/students/{{ s.id }}" style="text-decoration:none">‹ {{ s.name }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('receipts') }}</h1>
+{% for r in rows %}
+<a class="item" href="/receipt/{{ r.id }}" style="align-items:flex-start"><span><b>{{ r.label }}</b><br><span class="muted" style="font-weight:400">{{ r.on }}</span></span><b>₹{{ '{:,}'.format(r.amt) }}</b></a>
+{% else %}<div class="card muted">{{ t('no_receipts') }}</div>{% endfor %}
+{% endblock %}

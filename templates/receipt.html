@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+@media print{header,nav,.noprint{display:none!important}body{background:#fff;padding:0}main{padding:0;max-width:none}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.rc{background:#fff;border:2px solid var(--navy);border-radius:8px;padding:18px;max-width:440px;margin:12px auto}
+.rh{text-align:center;border-bottom:2px solid var(--navy);padding-bottom:12px;margin-bottom:14px}
+.rh b{display:block;font-size:20px;color:var(--navy)}
+.rh span{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.am2{background:#f3f6fa;border:1px solid var(--line);text-align:center;padding:16px;margin:14px 0}
+.am2 b{font-size:30px;color:var(--navy)}
+</style>
+<div class="noprint"><a class="muted" href="/students/{{ p.student_id }}/receipts" style="text-decoration:none">‹ {{ t('back') }}</a></div>
+<div class="rc">
+<div class="rh"><b>{{ inst }}</b><span>{{ t('receipt_title') }}</span></div>
+<div class="kv"><span>{{ t('receipt_no') }}</span><span>{{ no }}</span></div>
+<div class="kv"><span>{{ t('paid_on') }}</span><span>{{ on }}</span></div>
+<div class="kv"><span>{{ t('received_from') }}</span><span>{{ st.parent_name or st.name }}</span></div>
+<div class="kv"><span>{{ t('rep_student') }}</span><span>{{ st.name }} ({{ st.cls }})</span></div>
+<div class="kv"><span>{{ t('for_month') }}</span><span>{{ mon }}</span></div>
+<div class="am2"><div class="muted">{{ t('amount_received') }}</div><b>₹{{ '{:,}'.format(p.amount) }}</b></div>
+<div class="row" style="font-size:12px;color:var(--muted)"><span>{{ t('thank_you') }}</span><span>{{ t('auth_sign') }}</span></div>
+</div>
+<div class="noprint">
+<div class="row" style="margin-top:16px;gap:10px"><button type="button" class="btn ghost" style="margin:0" onclick="sh()">{{ t('share') }}</button><button type="button" onclick="window.print()">{{ t('download') }}</button></div>
+<p class="muted">{{ t('pdf_howto') }}</p>
+</div>
+<script>
+function sh(){var d={title:{{ t('receipt_title')|tojson }},text:{{ share|tojson }}};if(navigator.share){navigator.share(d).catch(function(){})}else{window.print()}}
+</script>
+{% endblock %}

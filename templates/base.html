@@ -2,6 +2,7 @@
 <html lang="{{ lang }}"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta name="theme-color" content="#222f40">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/static/icon-192.png?v=3">
@@ -10,7 +11,7 @@
 <style>
 :root{--navy:#222f40;--ink:#1c2634;--paper:#f2f5f9;--line:#e3e9f0;--gold:#7d93ad;--green:#2f7d3a;--red:#c0392b;--amber:#8a6a00;--muted:#6b7686}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--paper);color:var(--ink);padding-bottom:92px}
+body{margin:0;font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--paper);color:var(--ink);padding-bottom:92px}
 header{background:var(--navy);color:#fff;padding:18px 18px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .hl{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;min-width:0}
 .lg{width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex:none}
@@ -62,11 +63,11 @@ nav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;paddi
 nav a.on{color:#fff;font-weight:700}
 .ic{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 </style></head><body>
-<header>
+{% block hdr %}<header>
 <a class="hl" href="/"><span class="lg"><svg width="32" height="26" viewBox="96 138 322 242" aria-hidden="true"><polygon points="166,236 346,236 346,326 256,372 166,326" fill="#9a7a2c"/><polygon points="102,230 256,300 410,230 256,160" fill="#222f40"/><polygon points="102,220 256,290 410,220 256,150" fill="#d4ad55"/><rect x="407" y="222" width="6" height="84" fill="#d4ad55"/><circle cx="410" cy="314" r="12" fill="#d4ad55"/></svg></span>
 <span class="ht"><small>{% block hsub %}{{ coaching }}{% endblock %}</small><b>{{ institute or coaching }}</b></span></a>
 <span class="hr">{% block hextra %}{% endblock %}<span class="lang"><a href="/lang/en" class="{{ 'on' if lang=='en' }}">EN</a><a href="/lang/hi" class="{{ 'on' if lang=='hi' }}">हिं</a></span></span>
-</header>
+</header>{% endblock %}
 <main>{% block body %}{% endblock %}</main>
 {% if user_name %}<nav>
 <a href="/" class="{{ 'on' if request.path=='/' }}"><svg class="ic" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>{{ t('nav_home') }}</a>

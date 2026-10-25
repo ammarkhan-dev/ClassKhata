@@ -1,18 +1,50 @@
 {% extends "base.html" %}
+{% block hdr %}
+<style>
+header.dk{display:block;padding:16px}
+.dk h1{margin:0;font-size:26px;font-weight:700}
+.hb{position:relative;width:46px;height:46px;padding:0;border-radius:14px;background:rgba(255,255,255,.12);color:#fff;border:0;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.hb .ic{stroke:#fff}
+.hb i{position:absolute;top:9px;right:9px;width:9px;height:9px;border-radius:50%;background:#e5484d;border:2px solid var(--navy)}
+.pl{flex:1;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:14px;padding:13px 14px;font-size:16px;font-weight:600;min-width:0;font-family:inherit}
+.pl span{flex:1;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pl .ic{stroke:#fff;width:20px;height:20px;flex:none}
+</style>
+<header class="dk">
+<div class="row" style="margin-bottom:14px">
+<h1>{{ t('nav_students') }}</h1>
+<div class="row" style="gap:8px">
+<button type="button" class="hb" onclick="tg('sr')" aria-label="Search"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
+<button type="button" class="hb" onclick="tg('sh-s')" aria-label="{{ t('sort_by') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h16M4 12h11M4 17h6"/></svg>{% if srt != 'name' %}<i></i>{% endif %}</button>
+<button type="button" class="hb" onclick="tg('sh-f')" aria-label="{{ t('filter') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>{% if fee %}<i></i>{% endif %}</button>
+</div></div>
+<form method="get" id="sr" {% if not q %}hidden{% endif %} style="margin-bottom:12px">
+<input type="hidden" name="status" value="{{ status }}"><input type="hidden" name="fee" value="{{ fee }}"><input type="hidden" name="sort" value="{{ srt }}"><input type="hidden" name="cls" value="{{ cls or '' }}"><input type="hidden" name="batch" value="{{ bid or '' }}">
+<input type="search" id="qi" name="q" value="{{ q }}" placeholder="{{ t('search_students') }}">
+</form>
+<div class="row" style="gap:10px">
+<button type="button" class="pl" onclick="tg('sh-b')"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>{{ bname or t('all_batches') }}</span><svg class="ic" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M6 9l6 6 6-6"/></svg></button>
+<button type="button" class="pl" onclick="tg('sh-c')"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4l9 4.5-9 4.5-9-4.5z"/><path d="M7 11v5c0 1.5 2.2 3 5 3s5-1.5 5-3v-5"/></svg><span>{{ (t('class') ~ ' ' ~ cls) if cls else t('all_classes') }}</span><svg class="ic" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M6 9l6 6 6-6"/></svg></button>
+</div>
+</header>
+{% endblock %}
 {% block body %}
 {% include "_shared.html" %}
 <style>
-.ib{position:relative;width:46px;height:46px;padding:0;border-radius:14px;background:#fff;color:var(--navy);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-decoration:none}
-.ib i{position:absolute;top:8px;right:8px;width:9px;height:9px;border-radius:50%;background:#e5484d}
-.pill{flex:1;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:13px 14px;font-size:15px;font-weight:600;justify-content:space-between}
+.tabs{display:flex;gap:8px;margin:2px 0 12px;flex-wrap:wrap}
+.tab{padding:9px 16px;border-radius:20px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:15px;text-decoration:none;color:var(--ink)}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
 .sc{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:12px}
 .sh{display:flex;gap:14px;align-items:flex-start;text-decoration:none;color:inherit}
-.sh .av{width:54px;height:54px;border-radius:16px;background:#e6ecf3;color:var(--navy);font-size:22px}
+.sa{width:58px;height:58px;border-radius:18px;color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none}
+.sa img{width:100%;height:100%;object-fit:cover}
 .si{flex:1;min-width:0}
-.si b{display:block;font-size:17px}
-.btn.wa{background:#e7f3ec;color:var(--green);border:1px solid #cfe6d9}
-.btn.cl{background:#eef2f6;color:var(--navy)}
-.sc .pa .btn{padding:11px;font-size:15px}
+.si b{display:block;font-size:18px}
+.dc{display:block;margin-top:4px;font-weight:600}
+.pc.up{background:#e8eefb;color:#2f4f9a}
+.cr{display:flex;gap:10px;margin-top:12px}
+.cr a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:14px;font-weight:600;text-decoration:none}
+.cr .ic{width:20px;height:20px}
 .fab{position:fixed;right:16px;bottom:104px;background:var(--navy);color:#fff;border-radius:18px;padding:15px 22px;font-weight:700;display:flex;gap:8px;align-items:center;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 .sheet{position:fixed;inset:0;background:rgba(10,15,25,.5);z-index:50;display:flex;align-items:flex-end}
 .sheet[hidden]{display:none}
@@ -21,69 +53,45 @@
 .opt{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:600;font-size:17px}
 .rd{width:22px;height:22px;border-radius:50%;border:2px solid #c3cad6}
 .rd.on{border:7px solid var(--navy)}
-.chs{display:flex;flex-wrap:wrap;gap:8px}
-.ch{margin:0;text-transform:none;letter-spacing:0}
-.ch input{display:none}
-.ch span{display:block;padding:10px 15px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font-weight:600;font-size:14px;color:var(--ink)}
-.ch input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
 </style>
-<div class="row" style="margin-bottom:12px">
-<h1 class="page" style="margin:0">{{ t('nav_students') }}</h1>
-<div class="row" style="gap:8px">
-<button type="button" class="ib" onclick="tg('sr')" aria-label="Search"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
-<button type="button" class="ib" onclick="tg('sh-f')" aria-label="{{ t('filter') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg>{% if nf %}<i></i>{% endif %}</button>
-<a class="ib" href="/batches" aria-label="{{ t('batches') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></a>
-</div></div>
-<form method="get" id="sr" {% if not q %}hidden{% endif %} style="margin-bottom:12px">
-<input type="hidden" name="status" value="{{ status }}"><input type="hidden" name="fee" value="{{ fee }}"><input type="hidden" name="sort" value="{{ sort }}">
-<input type="hidden" name="cls" value="{{ cls or '' }}"><input type="hidden" name="batch" value="{{ bid or '' }}">
-<input type="search" id="qi" name="q" value="{{ q }}" placeholder="{{ t('search_students') }}">
-</form>
-<div class="row" style="gap:10px;margin-bottom:14px">
-<button type="button" class="pill" onclick="tg('sh-b')"><span>{{ bname or t('all_batches') }}</span><span>⌄</span></button>
-<button type="button" class="pill" onclick="tg('sh-c')"><span>{{ (t('class') ~ ' ' ~ cls) if cls else t('all_classes') }}</span><span>⌄</span></button>
+<div class="tabs">
+<a class="tab {{ 'on' if status == 'active' }}" href="{{ href(status='active') }}">{{ t('tab_active') }} {{ counts.active }}</a>
+<a class="tab {{ 'on' if status == 'inactive' }}" href="{{ href(status='inactive') }}">{{ t('tab_inactive') }} {{ counts.inactive }}</a>
+<a class="tab {{ 'on' if status == 'all' }}" href="{{ href(status='all') }}">{{ t('tab_all') }} {{ counts.all }}</a>
 </div>
-<p class="muted" style="margin:0 0 10px">{{ rows|length }} {{ t('student_one') if rows|length == 1 else t('students_word') }}</p>
+<p class="muted" style="margin:0 0 12px">{{ rows|length }} {{ t('student_one') if rows|length == 1 else t('students_word') }}{% if owed_total %} · <b style="color:var(--amber)">₹{{ '{:,}'.format(owed_total) }} {{ t('pending') }}</b>{% endif %}</p>
 {% for r in rows %}
 <div class="sc">
 <a class="sh" href="{{ ('/records/student/' ~ r.id) if r.inactive else ('/students/' ~ r.id) }}">
-<span class="av">{{ r.name[:1]|upper }}</span>
-<span class="si"><b>{{ r.name }}</b><span class="muted">{% if r.roll %}{{ t('roll_no') }} {{ r.roll }} · {% endif %}{{ r.phone or '—' }}</span>
-{% if r.inactive %}<span class="muted" style="display:block">{{ t('session_label') }} {{ r.ses or '—' }}</span>
-{% elif r.owed %}<b style="color:var(--amber);font-size:16px;margin-top:4px">₹{{ '{:,}'.format(r.owed) }} {{ t('pending') }}</b>{% endif %}</span>
-{% if r.inactive %}<span class="pc" style="background:#eceff3;color:var(--muted)">{{ t('tab_inactive') }}</span>
-{% else %}<span class="pc {{ 'lo' if r.fst == 'pending' else ('mid' if r.fst == 'upcoming' else 'hi') }}">{{ t('pending') if r.fst == 'pending' else (t('upcoming') if r.fst == 'upcoming' else t('paid_list')) }}</span>{% endif %}
+<span class="sa" style="background:{{ ['#e6ecf3','#efe3ee','#e3f0e8','#f3ead9'][r.id % 4] }}">{% if r.photo %}<img src="/students/{{ r.id }}/photo" alt="">{% else %}{{ r.name[:1]|upper }}{% endif %}</span>
+<span class="si"><b>{{ r.name }}</b><span class="muted">{{ r.cls }}{% if r.roll %} · {{ t('roll_short') }} {{ r.roll }}{% endif %}{% if r.phone %} · +91 {{ r.phone }}{% endif %}</span>
+{% if r.inactive %}<span class="muted dc">{{ t('session_label') }} {{ r.ses or '—' }}</span>{% elif r.owed %}<span class="dc" style="color:var(--amber)">₹{{ '{:,}'.format(r.owed) }} {{ t('pending') }}</span>{% else %}<span class="dc g">{{ t('dues_cleared') }}</span>{% endif %}</span>
+{% if r.inactive %}<span class="pc" style="background:#eceff3;color:var(--muted)">{{ t('tab_inactive') }}</span>{% else %}<span class="pc {{ 'lo' if r.fst == 'pending' else ('up' if r.fst == 'upcoming' else 'hi') }}">{{ t('pending') if r.fst == 'pending' else (t('upcoming') if r.fst == 'upcoming' else t('paid_list')) }}</span>{% endif %}
 </a>
-{% if r.phone %}<div class="pa">
-<a class="btn wa" href="https://wa.me/91{{ r.phone }}" target="_blank">{{ t('whatsapp') }}</a>
-<a class="btn cl" href="tel:{{ r.phone }}">{{ t('call') }}</a>
+{% if r.phone %}<div class="cr">
+<a href="https://wa.me/91{{ r.phone }}" target="_blank" style="background:#e7f3ec;color:#1f7a45;border:1px solid #cfe6d9"><svg class="ic" viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8.5 19z"/><path d="M9 10c.6 2.3 2.7 4.4 5 5"/></svg>{{ t('whatsapp') }}</a>
+<a href="tel:{{ r.phone }}" style="background:#eef2f6;color:var(--navy)"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>{{ t('call') }}</a>
 </div>{% endif %}
 </div>
 {% else %}
 <div class="card muted">{{ t('no_results') }}</div>
 {% endfor %}
 <a class="fab" href="/students/add"><svg class="ic" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M12 5v14M5 12h14"/></svg>{{ t('add_short') }}</a>
-
-<div class="sheet" id="sh-f" hidden onclick="if(event.target===this)this.hidden=true"><form class="sp" method="get">
-<input type="hidden" name="q" value="{{ q }}"><input type="hidden" name="cls" value="{{ cls or '' }}"><input type="hidden" name="batch" value="{{ bid or '' }}">
-<h3>{{ t('filter') }}</h3>
-<div class="sect" style="margin-top:6px">{{ t('status_label') }}</div>
-<div class="chs">{% for v, k in [('active','tab_active'),('inactive','tab_inactive'),('all','tab_all')] %}<label class="ch"><input type="radio" name="status" value="{{ v }}" {{ 'checked' if status == v }}><span>{{ t(k) }}</span></label>{% endfor %}</div>
-<div class="sect">{{ t('fee_status') }}</div>
-<div class="chs">{% for v, k in [('','tab_all'),('paid','paid_list'),('pending','pending'),('upcoming','upcoming')] %}<label class="ch"><input type="radio" name="fee" value="{{ v }}" {{ 'checked' if fee == v }}><span>{{ t(k) }}</span></label>{% endfor %}</div>
-<div class="sect">{{ t('sort_by') }}</div>
-<div class="chs">{% for v, k in [('name','sort_name'),('recent','sort_recent'),('due','sort_due')] %}<label class="ch"><input type="radio" name="sort" value="{{ v }}" {{ 'checked' if sort == v }}><span>{{ t(k) }}</span></label>{% endfor %}</div>
-<div class="row" style="margin-top:22px;gap:10px"><a class="btn ghost" href="/students" style="margin:0">{{ t('reset') }}</a><button>{{ t('apply') }}</button></div>
-</form></div>
-
+<div class="sheet" id="sh-s" hidden onclick="if(event.target===this)this.hidden=true"><div class="sp">
+<h3>{{ t('sort_by') }}</h3>
+{% for v, k in [('name','sort_name'),('recent','sort_recent'),('due','sort_due')] %}<a class="opt" href="{{ href(sort=v) }}">{{ t(k) }}<i class="rd {{ 'on' if srt == v }}"></i></a>{% endfor %}
+</div></div>
+<div class="sheet" id="sh-f" hidden onclick="if(event.target===this)this.hidden=true"><div class="sp">
+<h3>{{ t('fee_status') }}</h3>
+{% for v, k in [('','tab_all'),('paid','paid_list'),('pending','pending'),('upcoming','upcoming')] %}<a class="opt" href="{{ href(fee=v) }}">{{ t(k) }}<i class="rd {{ 'on' if fee == v }}"></i></a>{% endfor %}
+</div></div>
 <div class="sheet" id="sh-b" hidden onclick="if(event.target===this)this.hidden=true"><div class="sp">
 <h3>{{ t('select_batch') }}</h3>
 <a class="opt" href="{{ href(batch='') }}">{{ t('all_batches') }}<i class="rd {{ 'on' if not bid }}"></i></a>
 {% for b in batches %}<a class="opt" href="{{ href(batch=b.id) }}">{{ b.name }}<i class="rd {{ 'on' if bid == b.id }}"></i></a>{% endfor %}
 <a class="opt" href="/batches/new?next=/students" style="color:var(--navy)">+ {{ t('create_batch') }}</a>
-<a class="opt" href="/batches">{{ t('manage_batches') }}<span class="chev">›</span></a>
+<a class="opt" href="/batches">{{ t('manage_batches') }}<span style="color:#b5bcc8">›</span></a>
 </div></div>
-
 <div class="sheet" id="sh-c" hidden onclick="if(event.target===this)this.hidden=true"><div class="sp">
 <h3>{{ t('select_class') }}</h3>
 <a class="opt" href="{{ href(cls='') }}">{{ t('all_classes') }}<i class="rd {{ 'on' if not cls }}"></i></a>
