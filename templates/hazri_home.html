@@ -18,7 +18,6 @@ header.dk{display:block;padding:16px 16px 14px}
 <a class="hb" href="/hazri/overall" aria-label="{{ t('att_report') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M6 20V11M12 20V5M18 20v-6"/></svg></a>
 <button type="button" class="hb" onclick="pk()" aria-label="{{ t('pick_date') }}"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16M8 14h2M12 14h2M16 14h.01M8 17h2M12 17h2"/></svg></button>
 </div></div>
-<input type="date" id="dp" value="{{ day }}" max="{{ today }}" style="position:absolute;left:0;top:0;opacity:0;width:1px;height:1px" onchange="if(this.value)location.href='/hazri?day='+this.value">
 <div class="wk7">{% for w in week %}{% if w.fut %}<span class="fut">{{ t('wd' ~ w.wd) }}<b>{{ w.n }}</b></span>{% else %}<a class="{{ 'sel' if w.sel }}" href="/hazri?day={{ w.iso }}">{{ t('wd' ~ w.wd) }}<b>{{ w.n }}</b></a>{% endif %}{% endfor %}</div>
 </header>
 {% endblock %}
@@ -47,7 +46,91 @@ header.dk{display:block;padding:16px 16px 14px}
 {% else %}
 <div class="card muted">{{ t('no_classes_att') }}</div>
 {% endfor %}
+<style>
+.csh{position:fixed;inset:0;background:rgba(10,15,25,.55);z-index:60;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.csh[hidden],.csh [hidden]{display:none!important}
+.cx{width:42px;height:42px;padding:0;margin:0 0 14px;border-radius:50%;background:rgba(90,100,115,.9);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center}
+.cp{background:#fff;width:100%;border-radius:26px 26px 0 0;padding:22px 18px calc(20px + env(safe-area-inset-bottom))}
+.cp h3{margin:0 0 14px 6px;font-size:26px;color:var(--navy)}
+.chd{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.cn{width:48px;height:48px;padding:0;border-radius:14px;background:#eef2f6;color:var(--navy);font-size:26px;line-height:1}
+.cm{width:auto;background:transparent;color:var(--navy);font-size:22px;font-weight:700;padding:8px 10px}
+.cw,.cg{display:grid;grid-template-columns:repeat(7,1fr)}
+.cw span{text-align:center;color:#8e9bb0;font-weight:600;padding:8px 0;font-size:15px}
+.cg{row-gap:4px}
+.dc{height:48px;padding:0;background:transparent;color:var(--ink);font-size:18px;font-weight:700;border-radius:14px;width:100%}
+.dc.td{box-shadow:inset 0 0 0 1.5px var(--navy)}
+.dc.sel{background:var(--navy);color:#fff;box-shadow:none}
+.dc.off{color:#c3cad6;font-weight:600}
+.cbody{min-height:330px}
+.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.mc{padding:16px 0;background:#eef2f6;color:var(--navy);font-size:17px;font-weight:600;border-radius:14px}
+.mc.sel{background:var(--navy);color:#fff}
+.mc.off{opacity:.35}
+#cok{margin-top:8px}
+</style>
+<div class="csh" id="cs" hidden onclick="if(event.target===this)cc()">
+<button type="button" class="cx" onclick="cc()" aria-label="Close">✕</button>
+<div class="cp">
+<h3>{{ t('select_date') }}</h3>
+<div class="chd"><button type="button" class="cn" id="cprev">‹</button><button type="button" class="cm" id="ctitle"></button><button type="button" class="cn" id="cnext">›</button></div>
+<div class="cbody"><div class="cw" id="cwk"></div><div class="cg" id="cgrid"></div><div id="cmon" hidden></div></div>
+<button type="button" id="cok">{{ t('select_date') }}</button>
+</div></div>
 <script>
-function pk(){var e=document.getElementById('dp');if(e.showPicker){e.showPicker()}else{e.focus();e.click()}}
+(function(){
+var TODAY='{{ today }}',SEL='{{ day }}',LANG='{{ lang }}';
+var WD=LANG==='hi'?['र','सो','मं','बु','गु','शु','श']:['S','M','T','W','T','F','S'];
+var loc=LANG==='hi'?'hi-IN':'en-IN';
+var cs=document.getElementById('cs'),grid=document.getElementById('cgrid'),wk=document.getElementById('cwk'),
+ mon=document.getElementById('cmon'),title=document.getElementById('ctitle'),
+ prev=document.getElementById('cprev'),next=document.getElementById('cnext');
+var ty=+TODAY.slice(0,4),tm=+TODAY.slice(5,7)-1,vy,vm,picked;
+wk.innerHTML=WD.map(function(w){return '<span>'+w+'</span>'}).join('');
+function p2(n){return ('0'+n).slice(-2)}
+function iso(y,m,d){return y+'-'+p2(m+1)+'-'+p2(d)}
+function mn(y,m,l){return new Date(y,m,1).toLocaleString(loc,{month:l})}
+function atMax(){return vy>ty||(vy===ty&&vm>=tm)}
+function draw(){
+ title.textContent=mn(vy,vm,'long')+' '+vy+' ▾';
+ next.style.opacity=atMax()?0.35:1;
+ var first=new Date(vy,vm,1).getDay(),n=new Date(vy,vm+1,0).getDate(),h='';
+ for(var i=0;i<first;i++){h+='<span></span>'}
+ for(var d=1;d<=n;d++){
+  var s=iso(vy,vm,d),c='dc'+(s===picked?' sel':(s===TODAY?' td':''))+(s>TODAY?' off':'');
+  h+='<button type="button" class="'+c+'" data-d="'+s+'"'+(s>TODAY?' disabled':'')+'>'+d+'</button>';
+ }
+ grid.innerHTML=h;
+}
+function drawM(){
+ var h='<div class="chd"><button type="button" class="cn" id="yp">‹</button><b style="font-size:21px;color:#222f40">'+vy+'</b><button type="button" class="cn" id="yn" style="opacity:'+(vy>=ty?0.35:1)+'">›</button></div><div class="mg">';
+ for(var m=0;m<12;m++){
+  var off=vy>ty||(vy===ty&&m>tm);
+  h+='<button type="button" class="mc'+(m===vm?' sel':'')+(off?' off':'')+'" data-m="'+m+'"'+(off?' disabled':'')+'>'+mn(vy,m,'short')+'</button>';
+ }
+ mon.innerHTML=h+'</div>';
+}
+function showM(on){
+ mon.hidden=!on;grid.hidden=on;wk.hidden=on;
+ prev.style.visibility=on?'hidden':'visible';next.style.visibility=on?'hidden':'visible';
+ if(on){drawM()}
+}
+mon.addEventListener('click',function(e){
+ var b=e.target.closest('button');if(!b)return;
+ if(b.id==='yp'){vy--;drawM()}
+ else if(b.id==='yn'){if(vy<ty){vy++;drawM()}}
+ else if(b.dataset.m!==undefined&&!b.disabled){vm=+b.dataset.m;showM(false);draw()}
+});
+grid.addEventListener('click',function(e){
+ var b=e.target.closest('button');if(!b||b.disabled)return;
+ picked=b.dataset.d;draw();
+});
+prev.addEventListener('click',function(){vm--;if(vm<0){vm=11;vy--}draw()});
+next.addEventListener('click',function(){if(atMax())return;vm++;if(vm>11){vm=0;vy++}draw()});
+title.addEventListener('click',function(){showM(mon.hidden)});
+document.getElementById('cok').addEventListener('click',function(){if(picked){location.href='/hazri?day='+picked}});
+window.pk=function(){picked=SEL;vy=+SEL.slice(0,4);vm=+SEL.slice(5,7)-1;showM(false);draw();cs.hidden=false};
+window.cc=function(){cs.hidden=true};
+})();
 </script>
 {% endblock %}
