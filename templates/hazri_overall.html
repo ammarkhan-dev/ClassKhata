@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block hdr %}
+<style>
+header.dk{display:block;padding:14px 16px}
+.hb{width:46px;height:46px;padding:0;border-radius:14px;background:rgba(255,255,255,.12);color:#fff;border:0;display:flex;align-items:center;justify-content:center;text-decoration:none;flex:none}
+.hb .ic{stroke:#fff}
+</style>
+<header class="dk"><div class="row" style="justify-content:flex-start;gap:12px">
+<a class="hb" href="/hazri" aria-label="{{ t('back') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
+<b style="font-size:21px">{{ t('att_report') }}</b></div></header>
+{% endblock %}
+{% block body %}
+<style>
+@media print{@page{size:A4 landscape;margin:10mm}header,nav,.noprint{display:none!important}body{background:#fff;padding:0}main{padding:0;max-width:none}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}.ppr{border-width:1.5px!important}}
+.mo{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 14px;margin-bottom:14px}
+.mo a{font-size:28px;color:var(--navy);text-decoration:none;padding:0 12px;line-height:1}
+.mo a.off{color:#c9cfda;pointer-events:none}
+.ppr{background:#fff;border:2px solid var(--navy);border-radius:8px;padding:16px}
+.rh{display:flex;gap:12px;align-items:center;border-bottom:2px solid var(--navy);padding-bottom:12px;margin-bottom:14px}
+.lgo{width:46px;height:46px;border:1.5px solid var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);flex:none}
+.rs{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);padding:14px 0 6px;margin-bottom:8px}
+.pg{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line)}
+.pg>div{padding:8px 10px;border-bottom:1px solid var(--line);font-size:13px}
+.pg>div:nth-child(odd){border-right:1px solid var(--line)}
+.pg small{display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.gl{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.gl>div{background:#f3f6fa;border:1px solid var(--line);padding:10px}
+.gl b{display:block;font-size:22px;color:var(--navy)}
+.gl small{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.mx{border-collapse:collapse;font-size:10.5px;min-width:100%}
+.mx th,.mx td{border:1px solid var(--line);padding:5px 3px;text-align:center;min-width:23px}
+.mx th{background:#f3f6fa;color:var(--navy)}
+.mx th.sn{background:#e8eefb}
+.mx .g{background:#e3f2e8;color:#1f7a45}.mx .m{background:#fbf0d4;color:#8a6a00}.mx .r{background:#fbe3e0;color:#c0392b}
+.mx .h{background:#e3ebfa;color:#2f4f9a}.mx .n{color:#b5bcc8}
+.lgd{display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+.lgd i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:-2px}
+</style>
+<div class="mo noprint"><a href="/hazri/overall?month={{ prev }}">‹</a><b>{{ month_label }}</b><a href="/hazri/overall?month={{ nxt }}" class="{{ '' if can_next else 'off' }}">›</a></div>
+<div class="ppr">
+<div class="rh"><div class="lgo">{{ ini }}</div><div><div style="font-size:20px;font-weight:700;color:var(--navy);line-height:1.15">{{ inst }}</div>
+<div style="font-weight:600;margin-top:2px">{{ t('att_report') }}</div><div class="muted">{{ rng }}</div></div></div>
+<div class="rs">{{ t('rep_particulars') }}</div>
+<div class="pg">
+<div><small>{{ t('classes_in') }}</small>{{ n_cls }}</div>
+<div><small>{{ t('nav_students') }}</small>{{ n_stu }}</div>
+<div><small>{{ t('dates_in_range') }}</small>{{ nd }}</div>
+<div><small>{{ t('rep_by') }}</small>{{ who or '—' }}</div>
+<div><small>{{ t('generated_on') }}</small>{{ gen }}</div>
+<div><small>{{ t('marked_records') }}</small>{{ tot[0] + tot[1] + tot[2] }}</div>
+</div>
+<div class="rs">{{ t('month_glance') }}</div>
+<div class="gl">
+<div><small>{{ t('rep_att') }}</small><b>{% if avg is not none %}{{ avg }}%{% else %}—{% endif %}</b><small>{{ t('inst_avg') }}</small></div>
+<div><small>{{ t('present') }}</small><b style="color:var(--green)">{{ tot[0] }}</b><small>{{ t('student_days') }}</small></div>
+<div><small>{{ t('absent') }}</small><b style="color:var(--red)">{{ tot[1] }}</b><small>{{ t('student_days') }}</small></div>
+<div><small>{{ t('holiday_records') }}</small><b style="color:#2f4f9a">{{ tot[2] }}</b><small>{{ t('student_days') }}</small></div>
+</div>
+<div class="rs">{{ t('legend') }} · {{ t('legend_note') }}</div>
+<div class="lgd"><span><i style="background:#e3f2e8"></i>90%+</span><span><i style="background:#fbf0d4"></i>75–89%</span><span><i style="background:#fbe3e0"></i>&lt; 75%</span><span><i style="background:#e3ebfa"></i>{{ t('holiday') }}</span><span><i style="background:#f3f6fa;border:1px solid var(--line)"></i>{{ t('no_class_day') }}</span></div>
+<p class="muted" style="font-size:12px;margin:8px 0 0">{{ t('att_formula') }}</p>
+{% if matrix %}
+<div class="rs">{{ t('daily_att') }}</div>
+<div style="overflow-x:auto"><table class="mx">
+<tr><th>{{ t('class') }}</th>{% for d in days %}<th class="{{ 'sn' if d.sun }}">{{ d.n }}</th>{% endfor %}<th>P</th><th>A</th><th>H</th><th>%</th></tr>
+{% for r in matrix %}<tr><th>{{ r.cls }}</th>{% for c in r.cells %}<td class="{{ c.k }}">{{ c.t }}</td>{% endfor %}<td>{{ r.p }}</td><td>{{ r.a }}</td><td>{{ r.h }}</td><td><b>{% if r.pct is not none %}{{ r.pct }}%{% else %}—{% endif %}</b></td></tr>{% endfor %}
+</table></div>
+<div class="rs">{{ t('student_wise') }}</div>
+<div style="overflow-x:auto"><table class="mx" style="font-size:12px">
+<tr><th>#</th><th style="text-align:left">{{ t('rep_student') }}</th><th>{{ t('class') }}</th><th>P</th><th>A</th><th>H</th><th>%</th></tr>
+{% for s in srows %}<tr><td>{{ loop.index }}</td><td style="text-align:left"><b>{{ s.name }}</b></td><td>{{ s.cls }}</td><td>{{ s.p }}</td><td>{{ s.a }}</td><td>{{ s.h }}</td><td class="{{ ('g' if s.pct >= 90 else ('m' if s.pct >= 75 else 'r')) if s.pct is not none else 'n' }}"><b>{% if s.pct is not none %}{{ s.pct }}%{% else %}—{% endif %}</b></td></tr>{% endfor %}
+</table></div>
+{% else %}
+<p class="muted" style="margin-top:16px">{{ t('no_att_data') }}</p>
+{% endif %}
+</div>
+<div class="noprint">
+<div class="row" style="margin-top:16px;gap:10px"><button type="button" class="btn ghost" style="margin:0" onclick="sh()">{{ t('share') }}</button><button type="button" onclick="window.print()">{{ t('download') }}</button></div>
+<p class="muted">{{ t('pdf_howto') }}</p>
+</div>
+<script>
+function sh(){var d={title:{{ t('att_report')|tojson }},text:{{ share|tojson }}};if(navigator.share){navigator.share(d).catch(function(){})}else{window.print()}}
+</script>
+{% endblock %}

@@ -1,0 +1,16 @@
+EN14 = {
+"wd0": "Mon", "wd1": "Tue", "wd2": "Wed", "wd3": "Thu", "wd4": "Fri", "wd5": "Sat", "wd6": "Sun",
+"att_title": "Attendance", "mark_now": "Mark now", "edit_att": "Edit",
+"marked_of": "{m} of {n} marked", "present_pct": "present",
+"mark_att_title": "Mark Attendance", "holiday": "Holiday",
+"no_classes_att": "Add students to start marking attendance.",
+"pick_date": "Pick a date", "att_report": "Attendance — Overall",
+"rep_particulars": "Report particulars", "month_glance": "Month at a glance",
+"legend": "Legend", "legend_note": "Daily cells show that day's attendance %",
+"att_formula": "Attendance % = Present ÷ (Present + Absent) × 100. Holidays are excluded.",
+"classes_in": "Classes", "dates_in_range": "Dates in range", "marked_records": "Marked records",
+"holiday_records": "Holiday records", "generated_on": "Generated on", "student_days": "student-days",
+"inst_avg": "institute average", "daily_att": "Daily attendance by class",
+"student_wise": "Student-wise summary", "no_class_day": "No class",
+"no_att_data": "No attendance marked in this month.",
+}

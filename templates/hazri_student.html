@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block body %}
 {% include "_shared.html" %}
-<a class="muted" href="/hazri/{{ s.cls }}" style="text-decoration:none">‹ {{ t('class') }} {{ s.cls }}</a>
-<h1 class="page" style="margin-top:6px">{{ s.name }}</h1>
+<a class="muted" href="/students/{{ s.id }}" style="text-decoration:none">‹ {{ s.name }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('att_history') }}</h1>
 <div class="hero" style="padding:18px 22px">
 <div class="lbl">{{ t('att_overall') }}</div>
-<div class="num" style="font-size:48px">{% if pct is not none %}{{ pct }}%{% else %}—{% endif %}</div>
-<div class="sub">{{ s.pres }}/{{ s.tot }} {{ t('class_days') }} · {{ t('since_joining') }}</div>
+<div class="num" style="font-size:46px">{% if pct is not none %}{{ pct }}%{% else %}—{% endif %}</div>
+<div class="sub">{{ s.pres }}/{{ s.tot }} · {{ t('present') }} / ({{ t('present') }} + {{ t('absent') }})</div>
 </div>
 <div class="card">
 <div class="row"><a href="?month={{ prev }}" class="nv">‹</a><b class="mt">{{ month_label }}</b><a href="?month={{ nxt }}" class="nv">›</a></div>
@@ -18,11 +18,10 @@
 {% endif %}
 {% endfor %}{% endfor %}
 </div>
-<div class="lg"><span><i style="background:var(--green)"></i>{{ t('present') }}</span><span><i style="background:var(--red)"></i>{{ t('absent') }}</span><span><i style="background:#ececec"></i>{{ t('not_marked') }}</span></div>
+<div class="lg"><span><i style="background:var(--green)"></i>{{ t('present') }}</span><span><i style="background:var(--red)"></i>{{ t('absent') }}</span><span><i style="background:#d6e2f8"></i>{{ t('holiday') }}</span></div>
 <div class="row" style="margin-top:14px;text-align:center">
 <div><div class="big g">{{ p }}</div><div class="muted">{{ t('present') }}</div></div>
 <div><div class="big r">{{ a }}</div><div class="muted">{{ t('absent') }}</div></div>
-<div><div class="big" style="color:var(--muted)">{{ n }}</div><div class="muted">{{ t('not_marked') }}</div></div>
-</div>
-</div>
+<div><div class="big" style="color:#2f4f9a">{{ h }}</div><div class="muted">{{ t('holiday') }}</div></div>
+</div></div>
 {% endblock %}

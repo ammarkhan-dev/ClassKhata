@@ -1,19 +1,53 @@
 {% extends "base.html" %}
+{% block hdr %}
+<style>
+header.dk{display:block;padding:16px 16px 14px}
+.dk h1{margin:0;font-size:26px;font-weight:700}
+.hb{position:relative;width:46px;height:46px;padding:0;border-radius:14px;background:rgba(255,255,255,.12);color:#fff;border:0;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.hb .ic{stroke:#fff}
+.wk7{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:14px}
+.wk7>*{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 0;border-radius:14px;color:#b4c0d3;text-decoration:none;font-size:13px}
+.wk7 b{font-size:21px;color:#fff;font-weight:700}
+.wk7 .sel{background:#fff;color:var(--muted)}
+.wk7 .sel b{color:var(--navy)}
+.wk7 .fut{opacity:.35}
+</style>
+<header class="dk">
+<div class="row"><h1>{{ t('att_title') }}</h1>
+<div class="row" style="gap:8px">
+<a class="hb" href="/hazri/overall" aria-label="{{ t('att_report') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M6 20V11M12 20V5M18 20v-6"/></svg></a>
+<button type="button" class="hb" onclick="pk()" aria-label="{{ t('pick_date') }}"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16M8 14h2M12 14h2M16 14h.01M8 17h2M12 17h2"/></svg></button>
+</div></div>
+<input type="date" id="dp" value="{{ day }}" max="{{ today }}" style="position:absolute;left:0;top:0;opacity:0;width:1px;height:1px" onchange="if(this.value)location.href='/hazri?day='+this.value">
+<div class="wk7">{% for w in week %}{% if w.fut %}<span class="fut">{{ t('wd' ~ w.wd) }}<b>{{ w.n }}</b></span>{% else %}<a class="{{ 'sel' if w.sel }}" href="/hazri?day={{ w.iso }}">{{ t('wd' ~ w.wd) }}<b>{{ w.n }}</b></a>{% endif %}{% endfor %}</div>
+</header>
+{% endblock %}
 {% block body %}
-<h1 class="page">{{ t('nav_attendance') }}</h1>
-<form method="get">
-<label style="margin-top:0">{{ t('date') }}</label>
-<input type="date" name="day" value="{{ day }}" max="{{ today }}" onchange="this.form.submit()">
-</form>
-<p class="sect">{{ t('att_pick') }}</p>
-<div class="grid2">
-{% for c in [9,10,11,12] %}
-{% set tot = info.get(c, (0, 0))[0] %}{% set mk = info.get(c, (0, 0))[1] %}
-<a class="cls" href="/hazri/{{ c }}?day={{ day }}">
-<div class="k">{{ t('class') }} {{ c }}</div>
-<div class="n">{{ mk }}<span style="font-size:18px;color:var(--muted)">/{{ tot }}</span></div>
-<div class="u">{{ t('marked') }}</div>
-</a>
-{% endfor %}
+<style>
+.sm{background:var(--navy);color:#fff;border-radius:20px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.sm small{display:block;color:#b4c0d3;font-size:15px}
+.sm b{display:block;font-size:24px;margin-top:4px}
+.sm .pp{font-size:32px;font-weight:700;color:#6fd18b;display:block;line-height:1.1}
+.cc{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:12px}
+.ca{width:54px;height:54px;border-radius:16px;font-size:20px;font-weight:700;color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none}
+.ci{flex:1;min-width:0}
+.ci b{display:block;font-size:19px}
+.mn{background:var(--navy);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:14px;font-size:15px;white-space:nowrap}
+.mn.ed{background:#eef2f6;color:var(--navy)}
+</style>
+<div class="sm"><div><small>{{ t('wd' ~ wd) }}, {{ dnum }}</small><b>{{ t('marked_of').format(m=m_done, n=n_cls) }}</b></div>
+<div style="text-align:right"><span class="pp">{{ pct_all }}%</span><small>{{ t('present_pct') }}</small></div></div>
+{% for c in rows %}
+<div class="cc">
+<span class="ca" style="background:{{ ['#e6ecf3','#f3ead9','#e3f0e8','#efe3ee'][c.cls % 4] }}">{{ c.cls }}</span>
+<div class="ci"><b>{{ t('class') }} {{ c.cls }}</b>
+<span class="muted">{{ c.total }} {{ t('student_one') if c.total == 1 else t('students_word') }}{% if c.marked %} · <span style="color:var(--green)">P {{ c.p }}</span> · <span style="color:var(--red)">A {{ c.a }}</span>{% if c.h %} · <span style="color:#2f4f9a">H {{ c.h }}</span>{% endif %}{% endif %}</span></div>
+<a class="mn {{ 'ed' if c.marked >= c.total }}" href="/hazri/{{ c.cls }}?day={{ day }}">{{ t('edit_att') if c.marked >= c.total else t('mark_now') }}</a>
 </div>
+{% else %}
+<div class="card muted">{{ t('no_classes_att') }}</div>
+{% endfor %}
+<script>
+function pk(){var e=document.getElementById('dp');if(e.showPicker){e.showPicker()}else{e.focus();e.click()}}
+</script>
 {% endblock %}

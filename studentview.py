@@ -123,8 +123,7 @@ def setup(app, db):
         adm = s["admission_date"] or "0000-00-00"
         r = db().execute("""SELECT
             (SELECT COUNT(*) FROM attendance x WHERE x.student_id=? AND x.status='P' AND x.day>=?) AS pres,
-            (SELECT COUNT(DISTINCT y.day) FROM attendance y JOIN students t ON t.id=y.student_id
-             WHERE t.cls=? AND y.day>=?) AS tot""", (sid, adm, s["cls"], adm)).fetchone()
+            (SELECT COUNT(*) FROM attendance y WHERE y.student_id=? AND y.status IN ('P','A') AND y.day>=?) AS tot""", (sid, adm, sid, adm)).fetchone()
         ex = db().execute("SELECT * FROM student_extra WHERE student_id=?", (sid,)).fetchone()
         has_photo = db().execute("SELECT 1 FROM student_photo WHERE student_id=?", (sid,)).fetchone() is not None
         return render_template("student_detail.html", s=s, ex=ex, entries=entries[::-1], fee=fee,

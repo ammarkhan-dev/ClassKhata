@@ -36,7 +36,7 @@ def setup(app, db):
         today = date.today().isoformat()
         month = date.today().replace(day=1).isoformat()
         p = q("SELECT COUNT(*) FROM attendance a JOIN students s ON s.id=a.student_id WHERE a.day=? AND a.status='P'", (today,))
-        marked = q("SELECT COUNT(*) FROM attendance a JOIN students s ON s.id=a.student_id WHERE a.day=?", (today,))
+        marked = q("SELECT COUNT(*) FROM attendance a JOIN students s ON s.id=a.student_id WHERE a.day=? AND a.status IN ('P','A')", (today,))
         pn, pa = fees.pending_all(db)
         return render_template("home.html", greet=greeting(), p=p,
             pct=round(100 * p / marked) if marked else 0, pa=pa,

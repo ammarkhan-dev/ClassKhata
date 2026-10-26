@@ -1,32 +1,75 @@
 {% extends "base.html" %}
+{% block hdr %}
+<style>
+header.dk{display:block;padding:14px 16px}
+.hb{width:46px;height:46px;padding:0;border-radius:14px;background:rgba(255,255,255,.12);color:#fff;border:0;display:flex;align-items:center;justify-content:center;text-decoration:none;flex:none}
+.hb .ic{stroke:#fff}
+</style>
+<header class="dk"><div class="row" style="justify-content:flex-start;gap:12px">
+<a class="hb" href="/hazri?day={{ day }}" aria-label="{{ t('back') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
+<div><b style="font-size:22px;display:block">{{ t('mark_att_title') }}</b><span style="color:#b4c0d3;font-size:14px">{{ t('class') }} {{ cls }} · {{ dlabel }}</span></div>
+</div></header>
+{% endblock %}
 {% block body %}
-{% include "_shared.html" %}
-<a class="muted" href="/hazri?day={{ day }}" style="text-decoration:none">‹ {{ t('back') }}</a>
-<h1 class="page" style="margin-top:6px">{{ t('class') }} {{ cls }}</h1>
-<form method="get">
-<input type="date" name="day" value="{{ day }}" max="{{ today }}" onchange="this.form.submit()">
-</form>
-<div class="card row" style="text-align:center;margin-top:12px">
-<div><div class="big g">{{ p }}</div><div class="muted">{{ t('present') }}</div></div>
-<div><div class="big r">{{ a }}</div><div class="muted">{{ t('absent') }}</div></div>
-<div><div class="big" style="color:var(--muted)">{{ rows|length - p - a }}</div><div class="muted">{{ t('not_marked') }}</div></div>
+<style>
+.tl3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.tl3 div{border-radius:16px;padding:12px 6px;text-align:center;font-size:14px;font-weight:600}
+.tl3 b{display:block;font-size:26px}
+.arow{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px 12px;margin-bottom:10px}
+.aav{width:44px;height:44px;border-radius:14px;background:#e6ecf3;color:var(--navy);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.anm{flex:1;min-width:0;font-weight:600;font-size:17px;overflow-wrap:anywhere}
+.sg3{display:flex;background:#eef2f6;border-radius:12px;padding:3px;gap:2px;flex:none}
+.sg3 button{width:42px;padding:9px 0;border-radius:10px;background:transparent;color:#8a95a8;font-size:15px;font-weight:700;border:0;display:block}
+.sg3 button.on[data-v=P]{background:#cfeadb;color:#1f7a45}
+.sg3 button.on[data-v=A]{background:#f8d5d1;color:#c0392b}
+.sg3 button.on[data-v=H]{background:#d6e2f8;color:#2f4f9a}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:12px 16px calc(14px + env(safe-area-inset-bottom));display:flex;gap:10px}
+.bar button{padding:15px 10px}
+.bar .all{flex:1;background:#fff;color:#1f7a45;border:1.5px solid #bfe0cd;font-size:15px}
+.bar .sv{flex:1.4}
+</style>
+<form method="post" action="/hazri/save">
+<input type="hidden" name="cls" value="{{ cls }}"><input type="hidden" name="day" value="{{ day }}">
+<div class="tl3">
+<div style="background:#e6f3ea;color:#1f7a45"><b id="cP">0</b>{{ t('present') }}</div>
+<div style="background:#fbe6e4;color:#c0392b"><b id="cA">0</b>{{ t('absent') }}</div>
+<div style="background:#e8eefb;color:#2f4f9a"><b id="cH">0</b>{{ t('holiday') }}</div>
 </div>
 {% for r in rows %}
-<div class="stu" id="s{{ r.id }}">
-<div class="row"><a href="/hazri/student/{{ r.id }}" style="color:inherit;text-decoration:none"><b>{{ r.name }}</b><br><span class="muted">{{ t('view_history') }} ›</span></a>
-{% if r.pct is not none %}<span class="pc {{ 'hi' if r.pct >= 75 else ('mid' if r.pct >= 60 else 'lo') }}">{{ r.pct }}%</span>{% else %}<span class="muted">—</span>{% endif %}</div>
-<form method="post" action="/mark" class="pa">
-<input type="hidden" name="sid" value="{{ r.id }}">
-<input type="hidden" name="day" value="{{ day }}">
-<button name="status" value="P" class="p {{ 'on' if r.status == 'P' else 'o' }}">{{ t('present') }}</button>
-<button name="status" value="A" class="a {{ 'on' if r.status == 'A' else 'o' }}">{{ t('absent') }}</button>
-</form></div>
+<div class="arow"><span class="aav">{{ r.name[:1]|upper }}</span><span class="anm">{{ r.name }}</span>
+<div class="sg3"><button type="button" data-v="P">P</button><button type="button" data-v="A">A</button><button type="button" data-v="H">H</button></div>
+<input type="hidden" name="s{{ r.id }}" value="{{ r.status or '' }}"></div>
 {% else %}
 <div class="card muted">{{ t('no_students_in_class') }}</div>
 {% endfor %}
-{% if rows %}
-<form method="post" action="/mark_all">
-<input type="hidden" name="cls" value="{{ cls }}"><input type="hidden" name="day" value="{{ day }}">
-<button class="btn ghost">{{ t('mark_all') }}</button></form>
-{% endif %}
+{% if rows %}<div class="bar"><button type="button" class="all" id="all">{{ t('mark_all') }}</button><button class="sv">{{ t('save') }}</button></div>{% endif %}
+</form>
+<script>
+(function(){
+ var rows=document.querySelectorAll('.arow');
+ function cnt(){
+  var c={P:0,A:0,H:0};
+  document.querySelectorAll('.arow input').forEach(function(i){if(c[i.value]!==undefined){c[i.value]++}});
+  document.getElementById('cP').textContent=c.P;
+  document.getElementById('cA').textContent=c.A;
+  document.getElementById('cH').textContent=c.H;
+ }
+ function setv(r,v){
+  r.querySelector('input').value=v;
+  r.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.v===v)});
+ }
+ rows.forEach(function(r){
+  r.querySelectorAll('button').forEach(function(b){
+   b.addEventListener('click',function(){
+    var cur=r.querySelector('input').value;
+    setv(r,cur===b.dataset.v?'':b.dataset.v);cnt();
+   });
+  });
+  setv(r,r.querySelector('input').value);
+ });
+ var all=document.getElementById('all');
+ if(all){all.addEventListener('click',function(){rows.forEach(function(r){setv(r,'P')});cnt()})}
+ cnt();
+})();
+</script>
 {% endblock %}
