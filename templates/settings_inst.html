@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block hsub %}{{ t('institute_profile') }}{% endblock %}
+{% block body %}
+{% include "_pf.html" %}
+<a class="muted" href="/more" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('institute_profile') }}</h1>
+{% if saved %}<div class="okb">{{ t('saved') }}</div>{% endif %}
+<form method="post" class="card">
+<label style="margin-top:0">{{ t('institute_name') }} *</label>
+<input name="inst" value="{{ institute }}" required>
+<label>{{ t('addr_l') }}</label>
+<input name="addr" value="{{ c.inst_addr }}" placeholder="Village, Block, District">
+<label>{{ t('phone_l') }}</label>
+<input name="phone" value="{{ c.inst_phone }}" inputmode="tel" placeholder="98765 43210">
+<p class="hint">{{ t('inst_hint') }}</p>
+<div style="height:14px"></div>
+<button>{{ t('save') }}</button>
+</form>
+{% endblock %}

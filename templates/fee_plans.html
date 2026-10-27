@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block hsub %}{{ t('fee_plans') }}{% endblock %}
+{% block body %}
+<a class="muted" href="/more" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('fee_plans') }}</h1>
+<p class="muted" style="margin:-8px 0 14px">{{ t('plans_hint') }}</p>
+{% for p in rows %}<a class="item" href="/fee-plans/{{ p.id }}/edit"><span>{{ p.name }}</span><b>₹{{ '{:,}'.format(p.amount) }}</b></a>
+{% else %}<div class="card muted">{{ t('no_plans') }}</div>{% endfor %}
+<a class="btn" href="/fee-plans/new">+ {{ t('plan_new') }}</a>
+{% endblock %}

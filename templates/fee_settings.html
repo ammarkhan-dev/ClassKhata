@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block hsub %}{{ t('fee_settings') }}{% endblock %}
+{% block body %}
+{% include "_pf.html" %}
+<a class="muted" href="/more" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('fee_settings') }}</h1>
+{% if saved %}<div class="okb">{{ t('saved') }}</div>{% endif %}
+<form method="post" class="card">
+<div class="fl3" style="margin-top:0">{{ t('rem_lang') }}</div>
+<div class="chs">
+<label class="chp"><input type="radio" name="remind_lang" value="" {{ 'checked' if not c.remind_lang }}><span>{{ t('rl_auto') }}</span></label>
+<label class="chp"><input type="radio" name="remind_lang" value="en" {{ 'checked' if c.remind_lang == 'en' }}><span>English</span></label>
+<label class="chp"><input type="radio" name="remind_lang" value="hi" {{ 'checked' if c.remind_lang == 'hi' }}><span>{{ t('rl_hi') }}</span></label>
+</div>
+<div class="fl3">{{ t('def_mode_l') }}</div>
+<div class="chs">
+<label class="chp"><input type="radio" name="def_mode" value="Cash" {{ 'checked' if c.def_mode == 'Cash' }}><span>{{ t('cash') }}</span></label>
+<label class="chp"><input type="radio" name="def_mode" value="UPI" {{ 'checked' if c.def_mode == 'UPI' }}><span>{{ t('upi') }}</span></label>
+<label class="chp"><input type="radio" name="def_mode" value="Other" {{ 'checked' if c.def_mode == 'Other' }}><span>{{ t('other') }}</span></label>
+</div>
+<div class="fl3">{{ t('pay_info_l') }}</div>
+<textarea name="pay_info" maxlength="200" placeholder="UPI: name@bank">{{ c.pay_info }}</textarea>
+<p class="hint">{{ t('pay_info_hint') }}</p>
+<div class="fl3">{{ t('rec_note_l') }}</div>
+<input name="rec_note" value="{{ c.rec_note }}" maxlength="160" placeholder="{{ t('rec_note_ph') }}">
+<div style="height:18px"></div>
+<button>{{ t('save') }}</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block hsub %}{{ t('classes') }}{% endblock %}
+{% block body %}
+<a class="muted" href="/more" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('classes') }}</h1>
+<p class="muted" style="margin:-8px 0 14px">{{ t('classes_hint') }}</p>
+{% for r in rows %}
+<a class="item" href="/students?cls={{ r.cls }}" style="align-items:flex-start"><span><b>{{ t('class') }} {{ r.cls }}</b><br><span class="muted" style="font-weight:400">{{ r.n }} {{ t('student_one') if r.n == 1 else t('students_word') }}</span><br><span class="muted" style="font-weight:400">{{ t('exp_fee') }}: ₹{{ '{:,}'.format(r.exp) }}{% if r.pend %} · <span style="color:var(--amber)">{{ t('pending') }} ₹{{ '{:,}'.format(r.pend) }}</span>{% endif %}</span></span><span class="chev">›</span></a>
+{% endfor %}
+<p class="sect">{{ t('sessions_title') }}</p>
+<div class="card"><div class="kv"><span>{{ t('cur_session_l') }}</span><span>{{ ses }}</span></div></div>
+<a class="item" href="/records"><span>{{ t('n_records').format(n=nrec) }}<br><span class="muted" style="font-weight:400">{{ t('records_sub') }}</span></span><span class="chev">›</span></a>
+{% endblock %}

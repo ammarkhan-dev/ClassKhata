@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block hsub %}{{ t('idc_settings') }}{% endblock %}
+{% block body %}
+{% include "_pf.html" %}
+<a class="muted" href="/more" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('idc_settings') }}</h1>
+{% if saved %}<div class="okb">{{ t('saved') }}</div>{% endif %}
+<div class="fl3" style="margin-top:0">{{ t('idc_preview') }}</div>
+<div style="display:flex;justify-content:center;margin-bottom:16px">{% include "_idcard.html" %}</div>
+<form method="post" class="card">
+<div class="fl3" style="margin-top:0">{{ t('idc_color') }}</div>
+<div class="chs">{% for k, hexv in COLORS.items() %}<label class="chp"><input type="radio" name="color" value="{{ k }}" {{ 'checked' if c.idc_color == k }}><span><i style="display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;background:{{ hexv }}"></i>{{ t('c_' ~ k) }}</span></label>{% endfor %}</div>
+<div class="fl3">{{ t('idc_show') }}</div>
+<div class="chs">
+<label class="chp"><input type="checkbox" name="show_phone" {{ 'checked' if c.idc_phone == '1' }}><span>{{ t('idc_phone') }}</span></label>
+<label class="chp"><input type="checkbox" name="show_father" {{ 'checked' if c.idc_father == '1' }}><span>{{ t('idc_father') }}</span></label>
+<label class="chp"><input type="checkbox" name="show_addr" {{ 'checked' if c.idc_addr == '1' }}><span>{{ t('idc_addr') }}</span></label>
+</div>
+<div class="fl3">{{ t('idc_footer_l') }}</div>
+<input name="footer" value="{{ c.idc_footer }}" maxlength="80" placeholder="{{ t('idc_footer_ph') }}">
+<div class="fl3">{{ t('idc_sign_l') }}</div>
+<input name="sign" value="{{ c.idc_sign }}" maxlength="30" placeholder="{{ t('idc_sign_ph') }}">
+<div style="height:18px"></div>
+<button>{{ t('save') }}</button>
+</form>
+<script>
+(function(){
+ var C={{ COLORS|tojson }},card=document.getElementById('idc');
+ document.querySelectorAll('[name=color]').forEach(function(r){r.addEventListener('change',function(){card.style.setProperty('--ac',C[r.value])})});
+ [['show_phone','r-phone'],['show_father','r-father'],['show_addr','r-addr']].forEach(function(p){
+  var cb=document.querySelector('[name='+p[0]+']'),row=card.querySelector('.'+p[1]);
+  cb.addEventListener('change',function(){row.hidden=!cb.checked});
+ });
+ var ft=document.querySelector('[name=footer]'),sg=document.querySelector('[name=sign]');
+ ft.addEventListener('input',function(){card.querySelector('.f-foot').textContent=ft.value});
+ sg.addEventListener('input',function(){card.querySelector('.f-sign').textContent=sg.value});
+})();
+</script>
+{% endblock %}

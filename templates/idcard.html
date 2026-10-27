@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+@media print{@page{size:A4;margin:12mm}header,nav,.noprint{display:none!important}body{background:#fff;padding:0}main{padding:0;max-width:none}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<div class="noprint"><a class="muted" href="/students/{{ s.id }}" style="text-decoration:none">‹ {{ s.name }}</a></div>
+<div style="display:flex;justify-content:center;margin:16px 0">{% include "_idcard.html" %}</div>
+<div class="noprint">
+<div class="row" style="gap:10px"><button type="button" class="btn ghost" style="margin:0" onclick="sh()">{{ t('share') }}</button><button type="button" onclick="window.print()">{{ t('download') }}</button></div>
+<p class="muted">{{ t('pdf_howto') }}</p>
+</div>
+<script>
+function sh(){var d={title:{{ s.name|tojson }},text:{{ (institute ~ ' · ' ~ s.name ~ ' · ' ~ s.cls)|tojson }}};if(navigator.share){navigator.share(d).catch(function(){})}else{window.print()}}
+</script>
+{% endblock %}

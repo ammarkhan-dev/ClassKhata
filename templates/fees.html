@@ -114,9 +114,9 @@ header.dk{display:block;padding:16px 16px 14px}
 <h3 id="p-title"></h3><p class="muted" id="p-sub" style="margin:0"></p>
 <div class="fl2">{{ t('pay_mode') }}</div>
 <div class="mchs">
-<label class="mch"><input type="radio" name="mode" value="Cash" checked><span>{{ t('cash') }}</span></label>
-<label class="mch"><input type="radio" name="mode" value="UPI"><span>{{ t('upi') }}</span></label>
-<label class="mch"><input type="radio" name="mode" value="Other"><span>{{ t('other') }}</span></label>
+<label class="mch"><input type="radio" name="mode" value="Cash" {{ 'checked' if def_mode == 'Cash' }}><span>{{ t('cash') }}</span></label>
+<label class="mch"><input type="radio" name="mode" value="UPI" {{ 'checked' if def_mode == 'UPI' }}><span>{{ t('upi') }}</span></label>
+<label class="mch"><input type="radio" name="mode" value="Other" {{ 'checked' if def_mode == 'Other' }}><span>{{ t('other') }}</span></label>
 </div>
 <div style="height:20px"></div>
 <button class="gb" id="p-btn"></button>

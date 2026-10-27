@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block hsub %}{{ t('app_settings') }}{% endblock %}
+{% block body %}
+{% include "_pf.html" %}
+<a class="muted" href="/more" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('app_settings') }}</h1>
+<div class="card"><div class="fl3" style="margin-top:0">{{ t('lang_l') }}</div>
+<div class="chs"><a class="lk {{ 'on' if lang == 'en' }}" href="/lang/en">English</a><a class="lk {{ 'on' if lang == 'hi' }}" href="/lang/hi">हिन्दी</a></div></div>
+<div class="card" id="inst-card"><b>{{ t('install_app') }}</b>
+<p class="muted">{{ t('install_hint') }}</p>
+<button id="inst-btn" hidden>{{ t('install_app') }}</button>
+<p class="muted" style="margin-bottom:0">{{ t('install_manual') }}</p></div>
+<div class="grp"><div class="gl">{{ t('data_backup') }}</div>
+<a class="sr" href="/backup"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span class="tx"><b>{{ t('backup_title') }}</b><span>{{ t('last_backup') }}: {{ last or t('never') }}</span></span>{% if due %}<span class="pc lo">{{ t('backup_due') }}</span>{% endif %}<span class="ch">›</span></a>
+<a class="sr" href="/report"><svg class="ic" viewBox="0 0 24 24"><path d="M6 20V11M12 20V5M18 20v-6"/></svg><span class="tx"><b>{{ t('report_open') }}</b></span><span class="ch">›</span></a>
+</div>
+<details class="card" id="pw" {{ 'open' if err or ok }}><summary style="font-weight:700;font-size:18px;cursor:pointer;color:var(--navy)">{{ t('change_pw') }}</summary>
+{% if ok %}<div class="okb" style="margin-top:12px">{{ t('pw_saved') }}</div>{% endif %}
+{% if err %}<div class="err" style="margin-top:12px">{{ t(err) }}</div>{% endif %}
+<form method="post" action="/app-settings/password">
+<label>{{ t('cur_pw') }}</label><input type="password" name="cur" required autocomplete="current-password">
+<label>{{ t('new_pw') }}</label><input type="password" name="new" required autocomplete="new-password">
+<label>{{ t('confirm_password') }}</label><input type="password" name="new2" required autocomplete="new-password">
+<div style="height:14px"></div><button>{{ t('save') }}</button></form></details>
+<div class="card"><div class="fl3" style="margin-top:0">{{ t('about') }}</div>
+<div class="kv"><span>ClassKhata</span><span>{{ t('version') }} 1.0</span></div>
+<div class="kv"><span>{{ t('institute_name') }}</span><span>{{ institute or '—' }}</span></div></div>
+<script>
+var dp;
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;document.getElementById('inst-btn').hidden=false});
+document.getElementById('inst-btn').addEventListener('click',function(){if(dp){dp.prompt();dp=null;this.hidden=true}});
+if(window.matchMedia('(display-mode: standalone)').matches){document.getElementById('inst-card').hidden=true}
+</script>
+{% endblock %}

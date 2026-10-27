@@ -24,7 +24,7 @@
 <h1 class="page" style="margin-top:6px">{{ t('card_title') }}</h1>
 </div>
 <div class="cd">
-<div class="ch2"><div class="lgo">{{ ini }}</div><div class="cn">{{ inst }}</div></div>
+<div class="ch2"><div class="lgo">{{ ini }}</div><div class="cn">{{ inst }}{% if inst_addr or inst_phone %}<div class="muted" style="font-size:11px;font-weight:400">{{ inst_addr }}{% if inst_addr and inst_phone %} · {% endif %}{{ inst_phone }}</div>{% endif %}</div></div>
 <div class="top2"><div class="ph2">{% if has_photo %}<img src="/students/{{ s.id }}/photo" alt="">{% else %}PHOTO{% endif %}</div>
 <div style="flex:1;min-width:0"><div class="nm">{{ s.name }}</div>
 <div class="g3">

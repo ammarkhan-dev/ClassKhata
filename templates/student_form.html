@@ -94,6 +94,16 @@ fe();
 </script>
 </form>
 <script>
+(function(){var P={{ fee_plans|tojson }};if(!P.length)return;
+var f=document.querySelector('[name=fee]');if(!f)return;
+var box=f.closest('.ph')||f;var w=document.createElement('div');
+w.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px';
+P.forEach(function(p){var b=document.createElement('button');b.type='button';b.textContent=p.name+' · ₹'+p.amount;
+b.style.cssText='width:auto;padding:9px 14px;font-size:14px;border-radius:20px;background:#eef2f6;color:#222f40;border:1.5px solid #e3e9f0';
+b.onclick=function(){f.value=p.amount;f.dispatchEvent(new Event('input'))};w.appendChild(b)});
+box.parentNode.insertBefore(w,box)})();
+</script>
+<script>
 function go(n){
  if(n==2){var f=document.querySelectorAll('#s1 input,#s1 select');for(var i=0;i<f.length;i++){if(!f[i].checkValidity()){f[i].reportValidity();return}}}
  document.getElementById('s1').hidden=(n==2);document.getElementById('s2').hidden=(n==1);

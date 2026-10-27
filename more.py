@@ -47,8 +47,7 @@ EXPORTS = {
 }
 
 def setup(app, db):
-    @app.route("/settings", methods=["GET", "POST"])
-    def settings():
+    def _old_settings():
         saved = False
         if request.method == "POST":
             name = request.form.get("inst", "").strip()[:80]
@@ -57,8 +56,7 @@ def setup(app, db):
                 saved = True
         return render_template("settings.html", saved=saved)
 
-    @app.route("/more")
-    def more():
+    def _old_more():
         last, due = backup_info()
         return render_template("more.html", due=due)
 

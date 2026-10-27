@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block hsub %}{{ t('inst_account') }}{% endblock %}
+{% block body %}
+{% include "_pf.html" %}
+<div class="grp"><div class="gl">{{ t('sec_inst') }}</div>
+<a class="sr" href="/settings"><svg class="ic" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11.5v4c0 1.4 2.2 2.8 5 2.8s5-1.4 5-2.8v-4"/></svg><span class="tx"><b>{{ t('institute_profile') }}</b><span>{{ institute or '—' }}</span></span><span class="ch">›</span></a>
+<a class="sr" href="/batches"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><span class="tx"><b>{{ t('batches') }}</b><span>{{ t('n_batches').format(n=nb) }}</span></span><span class="ch">›</span></a>
+<a class="sr" href="/classes"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.2c2.6.2 4.5 2 4.5 5.3"/></svg><span class="tx"><b>{{ t('classes') }}</b><span>{{ t('n_classes').format(n=ncl, m=ns) }}</span></span><span class="ch">›</span></a>
+<a class="sr" href="/fee-plans"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.5"/></svg><span class="tx"><b>{{ t('fee_plans') }}</b><span>{{ t('n_plans').format(n=npl) }}</span></span><span class="ch">›</span></a>
+<a class="sr" href="/fee-settings"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg><span class="tx"><b>{{ t('fee_settings') }}</b><span>{{ t('sub_fee') }}</span></span><span class="ch">›</span></a>
+<a class="sr" href="/idcard-settings"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2.5"/><circle cx="9" cy="11" r="2"/><path d="M6.5 16c.5-1.6 1.7-2.4 2.5-2.4s2 .8 2.5 2.4M14 10h4M14 13h3"/></svg><span class="tx"><b>{{ t('idc_settings') }}</b><span>{{ t('c_' ~ color) }}</span></span><span class="ch">›</span></a>
+</div>
+<div class="grp"><div class="gl">{{ t('sec_app') }}</div>
+<a class="sr" href="/app-settings"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h11M19 18h1"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg><span class="tx"><b>{{ t('app_settings') }}</b><span>{{ t('sub_app') }}</span></span>{% if due %}<span class="pc lo">{{ t('backup_due') }}</span>{% endif %}<span class="ch">›</span></a>
+<a class="sr red" href="/logout"><svg class="ic" viewBox="0 0 24 24"><path d="M9 4H5v16h4"/><path d="M16 8l4 4-4 4M20 12H9"/></svg><span class="tx"><b>{{ t('logout') }}</b></span></a>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:13px">ClassKhata · {{ t('version') }} 1.0</p>
+{% endblock %}

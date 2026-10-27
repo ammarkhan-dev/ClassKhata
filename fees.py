@@ -51,12 +51,18 @@ def due_date(adm, y, m):
     return date(y, m, min(day, calendar.monthrange(y, m)[1]))
 
 def wa_link(r, baaki, dd, y, m, lang):
+    _rl = store.get("remind_lang", "")
+    if _rl in ("en", "hi"):
+        lang = _rl
     ph = "".join(ch for ch in (r["parent_phone"] or "") if ch.isdigit())
     if len(ph) != 10:
         return ""
     parent = r["parent_name"] or ("Parent/Guardian" if lang == "en" else "अभिभावक")
     msg = MSG[lang].format(parent=parent, inst=institute(lang), amt=baaki, name=r["name"],
                            cls=r["cls"], mon=f"{MONTHS[lang][m - 1]} {y}", due=fmt(dd, lang))
+    _pi = store.get("pay_info", "").strip()
+    if _pi:
+        msg += "\n\n" + _pi
     return "https://wa.me/91" + ph + "?text=" + quote(msg)
 
 def setup(app, db):
@@ -239,6 +245,9 @@ def institute(lang):
     return store.get("institute") or ("Our Institute" if lang == "en" else "हमारा संस्थान")
 
 def wa_link(r, baaki, dd, y, m, lang):
+    _rl = store.get("remind_lang", "")
+    if _rl in ("en", "hi"):
+        lang = _rl
     ph = "".join(ch for ch in (r["parent_phone"] or "") if ch.isdigit())
     if len(ph) != 10:
         return ""
@@ -247,6 +256,9 @@ def wa_link(r, baaki, dd, y, m, lang):
     parent = r["parent_name"] or ("Parent/Guardian" if lang == "en" else "अभिभावक")
     msg = MSG[lang].format(parent=parent, inst=inst, amt=f"{baaki:,}", name=r["name"],
                            cls=r["cls"], mon=f"{MONTHS[lang][m - 1]} {y}", due=fmt(dd, lang), sign=sign)
+    _pi = store.get("pay_info", "").strip()
+    if _pi:
+        msg += "\n\n" + _pi
     return "https://wa.me/91" + ph + "?text=" + quote(msg)
 
 def owed_map(db):

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block hsub %}{{ t('fee_plans') }}{% endblock %}
+{% block body %}
+<a class="muted" href="/fee-plans" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('plan_edit') if p else t('plan_new') }}</h1>
+{% if err %}<div class="err">{{ t(err) }}</div>{% endif %}
+<form method="post" class="card">
+<label style="margin-top:0">{{ t('plan_name') }}</label>
+<input name="name" value="{{ p.name if p else '' }}" placeholder="Class 12 Regular" required autofocus>
+<label>{{ t('plan_amount') }}</label>
+<input name="amount" value="{{ p.amount if p else '' }}" inputmode="numeric" placeholder="500" required>
+<div style="height:18px"></div>
+<button>{{ t('save') }}</button>
+</form>
+{% if p %}<form method="post" action="/fee-plans/{{ p.id }}/delete" onsubmit="return confirm({{ t('del_plan_confirm')|tojson }})"><button class="btn danger">{{ t('delete') }}</button></form>{% endif %}
+{% endblock %}
