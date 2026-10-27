@@ -73,8 +73,7 @@ def setup(app, db):
         t = date.today()
         return t.year, t.month
 
-    @app.route("/fees")
-    def fees():
+    def _old_fees():
         lang = session.get("lang", "en")
         if lang not in MONTHS:
             lang = "en"
