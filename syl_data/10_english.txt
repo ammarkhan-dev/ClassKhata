@@ -1,0 +1,62 @@
+@class 10
+@subject english | English | अंग्रेज़ी
+# First Flight: Prose | फर्स्ट फ्लाइट: गद्य
+## Lessons | पाठ
+- A Letter to God | ए लेटर टू गॉड
+- Nelson Mandela: Long Walk to Freedom | नेल्सन मंडेला: लॉन्ग वॉक टू फ्रीडम
+- Two Stories about Flying | टू स्टोरीज़ अबाउट फ्लाइंग
+- From the Diary of Anne Frank | फ्रॉम द डायरी ऑफ ऐन फ्रैंक
+- Glimpses of India | ग्लिम्प्सेज़ ऑफ इंडिया
+- Mijbil the Otter | मिजबिल द ओटर
+- Madam Rides the Bus | मैडम राइड्स द बस
+- The Sermon at Benares | द सर्मन ऐट बनारस
+- The Proposal | द प्रपोज़ल
+# First Flight: Poetry | फर्स्ट फ्लाइट: काव्य
+## Poems | कविताएँ
+- Dust of Snow | डस्ट ऑफ स्नो
+- Fire and Ice | फायर एंड आइस
+- A Tiger in the Zoo | ए टाइगर इन द ज़ू
+- How to Tell Wild Animals | हाउ टू टेल वाइल्ड एनिमल्स
+- The Ball Poem | द बॉल पोएम
+- Amanda! | अमांडा!
+- The Trees | द ट्रीज़
+- Fog | फॉग
+- The Tale of Custard the Dragon | द टेल ऑफ कस्टर्ड द ड्रैगन
+- For Anne Gregory | फॉर ऐन ग्रेगरी
+# Footprints Without Feet (Supplementary Reader) | फुटप्रिंट्स विदाउट फीट (सहायक पाठ्यपुस्तक)
+## Lessons | पाठ
+- A Triumph of Surgery | ए ट्रायम्फ ऑफ सर्जरी
+- The Thief's Story | द थीफ्स स्टोरी
+- The Midnight Visitor | द मिडनाइट विज़िटर
+- A Question of Trust | ए क्वेश्चन ऑफ ट्रस्ट
+- Footprints Without Feet | फुटप्रिंट्स विदाउट फीट
+- The Making of a Scientist | द मेकिंग ऑफ ए साइंटिस्ट
+- The Necklace | द नेकलेस
+- Bholi | भोली
+- The Book That Saved the Earth | द बुक दैट सेव्ड द अर्थ
+# Reading | अपठित बोध
+## Reading comprehension | पठन बोध
+- Short passage with multiple-choice questions | छोटा गद्यांश तथा बहुविकल्पीय प्रश्न
+- Passage with very short answer questions | गद्यांश तथा अति लघु उत्तरीय प्रश्न
+- Vocabulary question | शब्दावली प्रश्न
+# Writing | लेखन
+## Letters and applications | पत्र तथा आवेदन
+- Letter writing | पत्र लेखन
+- Application writing | प्रार्थना पत्र लेखन
+## Descriptive writing | वर्णनात्मक लेखन
+- Descriptive paragraph from verbal clues | शाब्दिक संकेतों से वर्णनात्मक अनुच्छेद
+- Report writing | प्रतिवेदन लेखन
+- Article writing | लेख लेखन
+# Grammar | व्याकरण
+## Words | शब्द
+- Parts of speech | शब्द भेद (Parts of Speech)
+- Articles | आर्टिकल (Articles)
+- Spelling | वर्तनी
+## Verbs and sentences | क्रिया तथा वाक्य
+- Tenses | काल (Tenses)
+- Voice: active and passive | वाच्य: कर्तृ व कर्म वाच्य
+- Narration: direct and indirect speech | कथन: प्रत्यक्ष व अप्रत्यक्ष
+- Sentence reordering | वाक्य पुनर्व्यवस्था
+- Punctuation | विराम चिह्न
+## Translation | अनुवाद
+- Translation of a short Hindi passage into English | छोटे हिन्दी गद्यांश का अंग्रेज़ी में अनुवाद

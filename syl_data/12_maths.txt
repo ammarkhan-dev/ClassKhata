@@ -1,0 +1,113 @@
+@class 12
+@subject maths | Mathematics | गणित
+# Relations and Functions | संबंध एवं फलन
+## Relations | संबंध
+- Types of relations: reflexive, symmetric, transitive, equivalence | संबंधों के प्रकार: स्वतुल्य, सममित, संक्रमक, तुल्यता
+- Equivalence classes | तुल्यता वर्ग
+## Functions | फलन
+- One-one, onto and bijective functions | एकैकी, आच्छादक तथा एकैकी-आच्छादक फलन
+- Composition of functions and invertible functions | फलनों का संयोजन तथा व्युत्क्रमणीय फलन
+- Binary operations | द्विआधारी संक्रियाएँ
+# Inverse Trigonometric Functions | प्रतिलोम त्रिकोणमितीय फलन
+## Basics | मूल बातें
+- Domain and range of inverse trigonometric functions | प्रतिलोम त्रिकोणमितीय फलनों का प्रांत व परिसर
+- Principal value branch and graphs | मुख्य मान शाखा तथा आलेख
+## Properties | गुणधर्म
+- Elementary properties of inverse trigonometric functions | प्रतिलोम त्रिकोणमितीय फलनों के आधारभूत गुणधर्म
+# Matrices | आव्यूह
+## Introduction | परिचय
+- Types of matrices | आव्यूहों के प्रकार
+- Equality of matrices | आव्यूहों की समानता
+## Operations | संक्रियाएँ
+- Addition and scalar multiplication | योग तथा अदिश गुणन
+- Multiplication of matrices | आव्यूहों का गुणन
+- Transpose, symmetric and skew-symmetric matrices | परिवर्त, सममित तथा विषम सममित आव्यूह
+## Inverse | व्युत्क्रम
+- Elementary row and column operations | प्रारंभिक पंक्ति व स्तंभ संक्रियाएँ
+- Invertible matrices | व्युत्क्रमणीय आव्यूह
+# Determinants | सारणिक
+## Determinants | सारणिक
+- Determinant of a square matrix, minors and cofactors | वर्ग आव्यूह का सारणिक, उपसारणिक तथा सहखंड
+- Properties of determinants and area of a triangle | सारणिक के गुणधर्म तथा त्रिभुज का क्षेत्रफल
+## Adjoint and inverse | सहखंडज तथा व्युत्क्रम
+- Adjoint and inverse of a matrix | आव्यूह का सहखंडज तथा व्युत्क्रम
+- Solving linear equations using inverse | व्युत्क्रम से रैखिक समीकरण हल करना
+# Continuity and Differentiability | सांतत्य तथा अवकलनीयता
+## Continuity | सांतत्य
+- Continuity of a function | फलन का सांतत्य
+- Algebra of continuous functions | संतत फलनों का बीजगणित
+## Differentiability | अवकलनीयता
+- Derivatives of composite, implicit and inverse trigonometric functions | संयुक्त, अंतर्निहित तथा प्रतिलोम त्रिकोणमितीय फलनों के अवकलज
+- Exponential and logarithmic functions | चरघातांकी व लघुगणकीय फलन
+- Logarithmic differentiation | लघुगणकीय अवकलन
+- Derivatives of parametric functions | प्राचलिक फलनों के अवकलज
+- Second order derivative | द्वितीय कोटि अवकलज
+- Mean value theorem (Rolle's and Lagrange's) | माध्यमान प्रमेय (रोले व लैग्रांज)
+# Applications of Derivatives | अवकलज के अनुप्रयोग
+## Rate and monotonicity | परिवर्तन की दर तथा एकदिष्टता
+- Rate of change of quantities | राशियों के परिवर्तन की दर
+- Increasing and decreasing functions | वर्धमान तथा ह्रासमान फलन
+## Tangents and normals | स्पर्श रेखाएँ तथा अभिलंब
+- Tangents and normals | स्पर्श रेखाएँ तथा अभिलंब
+- Approximations | सन्निकटन
+## Maxima and minima | उच्चतम तथा निम्नतम
+- Maxima and minima, first and second derivative tests | उच्चतम व निम्नतम, प्रथम व द्वितीय अवकलज परीक्षण
+- Word problems on maxima and minima | उच्चतम-निम्नतम पर शाब्दिक प्रश्न
+# Integrals | समाकलन
+## Indefinite integrals | अनिश्चित समाकलन
+- Integration as inverse of differentiation | अवकलन के प्रतिलोम के रूप में समाकलन
+- Integration by substitution | प्रतिस्थापन द्वारा समाकलन
+- Integration using trigonometric identities | त्रिकोणमितीय सर्वसमिकाओं द्वारा समाकलन
+- Integration using partial fractions | आंशिक भिन्नों द्वारा समाकलन
+- Integration by parts | खंडशः समाकलन
+- Some special integrals | कुछ विशेष समाकलन
+## Definite integrals | निश्चित समाकलन
+- Definite integral as limit of a sum | योग की सीमा के रूप में निश्चित समाकलन
+- Fundamental theorem of calculus | कलन की आधारभूत प्रमेय
+- Properties of definite integrals | निश्चित समाकलन के गुणधर्म
+# Applications of Integrals | समाकलनों के अनुप्रयोग
+## Area | क्षेत्रफल
+- Area under simple curves | साधारण वक्रों के अंतर्गत क्षेत्रफल
+- Area between two curves | दो वक्रों के बीच का क्षेत्रफल
+# Differential Equations | अवकल समीकरण
+## Basics | मूल बातें
+- Order and degree | कोटि तथा घात
+- General and particular solutions | व्यापक तथा विशिष्ट हल
+- Formation of a differential equation | अवकल समीकरण का निर्माण
+## Methods of solution | हल करने की विधियाँ
+- Variable separable method | चर पृथक्करण विधि
+- Homogeneous differential equations | समघातीय अवकल समीकरण
+- Linear differential equations | रैखिक अवकल समीकरण
+# Vector Algebra | सदिश बीजगणित
+## Basics | मूल बातें
+- Types of vectors, direction cosines and ratios | सदिशों के प्रकार, दिक्-कोज्याएँ व दिक्-अनुपात
+- Addition of vectors, multiplication by a scalar | सदिशों का योग, अदिश से गुणन
+- Position vector, section formula | स्थिति सदिश, विभाजन सूत्र
+## Products | गुणनफल
+- Scalar (dot) product, projection | अदिश गुणनफल (बिंदु गुणनफल), प्रक्षेप
+- Vector (cross) product | सदिश गुणनफल
+# Three Dimensional Geometry | त्रि-विमीय ज्यामिति
+## Lines | रेखाएँ
+- Direction cosines and direction ratios of a line | रेखा की दिक्-कोज्याएँ व दिक्-अनुपात
+- Equation of a line in space | अंतरिक्ष में रेखा का समीकरण
+- Angle between two lines, shortest distance between two lines | दो रेखाओं के बीच कोण, दो रेखाओं के बीच न्यूनतम दूरी
+## Planes | समतल
+- Equation of a plane | समतल का समीकरण
+- Angle between two planes, line and plane | दो समतलों तथा रेखा-समतल के बीच कोण
+- Distance of a point from a plane | बिंदु की समतल से दूरी
+# Linear Programming | रैखिक प्रोग्रामन
+## Linear programming problems | रैखिक प्रोग्रामन समस्याएँ
+- Introduction, mathematical formulation | परिचय, गणितीय सूत्रीकरण
+- Graphical method of solution | हल की आलेखीय विधि
+- Feasible and infeasible regions, optimal solution | सुसंगत व असुसंगत क्षेत्र, इष्टतम हल
+- Diet and manufacturing problems | आहार तथा निर्माण संबंधी समस्याएँ
+# Probability | प्रायिकता
+## Conditional probability | सप्रतिबंध प्रायिकता
+- Conditional probability and its properties | सप्रतिबंध प्रायिकता तथा उसके गुणधर्म
+- Multiplication theorem | गुणन प्रमेय
+- Independent events | स्वतंत्र घटनाएँ
+## Bayes' theorem and distributions | बेज़ प्रमेय तथा बंटन
+- Total probability and Bayes' theorem | संपूर्ण प्रायिकता तथा बेज़ प्रमेय
+- Random variable and its probability distribution | यादृच्छिक चर तथा इसका प्रायिकता बंटन
+- Mean and variance of a random variable | यादृच्छिक चर का माध्य व प्रसरण
+- Bernoulli trials and binomial distribution | बरनौली प्रयोग तथा द्विपद बंटन

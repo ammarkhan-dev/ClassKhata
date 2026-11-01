@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L['class'] }} {{ cls }}{% endblock %}
+{% block hsub %}{{ L.title }}{% endblock %}
+{% block body %}
+{% include "_syl_css.html" %}
+<div class="sy">
+  <div class="crumb"><a href="/syllabus">{{ L.title }}</a><i>›</i><span>{{ L['class'] }} {{ cls }}</span></div>
+  <div class="card">
+  {% for s in subs %}
+    <a class="row" href="/syllabus/{{ cls }}/{{ s.key }}">
+      <span class="bub">{{ loop.index }}</span>
+      <span class="tx"><b>{{ s.name }}</b><small>{{ s.ch }} {{ L.chapters }} · {{ s.tp }} {{ L.topics }} · {{ s.st }} {{ L.subtopics }}</small></span>
+      <span class="go">›</span>
+    </a>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}

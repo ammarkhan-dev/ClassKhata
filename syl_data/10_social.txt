@@ -1,0 +1,117 @@
+@class 10
+@subject social | Social Science | सामाजिक विज्ञान
+# History: The Rise of Nationalism in Europe | इतिहास: यूरोप में राष्ट्रवाद का उदय
+## French Revolution and nationalism | फ्रांसीसी क्रांति तथा राष्ट्रवाद
+- French Revolution and the idea of the nation | फ्रांसीसी क्रांति तथा राष्ट्र का विचार
+- Napoleon and nationalism | नेपोलियन तथा राष्ट्रवाद
+## Making of nations | राष्ट्रों का निर्माण
+- Revolutions of 1830 and 1848 | 1830 व 1848 की क्रांतियाँ
+- Unification of Germany | जर्मनी का एकीकरण
+- Unification of Italy | इटली का एकीकरण
+- Strange case of Britain | ब्रिटेन की अनोखी स्थिति
+## Nationalism and imperialism | राष्ट्रवाद तथा साम्राज्यवाद
+- Balkan problem | बाल्कन समस्या
+- Nationalism and imperialism | राष्ट्रवाद और साम्राज्यवाद
+# History: Nationalism in India | इतिहास: भारत में राष्ट्रवाद
+## First World War and Khilafat | प्रथम विश्व युद्ध तथा खिलाफत
+- First World War, Khilafat and non-cooperation | प्रथम विश्व युद्ध, खिलाफत तथा असहयोग
+- Rowlatt Act, Jallianwala Bagh | रॉलेट एक्ट, जलियाँवाला बाग
+## Civil disobedience | सविनय अवज्ञा
+- Salt March and Civil Disobedience Movement | नमक यात्रा तथा सविनय अवज्ञा आंदोलन
+- Participation of different social groups | विभिन्न सामाजिक समूहों की भागीदारी
+## Sense of collective belonging | सामूहिक अपनेपन की भावना
+- Limits of civil disobedience | सविनय अवज्ञा की सीमाएँ
+- Sense of collective belonging | सामूहिक अपनेपन की भावना
+# History: The Making of a Global World | इतिहास: भूमंडलीकृत विश्व का बनना
+## Pre-modern world | आधुनिक काल से पूर्व
+- Silk routes and trade | रेशम मार्ग तथा व्यापार
+- Food travels, conquest and disease | भोजन की यात्रा, विजय तथा बीमारी
+## Nineteenth century | उन्नीसवीं सदी
+- Nineteenth-century world economy | उन्नीसवीं सदी की विश्व अर्थव्यवस्था
+- Indentured labour | अनुबंधित श्रम
+## Twentieth century | बीसवीं सदी
+- Inter-war economy and Great Depression | युद्धकालीन अर्थव्यवस्था तथा महामंदी
+- Post-war settlement, Bretton Woods | युद्धोत्तर समझौता, ब्रेटन वुड्स
+# History: Map Work | इतिहास: मानचित्र कार्य
+## Map work | मानचित्र कार्य
+- Map work of prescribed history locations | निर्धारित ऐतिहासिक स्थानों का मानचित्र कार्य
+# Geography: Resources and Development | भूगोल: संसाधन तथा विकास
+## Resources | संसाधन
+- Types of resources | संसाधनों के प्रकार
+- Development of resources, sustainable development | संसाधनों का विकास, सतत विकास
+## Land and soil | भूमि तथा मृदा
+- Land resources and land use pattern | भू-संसाधन तथा भूमि उपयोग प्रारूप
+- Soil types and soil conservation | मृदा के प्रकार तथा मृदा संरक्षण
+# Geography: Forest and Wildlife Resources | भूगोल: वन एवं वन्य जीव संसाधन
+## Biodiversity | जैव विविधता
+- Flora and fauna of India | भारत की वनस्पति तथा जीव-जंतु
+- Conservation of forest and wildlife | वन तथा वन्य जीव संरक्षण
+- Project Tiger, community conservation | बाघ परियोजना, सामुदायिक संरक्षण
+# Geography: Water Resources | भूगोल: जल संसाधन
+## Water | जल
+- Water scarcity and need for conservation | जल दुर्लभता तथा संरक्षण की आवश्यकता
+- Multipurpose river projects | बहुउद्देशीय नदी परियोजनाएँ
+- Rainwater harvesting | वर्षा जल संग्रहण
+# Geography: Agriculture | भूगोल: कृषि
+## Agriculture | कृषि
+- Types of farming | कृषि के प्रकार
+- Cropping pattern and major crops | फसल प्रारूप तथा प्रमुख फसलें
+- Technological and institutional reforms | प्रौद्योगिकीय तथा संस्थागत सुधार
+# Geography: Minerals and Energy Resources | भूगोल: खनिज तथा ऊर्जा संसाधन
+## Minerals | खनिज
+- Types of minerals, iron ore, manganese, bauxite, mica | खनिजों के प्रकार, लौह अयस्क, मैंगनीज़, बॉक्साइट, अभ्रक
+- Conservation of minerals | खनिजों का संरक्षण
+## Energy | ऊर्जा
+- Conventional and non-conventional energy resources | परंपरागत व गैर-परंपरागत ऊर्जा संसाधन
+- Conservation of energy | ऊर्जा संरक्षण
+# Geography: Lifelines of National Economy | भूगोल: राष्ट्रीय अर्थव्यवस्था की जीवन रेखाएँ
+## Transport and communication | परिवहन तथा संचार
+- Roadways, railways, pipelines, waterways, airways | सड़क, रेल, पाइपलाइन, जलमार्ग, वायुमार्ग
+- Communication and international trade | संचार तथा अंतरराष्ट्रीय व्यापार
+# Civics: Power Sharing | नागरिक शास्त्र: सत्ता की साझेदारी
+## Power sharing | सत्ता की साझेदारी
+- Belgium and Sri Lanka | बेल्जियम तथा श्रीलंका
+- Why power sharing is desirable | सत्ता की साझेदारी क्यों वांछनीय है
+- Forms of power sharing | सत्ता की साझेदारी के रूप
+# Civics: Federalism | नागरिक शास्त्र: संघवाद
+## Federalism | संघवाद
+- Features of federalism | संघवाद की विशेषताएँ
+- Federalism in India, language policy | भारत में संघवाद, भाषा नीति
+- Decentralisation, Panchayati Raj | विकेंद्रीकरण, पंचायती राज
+# Civics: Democracy and Diversity | नागरिक शास्त्र: लोकतंत्र और विविधता
+## Diversity | विविधता
+- Differences, similarities and divisions | भिन्नताएँ, समानताएँ तथा विभाजन
+- Politics of social divisions | सामाजिक विभाजनों की राजनीति
+# Civics: Gender, Religion and Caste | नागरिक शास्त्र: लिंग, धर्म और जाति
+## Social divisions in politics | राजनीति में सामाजिक विभाजन
+- Gender and politics | लैंगिक मसले और राजनीति
+- Religion, communalism and politics | धर्म, सांप्रदायिकता और राजनीति
+- Caste and politics | जाति और राजनीति
+# Civics: Popular Struggles and Movements | नागरिक शास्त्र: जन संघर्ष और आंदोलन
+## Movements | आंदोलन
+- Popular struggles in Nepal and Bolivia | नेपाल व बोलीविया में जन संघर्ष
+- Pressure groups and movements | दबाव समूह तथा आंदोलन
+# Civics: Outcomes of Democracy | नागरिक शास्त्र: लोकतंत्र के परिणाम
+## Outcomes | परिणाम
+- Accountable, responsive and legitimate government | जवाबदेह, ज़िम्मेदार व वैध सरकार
+- Economic growth, reduction of inequality, accommodation of social diversity | आर्थिक संवृद्धि, असमानता में कमी, सामाजिक विविधता का समावेश
+# Civics: Challenges to Democracy | नागरिक शास्त्र: लोकतंत्र की चुनौतियाँ
+## Challenges | चुनौतियाँ
+- Different challenges to democracy | लोकतंत्र की विभिन्न चुनौतियाँ
+- Political reforms | राजनीतिक सुधार
+# Economics: Development | अर्थशास्त्र: विकास
+## Development | विकास
+- Different notions of development | विकास की विभिन्न धारणाएँ
+- National income and per capita income | राष्ट्रीय आय तथा प्रति व्यक्ति आय
+- Human development, HDI, sustainability | मानव विकास, HDI, धारणीयता
+# Economics: Sectors of the Indian Economy | अर्थशास्त्र: भारतीय अर्थव्यवस्था के क्षेत्रक
+## Sectors | क्षेत्रक
+- Primary, secondary and tertiary sectors | प्राथमिक, द्वितीयक तथा तृतीयक क्षेत्रक
+- Organised and unorganised sectors | संगठित व असंगठित क्षेत्रक
+- Public and private sectors | सार्वजनिक व निजी क्षेत्रक
+- Employment and unemployment | रोज़गार तथा बेरोज़गारी
+# Economics: Consumer Rights | अर्थशास्त्र: उपभोक्ता अधिकार
+## Consumer rights | उपभोक्ता अधिकार
+- Consumer movement in India | भारत में उपभोक्ता आंदोलन
+- Consumer rights and Consumer Protection Act | उपभोक्ता अधिकार तथा उपभोक्ता संरक्षण अधिनियम
+- Consumer courts | उपभोक्ता न्यायालय

@@ -24,7 +24,7 @@ def close(e):
 def inject():
     return dict(coaching=COACHING_NAME, institute=store.get("institute"))
 
-import i18n, auth, students, hazri, fees, store, records, more, report, dash, batches, studentview, feesview, prefs
+import i18n, auth, syllabus, students, hazri, fees, store, records, more, report, dash, batches, studentview, feesview, prefs
 
 def _old_home():
     rows = db().execute("SELECT cls, COUNT(*) n FROM students GROUP BY cls").fetchall()
@@ -39,6 +39,7 @@ def _old_home():
 
 i18n.setup(app)
 auth.setup(app)
+syllabus.setup(app)
 students.setup(app, db)
 hazri.setup(app, db)
 fees.setup(app, db)

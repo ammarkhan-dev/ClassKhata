@@ -1,0 +1,158 @@
+{
+  "academic_session": "2026-27",
+  "source": "Official UPMSP syllabus PDFs downloaded for 2026-27",
+  "classes": {
+    "10": {
+      "science": {
+        "total": 100,
+        "written": 70,
+        "practical": 30,
+        "units": [
+          {"name_hi": "रासायनिक पदार्थ—प्रकृति एवं व्यवहार", "marks": 20},
+          {"name_hi": "जीव जगत", "marks": 20},
+          {"name_hi": "प्राकृतिक घटनाएँ", "marks": 12},
+          {"name_hi": "विद्युत का प्रभाव", "marks": 13},
+          {"name_hi": "प्राकृतिक संसाधन", "marks": 5}
+        ]
+      },
+      "maths": {
+        "total": 100,
+        "written": 70,
+        "internal": 30,
+        "units": [
+          {"name_hi": "संख्या पद्धति", "marks": 5},
+          {"name_hi": "बीजगणित", "marks": 18},
+          {"name_hi": "निर्देशांक ज्यामिति", "marks": 5},
+          {"name_hi": "ज्यामिति", "marks": 10},
+          {"name_hi": "त्रिकोणमिति", "marks": 12},
+          {"name_hi": "मेंसुरेशन", "marks": 10},
+          {"name_hi": "सांख्यिकी तथा प्रायिकता", "marks": 10}
+        ]
+      },
+      "social_science": {
+        "total": 100,
+        "written": 70,
+        "project": 30,
+        "units": [
+          {"name_hi": "भारत और समकालीन विश्व—2 (इतिहास)", "marks": 20},
+          {"name_hi": "समकालीन भारत—2 (भूगोल)", "marks": 20},
+          {"name_hi": "लोकतांत्रिक राजनीति—2 (नागरिकशास्त्र)", "marks": 15},
+          {"name_hi": "आर्थिक विकास की समझ (अर्थशास्त्र)", "marks": 15}
+        ]
+      },
+      "english": {
+        "total": 100,
+        "written": 70,
+        "internal": 30,
+        "units": [
+          {"name": "Reading", "marks": 10},
+          {"name": "Writing Skills", "marks": 10},
+          {"name": "Grammar", "marks": 15},
+          {"name": "Literature", "marks": 35}
+        ]
+      },
+      "hindi": {
+        "total": 100,
+        "written": 70,
+        "internal": 30,
+        "units": [
+          {"name_hi": "गद्य साहित्य का इतिहास", "marks": 5},
+          {"name_hi": "गद्य खंड", "marks": 11},
+          {"name_hi": "पद्य साहित्य का इतिहास", "marks": 5},
+          {"name_hi": "पद्य खंड", "marks": 11},
+          {"name_hi": "खंडकाव्य", "marks": 3},
+          {"name_hi": "काव्य-सौंदर्य के तत्व", "marks": 3},
+          {"name_hi": "संस्कृत खंड", "marks": 14},
+          {"name_hi": "पत्र लेखन", "marks": 4},
+          {"name_hi": "व्याकरण", "marks": 7},
+          {"name_hi": "निबंध", "marks": 7}
+        ]
+      }
+    },
+    "12": {
+      "physics": {
+        "total": 100,
+        "written": 70,
+        "practical": 30,
+        "units": [
+          {"name_hi": "स्थिर वैद्युतिकी", "marks": 8},
+          {"name_hi": "धारा विद्युत", "marks": 7},
+          {"name_hi": "धारा का चुंबकीय प्रभाव तथा चुंबकत्व", "marks": 8},
+          {"name_hi": "वैद्युत चुंबकीय प्रेरण तथा प्रत्यावर्ती धाराएँ", "marks": 8},
+          {"name_hi": "वैद्युत चुंबकीय तरंगें", "marks": 4},
+          {"name_hi": "प्रकाशिकी", "marks": 13},
+          {"name_hi": "द्रव्य और द्वैत प्रकृति", "marks": 6},
+          {"name_hi": "परमाणु तथा नाभिक", "marks": 8},
+          {"name_hi": "इलेक्ट्रॉनिक युक्तियाँ", "marks": 8}
+        ]
+      },
+      "chemistry": {
+        "total": 100,
+        "written": 70,
+        "practical": 30,
+        "units": [
+          {"name_hi": "विलयन", "marks": 8},
+          {"name_hi": "वैद्युत रसायन", "marks": 7},
+          {"name_hi": "रासायनिक बलगतिकी", "marks": 7},
+          {"name_hi": "d और f-ब्लॉक के तत्व", "marks": 6},
+          {"name_hi": "उपसहसंयोजन यौगिक", "marks": 7},
+          {"name_hi": "हैलोऐल्केन और हैलोऐरीन", "marks": 7},
+          {"name_hi": "ऐल्कोहॉल, फिनॉल एवं ईथर", "marks": 7},
+          {"name_hi": "ऐल्डिहाइड, कीटोन एवं कार्बोक्सिलिक अम्ल", "marks": 8},
+          {"name_hi": "ऐमीन", "marks": 6},
+          {"name_hi": "जैव अणु", "marks": 7}
+        ]
+      },
+      "biology": {
+        "total": 100,
+        "written": 70,
+        "practical": 30,
+        "units": [
+          {"name_hi": "जनन", "marks": 14},
+          {"name_hi": "आनुवंशिकी तथा विकास", "marks": 18},
+          {"name_hi": "मानव कल्याण में जीव विज्ञान", "marks": 14},
+          {"name_hi": "जैव प्रौद्योगिकी", "marks": 10},
+          {"name_hi": "पारिस्थितिकी", "marks": 14}
+        ]
+      },
+      "maths": {
+        "total": 100,
+        "units": [
+          {"name_hi": "संबंध तथा फलन", "marks": 10},
+          {"name_hi": "बीजगणित", "marks": 15},
+          {"name_hi": "कलन", "marks": 44},
+          {"name_hi": "सदिश तथा त्रिविमीय ज्यामिति", "marks": 18},
+          {"name_hi": "रैखिक प्रोग्रामन", "marks": 5},
+          {"name_hi": "प्रायिकता", "marks": 8}
+        ],
+        "note": "Written/internal split must be verified separately."
+      },
+      "english": {
+        "total": 100,
+        "units": [
+          {"name": "Reading", "marks": 15},
+          {"name": "Writing", "marks": 20},
+          {"name": "Grammar", "marks": 25},
+          {"name": "Literature", "marks": 40}
+        ]
+      },
+      "hindi": {
+        "total": 100,
+        "units": [
+          {"name_hi": "हिंदी गद्य साहित्य का इतिहास", "marks": 5},
+          {"name_hi": "गद्य खंड", "marks": 15},
+          {"name_hi": "कहानी", "marks": 5},
+          {"name_hi": "हिंदी पद्य साहित्य का इतिहास", "marks": 5},
+          {"name_hi": "पद्य खंड", "marks": 15},
+          {"name_hi": "खंडकाव्य", "marks": 5},
+          {"name_hi": "काव्य-सौंदर्य के तत्व", "marks": 6},
+          {"name_hi": "संस्कृत खंड", "marks": 14},
+          {"name_hi": "निबंध", "marks": 9},
+          {"name_hi": "पत्र लेखन", "marks": 6},
+          {"name_hi": "व्याकरण", "marks": 10},
+          {"name_hi": "अपठित गद्यांश एवं पद्यांश", "marks": 5}
+        ]
+      }
+    }
+  }
+}

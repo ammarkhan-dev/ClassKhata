@@ -1,0 +1,85 @@
+:root{--ease:cubic-bezier(.22,.8,.3,1);--spring:cubic-bezier(.2,1.25,.4,1);--dx:18px}
+html[data-dir=back]{--dx:-18px}
+html.goback{--dx:-18px}
+html{scroll-behavior:smooth}
+a,button,input,select,summary,label{touch-action:manipulation}
+@keyframes ckFade{from{opacity:0}to{opacity:1}}
+@keyframes ckIn{from{opacity:0;transform:translate3d(var(--dx),0,0)}to{opacity:1;transform:none}}
+@keyframes ckRise{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+@keyframes ckPop{0%{transform:scale(.82)}60%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes ckSheet{from{transform:translate3d(0,100%,0)}to{transform:none}}
+@keyframes ckSheetOut{from{transform:none}to{transform:translate3d(0,100%,0)}}
+@keyframes ckDim{from{opacity:0}to{opacity:1}}
+@keyframes ckDimOut{from{opacity:1}to{opacity:0}}
+@keyframes ckGrow{from{width:0}}
+@keyframes ckFab{from{opacity:0;transform:translate3d(0,24px,0) scale(.85)}to{opacity:1;transform:none}}
+@keyframes ckDrop{from{opacity:0;transform:translate3d(0,-8px,0)}to{opacity:1;transform:none}}
+
+main{animation:ckFade .24s ease backwards}
+.sc,.cc,.item,.ci,.fc,.arow,.stu,.grp,.card,.cls,.hero,.sm{animation:ckIn .4s var(--ease) backwards;animation-delay:calc(var(--i,0) * 38ms)}
+header.dk>*{animation:ckRise .36s var(--ease) backwards}
+header.dk>*:nth-child(2){animation-delay:.05s}
+header.dk>*:nth-child(3){animation-delay:.1s}
+header.dk>*:nth-child(4){animation-delay:.15s}
+.fab{animation:ckFab .5s var(--spring) .25s backwards}
+.okb,.err{animation:ckDrop .3s var(--ease) backwards}
+.pgr .bar i{animation:ckGrow .9s var(--ease) .15s backwards}
+nav a.on .ic{animation:ckPop .4s var(--spring) .1s backwards}
+details[open]>:not(summary){animation:ckDrop .26s var(--ease) backwards}
+
+.sheet:not([hidden]),.csh:not([hidden]){animation:ckDim .22s ease both}
+.sheet:not([hidden])>.sp,.csh:not([hidden])>.cp{animation:ckSheet .34s var(--ease) both}
+.sheet.closing,.csh.closing{animation:ckDimOut .2s ease both}
+.sheet.closing>.sp,.csh.closing>.cp{animation:ckSheetOut .22s ease both}
+E
+cat > static/motion.css << 'EOF'
+:root{--ease:cubic-bezier(.22,.8,.3,1);--spring:cubic-bezier(.2,1.25,.4,1);--dx:18px}
+html[data-dir=back]{--dx:-18px}
+html.goback{--dx:-18px}
+html{scroll-behavior:smooth}
+a,button,input,select,summary,label{touch-action:manipulation}
+@keyframes ckFade{from{opacity:0}to{opacity:1}}
+@keyframes ckIn{from{opacity:0;transform:translate3d(var(--dx),0,0)}to{opacity:1;transform:none}}
+@keyframes ckRise{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+@keyframes ckPop{0%{transform:scale(.82)}60%{transform:scale(1.1)}100%{transform:scale(1)}}
+@keyframes ckSheet{from{transform:translate3d(0,100%,0)}to{transform:none}}
+@keyframes ckSheetOut{from{transform:none}to{transform:translate3d(0,100%,0)}}
+@keyframes ckDim{from{opacity:0}to{opacity:1}}
+@keyframes ckDimOut{from{opacity:1}to{opacity:0}}
+@keyframes ckGrow{from{width:0}}
+@keyframes ckFab{from{opacity:0;transform:translate3d(0,24px,0) scale(.85)}to{opacity:1;transform:none}}
+@keyframes ckDrop{from{opacity:0;transform:translate3d(0,-8px,0)}to{opacity:1;transform:none}}
+
+main{animation:ckFade .24s ease backwards}
+.sc,.cc,.item,.ci,.fc,.arow,.stu,.grp,.card,.cls,.hero,.sm{animation:ckIn .4s var(--ease) backwards;animation-delay:calc(var(--i,0) * 38ms)}
+header.dk>*{animation:ckRise .36s var(--ease) backwards}
+header.dk>*:nth-child(2){animation-delay:.05s}
+header.dk>*:nth-child(3){animation-delay:.1s}
+header.dk>*:nth-child(4){animation-delay:.15s}
+.fab{animation:ckFab .5s var(--spring) .25s backwards}
+.okb,.err{animation:ckDrop .3s var(--ease) backwards}
+.pgr .bar i{animation:ckGrow .9s var(--ease) .15s backwards}
+nav a.on .ic{animation:ckPop .4s var(--spring) .1s backwards}
+details[open]>:not(summary){animation:ckDrop .26s var(--ease) backwards}
+
+.sheet:not([hidden]),.csh:not([hidden]){animation:ckDim .22s ease both}
+.sheet:not([hidden])>.sp,.csh:not([hidden])>.cp{animation:ckSheet .34s var(--ease) both}
+.sheet.closing,.csh.closing{animation:ckDimOut .2s ease both}
+.sheet.closing>.sp,.csh.closing>.cp{animation:ckSheetOut .22s ease both}
+
+button,.btn,.item,.cls,.sc,.cc,.fc>summary,.sr,.lk,.chp span,.ch span,.mch span,.dy span,.sg span,.tab,.fch,.ico,.hb,.cn,.opt,.mn,.mi,.ln,.pr,.pill,.pl,.wa,.dc,.mc,.bx,.qa a,nav a,.fab{transition:transform .16s var(--ease),background-color .2s,color .2s,border-color .2s,box-shadow .2s,opacity .2s}
+button:active,.btn:active,.mn:active,.fch:active,.tab:active,.pill:active,.pl:active,.lk:active{transform:scale(.97)}
+.hb:active,.ico:active,.cn:active,.wa:active,.mc:active,.dc:active{transform:scale(.92)}
+nav a:active{transform:scale(.9)}
+.chp:active span,.ch:active span,.mch:active span,.dy:active span,.sg:active span{transform:scale(.95)}
+.item:active,.cls:active,.sc:active,.cc:active,.sr:active,.opt:active,.ln:active,.qa a:active,.pr:active,.mi:active,.fc>summary:active,.bx:active{transform:scale(.985)}
+html.ck-ready .chp input:checked+span,html.ck-ready .ch input:checked+span,html.ck-ready .mch input:checked+span,html.ck-ready .dy input:checked+span{animation:ckPop .28s var(--spring)}
+html.ck-ready .sg3 button.on{animation:ckPop .25s var(--spring)}
+
+html.leaving main{opacity:0;transition:opacity .13s ease}
+html.leaving main :is(.sc,.cc,.item,.ci,.fc,.arow,.stu,.grp,.card,.cls,.hero,.sm){transform:translate3d(calc(var(--dx) * -.7),0,0);transition:transform .13s ease}
+
+#ckp{position:fixed;left:0;top:0;height:3px;width:0;opacity:0;z-index:200;pointer-events:none;background:linear-gradient(90deg,#e5b455,#f3d58a);border-radius:0 3px 3px 0;box-shadow:0 0 8px rgba(229,180,85,.6)}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+html.nomotion *,html.nomotion *::before,html.nomotion *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}

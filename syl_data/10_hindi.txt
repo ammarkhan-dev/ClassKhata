@@ -1,0 +1,78 @@
+@class 10
+@subject hindi | Hindi | हिन्दी
+# Prose Section (Gadya Khand) | गद्य खंड
+## History of Hindi prose | साहित्य इतिहास
+- Brief introduction to the development of Hindi prose | हिन्दी गद्य के विकास का संक्षिप्त परिचय
+## Prescribed lessons | निर्धारित पाठ
+- Mitrata (Ramchandra Shukla) | मित्रता (रामचंद्र शुक्ल)
+- Mamta (Jaishankar Prasad) | ममता (जयशंकर प्रसाद)
+- Bharatiya Sanskriti (Rajendra Prasad) | भारतीय संस्कृति (राजेंद्र प्रसाद)
+- Ajanta (Bhagwat Sharan Upadhyay) | अजंता (भगवत शरण उपाध्याय)
+- Kya Likhun? (Padumlal Punnalal Bakhshi) | क्या लिखूँ? (पदुमलाल पुन्नालाल बख्शी)
+- Irshya, Tu Na Gayi Mere Man Se (Ramdhari Singh Dinkar) | ईर्ष्या, तू न गई मेरे मन से (रामधारी सिंह दिनकर)
+- Paani Mein Chanda aur Chand Par Aadmi (Jayprakash Bharti) | पानी में चंदा और चाँद पर आदमी (जयप्रकाश भारती)
+# Poetry Section (Padya Khand) | पद्य खंड
+## History of Hindi poetry | साहित्य इतिहास
+- Brief introduction to the development of Hindi poetry | हिन्दी पद्य के विकास का संक्षिप्त परिचय
+## Prescribed poems | निर्धारित पाठ
+- Surdas: Pad | सूरदास: पद
+- Tulsidas: Dhanush Bhang, Van Path Par | तुलसीदास: धनुष भंग, वन पथ पर
+- Raskhan: Savaiye, Kavitt | रसखान: सवैये, कवित्त
+- Bihari Lal: Bhakti-Neeti | बिहारी लाल: भक्ति-नीति
+- Ramnaresh Tripathi: Swadesh Prem | रामनरेश त्रिपाठी: स्वदेश प्रेम
+- Maithilisharan Gupt: Bharatmata ka Mandir Yah | मैथिलीशरण गुप्त: भारतमाता का मंदिर यह
+- Mahadevi Verma: Himalaya Se, Varsha Sundari ke Prati | महादेवी वर्मा: हिमालय से, वर्षा सुंदरी के प्रति
+- Sumitranandan Pant: Chinti, Chandralok Mein Pratham Baar | सुमित्रानंदन पंत: चींटी, चंद्रलोक में प्रथम बार
+- Makhanlal Chaturvedi: Pushp ki Abhilasha, Jawani | माखनलाल चतुर्वेदी: पुष्प की अभिलाषा, जवानी
+- Subhadra Kumari Chauhan: Jhansi ki Rani ki Samadhi Par | सुभद्रा कुमारी चौहान: झाँसी की रानी की समाधि पर
+- Agyeya or other prescribed modern poem | अज्ञेय या अन्य निर्धारित आधुनिक काव्य पाठ
+- Shyam Narayan Pandey: Haldighati | श्याम नारायण पांडेय: हल्दीघाटी
+- Kedarnath Singh: Nadi | केदारनाथ सिंह: नदी
+## Khandkavya | खंड काव्य
+- Muktidoot | मुक्तिदूत
+- Jyoti | ज्योति
+- Agrapooja | अग्रपूजा
+- Mewad Mukut | मेवाड़ मुकुट
+- Jai Subhash | जय सुभाष
+- Matribhumi ke Liye | मातृभूमि के लिए
+- Karmaveer Bharat and other prescribed khandkavya | कर्मवीर भरत तथा अन्य निर्धारित खंडकाव्य
+## Elements of poetic beauty | काव्य सौंदर्य के तत्व
+- Ras: Hasya and Karun | रस: हास्य और करुण
+- Alankar: Upma, Rupak, Utpreksha | अलंकार: उपमा, रूपक, उत्प्रेक्षा
+- Chhand: Sortha and Rola | छंद: सोरठा और रोला
+# Sanskrit Section | संस्कृत खंड
+## Prescribed lessons | निर्धारित पाठ
+- Varanasi | वाराणसी
+- Deshbhaktah Chandrashekharah | देशभक्तः चंद्रशेखरः
+- Bharatiyah Sanskritih | भारतीयाः संस्कृतिः
+- Veerah Veerena Poojyate | वीरः वीरेण पूज्यते
+- Aruni-Shvetaketu Samvadah | आरुणि-श्वेतकेतु संवादः
+- Jeevan Sutrani | जीवन-सूत्राणि
+- Prabuddho Gramineeh | प्रबुद्धोग्रामीणः
+- Kena Kim Vardhate? | केन किं वर्धते?
+- Anyoktivilasah | अन्योक्तिविलासः
+# Letter Writing | पत्र लेखन
+## Letters | पत्र
+- Letters in the prescribed format | निर्धारित प्रारूप के अनुसार पत्र
+- Application and request letters | आवेदन व प्रार्थना पत्र
+- Letters to relatives and friends | संबंधियों व मित्रों को पत्र
+# Grammar (Vyakaran) | व्याकरण
+## Word formation | शब्द रचना
+- Upsarg (prefix) | उपसर्ग
+- Samas: Dvandva, Dvigu, Karmadharay, Bahuvrihi | समास: द्वंद्व, द्विगु, कर्मधारय, बहुव्रीहि
+- Tatsam and Tadbhav words | तत्सम और तद्भव शब्द
+- Paryayvachi (synonyms) | पर्यायवाची शब्द
+## Sanskrit grammar | संस्कृत व्याकरण
+- Pronouns: Tad and Yushmad | सर्वनाम: तद् और युष्मद्
+## Sentences | वाक्य
+- Nature of a sentence | वाक्य का स्वरूप
+- Vachya and vachya parivartan | वाच्य और वाच्य परिवर्तन
+- Pad parichay: vikari and avikari words | पद परिचय: विकारी और अविकारी शब्द
+# Essay | निबंध
+## Topics | विषय
+- Scientific topics | वैज्ञानिक विषय
+- Social topics | सामाजिक विषय
+- Religious topics | धार्मिक विषय
+- Cultural topics | सांस्कृतिक विषय
+- Economic topics | आर्थिक विषय
+- Population, health, education, environment, traffic rules | जनसंख्या, स्वास्थ्य, शिक्षा, पर्यावरण, यातायात नियम

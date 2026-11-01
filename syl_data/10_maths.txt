@@ -1,0 +1,101 @@
+@class 10
+@subject maths | Mathematics | गणित
+# Real Numbers | वास्तविक संख्याएँ
+## Euclid's division lemma | यूक्लिड विभाजन प्रमेयिका
+- Euclid's division lemma and algorithm | यूक्लिड विभाजन प्रमेयिका तथा एल्गोरिथ्म
+- Finding HCF using the algorithm | एल्गोरिथ्म से HCF निकालना
+## Fundamental theorem of arithmetic | अंकगणित की आधारभूत प्रमेय
+- Fundamental theorem of arithmetic | अंकगणित की आधारभूत प्रमेय
+- HCF and LCM by prime factorisation | अभाज्य गुणनखंडन से HCF व LCM
+## Irrational numbers | अपरिमेय संख्याएँ
+- Proofs of irrationality of root 2, root 3, root 5 | √2, √3, √5 की अपरिमेयता के प्रमाण
+- Decimal expansions of rational numbers | परिमेय संख्याओं के दशमलव प्रसार
+# Polynomials | बहुपद
+## Zeroes of a polynomial | बहुपद के शून्यक
+- Geometrical meaning of zeroes | शून्यकों का ज्यामितीय अर्थ
+- Relationship between zeroes and coefficients of quadratic polynomials | द्विघात बहुपद के शून्यकों व गुणांकों में संबंध
+## Division algorithm | विभाजन एल्गोरिथ्म
+- Division algorithm for polynomials | बहुपदों के लिए विभाजन एल्गोरिथ्म
+# Pair of Linear Equations in Two Variables | दो चरों वाले रैखिक समीकरण युग्म
+## Methods of solution | हल करने की विधियाँ
+- Graphical method | आलेखीय विधि
+- Substitution method | प्रतिस्थापन विधि
+- Elimination method | विलोपन विधि
+- Cross-multiplication method | वज्र-गुणन विधि
+## Consistency | संगतता
+- Conditions for consistency | संगतता की शर्तें
+- Word problems | शाब्दिक प्रश्न
+# Quadratic Equations | द्विघात समीकरण
+## Solving | हल करना
+- Standard form of a quadratic equation | द्विघात समीकरण का मानक रूप
+- Solution by factorisation | गुणनखंडन द्वारा हल
+- Solution by completing the square | वर्ग पूरा करके हल
+- Quadratic formula | द्विघाती सूत्र
+## Nature of roots | मूलों की प्रकृति
+- Discriminant and nature of roots | विविक्तकर तथा मूलों की प्रकृति
+- Word problems | शाब्दिक प्रश्न
+# Arithmetic Progressions | समांतर श्रेढ़ी
+## AP | समांतर श्रेढ़ी
+- Definition, first term and common difference | परिभाषा, प्रथम पद तथा सार्व अंतर
+- nth term of an AP | समांतर श्रेढ़ी का n वाँ पद
+- Sum of first n terms | प्रथम n पदों का योग
+- Word problems | शाब्दिक प्रश्न
+# Triangles | त्रिभुज
+## Similarity | समरूपता
+- Similar figures and similar triangles | समरूप आकृतियाँ तथा समरूप त्रिभुज
+- Criteria for similarity: AAA, SSS, SAS | समरूपता के निकष: AAA, SSS, SAS
+- Basic proportionality theorem (Thales) | आधारभूत समानुपातिकता प्रमेय (थेल्स)
+## Areas and Pythagoras | क्षेत्रफल तथा पाइथागोरस
+- Areas of similar triangles | समरूप त्रिभुजों के क्षेत्रफल
+- Pythagoras theorem and its converse | पाइथागोरस प्रमेय तथा उसका विलोम
+# Coordinate Geometry | निर्देशांक ज्यामिति
+## Formulae | सूत्र
+- Distance formula | दूरी सूत्र
+- Section formula | विभाजन सूत्र
+- Area of a triangle | त्रिभुज का क्षेत्रफल
+# Introduction to Trigonometry | त्रिकोणमिति का परिचय
+## Trigonometric ratios | त्रिकोणमितीय अनुपात
+- Trigonometric ratios of an acute angle | न्यून कोण के त्रिकोणमितीय अनुपात
+- Ratios of 0, 30, 45, 60, 90 degrees | 0°, 30°, 45°, 60°, 90° के अनुपात
+- Ratios of complementary angles | पूरक कोणों के अनुपात
+## Identities | सर्वसमिकाएँ
+- Trigonometric identities | त्रिकोणमितीय सर्वसमिकाएँ
+# Some Applications of Trigonometry | त्रिकोणमिति के कुछ अनुप्रयोग
+## Heights and distances | ऊँचाई तथा दूरी
+- Angle of elevation and depression | उन्नयन कोण तथा अवनमन कोण
+- Problems on heights and distances | ऊँचाई व दूरी के प्रश्न
+# Circles | वृत्त
+## Tangent to a circle | वृत्त की स्पर्श रेखा
+- Tangent at a point of a circle | वृत्त के किसी बिंदु पर स्पर्श रेखा
+- Number of tangents from a point | किसी बिंदु से स्पर्श रेखाओं की संख्या
+- Tangent is perpendicular to the radius | स्पर्श रेखा त्रिज्या पर लंब होती है
+- Lengths of tangents from an external point are equal | बाह्य बिंदु से स्पर्श रेखाओं की लंबाइयाँ बराबर
+# Constructions | रचनाएँ
+## Constructions | रचनाएँ
+- Division of a line segment in a given ratio | रेखाखंड को दिए अनुपात में विभाजित करना
+- Construction of similar triangle | समरूप त्रिभुज की रचना
+- Tangents to a circle from an external point | बाह्य बिंदु से वृत्त पर स्पर्श रेखाएँ
+# Areas Related to Circles | वृत्तों से संबंधित क्षेत्रफल
+## Areas | क्षेत्रफल
+- Perimeter and area of a circle | वृत्त का परिमाप तथा क्षेत्रफल
+- Areas of sector and segment | त्रिज्यखंड तथा वृत्तखंड के क्षेत्रफल
+- Areas of combinations of plane figures | समतल आकृतियों के संयोजनों के क्षेत्रफल
+# Surface Areas and Volumes | पृष्ठीय क्षेत्रफल एवं आयतन
+## Solids | ठोस
+- Surface area of combination of solids | ठोसों के संयोजन का पृष्ठीय क्षेत्रफल
+- Volume of combination of solids | ठोसों के संयोजन का आयतन
+- Conversion of solid from one shape to another | एक ठोस को दूसरे आकार में बदलना
+- Frustum of a cone | शंकु का छिन्नक
+# Statistics | सांख्यिकी
+## Measures of central tendency | केंद्रीय प्रवृत्ति के माप
+- Mean of grouped data: direct, assumed mean, step deviation | समूहित आँकड़ों का माध्य: प्रत्यक्ष, कल्पित माध्य, पद विचलन
+- Mode of grouped data | समूहित आँकड़ों का बहुलक
+- Median of grouped data | समूहित आँकड़ों की माध्यिका
+- Cumulative frequency graph (ogive) | संचयी बारंबारता आलेख (तोरण)
+# Probability | प्रायिकता
+## Probability | प्रायिकता
+- Classical definition of probability | प्रायिकता की शास्त्रीय परिभाषा
+- Simple problems on single events | एकल घटनाओं पर सरल प्रश्न
+# Project Work | परियोजना कार्य
+## Project | परियोजना
+- Project work as prescribed | निर्धारित परियोजना कार्य

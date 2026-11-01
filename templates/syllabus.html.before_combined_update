@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+.sy-wrap{max-width:760px;margin:auto}
+.sy-title{font-size:25px;font-weight:800;color:var(--navy);margin:4px 0}
+.sy-sub{color:var(--muted);font-size:14px;margin-bottom:18px}
+.sy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
+.sy-card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:17px;padding:18px 14px;background:var(--card);color:var(--ink);font-weight:700}
+.sy-card:active{transform:scale(.98)}
+.sy-icon{font-size:25px;margin-bottom:10px}
+.sy-card small{display:block;color:var(--muted);font-weight:400;margin-top:5px}
+.sy-back{display:inline-block;color:var(--muted);text-decoration:none;margin:0 0 16px}
+.sy-note{border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:18px;color:var(--muted);font-size:13px;line-height:1.6}
+.sy-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sy-lang{color:var(--navy);font-weight:700;text-decoration:none}
+@media(max-width:360px){.sy-grid{grid-template-columns:1fr}}
+</style>
+<div class="sy-wrap">
+  <div class="sy-top">
+    <a class="sy-back" href="/">{{ '← Home' if lang == 'en' else '← होम' }}</a>
+    <a class="sy-lang" href="?lang={{ 'hi' if lang == 'en' else 'en' }}">{{ 'हिंदी' if lang == 'en' else 'English' }}</a>
+  </div>
+
+  {% if page == 'classes' %}
+    <h2 class="sy-title">{{ 'Syllabus' if lang == 'en' else 'पाठ्यक्रम' }}</h2>
+    <p class="sy-sub">{{ 'Choose your class to continue' if lang == 'en' else 'आगे बढ़ने के लिए अपनी कक्षा चुनें' }}</p>
+    <div class="sy-grid">
+      <a class="sy-card" href="/syllabus/subjects?class=10&lang={{ lang }}">
+        <div class="sy-icon">📘</div>
+        {{ 'Class 10th' if lang == 'en' else 'कक्षा 10वीं' }}
+        <small>{{ 'High School' if lang == 'en' else 'हाई स्कूल' }}</small>
+      </a>
+      <a class="sy-card" href="/syllabus/subjects?class=12&lang={{ lang }}">
+        <div class="sy-icon">🎓</div>
+        {{ 'Class 12th' if lang == 'en' else 'कक्षा 12वीं' }}
+        <small>{{ 'Intermediate' if lang == 'en' else 'इंटरमीडिएट' }}</small>
+      </a>
+    </div>
+
+  {% elif page == 'subjects' %}
+    <a class="sy-back" href="/syllabus?lang={{ lang }}">← {{ 'Back to classes' if lang == 'en' else 'कक्षा पर वापस जाएँ' }}</a>
+    <h2 class="sy-title">{{ 'Class ' ~ cls ~ 'th · Subjects' if lang == 'en' else 'कक्षा ' ~ cls ~ 'वीं · विषय' }}</h2>
+    <p class="sy-sub">{{ 'Choose a subject' if lang == 'en' else 'अपना विषय चुनें' }}</p>
+    <div class="sy-grid">
+      {% for en, hi in subjects %}
+      <a class="sy-card" href="/syllabus/chapters?class={{ cls }}&subject={{ en|urlencode }}&lang={{ lang }}">
+        <div class="sy-icon">📚</div>
+        {{ en if lang == 'en' else hi }}
+        <small>{{ hi if lang == 'en' else en }}</small>
+      </a>
+      {% endfor %}
+    </div>
+
+  {% elif page == 'chapters' %}
+    <a class="sy-back" href="/syllabus/subjects?class={{ cls }}&lang={{ lang }}">← {{ 'Back to subjects' if lang == 'en' else 'विषयों पर वापस जाएँ' }}</a>
+    <h2 class="sy-title">{{ subject if lang == 'en' else subject_hi }}</h2>
+    <p class="sy-sub">{{ 'Class ' ~ cls ~ ' · Chapters' if lang == 'en' else 'कक्षा ' ~ cls ~ ' · अध्याय' }}</p>
+    <div class="sy-note">
+      {{ 'The chapter list for this subject still needs to be entered and checked against the official UPMSP 2026–27 syllabus. No guessed chapter list is shown as official.' if lang == 'en' else 'इस विषय की अध्याय सूची को आधिकारिक UPMSP 2026–27 पाठ्यक्रम से मिलाकर जोड़ना बाकी है। अनुमानित सूची को आधिकारिक बताकर नहीं दिखाया जा रहा है।' }}
+    </div>
+
+  {% elif page == 'topics' %}
+    <a class="sy-back" href="/syllabus/chapters?class={{ cls }}&subject={{ subject|urlencode }}&lang={{ lang }}">← {{ 'Back to chapters' if lang == 'en' else 'अध्यायों पर वापस जाएँ' }}</a>
+    <h2 class="sy-title">{{ chapter }}</h2>
+    <p class="sy-sub">{{ 'Topics and subtopics' if lang == 'en' else 'टॉपिक और सबटॉपिक' }}</p>
+    <div class="sy-note">{{ 'Topics and subtopics will appear here once the verified chapter data is added.' if lang == 'en' else 'सत्यापित अध्याय डेटा जुड़ने के बाद यहाँ टॉपिक और सबटॉपिक दिखेंगे।' }}</div>
+  {% endif %}
+</div>
+{% endblock %}

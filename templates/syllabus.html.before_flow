@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+.sy-wrap{max-width:760px;margin:auto}
+.sy-title{font-size:25px;font-weight:800;color:var(--navy);margin:4px 0}
+.sy-sub{color:var(--muted);font-size:14px;margin-bottom:18px}
+.sy-classes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.sy-class{display:block;text-decoration:none;border:1px solid var(--line);border-radius:18px;padding:18px;background:var(--card);color:var(--ink)}
+.sy-class.active{background:var(--navy);color:white;border-color:var(--navy)}
+.sy-num{font-size:26px;font-weight:800}
+.sy-subjects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sy-subject{display:block;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:15px 12px;background:var(--card);color:var(--ink);font-weight:650}
+.sy-subject small{display:block;color:var(--muted);font-weight:400;margin-top:5px}
+.sy-note{border-radius:14px;background:var(--line);padding:14px;margin-top:18px;font-size:13px}
+@media(max-width:390px){.sy-subjects{grid-template-columns:1fr}}
+</style>
+<div class="sy-wrap">
+  <h2 class="sy-title">{{ 'UP Board Syllabus' if lang == 'en' else 'यूपी बोर्ड पाठ्यक्रम' }}</h2>
+  <p class="sy-sub">{{ 'Academic session 2026–27 · Hindi-medium friendly' if lang == 'en' else 'शैक्षिक सत्र 2026–27 · हिंदी माध्यम के अनुकूल' }}</p>
+  <div class="sy-classes">
+    <a class="sy-class {{ 'active' if cls == '10' else '' }}" href="/syllabus?class=10&lang={{ lang }}">
+      <div class="sy-num">10th</div>{{ 'High School' if lang == 'en' else 'हाई स्कूल' }}
+    </a>
+    <a class="sy-class {{ 'active' if cls == '12' else '' }}" href="/syllabus?class=12&lang={{ lang }}">
+      <div class="sy-num">12th</div>{{ 'Intermediate' if lang == 'en' else 'इंटरमीडिएट' }}
+    </a>
+  </div>
+  <h3>{{ 'Choose a subject' if lang == 'en' else 'विषय चुनें' }}</h3>
+  <div class="sy-subjects">
+    {% for en, hi in subjects %}
+    <a class="sy-subject" href="https://upmsp.edu.in/Board_Syllabus.aspx" target="_blank" rel="noopener">
+      {{ en if lang == 'en' else hi }}
+      <small>{{ hi if lang == 'en' else en }}</small>
+    </a>
+    {% endfor %}
+  </div>
+  <div class="sy-note">
+    {{ 'Official UPMSP syllabus source. Chapter-wise bilingual topics and grammar are the next implementation step; this page does not yet claim the complete chapter list.' if lang == 'en' else 'आधिकारिक UPMSP पाठ्यक्रम स्रोत। अध्यायवार द्विभाषी विषय और व्याकरण अगला चरण है; इस पेज पर अभी पूरी अध्याय सूची होने का दावा नहीं है।' }}
+    <p><a href="https://upmsp.edu.in/Board_Syllabus.aspx" target="_blank" rel="noopener">{{ 'Open official UPMSP syllabus ↗' if lang == 'en' else 'आधिकारिक UPMSP पाठ्यक्रम खोलें ↗' }}</a></p>
+    <p><a href="/syllabus?class={{ cls }}&lang={{ 'hi' if lang == 'en' else 'en' }}">{{ 'हिंदी में देखें' if lang == 'en' else 'View in English' }}</a></p>
+  </div>
+</div>
+{% endblock %}

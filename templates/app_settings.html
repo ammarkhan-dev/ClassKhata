@@ -14,6 +14,10 @@
 <a class="sr" href="/backup"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span class="tx"><b>{{ t('backup_title') }}</b><span>{{ t('last_backup') }}: {{ last or t('never') }}</span></span>{% if due %}<span class="pc lo">{{ t('backup_due') }}</span>{% endif %}<span class="ch">›</span></a>
 <a class="sr" href="/report"><svg class="ic" viewBox="0 0 24 24"><path d="M6 20V11M12 20V5M18 20v-6"/></svg><span class="tx"><b>{{ t('report_open') }}</b></span><span class="ch">›</span></a>
 </div>
+<div class="card"><div class="fl3" style="margin-top:0">{{ t('anim_l') }}</div>
+<div class="chs"><a class="lk" id="am-on" href="#" data-noanim onclick="return ckm('on')">{{ t('on_l') }}</a><a class="lk" id="am-off" href="#" data-noanim onclick="return ckm('off')">{{ t('off_l') }}</a></div></div>
+<script>function ckmu(){var o=localStorage.getItem('ck_motion')==='off';document.getElementById('am-on').classList.toggle('on',!o);document.getElementById('am-off').classList.toggle('on',o)}
+function ckm(v){localStorage.setItem('ck_motion',v);document.documentElement.classList.toggle('nomotion',v==='off');ckmu();return false}ckmu()</script>
 <details class="card" id="pw" {{ 'open' if err or ok }}><summary style="font-weight:700;font-size:18px;cursor:pointer;color:var(--navy)">{{ t('change_pw') }}</summary>
 {% if ok %}<div class="okb" style="margin-top:12px">{{ t('pw_saved') }}</div>{% endif %}
 {% if err %}<div class="err" style="margin-top:12px">{{ t(err) }}</div>{% endif %}

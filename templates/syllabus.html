@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+.sy-wrap{max-width:760px;margin:auto}.sy-title{font-size:25px;font-weight:800;color:var(--navy);margin:4px 0}.sy-sub{color:var(--muted);font-size:14px;margin-bottom:18px}
+.sy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}.sy-card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:17px;padding:16px 14px;background:var(--card);color:var(--ink);font-weight:700}
+.sy-icon{font-size:25px;margin-bottom:8px}.sy-card small{display:block;color:var(--muted);font-weight:400;margin-top:5px}.sy-back{display:inline-block;color:var(--muted);text-decoration:none;margin:0 0 16px}.sy-note{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;color:var(--muted);font-size:13px;line-height:1.6}.sy-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.sy-lang{color:var(--navy);font-weight:700;text-decoration:none}.sy-marks{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:var(--card)}.sy-row{padding:9px 0;border-bottom:1px solid var(--line)}.sy-row:last-child{border:0}.sy-topic{border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0}.sy-topic h3{font-size:16px;margin:0 0 8px}.sy-topic li{margin:6px 0}
+@media(max-width:360px){.sy-grid{grid-template-columns:1fr}}
+</style>
+<div class="sy-wrap">
+<div class="sy-top"><a class="sy-back" href="/">← {{ 'Home' if lang=='en' else 'होम' }}</a>
+<a class="sy-lang" href="?lang={{ 'hi' if lang=='en' else 'en' }}">{{ 'हिंदी' if lang=='en' else 'English' }}</a></div>
+
+{% if page == 'classes' %}
+<h2 class="sy-title">{{ 'Syllabus 2026–27' if lang=='en' else 'पाठ्यक्रम 2026–27' }}</h2>
+<p class="sy-sub">{{ 'Choose your class' if lang=='en' else 'अपनी कक्षा चुनें' }}</p>
+<div class="sy-grid">
+<a class="sy-card" href="/syllabus/subjects?class=10&lang={{lang}}"><div class="sy-icon">📘</div>{{'Class 10' if lang=='en' else 'कक्षा 10'}}<small>{{'High School' if lang=='en' else 'हाई स्कूल'}}</small></a>
+<a class="sy-card" href="/syllabus/subjects?class=12&lang={{lang}}"><div class="sy-icon">🎓</div>{{'Class 12' if lang=='en' else 'कक्षा 12'}}<small>{{'Intermediate' if lang=='en' else 'इंटरमीडिएट'}}</small></a>
+</div>
+{% elif page == 'subjects' %}
+<a class="sy-back" href="/syllabus?lang={{lang}}">← {{'Classes' if lang=='en' else 'कक्षाएँ'}}</a>
+<h2 class="sy-title">{{'Class ' ~ cls ~ ' · Subjects' if lang=='en' else 'कक्षा ' ~ cls ~ ' · विषय'}}</h2>
+<div class="sy-grid">{% for en,hi,key in subjects %}
+<a class="sy-card" href="/syllabus/chapters?class={{cls}}&key={{key}}&lang={{lang}}"><div class="sy-icon">📚</div>{{en if lang=='en' else hi}}<small>{{hi if lang=='en' else en}}</small></a>
+{% endfor %}</div>
+{% elif page == 'chapters' %}
+<a class="sy-back" href="/syllabus/subjects?class={{cls}}&lang={{lang}}">← {{'Subjects' if lang=='en' else 'विषय'}}</a>
+<h2 class="sy-title">{{subject if lang=='en' else subject_hi}}</h2>
+<p class="sy-sub">{{'Chapter list' if lang=='en' else 'अध्याय सूची'}} · {{'Academic session 2026–27' if lang=='en' else 'शैक्षिक सत्र 2026–27'}}</p>
+{% if marks %}
+<div class="sy-marks"><strong>{{'Marks distribution' if lang=='en' else 'अंक-वितरण'}}</strong>
+{% for k,v in marks.items() %}
+<div class="sy-row"><strong>{{k|replace('_',' ')|title}}</strong>: {% if v is mapping or v is sequence and v is not string %}{{v|tojson}}{% else %}{{v}}{% endif %}</div>
+{% endfor %}</div>
+{% endif %}
+<div class="sy-note">{{'Starter list: verify chapter names and inclusion against the official UPMSP PDF before marking syllabus complete.' if lang=='en' else 'प्रारंभिक सूची: पाठ्यक्रम पूरा मानने से पहले अध्यायों के नाम और शामिल होने की पुष्टि आधिकारिक UPMSP PDF से करें।'}}</div>
+<div class="sy-grid">{% for ch in chapters %}
+<a class="sy-card" href="/syllabus/topics?class={{cls}}&key={{key}}&chapter={{loop.index0}}&lang={{lang}}"><div class="sy-icon">📖</div>{{ch.en if lang=='en' else ch.hi}}<small>{{'Open topics' if lang=='en' else 'टॉपिक खोलें'}} →</small></a>
+{% endfor %}</div>
+{% elif page == 'topics' %}
+<a class="sy-back" href="/syllabus/chapters?class={{cls}}&key={{key}}&lang={{lang}}">← {{'Chapters' if lang=='en' else 'अध्याय'}}</a>
+<h2 class="sy-title">{{chapter.en if lang=='en' else chapter.hi}}</h2>
+<p class="sy-sub">{{'Topics and subtopics' if lang=='en' else 'टॉपिक और सबटॉपिक'}}</p>
+{% for topic in chapter.topics %}
+<div class="sy-topic"><h3>{{topic.en if lang=='en' else topic.hi}}</h3>
+<ul>{% for sub in topic.subtopics %}<li>{{sub.en if lang=='en' else sub.hi}}</li>{% endfor %}</ul></div>
+{% endfor %}
+<div class="sy-note">{{'Some topic labels are starter placeholders and need verification against the official chapter outline.' if lang=='en' else 'कुछ टॉपिक शुरुआती प्लेसहोल्डर हैं; इन्हें आधिकारिक अध्याय रूपरेखा से सत्यापित करना बाकी है।'}}</div>
+{% endif %}
+</div>
+{% endblock %}

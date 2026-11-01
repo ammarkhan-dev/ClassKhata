@@ -1,0 +1,182 @@
+@class 12
+@subject physics | Physics | भौतिक विज्ञान
+# Electric Charges and Fields | विद्युत आवेश तथा क्षेत्र
+## Electric charge | विद्युत आवेश
+- Properties of charge: quantisation, conservation, additivity | आवेश के गुण: क्वाण्टीकरण, संरक्षण, योज्यता
+- Conductors and insulators | चालक तथा विद्युतरोधी
+- Charging by induction | प्रेरण द्वारा आवेशन
+## Coulomb's law | कूलॉम का नियम
+- Force between two point charges | दो बिंदु आवेशों के बीच बल
+- Force between multiple charges, superposition principle | अनेक आवेशों के बीच बल, अध्यारोपण का सिद्धांत
+## Electric field | विद्युत क्षेत्र
+- Electric field lines | विद्युत क्षेत्र रेखाएँ
+- Field due to a point charge and a system of charges | बिंदु आवेश तथा आवेश निकाय के कारण क्षेत्र
+- Electric dipole, field on axis and equatorial line | विद्युत द्विध्रुव, अक्षीय व निरक्षीय स्थिति में क्षेत्र
+- Dipole in a uniform electric field (torque) | एकसमान विद्युत क्षेत्र में द्विध्रुव (बल आघूर्ण)
+## Electric flux and Gauss's theorem | विद्युत फ्लक्स तथा गाउस की प्रमेय
+- Electric flux | विद्युत फ्लक्स
+- Gauss's theorem | गाउस की प्रमेय
+- Field due to infinite line charge, charged plane sheet, charged spherical shell | अनंत रेखीय आवेश, आवेशित समतल चादर तथा आवेशित गोलीय कोश के कारण क्षेत्र
+# Electrostatic Potential and Capacitance | स्थिर वैद्युत विभव तथा धारिता
+## Electric potential | विद्युत विभव
+- Potential and potential difference | विभव तथा विभवांतर
+- Potential due to a point charge, dipole and system of charges | बिंदु आवेश, द्विध्रुव तथा आवेश निकाय के कारण विभव
+- Equipotential surfaces | समविभव पृष्ठ
+- Potential energy of a system of charges and of a dipole in an external field | आवेश निकाय तथा बाह्य क्षेत्र में द्विध्रुव की स्थितिज ऊर्जा
+## Conductors and dielectrics | चालक तथा परावैद्युत
+- Electrostatics of conductors | चालकों की स्थिर वैद्युतिकी
+- Dielectrics and electric polarisation | परावैद्युत तथा विद्युत ध्रुवण
+## Capacitors | संधारित्र
+- Capacitor and capacitance | संधारित्र तथा धारिता
+- Parallel plate capacitor with and without dielectric | परावैद्युत सहित व रहित समांतर पट्ट संधारित्र
+- Series and parallel combination of capacitors | संधारित्रों का श्रेणी व पार्श्व संयोजन
+- Energy stored in a capacitor | संधारित्र में संचित ऊर्जा
+# Current Electricity | धारा विद्युत
+## Electric current | विद्युत धारा
+- Drift velocity and mobility | अपवाह वेग तथा गतिशीलता
+- Ohm's law, resistance, resistivity, conductivity | ओम का नियम, प्रतिरोध, प्रतिरोधकता, चालकता
+- Temperature dependence of resistance | प्रतिरोध की ताप पर निर्भरता
+- Colour code of resistors | प्रतिरोधकों का वर्ण कोड
+## Combination of resistors | प्रतिरोधों का संयोजन
+- Series and parallel combination | श्रेणी तथा पार्श्व संयोजन
+- Electrical energy and power | विद्युत ऊर्जा तथा शक्ति
+## Cells | सेल
+- EMF and internal resistance of a cell | सेल का विद्युत वाहक बल तथा आंतरिक प्रतिरोध
+- Cells in series and parallel | सेलों का श्रेणी व पार्श्व संयोजन
+## Kirchhoff's laws and instruments | किरचॉफ के नियम तथा उपकरण
+- Kirchhoff's laws and applications | किरचॉफ के नियम तथा अनुप्रयोग
+- Wheatstone bridge, meter bridge | व्हीटस्टोन सेतु, मीटर सेतु
+- Potentiometer: principle and applications | विभवमापी: सिद्धांत व अनुप्रयोग
+# Moving Charges and Magnetism | गतिमान आवेश तथा चुंबकत्व
+## Magnetic force | चुंबकीय बल
+- Concept of magnetic field, Oersted's experiment | चुंबकीय क्षेत्र की अवधारणा, ओर्स्टेड का प्रयोग
+- Lorentz force | लॉरेंज बल
+- Motion of a charge in a magnetic field; cyclotron | चुंबकीय क्षेत्र में आवेश की गति; साइक्लोट्रॉन
+## Magnetic field due to current | धारा के कारण चुंबकीय क्षेत्र
+- Biot-Savart law | बायो-सेवर्ट का नियम
+- Field on the axis of a circular current loop | वृत्ताकार धारा पाश की अक्ष पर क्षेत्र
+- Ampere's circuital law | ऐम्पियर का परिपथीय नियम
+- Solenoid and toroid | परिनालिका तथा टोरॉयड
+## Force on conductors | चालकों पर बल
+- Force on a current-carrying conductor in a magnetic field | चुंबकीय क्षेत्र में धारावाही चालक पर बल
+- Force between two parallel currents, definition of ampere | दो समांतर धाराओं के बीच बल, ऐम्पियर की परिभाषा
+- Torque on a current loop, magnetic dipole moment | धारा पाश पर बल आघूर्ण, चुंबकीय द्विध्रुव आघूर्ण
+- Moving coil galvanometer; conversion to ammeter and voltmeter | चल कुंडली धारामापी; अमीटर व वोल्टमीटर में रूपांतरण
+# Magnetism and Matter | चुंबकत्व तथा द्रव्य
+## Bar magnet and Earth's magnetism | छड़ चुंबक तथा पृथ्वी का चुंबकत्व
+- Bar magnet as an equivalent solenoid; magnetic field lines | समतुल्य परिनालिका के रूप में छड़ चुंबक; चुंबकीय क्षेत्र रेखाएँ
+- Magnetic dipole in a uniform field | एकसमान क्षेत्र में चुंबकीय द्विध्रुव
+- Earth's magnetic field and magnetic elements | पृथ्वी का चुंबकीय क्षेत्र तथा चुंबकीय अवयव
+## Magnetic properties of materials | पदार्थों के चुंबकीय गुण
+- Magnetisation, magnetic intensity, susceptibility, permeability | चुंबकन, चुंबकन तीव्रता, चुंबकीय प्रवृत्ति, चुंबकशीलता
+- Diamagnetic, paramagnetic and ferromagnetic substances | प्रतिचुंबकीय, अनुचुंबकीय तथा लौहचुंबकीय पदार्थ
+- Hysteresis, electromagnets and permanent magnets | शैथिल्य, विद्युत चुंबक तथा स्थायी चुंबक
+# Electromagnetic Induction | वैद्युत चुंबकीय प्रेरण
+## Induction | प्रेरण
+- Faraday's experiments, magnetic flux | फैराडे के प्रयोग, चुंबकीय फ्लक्स
+- Faraday's law and Lenz's law | फैराडे का नियम तथा लेंज का नियम
+- Motional emf, eddy currents | गतिजन्य वि.वा. बल, भँवर धाराएँ
+## Inductance | प्रेरकत्व
+- Self-induction | स्व-प्रेरण
+- Mutual induction | अन्योन्य प्रेरण
+# Alternating Current | प्रत्यावर्ती धारा
+## AC basics | प्रत्यावर्ती धारा की मूल बातें
+- Alternating voltage and current; peak and rms values | प्रत्यावर्ती वोल्टता व धारा; शिखर तथा वर्ग-माध्य-मूल मान
+- AC through resistor, inductor, capacitor; reactance | प्रतिरोधक, प्रेरक व संधारित्र में प्रत्यावर्ती धारा; प्रतिघात
+## LCR circuit | LCR परिपथ
+- Impedance and phasor diagram | प्रतिबाधा तथा फेजर आरेख
+- Resonance and quality factor | अनुनाद तथा गुणवत्ता गुणांक
+- Power in AC circuit, power factor, wattless current | प्रत्यावर्ती परिपथ में शक्ति, शक्ति गुणांक, वाटहीन धारा
+## Machines | मशीनें
+- AC generator | प्रत्यावर्ती धारा जनित्र
+- Transformer | ट्रांसफॉर्मर
+# Electromagnetic Waves | वैद्युत चुंबकीय तरंगें
+## Basics | मूल बातें
+- Displacement current | विस्थापन धारा
+- Characteristics of electromagnetic waves | वैद्युत चुंबकीय तरंगों के लक्षण
+## Spectrum | स्पेक्ट्रम
+- Electromagnetic spectrum: radio, microwave, infrared, visible, ultraviolet, X-rays, gamma rays | वैद्युत चुंबकीय स्पेक्ट्रम: रेडियो, सूक्ष्म तरंगें, अवरक्त, दृश्य, पराबैंगनी, X-किरणें, गामा किरणें
+- Uses of each part of the spectrum | स्पेक्ट्रम के प्रत्येक भाग के उपयोग
+# Ray Optics and Optical Instruments | किरण प्रकाशिकी तथा प्रकाशिक यंत्र
+## Reflection | परावर्तन
+- Reflection by spherical mirrors, mirror formula | गोलीय दर्पणों से परावर्तन, दर्पण सूत्र
+## Refraction | अपवर्तन
+- Laws of refraction, refractive index | अपवर्तन के नियम, अपवर्तनांक
+- Total internal reflection and its applications (optical fibre) | पूर्ण आंतरिक परावर्तन तथा अनुप्रयोग (प्रकाशिक तंतु)
+- Refraction at spherical surfaces | गोलीय पृष्ठों पर अपवर्तन
+- Thin lens formula, lens maker's formula, power, combination of lenses | पतले लेंस का सूत्र, लेंस निर्माता सूत्र, क्षमता, लेंसों का संयोजन
+## Prism and dispersion | प्रिज्म तथा विक्षेपण
+- Refraction and dispersion through a prism | प्रिज्म से अपवर्तन तथा विक्षेपण
+- Scattering of light, blue sky, reddening of sun | प्रकाश का प्रकीर्णन, नीला आकाश, सूर्य का लाल दिखना
+## Optical instruments | प्रकाशिक यंत्र
+- Human eye and defects of vision | मानव नेत्र तथा दृष्टि दोष
+- Simple and compound microscope | सरल तथा संयुक्त सूक्ष्मदर्शी
+- Telescopes (refracting and reflecting) | दूरदर्शी (अपवर्ती व परावर्ती)
+# Wave Optics | तरंग प्रकाशिकी
+## Wavefront | तरंगाग्र
+- Huygens' principle | हाइगेन्स का सिद्धांत
+- Reflection and refraction using wavefronts | तरंगाग्र द्वारा परावर्तन व अपवर्तन
+## Interference | व्यतिकरण
+- Coherent sources and interference | कला-संबद्ध स्रोत तथा व्यतिकरण
+- Young's double slit experiment, fringe width | यंग का द्वि-झिरी प्रयोग, फ्रिंज चौड़ाई
+## Diffraction and polarisation | विवर्तन तथा ध्रुवण
+- Diffraction due to a single slit | एकल झिरी द्वारा विवर्तन
+- Resolving power of optical instruments | प्रकाशिक यंत्रों की विभेदन क्षमता
+- Polarisation, plane polarised light | ध्रुवण, समतल ध्रुवित प्रकाश
+- Brewster's law, Malus' law, uses of polaroids | ब्रूस्टर का नियम, मैलस का नियम, पोलेरॉइड के उपयोग
+# Dual Nature of Radiation and Matter | विकिरण तथा द्रव्य की द्वैत प्रकृति
+## Photoelectric effect | प्रकाश-विद्युत प्रभाव
+- Electron emission, Hertz and Lenard's observations | इलेक्ट्रॉन उत्सर्जन, हर्ट्ज़ व लेनार्ड के प्रेक्षण
+- Experimental study, laws of photoelectric emission | प्रायोगिक अध्ययन, प्रकाश-विद्युत उत्सर्जन के नियम
+- Einstein's photoelectric equation, photon | आइंस्टीन की प्रकाश-विद्युत समीकरण, फोटॉन
+## Matter waves | द्रव्य तरंगें
+- de Broglie relation | दे ब्रॉग्ली संबंध
+- Davisson-Germer experiment | डेविसन-जर्मर प्रयोग
+# Atoms | परमाणु
+## Atomic models | परमाणु मॉडल
+- Thomson's model, Rutherford's alpha scattering experiment | थॉमसन मॉडल, रदरफोर्ड का α-कण प्रकीर्णन प्रयोग
+- Rutherford's nuclear model | रदरफोर्ड का नाभिकीय मॉडल
+- Bohr's model of hydrogen atom | हाइड्रोजन परमाणु का बोर मॉडल
+## Hydrogen spectrum | हाइड्रोजन स्पेक्ट्रम
+- Energy levels and spectral series | ऊर्जा स्तर तथा स्पेक्ट्रमी श्रेणियाँ
+- de Broglie explanation of Bohr's postulate | बोर अभिधारणा की दे ब्रॉग्ली व्याख्या
+# Nuclei | नाभिक
+## Nucleus | नाभिक की संरचना
+- Composition and size of the nucleus, isotopes, isobars, isotones | नाभिक का संघटन व आकार, समस्थानिक, समभारिक, सम-न्यूट्रॉनिक
+- Mass-energy relation, mass defect, binding energy | द्रव्यमान-ऊर्जा संबंध, द्रव्यमान क्षति, बंधन ऊर्जा
+- Binding energy per nucleon curve | बंधन ऊर्जा प्रति न्यूक्लिऑन वक्र
+## Radioactivity | रेडियोएक्टिवता
+- Alpha, beta and gamma decay | α, β तथा γ क्षय
+- Law of radioactive decay, half-life, mean life | रेडियोएक्टिव क्षय का नियम, अर्धायु, माध्य आयु
+## Nuclear energy | नाभिकीय ऊर्जा
+- Nuclear fission and chain reaction | नाभिकीय विखंडन तथा शृंखला अभिक्रिया
+- Nuclear reactor | नाभिकीय रिएक्टर
+- Nuclear fusion | नाभिकीय संलयन
+# Semiconductor Electronics | अर्धचालक इलेक्ट्रॉनिकी
+## Semiconductors | अर्धचालक
+- Energy bands in solids; conductors, insulators, semiconductors | ठोसों में ऊर्जा बैंड; चालक, विद्युतरोधी, अर्धचालक
+- Intrinsic and extrinsic semiconductors, p-type and n-type | नैज तथा अपद्रव्यी अर्धचालक, p-प्रकार व n-प्रकार
+## p-n junction | p-n संधि
+- Formation of p-n junction, depletion layer | p-n संधि का निर्माण, अवक्षय परत
+- Forward and reverse bias, I-V characteristics | अग्र व पश्च बायस, I-V अभिलक्षण
+## Diode applications | डायोड के अनुप्रयोग
+- Half-wave and full-wave rectifier | अर्ध-तरंग व पूर्ण-तरंग दिष्टकारी
+- Zener diode as voltage regulator | वोल्टता नियामक के रूप में ज़ेनर डायोड
+- Photodiode, LED, solar cell | फोटोडायोड, LED, सौर सेल
+## Transistor and logic gates | ट्रांजिस्टर तथा लॉजिक गेट
+- npn and pnp transistor, transistor action | npn व pnp ट्रांजिस्टर, ट्रांजिस्टर क्रिया
+- Common-emitter characteristics, amplifier and oscillator | उभयनिष्ठ उत्सर्जक अभिलक्षण, प्रवर्धक तथा दोलित्र
+- Logic gates: OR, AND, NOT, NAND, NOR | लॉजिक गेट: OR, AND, NOT, NAND, NOR
+# Practical (Experiments) | प्रायोगिक कार्य
+## Section A experiments | खंड-अ के प्रयोग
+- Resistivity of wire using meter bridge, verification of Ohm's law | मीटर सेतु से तार की प्रतिरोधकता, ओम के नियम का सत्यापन
+- Resistors in series and parallel using meter bridge | मीटर सेतु से श्रेणी व पार्श्व संयोजन
+- Comparing EMF of two cells using potentiometer | विभवमापी से दो सेलों के वि.वा. बल की तुलना
+- Internal resistance of a cell | सेल का आंतरिक प्रतिरोध
+- Galvanometer resistance and figure of merit (half-deflection); conversion to ammeter and voltmeter | धारामापी का प्रतिरोध व दक्षता (अर्ध-विक्षेप); अमीटर व वोल्टमीटर में रूपांतरण
+## Section B experiments | खंड-ब के प्रयोग
+- Focal length of concave and convex mirror and lens (u-v graph, displacement method) | अवतल/उत्तल दर्पण व लेंस की फोकस दूरी (u-v ग्राफ, विस्थापन विधि)
+- Refractive index of glass slab and of a liquid | काँच के स्लैब व द्रव का अपवर्तनांक
+- Angle of minimum deviation and refractive index of a prism | न्यूनतम विचलन कोण तथा प्रिज्म का अपवर्तनांक
+- p-n junction diode and Zener diode characteristics | p-n संधि डायोड तथा ज़ेनर डायोड के अभिलक्षण
+- Common-emitter transistor characteristics, current and voltage gain | उभयनिष्ठ उत्सर्जक ट्रांजिस्टर के अभिलक्षण, धारा व वोल्टता लब्धि

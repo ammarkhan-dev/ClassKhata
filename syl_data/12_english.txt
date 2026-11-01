@@ -1,0 +1,53 @@
+@class 12
+@subject english | English | अंग्रेज़ी
+# Prose: Flamingo | गद्य: फ्लेमिंगो
+## Poets and Pancakes | पोएट्स एंड पैनकेक्स
+- Summary and theme | सारांश तथा मूल भाव
+- Difficult words and questions | कठिन शब्द तथा प्रश्न
+## The Interview | द इंटरव्यू
+- Part I: Christopher Silvester on interviews | भाग I: इंटरव्यू पर क्रिस्टोफर सिल्वेस्टर
+- Part II: Umberto Eco interview | भाग II: उम्बर्टो इको का साक्षात्कार
+## Going Places | गोइंग प्लेसेज़
+- Summary and character sketch | सारांश तथा चरित्र चित्रण
+- Difficult words and questions | कठिन शब्द तथा प्रश्न
+# Poetry: Flamingo | काव्य: फ्लेमिंगो
+## A Roadside Stand | ए रोडसाइड स्टैंड
+- Summary and central idea | सारांश तथा केंद्रीय भाव
+- Poetic devices | काव्य अलंकार
+- Questions | प्रश्न
+# Supplementary Reader: Vistas | सहायक पाठ्यपुस्तक: विस्टास
+## Evans Tries an O-level | इवांस ट्राइज़ एन ओ-लेवल
+- Summary and character sketch | सारांश तथा चरित्र चित्रण
+- Difficult words and questions | कठिन शब्द तथा प्रश्न
+## Memories of Childhood | मेमोरीज़ ऑफ चाइल्डहुड
+- The Cutting of My Long Hair | द कटिंग ऑफ माई लॉन्ग हेयर
+- We Too Are Human Beings | वी टू आर ह्यूमन बीइंग्स
+- Difficult words and questions | कठिन शब्द तथा प्रश्न
+# Reading | अपठित बोध
+## Comprehension | बोध
+- Unseen passage with questions | अपठित गद्यांश तथा प्रश्न
+- Vocabulary from the passage | गद्यांश से शब्दावली
+# Writing Skills | लेखन कौशल
+## Letters | पत्र
+- Business letter | व्यावसायिक पत्र
+- Formal letter (application, complaint, editor) | औपचारिक पत्र (आवेदन, शिकायत, संपादक के नाम)
+## Other writing | अन्य लेखन
+- Essay | निबंध
+- Notice | सूचना
+- Report writing | प्रतिवेदन लेखन
+# Grammar | व्याकरण
+## Tenses and verbs | काल तथा क्रिया
+- Tenses | काल (Tenses)
+- Modals | मोडल्स
+- Voice: active and passive | वाच्य: कर्तृ व कर्म वाच्य
+## Sentences | वाक्य
+- Clauses | उपवाक्य (Clauses)
+- Narration (direct and indirect speech) | कथन (प्रत्यक्ष व अप्रत्यक्ष)
+- Transformation of sentences | वाक्य परिवर्तन
+## Words | शब्द
+- Parts of speech | शब्द भेद (Parts of Speech)
+- Articles and determiners | आर्टिकल तथा निर्धारक
+- Prepositions | पूर्वसर्ग (Prepositions)
+- Punctuation and spelling | विराम चिह्न तथा वर्तनी
+## Translation | अनुवाद
+- Translation of a Hindi passage into English | हिन्दी गद्यांश का अंग्रेज़ी में अनुवाद

@@ -1,0 +1,2352 @@
+{
+  "session": "2026-27",
+  "note": "Starter chapter map; verify each entry against official UPMSP PDF before marking complete.",
+  "classes": {
+    "10": {
+      "science": [
+        {
+          "en": "Chemical Reactions and Equations",
+          "hi": "रासायनिक अभिक्रियाएँ एवं समीकरण",
+          "topics": [
+            {
+              "en": "Chemical reactions",
+              "hi": "रासायनिक अभिक्रियाएँ",
+              "subtopics": [
+                {
+                  "en": "Types of reactions",
+                  "hi": "अभिक्रियाओं के प्रकार"
+                },
+                {
+                  "en": "Balancing equations",
+                  "hi": "समीकरण संतुलित करना"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Acids, Bases and Salts",
+          "hi": "अम्ल, क्षारक एवं लवण",
+          "topics": [
+            {
+              "en": "Properties",
+              "hi": "गुणधर्म",
+              "subtopics": [
+                {
+                  "en": "Indicators and pH",
+                  "hi": "सूचक एवं pH"
+                },
+                {
+                  "en": "Common salts",
+                  "hi": "प्रमुख लवण"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Metals and Non-metals",
+          "hi": "धातु एवं अधातु",
+          "topics": [
+            {
+              "en": "Properties and reactions",
+              "hi": "गुणधर्म एवं अभिक्रियाएँ",
+              "subtopics": [
+                {
+                  "en": "Reactivity series",
+                  "hi": "क्रियाशीलता श्रेणी"
+                },
+                {
+                  "en": "Corrosion",
+                  "hi": "संक्षारण"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Carbon and its Compounds",
+          "hi": "कार्बन एवं उसके यौगिक",
+          "topics": [
+            {
+              "en": "Carbon compounds",
+              "hi": "कार्बन यौगिक",
+              "subtopics": [
+                {
+                  "en": "Covalent bonding",
+                  "hi": "सहसंयोजक बंध"
+                },
+                {
+                  "en": "Functional groups",
+                  "hi": "क्रियात्मक समूह"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Life Processes",
+          "hi": "जैव प्रक्रम",
+          "topics": [
+            {
+              "en": "Life functions",
+              "hi": "जीवन की प्रक्रियाएँ",
+              "subtopics": [
+                {
+                  "en": "Nutrition",
+                  "hi": "पोषण"
+                },
+                {
+                  "en": "Respiration and transport",
+                  "hi": "श्वसन एवं परिवहन"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Control and Coordination",
+          "hi": "नियंत्रण एवं समन्वय",
+          "topics": [
+            {
+              "en": "Nervous and hormonal control",
+              "hi": "तंत्रिका एवं हार्मोन नियंत्रण",
+              "subtopics": [
+                {
+                  "en": "Reflex action",
+                  "hi": "प्रतिवर्ती क्रिया"
+                },
+                {
+                  "en": "Hormones",
+                  "hi": "हार्मोन"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "How do Organisms Reproduce?",
+          "hi": "जीव जनन कैसे करते हैं?",
+          "topics": [
+            {
+              "en": "Reproduction",
+              "hi": "जनन",
+              "subtopics": [
+                {
+                  "en": "Asexual reproduction",
+                  "hi": "अलैंगिक जनन"
+                },
+                {
+                  "en": "Sexual reproduction",
+                  "hi": "लैंगिक जनन"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Heredity",
+          "hi": "आनुवंशिकता",
+          "topics": [
+            {
+              "en": "Inheritance",
+              "hi": "वंशागति",
+              "subtopics": [
+                {
+                  "en": "Inherited traits",
+                  "hi": "वंशागत लक्षण"
+                },
+                {
+                  "en": "Basic genetics",
+                  "hi": "आनुवंशिकी की मूल बातें"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Light – Reflection and Refraction",
+          "hi": "प्रकाश – परावर्तन तथा अपवर्तन",
+          "topics": [
+            {
+              "en": "Reflection and refraction",
+              "hi": "परावर्तन एवं अपवर्तन",
+              "subtopics": [
+                {
+                  "en": "Mirrors",
+                  "hi": "दर्पण"
+                },
+                {
+                  "en": "Lenses",
+                  "hi": "लेंस"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "The Human Eye and the Colourful World",
+          "hi": "मानव नेत्र तथा रंगबिरंगा संसार",
+          "topics": [
+            {
+              "en": "Vision and light",
+              "hi": "दृष्टि एवं प्रकाश",
+              "subtopics": [
+                {
+                  "en": "Defects of vision",
+                  "hi": "दृष्टि दोष"
+                },
+                {
+                  "en": "Dispersion",
+                  "hi": "वर्ण-विक्षेपण"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Electricity",
+          "hi": "विद्युत",
+          "topics": [
+            {
+              "en": "Electric circuits",
+              "hi": "विद्युत परिपथ",
+              "subtopics": [
+                {
+                  "en": "Ohm's law",
+                  "hi": "ओम का नियम"
+                },
+                {
+                  "en": "Resistance and power",
+                  "hi": "प्रतिरोध एवं शक्ति"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Magnetic Effects of Electric Current",
+          "hi": "विद्युत धारा के चुंबकीय प्रभाव",
+          "topics": [
+            {
+              "en": "Magnetism",
+              "hi": "चुंबकत्व",
+              "subtopics": [
+                {
+                  "en": "Magnetic field",
+                  "hi": "चुंबकीय क्षेत्र"
+                },
+                {
+                  "en": "Electric motor",
+                  "hi": "विद्युत मोटर"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Our Environment",
+          "hi": "हमारा पर्यावरण",
+          "topics": [
+            {
+              "en": "Ecosystems",
+              "hi": "पारितंत्र",
+              "subtopics": [
+                {
+                  "en": "Food chains",
+                  "hi": "खाद्य शृंखलाएँ"
+                },
+                {
+                  "en": "Waste management",
+                  "hi": "अपशिष्ट प्रबंधन"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "maths": [
+        {
+          "en": "Real Numbers",
+          "hi": "वास्तविक संख्याएँ",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Polynomials",
+          "hi": "बहुपद",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Pair of Linear Equations in Two Variables",
+          "hi": "दो चरों वाले रैखिक समीकरण युग्म",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Quadratic Equations",
+          "hi": "द्विघात समीकरण",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Arithmetic Progressions",
+          "hi": "समांतर श्रेढ़ियाँ",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Triangles",
+          "hi": "त्रिभुज",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Coordinate Geometry",
+          "hi": "निर्देशांक ज्यामिति",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Introduction to Trigonometry",
+          "hi": "त्रिकोणमिति का परिचय",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Some Applications of Trigonometry",
+          "hi": "त्रिकोणमिति के कुछ अनुप्रयोग",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Circles",
+          "hi": "वृत्त",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Areas Related to Circles",
+          "hi": "वृत्तों से संबंधित क्षेत्रफल",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Surface Areas and Volumes",
+          "hi": "पृष्ठीय क्षेत्रफल एवं आयतन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Statistics",
+          "hi": "सांख्यिकी",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Probability",
+          "hi": "प्रायिकता",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "social_science": [
+        {
+          "en": "The Rise of Nationalism in Europe",
+          "hi": "यूरोप में राष्ट्रवाद का उदय",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Nationalism in India",
+          "hi": "भारत में राष्ट्रवाद",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Resources and Development",
+          "hi": "संसाधन एवं विकास",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Forest and Wildlife Resources",
+          "hi": "वन एवं वन्यजीव संसाधन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Power Sharing",
+          "hi": "सत्ता की साझेदारी",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Federalism",
+          "hi": "संघवाद",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Development",
+          "hi": "विकास",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Sectors of the Indian Economy",
+          "hi": "भारतीय अर्थव्यवस्था के क्षेत्र",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "english": [
+        {
+          "en": "A Letter to God",
+          "hi": "A Letter to God",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Nelson Mandela: Long Walk to Freedom",
+          "hi": "Nelson Mandela: Long Walk to Freedom",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Two Stories about Flying",
+          "hi": "Two Stories about Flying",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "From the Diary of Anne Frank",
+          "hi": "From the Diary of Anne Frank",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Glimpses of India",
+          "hi": "Glimpses of India",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Footprints Without Feet",
+          "hi": "Footprints Without Feet",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "hindi": [
+        {
+          "en": "गद्य खंड",
+          "hi": "गद्य खंड",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "पद्य खंड",
+          "hi": "पद्य खंड",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "खंडकाव्य",
+          "hi": "खंडकाव्य",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "संस्कृत खंड",
+          "hi": "संस्कृत खंड",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "व्याकरण",
+          "hi": "व्याकरण",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "पत्र लेखन",
+          "hi": "पत्र लेखन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "निबंध",
+          "hi": "निबंध",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "12": {
+      "physics": [
+        {
+          "en": "Electric Charges and Fields",
+          "hi": "वैद्युत आवेश तथा क्षेत्र",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Electrostatic Potential and Capacitance",
+          "hi": "स्थिरवैद्युत विभव तथा धारिता",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Current Electricity",
+          "hi": "धारा विद्युत",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Moving Charges and Magnetism",
+          "hi": "गतिमान आवेश और चुंबकत्व",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Magnetism and Matter",
+          "hi": "चुंबकत्व एवं द्रव्य",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Electromagnetic Induction",
+          "hi": "वैद्युत चुंबकीय प्रेरण",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Alternating Current",
+          "hi": "प्रत्यावर्ती धारा",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Electromagnetic Waves",
+          "hi": "वैद्युत चुंबकीय तरंगें",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Ray Optics and Optical Instruments",
+          "hi": "किरण प्रकाशिकी एवं प्रकाशिक यंत्र",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Wave Optics",
+          "hi": "तरंग प्रकाशिकी",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Dual Nature of Radiation and Matter",
+          "hi": "विकिरण तथा द्रव्य की द्वैत प्रकृति",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Atoms",
+          "hi": "परमाणु",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Nuclei",
+          "hi": "नाभिक",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Semiconductor Electronics",
+          "hi": "अर्धचालक इलेक्ट्रॉनिकी",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "chemistry": [
+        {
+          "en": "Solutions",
+          "hi": "विलयन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Electrochemistry",
+          "hi": "वैद्युत रसायन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Chemical Kinetics",
+          "hi": "रासायनिक बलगतिकी",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "The d- and f-Block Elements",
+          "hi": "d एवं f-ब्लॉक के तत्व",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Coordination Compounds",
+          "hi": "उपसहसंयोजन यौगिक",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Haloalkanes and Haloarenes",
+          "hi": "हैलोऐल्केन तथा हैलोऐरीन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Alcohols, Phenols and Ethers",
+          "hi": "ऐल्कोहॉल, फिनॉल एवं ईथर",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Aldehydes, Ketones and Carboxylic Acids",
+          "hi": "ऐल्डिहाइड, कीटोन एवं कार्बोक्सिलिक अम्ल",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Amines",
+          "hi": "ऐमीन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Biomolecules",
+          "hi": "जैव अणु",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "maths": [
+        {
+          "en": "Relations and Functions",
+          "hi": "संबंध तथा फलन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Inverse Trigonometric Functions",
+          "hi": "प्रतिलोम त्रिकोणमितीय फलन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Matrices",
+          "hi": "आव्यूह",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Determinants",
+          "hi": "सारणिक",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Continuity and Differentiability",
+          "hi": "सांतत्य तथा अवकलनीयता",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Applications of Derivatives",
+          "hi": "अवकलज के अनुप्रयोग",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Integrals",
+          "hi": "समाकल",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Applications of Integrals",
+          "hi": "समाकलनों के अनुप्रयोग",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Differential Equations",
+          "hi": "अवकल समीकरण",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Vector Algebra",
+          "hi": "सदिश बीजगणित",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Three Dimensional Geometry",
+          "hi": "त्रिविमीय ज्यामिति",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Linear Programming",
+          "hi": "रैखिक प्रोग्रामन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Probability",
+          "hi": "प्रायिकता",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "biology": [
+        {
+          "en": "Sexual Reproduction in Flowering Plants",
+          "hi": "पुष्पी पादपों में लैंगिक जनन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Human Reproduction",
+          "hi": "मानव जनन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Reproductive Health",
+          "hi": "जनन स्वास्थ्य",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Principles of Inheritance and Variation",
+          "hi": "वंशागति तथा विविधता के सिद्धांत",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Molecular Basis of Inheritance",
+          "hi": "वंशागति का आणविक आधार",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Evolution",
+          "hi": "विकास",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Human Health and Disease",
+          "hi": "मानव स्वास्थ्य तथा रोग",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Microbes in Human Welfare",
+          "hi": "मानव कल्याण में सूक्ष्मजीव",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Biotechnology: Principles and Processes",
+          "hi": "जैव प्रौद्योगिकी: सिद्धांत एवं प्रक्रम",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Biotechnology and its Applications",
+          "hi": "जैव प्रौद्योगिकी एवं उसके अनुप्रयोग",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Organisms and Populations",
+          "hi": "जीव और समष्टियाँ",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Ecosystem",
+          "hi": "पारितंत्र",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Biodiversity and Conservation",
+          "hi": "जैव विविधता एवं संरक्षण",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "english": [
+        {
+          "en": "The Last Lesson",
+          "hi": "The Last Lesson",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Lost Spring",
+          "hi": "Lost Spring",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Deep Water",
+          "hi": "Deep Water",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "The Rattrap",
+          "hi": "The Rattrap",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Indigo",
+          "hi": "Indigo",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Poets and Pancakes",
+          "hi": "Poets and Pancakes",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "The Interview",
+          "hi": "The Interview",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Going Places",
+          "hi": "Going Places",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "Vistas – Supplementary Reader",
+          "hi": "Vistas – Supplementary Reader",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "hindi": [
+        {
+          "en": "गद्य खंड",
+          "hi": "गद्य खंड",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "कहानी",
+          "hi": "कहानी",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "पद्य खंड",
+          "hi": "पद्य खंड",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "खंडकाव्य",
+          "hi": "खंडकाव्य",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "संस्कृत खंड",
+          "hi": "संस्कृत खंड",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "निबंध",
+          "hi": "निबंध",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "पत्र लेखन",
+          "hi": "पत्र लेखन",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "व्याकरण",
+          "hi": "व्याकरण",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "en": "अपठित गद्यांश एवं पद्यांश",
+          "hi": "अपठित गद्यांश एवं पद्यांश",
+          "topics": [
+            {
+              "en": "Key concepts and practice",
+              "hi": "मुख्य अवधारणाएँ एवं अभ्यास",
+              "subtopics": [
+                {
+                  "en": "Definitions and concepts",
+                  "hi": "परिभाषाएँ एवं अवधारणाएँ"
+                },
+                {
+                  "en": "Examples and questions",
+                  "hi": "उदाहरण एवं प्रश्न"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

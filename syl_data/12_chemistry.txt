@@ -1,0 +1,139 @@
+@class 12
+@subject chemistry | Chemistry | रसायन विज्ञान
+# Solutions | विलयन
+## Types and concentration | प्रकार तथा सांद्रता
+- Types of solutions | विलयनों के प्रकार
+- Concentration: mass %, ppm, mole fraction, molarity, molality | सांद्रता: द्रव्यमान %, ppm, मोल अंश, मोलरता, मोललता
+## Solubility | विलेयता
+- Solubility of gases in liquids, Henry's law | द्रवों में गैसों की विलेयता, हेनरी का नियम
+- Solid solutions | ठोस विलयन
+## Vapour pressure | वाष्प दाब
+- Raoult's law | राउल्ट का नियम
+- Ideal and non-ideal solutions, azeotropes | आदर्श व अनादर्श विलयन, एजीओट्रोप
+## Colligative properties | अणुसंख्य गुणधर्म
+- Relative lowering of vapour pressure | वाष्प दाब का आपेक्षिक अवनमन
+- Elevation of boiling point | क्वथनांक में उन्नयन
+- Depression of freezing point | हिमांक में अवनमन
+- Osmotic pressure | परासरण दाब
+- Determination of molar mass | मोलर द्रव्यमान का निर्धारण
+- Abnormal molar mass, van't Hoff factor | असामान्य मोलर द्रव्यमान, वाण्ट हॉफ गुणांक
+# Electrochemistry | विद्युत रसायन
+## Electrochemical cells | विद्युत रासायनिक सेल
+- Redox reactions | उपचयन-अपचयन अभिक्रियाएँ
+- Galvanic cell, electrode potential, standard hydrogen electrode | गैल्वेनी सेल, इलेक्ट्रोड विभव, मानक हाइड्रोजन इलेक्ट्रोड
+- Electrochemical series | विद्युत रासायनिक श्रेणी
+## Nernst equation | नेर्न्स्ट समीकरण
+- Nernst equation and cell EMF | नेर्न्स्ट समीकरण तथा सेल का विद्युत वाहक बल
+- Gibbs energy and equilibrium constant | गिब्स ऊर्जा तथा साम्य स्थिरांक
+## Conductance | चालकता
+- Specific and molar conductivity | विशिष्ट तथा मोलर चालकता
+- Variation with concentration | सांद्रता के साथ परिवर्तन
+- Kohlrausch's law | कोहलराउश का नियम
+## Electrolysis and batteries | विद्युत अपघटन तथा बैटरियाँ
+- Faraday's laws of electrolysis | फैराडे के विद्युत अपघटन के नियम
+- Batteries: dry cell, lead storage, fuel cells | बैटरियाँ: शुष्क सेल, लेड संचायक, ईंधन सेल
+- Corrosion | संक्षारण
+# Chemical Kinetics | रासायनिक बलगतिकी
+## Rate of reaction | अभिक्रिया वेग
+- Average and instantaneous rate | औसत तथा तात्क्षणिक वेग
+- Factors affecting rate | वेग को प्रभावित करने वाले कारक
+## Order and molecularity | कोटि तथा आण्विकता
+- Rate law, rate constant, order of reaction | वेग नियम, वेग स्थिरांक, अभिक्रिया की कोटि
+- Molecularity | आण्विकता
+## Integrated rate equations | समाकलित वेग समीकरण
+- Zero and first order reactions | शून्य तथा प्रथम कोटि अभिक्रियाएँ
+- Half-life | अर्धायु
+- Pseudo first order reactions | आभासी प्रथम कोटि अभिक्रियाएँ
+## Theories | सिद्धांत
+- Temperature dependence, Arrhenius equation, activation energy | ताप पर निर्भरता, आरहीनियस समीकरण, सक्रियण ऊर्जा
+- Collision theory | संघट्ट सिद्धांत
+# d- and f-Block Elements | d- एवं f-ब्लॉक के तत्व
+## d-block elements | d-ब्लॉक तत्व
+- Electronic configuration and general properties | इलेक्ट्रॉनिक विन्यास तथा सामान्य गुण
+- Trends in properties of the first transition series | प्रथम संक्रमण श्रेणी के गुणों में प्रवृत्तियाँ
+- Oxidation states, colour, magnetic and catalytic properties | ऑक्सीकरण अवस्थाएँ, रंग, चुंबकीय व उत्प्रेरक गुण
+## Important compounds | महत्वपूर्ण यौगिक
+- Preparation and properties of K2Cr2O7 | K2Cr2O7 का बनाना तथा गुण
+- Preparation and properties of KMnO4 | KMnO4 का बनाना तथा गुण
+## f-block elements | f-ब्लॉक तत्व
+- Lanthanoids: configuration, oxidation states, lanthanoid contraction | लैन्थेनॉयड: विन्यास, ऑक्सीकरण अवस्थाएँ, लैन्थेनॉयड संकुचन
+- Actinoids | ऐक्टिनॉयड
+# Coordination Compounds | उपसहसंयोजन यौगिक
+## Basics | मूल बातें
+- Werner's theory | वर्नर का सिद्धांत
+- Ligands, coordination number, coordination sphere | लिगैंड, उपसहसंयोजन संख्या, उपसहसंयोजन मंडल
+## Nomenclature and isomerism | नामकरण तथा समावयवता
+- IUPAC nomenclature | IUPAC नामकरण
+- Structural and stereoisomerism | संरचनात्मक तथा त्रिविम समावयवता
+## Bonding | आबंधन
+- Valence bond theory | संयोजकता आबंध सिद्धांत
+- Crystal field theory, colour and magnetic properties | क्रिस्टल क्षेत्र सिद्धांत, रंग तथा चुंबकीय गुण
+## Importance | महत्व
+- Stability of coordination compounds | उपसहसंयोजन यौगिकों का स्थायित्व
+- Importance in metallurgy, biological systems, medicine, analysis | धातुकर्म, जैव तंत्र, औषधि व विश्लेषण में महत्व
+# Haloalkanes and Haloarenes | हैलोऐल्केन तथा हैलोऐरीन
+## Classification and nomenclature | वर्गीकरण तथा नामकरण
+- Classification and nomenclature | वर्गीकरण तथा नामकरण
+- Nature of C-X bond | C-X आबंध की प्रकृति
+## Methods and properties | विधियाँ तथा गुण
+- Methods of preparation | बनाने की विधियाँ
+- Physical and chemical properties | भौतिक व रासायनिक गुण
+## Reaction mechanisms | अभिक्रिया की क्रियाविधि
+- SN1 and SN2 mechanisms | SN1 तथा SN2 क्रियाविधि
+- Stereochemical aspects, optical activity | त्रिविम रासायनिक पहलू, प्रकाशिक सक्रियता
+- Nucleophilic substitution in haloarenes | हैलोऐरीन में नाभिकस्नेही प्रतिस्थापन
+## Polyhalogen compounds | पॉलीहैलोजन यौगिक
+- Uses and environmental effects of dichloromethane, chloroform, iodoform, freons, DDT | डाइक्लोरोमेथेन, क्लोरोफॉर्म, आयोडोफॉर्म, फ्रेऑन, DDT के उपयोग व पर्यावरणीय प्रभाव
+# Alcohols, Phenols and Ethers | ऐल्कोहॉल, फिनॉल तथा ईथर
+## Alcohols and phenols | ऐल्कोहॉल तथा फिनॉल
+- Classification and nomenclature | वर्गीकरण तथा नामकरण
+- Preparation of alcohols and phenols | ऐल्कोहॉल व फिनॉल बनाने की विधियाँ
+- Physical and chemical properties | भौतिक व रासायनिक गुण
+- Identification of primary, secondary, tertiary alcohols | प्राथमिक, द्वितीयक, तृतीयक ऐल्कोहॉल की पहचान
+- Mechanism of dehydration | निर्जलीकरण की क्रियाविधि
+- Uses of methanol and ethanol | मेथेनॉल व एथेनॉल के उपयोग
+## Ethers | ईथर
+- Nomenclature, preparation, properties and uses | नामकरण, बनाने की विधियाँ, गुण तथा उपयोग
+# Aldehydes, Ketones and Carboxylic Acids | ऐल्डिहाइड, कीटोन तथा कार्बोक्सिलिक अम्ल
+## Aldehydes and ketones | ऐल्डिहाइड तथा कीटोन
+- Nomenclature and structure of carbonyl group | नामकरण तथा कार्बोनिल समूह की संरचना
+- Preparation | बनाने की विधियाँ
+- Physical properties | भौतिक गुण
+- Nucleophilic addition reactions and mechanism | नाभिकस्नेही योगात्मक अभिक्रियाएँ व क्रियाविधि
+- Reactivity of alpha hydrogen, aldol and Cannizzaro reactions | α-हाइड्रोजन की अभिक्रियाशीलता, ऐल्डोल व कैनिजारो अभिक्रियाएँ
+- Uses | उपयोग
+## Carboxylic acids | कार्बोक्सिलिक अम्ल
+- Nomenclature, structure and preparation | नामकरण, संरचना व बनाने की विधियाँ
+- Physical and chemical properties, acidity | भौतिक व रासायनिक गुण, अम्लीय प्रकृति
+- Uses | उपयोग
+# Amines | ऐमीन
+## Basics | मूल बातें
+- Classification, structure, nomenclature | वर्गीकरण, संरचना, नामकरण
+- Preparation of amines | ऐमीन बनाने की विधियाँ
+## Properties | गुण
+- Physical and chemical properties, basic character | भौतिक व रासायनिक गुण, क्षारीय प्रकृति
+- Identification of primary, secondary, tertiary amines | प्राथमिक, द्वितीयक, तृतीयक ऐमीन की पहचान
+- Uses | उपयोग
+## Diazonium salts | डाइऐज़ोनियम लवण
+- Preparation, properties and importance in synthesis | बनाना, गुण तथा संश्लेषण में महत्व
+# Biomolecules | जैव अणु
+## Carbohydrates | कार्बोहाइड्रेट
+- Classification: monosaccharides, oligosaccharides, polysaccharides | वर्गीकरण: मोनोसैकेराइड, ऑलिगोसैकेराइड, पॉलीसैकेराइड
+- Glucose, fructose, sucrose, starch, cellulose, glycogen | ग्लूकोस, फ्रक्टोस, सुक्रोस, स्टार्च, सेलुलोस, ग्लाइकोजन
+## Proteins | प्रोटीन
+- Amino acids, peptide bond | ऐमीनो अम्ल, पेप्टाइड आबंध
+- Structure of proteins, denaturation, enzymes | प्रोटीन की संरचना, विकृतीकरण, एन्जाइम
+## Vitamins | विटामिन
+- Classification and functions | वर्गीकरण तथा कार्य
+## Nucleic acids | न्यूक्लीक अम्ल
+- DNA and RNA | DNA तथा RNA
+# Practical (Experiments) | प्रायोगिक कार्य
+## Volumetric analysis | आयतनमितीय विश्लेषण
+- Titration: oxalic acid and ferrous ammonium sulphate with KMnO4 | अनुमापन: ऑक्सैलिक अम्ल व मोहर लवण के साथ KMnO4
+## Salt analysis | लवण विश्लेषण
+- Qualitative analysis of one cation and one anion | एक धनायन व एक ऋणायन का गुणात्मक विश्लेषण
+## Chemical kinetics and other | रासायनिक बलगतिकी व अन्य
+- Rate of reaction experiment | अभिक्रिया वेग का प्रयोग
+- Preparation of inorganic compounds (Mohr's salt, potash alum) | अकार्बनिक यौगिकों का बनाना (मोहर लवण, फिटकरी)
+- Tests for functional groups in organic compounds | कार्बनिक यौगिकों में क्रियात्मक समूहों के परीक्षण
+- Tests for carbohydrates, fats and proteins | कार्बोहाइड्रेट, वसा व प्रोटीन के परीक्षण

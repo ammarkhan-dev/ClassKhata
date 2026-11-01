@@ -1,0 +1,64 @@
+from flask import render_template, request
+
+def setup(app):
+    subjects = {
+        "10": [
+            ("Science", "विज्ञान"), ("Mathematics", "गणित"),
+            ("Hindi", "हिंदी"), ("English", "अंग्रेज़ी"),
+            ("Social Science", "सामाजिक विज्ञान")
+        ],
+        "12": [
+            ("Physics", "भौतिक विज्ञान"), ("Chemistry", "रसायन विज्ञान"),
+            ("Mathematics", "गणित"), ("Biology", "जीव विज्ञान"),
+            ("English", "अंग्रेज़ी"), ("Hindi", "हिंदी")
+        ]
+    }
+
+    @app.route("/syllabus")
+    def syllabus_home():
+        lang = request.args.get("lang", "en")
+        if lang not in ("en", "hi"):
+            lang = "en"
+        return render_template("syllabus.html", page="classes", lang=lang)
+
+    @app.route("/syllabus/subjects")
+    def syllabus_subjects():
+        lang = request.args.get("lang", "en")
+        cls = request.args.get("class", "10")
+        if lang not in ("en", "hi"):
+            lang = "en"
+        if cls not in subjects:
+            cls = "10"
+        return render_template(
+            "syllabus.html", page="subjects", lang=lang,
+            cls=cls, subjects=subjects[cls]
+        )
+
+    @app.route("/syllabus/chapters")
+    def syllabus_chapters():
+        lang = request.args.get("lang", "en")
+        cls = request.args.get("class", "10")
+        subject = request.args.get("subject", "")
+        if lang not in ("en", "hi"):
+            lang = "en"
+        if cls not in subjects:
+            cls = "10"
+        found = next((s for s in subjects[cls]
+                      if subject.lower() == s[0].lower()), None)
+        if not found:
+            return "Subject not found", 404
+        return render_template(
+            "syllabus.html", page="chapters", lang=lang, cls=cls,
+            subject=found[0], subject_hi=found[1]
+        )
+
+    @app.route("/syllabus/topics")
+    def syllabus_topics():
+        lang = request.args.get("lang", "en")
+        cls = request.args.get("class", "10")
+        subject = request.args.get("subject", "")
+        chapter = request.args.get("chapter", "")
+        return render_template(
+            "syllabus.html", page="topics", lang=lang, cls=cls,
+            subject=subject, chapter=chapter
+        )

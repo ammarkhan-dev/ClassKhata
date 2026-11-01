@@ -62,7 +62,7 @@ nav{position:fixed;bottom:0;left:0;right:0;background:#111418;display:flex;paddi
 nav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:11px 0 10px;color:#8e98a8;text-decoration:none;font-size:12px;font-weight:500}
 nav a.on{color:#fff;font-weight:700}
 .ic{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-</style></head><body>
+</style><link rel="stylesheet" href="/static/motion.css?v=1"><script>try{if(localStorage.getItem("ck_motion")==="off")document.documentElement.classList.add("nomotion");var n=performance.getEntriesByType("navigation")[0],d=sessionStorage.getItem("ck_dir");document.documentElement.setAttribute("data-dir",(n&&n.type==="back_forward")?"back":(d||"fwd"));sessionStorage.removeItem("ck_dir")}catch(e){}</script></head><body>
 {% block hdr %}<header>
 <a class="hl" href="/"><span class="lg"><svg width="32" height="26" viewBox="96 138 322 242" aria-hidden="true"><polygon points="166,236 346,236 346,326 256,372 166,326" fill="#9a7a2c"/><polygon points="102,230 256,300 410,230 256,160" fill="#222f40"/><polygon points="102,220 256,290 410,220 256,150" fill="#d4ad55"/><rect x="407" y="222" width="6" height="84" fill="#d4ad55"/><circle cx="410" cy="314" r="12" fill="#d4ad55"/></svg></span>
 <span class="ht"><small>{% block hsub %}{{ coaching }}{% endblock %}</small><b>{{ institute or coaching }}</b></span></a>
@@ -77,4 +77,5 @@ nav a.on{color:#fff;font-weight:700}
 <a href="/more" class="{{ 'on' if request.path.startswith(('/more', '/backup', '/settings', '/records', '/report', '/batches', '/classes', '/fee-plans', '/fee-settings', '/idcard-settings', '/app-settings')) }}"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h11M19 18h1"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg>{{ t('nav_more') }}</a>
 </nav>{% endif %}
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js")}</script>
+<script src="/static/motion.js?v=1" defer></script>
 </body></html>

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L.chapter }} {{ n }}{% endblock %}
+{% block hsub %}{{ sname }} · {{ L['class'] }} {{ cls }}{% endblock %}
+{% block body %}
+{% include "_syl_css.html" %}
+<div class="sy">
+  <div class="crumb"><a href="/syllabus">{{ L.title }}</a><i>›</i><a href="/syllabus/{{ cls }}">{{ L['class'] }} {{ cls }}</a><i>›</i><a href="/syllabus/{{ cls }}/{{ key }}">{{ sname }}</a></div>
+  <h2>{{ n }}. {{ cname }}</h2>
+  <div class="card">
+  {% for t in tps %}
+    {% if t.subs %}
+    <details>
+      <summary><span class="n">{{ loop.index }}</span>{{ t.name }}<span class="ar">›</span></summary>
+      <ul>{% for s in t.subs %}<li>{{ s }}</li>{% endfor %}</ul>
+    </details>
+    {% else %}
+    <div style="padding:13px 14px;font-size:14px;font-weight:600;border-bottom:1px solid #eef1f5">{{ loop.index }}. {{ t.name }}</div>
+    {% endif %}
+  {% endfor %}
+  </div>
+  <div class="nav2">
+    <a class="{{ '' if n > 1 else 'off' }}" href="/syllabus/{{ cls }}/{{ key }}/{{ n - 1 }}">‹</a>
+    <a class="{{ '' if n < total else 'off' }}" href="/syllabus/{{ cls }}/{{ key }}/{{ n + 1 }}">›</a>
+  </div>
+</div>
+{% endblock %}

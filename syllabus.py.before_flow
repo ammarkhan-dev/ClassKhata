@@ -1,0 +1,25 @@
+from flask import render_template, request
+
+def setup(app):
+    @app.route("/syllabus")
+    def syllabus_home():
+        lang = request.args.get("lang", "en")
+        if lang not in ("en", "hi"):
+            lang = "en"
+        cls = request.args.get("class", "10")
+        if cls not in ("10", "12"):
+            cls = "10"
+        subjects = {
+            "10": [
+                ("Science", "विज्ञान"), ("Mathematics", "गणित"),
+                ("Hindi", "हिंदी"), ("English", "अंग्रेज़ी"),
+                ("Social Science", "सामाजिक विज्ञान")
+            ],
+            "12": [
+                ("Physics", "भौतिक विज्ञान"), ("Chemistry", "रसायन विज्ञान"),
+                ("Mathematics", "गणित"), ("Biology", "जीव विज्ञान"),
+                ("English", "अंग्रेज़ी"), ("Hindi", "हिंदी")
+            ]
+        }
+        return render_template("syllabus.html", lang=lang, cls=cls,
+                               subjects=subjects[cls])

@@ -1,0 +1,153 @@
+@class 10
+@subject science | Science | विज्ञान
+# Chemical Reactions and Equations | रासायनिक अभिक्रियाएँ एवं समीकरण
+## Chemical equations | रासायनिक समीकरण
+- Writing and balancing chemical equations | रासायनिक समीकरण लिखना तथा संतुलित करना
+- Meaning of a balanced equation | संतुलित समीकरण का अर्थ
+## Types of reactions | अभिक्रियाओं के प्रकार
+- Combination reaction | संयोजन अभिक्रिया
+- Decomposition reaction | अपघटन अभिक्रिया
+- Displacement reaction | विस्थापन अभिक्रिया
+- Double displacement and precipitation reaction | द्विविस्थापन तथा अवक्षेपण अभिक्रिया
+- Neutralisation reaction | उदासीनीकरण अभिक्रिया
+- Oxidation and reduction | उपचयन तथा अपचयन
+## Effects of oxidation | उपचयन के प्रभाव
+- Corrosion and rancidity | संक्षारण तथा विकृतगंधिता
+# Acids, Bases and Salts | अम्ल, क्षारक एवं लवण
+## Acids and bases | अम्ल तथा क्षारक
+- Definitions based on H+ and OH- ions | H+ और OH- आयनों के आधार पर परिभाषा
+- Properties and reactions of acids and bases | अम्ल व क्षारक के गुण तथा अभिक्रियाएँ
+- Indicators | सूचक
+## pH scale | pH स्केल
+- pH scale and its importance in everyday life | pH स्केल तथा दैनिक जीवन में महत्व
+## Salts | लवण
+- Common salt and its products: sodium hydroxide, bleaching powder, baking soda, washing soda | सामान्य नमक व उसके उत्पाद: सोडियम हाइड्रॉक्साइड, विरंजक चूर्ण, बेकिंग सोडा, धोने का सोडा
+- Plaster of Paris and water of crystallisation | प्लास्टर ऑफ पेरिस तथा क्रिस्टलन जल
+# Metals and Non-metals | धातु एवं अधातु
+## Properties | गुण
+- Physical properties of metals and non-metals | धातु व अधातु के भौतिक गुण
+- Chemical properties of metals and non-metals | धातु व अधातु के रासायनिक गुण
+## Reactivity | अभिक्रियाशीलता
+- Reactivity series | क्रियाशीलता श्रेणी
+- Ionic compounds and their properties | आयनिक यौगिक तथा उनके गुण
+## Metallurgy | धातुकर्म
+- Occurrence of metals, extraction of metals | धातुओं की प्राप्ति, धातुओं का निष्कर्षण
+- Refining of metals | धातुओं का परिष्कार
+- Corrosion and its prevention | संक्षारण तथा उसकी रोकथाम
+# Carbon and its Compounds | कार्बन एवं उसके यौगिक
+## Bonding in carbon | कार्बन में आबंधन
+- Covalent bonding | सहसंयोजक आबंध
+- Versatile nature of carbon, catenation, tetravalency | कार्बन की बहुमुखी प्रकृति, श्रृंखलन, चतुर्संयोजकता
+## Compounds | यौगिक
+- Saturated and unsaturated hydrocarbons | संतृप्त व असंतृप्त हाइड्रोकार्बन
+- Functional groups and homologous series | क्रियात्मक समूह तथा समजातीय श्रेणी
+- Nomenclature of carbon compounds | कार्बन यौगिकों का नामकरण
+## Reactions | अभिक्रियाएँ
+- Combustion, oxidation, addition, substitution | दहन, उपचयन, संकलन, प्रतिस्थापन
+## Important compounds | महत्वपूर्ण यौगिक
+- Ethanol and ethanoic acid: properties and uses | एथेनॉल व एथेनोइक अम्ल: गुण तथा उपयोग
+- Soaps and detergents | साबुन तथा अपमार्जक
+# Periodic Classification of Elements | तत्वों का आवर्त वर्गीकरण
+## Classification | वर्गीकरण
+- Dobereiner's triads, Newlands' law of octaves | डोबेराइनर की त्रिक, न्यूलैंड्स का अष्टक नियम
+- Mendeleev's periodic table | मेन्डेलीफ की आवर्त सारणी
+- Modern periodic table | आधुनिक आवर्त सारणी
+## Trends | प्रवृत्तियाँ
+- Trends in groups and periods: valency, atomic size, metallic character | वर्ग व आवर्त में प्रवृत्तियाँ: संयोजकता, परमाणु आकार, धात्विक गुण
+# Life Processes | जैव प्रक्रम
+## Nutrition | पोषण
+- Autotrophic and heterotrophic nutrition | स्वपोषी तथा विषमपोषी पोषण
+- Nutrition in human beings | मनुष्य में पोषण
+## Respiration | श्वसन
+- Aerobic and anaerobic respiration | वायवीय व अवायवीय श्वसन
+- Respiration in human beings | मनुष्य में श्वसन
+## Transport | परिवहन
+- Transport in human beings: heart and blood circulation | मनुष्य में परिवहन: हृदय तथा रक्त परिसंचरण
+- Transport in plants: xylem and phloem | पादपों में परिवहन: जाइलम व फ्लोएम
+## Excretion | उत्सर्जन
+- Excretion in human beings, kidney, dialysis | मनुष्य में उत्सर्जन, वृक्क, अपोहन
+- Excretion in plants | पादपों में उत्सर्जन
+# Control and Coordination | नियंत्रण एवं समन्वय
+## Animals | जंतु
+- Nervous system and reflex action | तंत्रिका तंत्र तथा प्रतिवर्ती क्रिया
+- Human brain | मानव मस्तिष्क
+- Coordination in animals: hormones, endocrine glands | जंतुओं में समन्वय: हॉर्मोन, अंतःस्रावी ग्रंथियाँ
+## Plants | पादप
+- Tropic movements in plants | पादपों में अनुवर्तन गतियाँ
+- Plant hormones | पादप हॉर्मोन
+# How do Organisms Reproduce? | जीव जनन कैसे करते हैं?
+## Asexual reproduction | अलैंगिक जनन
+- Fission, fragmentation, regeneration, budding, spore formation | विखंडन, खंडन, पुनरुद्भवन, मुकुलन, बीजाणु समासंघ
+- Vegetative propagation | कायिक प्रवर्धन
+## Sexual reproduction | लैंगिक जनन
+- Sexual reproduction in flowering plants | पुष्पी पादपों में लैंगिक जनन
+- Reproduction in human beings | मानव में जनन
+## Reproductive health | जनन स्वास्थ्य
+- Family planning and birth control | परिवार नियोजन तथा गर्भनिरोध
+- Sexually transmitted diseases, HIV/AIDS, women's health | लैंगिक संचारित रोग, HIV/AIDS, महिला स्वास्थ्य
+# Heredity and Evolution | आनुवंशिकता एवं जैव विकास
+## Heredity | आनुवंशिकता
+- Mendel's contribution and laws of inheritance | मेंडल का योगदान तथा वंशागति के नियम
+- Sex determination | लिंग निर्धारण
+## Evolution | जैव विकास
+- Variation and speciation | विविधता तथा जाति-उद्भव
+- Evolution and classification | विकास तथा वर्गीकरण
+- Fossils and evidence of evolution | जीवाश्म तथा विकास के साक्ष्य
+# Light: Reflection and Refraction | प्रकाश: परावर्तन तथा अपवर्तन
+## Reflection | परावर्तन
+- Laws of reflection | परावर्तन के नियम
+- Image formation by spherical mirrors | गोलीय दर्पणों द्वारा प्रतिबिंब बनना
+- Mirror formula and magnification | दर्पण सूत्र तथा आवर्धन
+## Refraction | अपवर्तन
+- Laws of refraction and refractive index | अपवर्तन के नियम तथा अपवर्तनांक
+- Image formation by lenses | लेंस द्वारा प्रतिबिंब बनना
+- Lens formula, magnification and power of a lens | लेंस सूत्र, आवर्धन तथा लेंस की क्षमता
+# Human Eye and the Colourful World | मानव नेत्र तथा रंग-बिरंगा संसार
+## Human eye | मानव नेत्र
+- Structure and working of the eye | नेत्र की संरचना तथा कार्यविधि
+- Defects of vision and their correction | दृष्टि दोष तथा उनका निवारण
+## Atmospheric phenomena | वायुमंडलीय परिघटनाएँ
+- Refraction of light through a prism, dispersion | प्रिज्म से प्रकाश का अपवर्तन, विक्षेपण
+- Atmospheric refraction, twinkling of stars | वायुमंडलीय अपवर्तन, तारों का टिमटिमाना
+- Scattering of light: blue sky, red sun, Tyndall effect | प्रकाश का प्रकीर्णन: नीला आकाश, लाल सूर्य, टिंडल प्रभाव
+# Electricity | विद्युत
+## Basics | मूल बातें
+- Electric current and circuit | विद्युत धारा तथा परिपथ
+- Potential difference | विभवांतर
+- Ohm's law | ओम का नियम
+## Resistance | प्रतिरोध
+- Factors affecting resistance, resistivity | प्रतिरोध को प्रभावित करने वाले कारक, प्रतिरोधकता
+- Resistors in series and parallel | श्रेणी व पार्श्व क्रम में प्रतिरोधक
+## Heating and power | ऊष्मीय प्रभाव तथा शक्ति
+- Heating effect of electric current | विद्युत धारा का ऊष्मीय प्रभाव
+- Electric power and energy | विद्युत शक्ति तथा ऊर्जा
+# Magnetic Effects of Electric Current | विद्युत धारा के चुंबकीय प्रभाव
+## Magnetic field | चुंबकीय क्षेत्र
+- Magnetic field and field lines | चुंबकीय क्षेत्र तथा क्षेत्र रेखाएँ
+- Field due to a current in a straight conductor, circular loop, solenoid | सीधे चालक, वृत्ताकार पाश, परिनालिका में धारा से क्षेत्र
+- Right-hand thumb rule | दाएँ हाथ के अँगूठे का नियम
+## Force and induction | बल तथा प्रेरण
+- Force on a current-carrying conductor, Fleming's left-hand rule | धारावाही चालक पर बल, फ्लेमिंग का वाम-हस्त नियम
+- Electric motor | विद्युत मोटर
+- Electromagnetic induction, electric generator | विद्युत चुंबकीय प्रेरण, विद्युत जनित्र
+## Domestic circuits | घरेलू परिपथ
+- Domestic electric circuits, fuse, earthing | घरेलू विद्युत परिपथ, फ्यूज, भू-संपर्कण
+# Sources of Energy | ऊर्जा के स्रोत
+## Energy sources | ऊर्जा स्रोत
+- Conventional sources: fossil fuels, thermal and hydro power | परंपरागत स्रोत: जीवाश्म ईंधन, तापीय व जल विद्युत
+- Non-conventional: solar, wind, tidal, biomass, geothermal, nuclear | गैर-परंपरागत: सौर, पवन, ज्वारीय, जैव-मात्रा, भूतापीय, नाभिकीय
+# Our Environment | हमारा पर्यावरण
+## Ecosystem | पारितंत्र
+- Components of an ecosystem | पारितंत्र के घटक
+- Food chains, food webs, trophic levels | आहार शृंखला, आहार जाल, पोषी स्तर
+- Ten per cent law of energy flow | ऊर्जा प्रवाह का 10 प्रतिशत नियम
+## Environmental problems | पर्यावरणीय समस्याएँ
+- Ozone layer depletion | ओज़ोन परत का क्षय
+- Waste management, biodegradable and non-biodegradable substances | अपशिष्ट प्रबंधन, जैव-निम्नीकरणीय व अजैव-निम्नीकरणीय पदार्थ
+# Management of Natural Resources | प्राकृतिक संसाधनों का प्रबंधन
+## Conservation | संरक्षण
+- Need for sustainable management | संपोषित प्रबंधन की आवश्यकता
+- Forests and wildlife | वन तथा वन्य जीवन
+- Water resources and dams | जल संसाधन तथा बाँध
+- Coal and petroleum | कोयला तथा पेट्रोलियम
+- The three Rs: reduce, reuse, recycle | तीन R: कम करो, पुनः उपयोग, पुनः चक्रण

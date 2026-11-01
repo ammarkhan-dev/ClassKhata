@@ -1,0 +1,134 @@
+@class 12
+@subject biology | Biology | जीव विज्ञान
+# Reproduction in Organisms | जीवों में जनन
+## Modes of reproduction | जनन के प्रकार
+- Asexual reproduction: binary fission, budding, fragmentation, spores | अलैंगिक जनन: द्विविखंडन, मुकुलन, खंडन, बीजाणु
+- Vegetative propagation | कायिक प्रवर्धन
+- Sexual reproduction: pre-fertilisation, fertilisation, post-fertilisation events | लैंगिक जनन: निषेचन पूर्व, निषेचन, निषेचन पश्चात घटनाएँ
+# Sexual Reproduction in Flowering Plants | पुष्पी पादपों में लैंगिक जनन
+## Flower structure | पुष्प की संरचना
+- Structure of a flower | पुष्प की संरचना
+- Microsporogenesis and pollen grain | लघुबीजाणुजनन तथा परागकण
+- Megasporogenesis and embryo sac | गुरुबीजाणुजनन तथा भ्रूणकोश
+## Pollination and fertilisation | परागण तथा निषेचन
+- Pollination: types and agents | परागण: प्रकार तथा कारक
+- Outbreeding devices, pollen-pistil interaction | बहिःप्रजनन युक्तियाँ, पराग-स्त्रीकेसर अन्योन्यक्रिया
+- Double fertilisation | दोहरा निषेचन
+## Post-fertilisation | निषेचन के बाद
+- Development of endosperm and embryo | भ्रूणपोष तथा भ्रूण का विकास
+- Seed and fruit formation | बीज तथा फल का निर्माण
+- Apomixis and polyembryony | असंगजनन तथा बहुभ्रूणता
+# Human Reproduction | मानव जनन
+## Reproductive systems | जनन तंत्र
+- Male reproductive system | नर जनन तंत्र
+- Female reproductive system | मादा जनन तंत्र
+## Gametogenesis and cycles | युग्मकजनन तथा चक्र
+- Spermatogenesis and oogenesis | शुक्रजनन तथा अंडजनन
+- Menstrual cycle | ऋतुस्राव चक्र
+## Development | विकास
+- Fertilisation and implantation | निषेचन तथा अंतर्रोपण
+- Pregnancy, embryonic development, parturition, lactation | गर्भावस्था, भ्रूणीय विकास, प्रसव, दुग्धस्रवण
+# Reproductive Health | जनन स्वास्थ्य
+## Reproductive health | जनन स्वास्थ्य
+- Reproductive health and problems | जनन स्वास्थ्य तथा समस्याएँ
+- Birth control methods | जन्म नियंत्रण की विधियाँ
+- Medical termination of pregnancy | गर्भ का चिकित्सीय समापन
+## Diseases and infertility | रोग तथा बंध्यता
+- Sexually transmitted diseases | लैंगिक संचारित रोग
+- Infertility and assisted reproductive technologies (IVF, ZIFT, GIFT, ICSI) | बंध्यता तथा सहायक जनन प्रौद्योगिकियाँ (IVF, ZIFT, GIFT, ICSI)
+# Principles of Inheritance and Variation | वंशागति तथा विविधता के सिद्धांत
+## Mendelian inheritance | मेंडल की वंशागति
+- Mendel's laws: dominance, segregation, independent assortment | मेंडल के नियम: प्रभाविता, पृथक्करण, स्वतंत्र अपव्यूहन
+- Monohybrid and dihybrid cross, test cross | एकसंकर व द्विसंकर क्रॉस, परीक्षण क्रॉस
+## Beyond Mendel | मेंडल से आगे
+- Incomplete dominance, codominance, multiple alleles (ABO blood groups) | अपूर्ण प्रभाविता, सहप्रभाविता, बहुएलीलता (ABO रक्त समूह)
+- Polygenic inheritance, pleiotropy | बहुजीनी वंशागति, बहुप्रभाविता
+## Chromosomal theory | गुणसूत्री सिद्धांत
+- Chromosomal theory of inheritance, linkage and recombination | वंशागति का गुणसूत्री सिद्धांत, सहलग्नता व पुनर्योजन
+- Sex determination in humans, birds, honeybee | मनुष्य, पक्षी, मधुमक्खी में लिंग निर्धारण
+- Sex-linked inheritance: haemophilia, colour blindness | लिंग-सहलग्न वंशागति: हीमोफिलिया, वर्णांधता
+## Genetic disorders | आनुवंशिक विकार
+- Mendelian disorders: thalassemia, cystic fibrosis, sickle cell anaemia, phenylketonuria | मेंडलीय विकार: थैलेसीमिया, सिस्टिक फाइब्रोसिस, सिकल सेल एनीमिया, फेनिलकीटोनूरिया
+- Chromosomal disorders: Down's, Klinefelter's, Turner's syndromes | गुणसूत्री विकार: डाउन, क्लाइनफेल्टर, टर्नर सिंड्रोम
+# Molecular Basis of Inheritance | वंशागति का आणविक आधार
+## DNA | डीएनए
+- DNA as genetic material, structure of DNA and RNA | आनुवंशिक पदार्थ के रूप में DNA, DNA व RNA की संरचना
+- Packaging of DNA, DNA replication | DNA का संवेष्टन, DNA प्रतिकृतिकरण
+## Gene expression | जीन अभिव्यक्ति
+- Transcription | अनुलेखन
+- Genetic code | आनुवंशिक कूट
+- Translation | स्थानांतरण (अनुवाद)
+- Regulation of gene expression, lac operon | जीन अभिव्यक्ति का नियमन, लैक ओपेरॉन
+## Genome | जीनोम
+- Human Genome Project | मानव जीनोम परियोजना
+- DNA fingerprinting | DNA फिंगरप्रिंटिंग
+# Evolution | विकास
+## Origin of life | जीवन की उत्पत्ति
+- Origin of life and biological evolution | जीवन की उत्पत्ति तथा जैव विकास
+- Evidences: fossils, comparative anatomy, embryology, molecular | साक्ष्य: जीवाश्म, तुलनात्मक शरीर रचना, भ्रूणविज्ञान, आणविक
+## Theories | सिद्धांत
+- Darwin's theory and natural selection | डार्विन का सिद्धांत तथा प्राकृतिक चयन
+- Adaptive radiation | अनुकूली विकिरण
+- Mechanism of evolution, Hardy-Weinberg principle | विकास की क्रियाविधि, हार्डी-वेनबर्ग सिद्धांत
+## Human evolution | मानव विकास
+- Brief account of the evolution of humans | मानव के विकास का संक्षिप्त विवरण
+# Human Health and Disease | मानव स्वास्थ्य तथा रोग
+## Diseases | रोग
+- Common diseases: typhoid, pneumonia, malaria, amoebiasis, ringworm, dengue, chikungunya | सामान्य रोग: टाइफॉइड, निमोनिया, मलेरिया, अमीबियता, दाद, डेंगू, चिकनगुनिया
+- Prevention and control | रोकथाम तथा नियंत्रण
+## Immunity | प्रतिरक्षा
+- Innate and acquired immunity | सहज तथा उपार्जित प्रतिरक्षा
+- Vaccination and immunisation, allergies, autoimmunity | टीकाकरण व प्रतिरक्षीकरण, एलर्जी, स्वप्रतिरक्षा
+- AIDS | एड्स
+## Cancer and drug abuse | कैंसर तथा नशीली दवाएँ
+- Cancer: causes, detection, treatment | कैंसर: कारण, पहचान, उपचार
+- Drugs and alcohol abuse | नशीली दवाओं व शराब का दुरुपयोग
+# Microbes in Human Welfare | मानव कल्याण में सूक्ष्मजीव
+## Uses of microbes | सूक्ष्मजीवों के उपयोग
+- In household and industrial products | घरेलू तथा औद्योगिक उत्पादों में
+- In sewage treatment | वाहित मल उपचार में
+- In biogas production | जैव गैस उत्पादन में
+- As biocontrol agents and biofertilisers | जैव नियंत्रक तथा जैव उर्वरक के रूप में
+# Biotechnology: Principles and Processes | जैव प्रौद्योगिकी: सिद्धांत व प्रक्रम
+## Recombinant DNA technology | पुनर्योजित DNA प्रौद्योगिकी
+- Tools: restriction enzymes, vectors, host organisms | उपकरण: प्रतिबंधन एंजाइम, वाहक, परपोषी जीव
+- Processes: isolation, cutting, amplification (PCR), insertion, selection | प्रक्रम: पृथक्करण, काटना, प्रवर्धन (PCR), निवेशन, चयन
+- Bioreactors and downstream processing | जैव-रिएक्टर तथा अनुप्रवाह प्रक्रमण
+# Biotechnology and its Applications | जैव प्रौद्योगिकी एवं इसके उपयोग
+## Applications | अनुप्रयोग
+- In agriculture: GM crops, Bt cotton, pest resistance | कृषि में: GM फसलें, Bt कपास, पीड़क प्रतिरोध
+- In medicine: insulin, gene therapy, molecular diagnosis | चिकित्सा में: इंसुलिन, जीन चिकित्सा, आणविक निदान
+- Transgenic animals | ट्रांसजेनिक जंतु
+- Ethical issues, biopiracy and patents | नैतिक मुद्दे, जैव-चौर्य तथा पेटेंट
+# Organisms and Populations | जीव और समष्टियाँ
+## Organism and environment | जीव तथा पर्यावरण
+- Habitat and niche, major abiotic factors | आवास व निकेत, प्रमुख अजैविक कारक
+- Adaptations | अनुकूलन
+## Populations | समष्टियाँ
+- Population attributes: growth, birth rate, death rate | समष्टि लक्षण: वृद्धि, जन्म दर, मृत्यु दर
+- Growth models, life history variation | वृद्धि मॉडल, जीवन-इतिहास विविधता
+## Interactions | पारस्परिक क्रियाएँ
+- Predation, competition, parasitism, commensalism, mutualism | परभक्षण, स्पर्धा, परजीविता, सहभोजिता, पारस्परिकता
+# Ecosystem | पारितंत्र
+## Structure and function | संरचना तथा कार्य
+- Ecosystem structure and productivity | पारितंत्र की संरचना तथा उत्पादकता
+- Decomposition | अपघटन
+- Energy flow, food chain, food web, ecological pyramids | ऊर्जा प्रवाह, खाद्य शृंखला, खाद्य जाल, पारिस्थितिक पिरामिड
+## Cycles and succession | चक्र तथा अनुक्रमण
+- Nutrient cycling: carbon and phosphorus cycle | पोषक चक्रण: कार्बन तथा फॉस्फोरस चक्र
+- Ecological succession | पारिस्थितिक अनुक्रमण
+- Ecosystem services | पारितंत्र सेवाएँ
+# Biodiversity and Conservation | जैव विविधता एवं संरक्षण
+## Biodiversity | जैव विविधता
+- Patterns and importance of biodiversity | जैव विविधता के प्रतिरूप तथा महत्व
+- Loss of biodiversity and its causes | जैव विविधता की हानि तथा कारण
+## Conservation | संरक्षण
+- In situ and ex situ conservation | स्वस्थाने तथा बाह्यस्थाने संरक्षण
+- Biodiversity hotspots, national parks, sanctuaries, biosphere reserves | जैव विविधता हॉटस्पॉट, राष्ट्रीय उद्यान, अभयारण्य, जीव मंडल रिज़र्व
+# Practical (Experiments) | प्रायोगिक कार्य
+## Experiments | प्रयोग
+- Study of mitosis in onion root tip | प्याज की जड़ के शीर्ष में सूत्री विभाजन का अध्ययन
+- Pollen germination, flower dissection | परागकण अंकुरण, पुष्प विच्छेदन
+- Study of pedigree charts | वंशावली चार्ट का अध्ययन
+- Preparation of temporary slides, identification of specimens | अस्थायी स्लाइड बनाना, नमूनों की पहचान
+- Study of ecological adaptations, flora and fauna of a locality | पारिस्थितिक अनुकूलन, स्थानीय वनस्पति व जंतु का अध्ययन
