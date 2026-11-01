@@ -1,4 +1,6 @@
 import sqlite3
+import tenant
+tenant.install()
 from datetime import date
 from flask import Flask, render_template, g
 

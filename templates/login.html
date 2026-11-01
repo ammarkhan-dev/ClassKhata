@@ -8,5 +8,6 @@
 <input type="password" name="pw" placeholder="{{ t('password') }}" required>
 {% if err %}<p style="color:#d64545;margin:4px 0">{{ t(err) }}</p>{% endif %}
 <button>{{ t('login_btn') }}</button>
-</form></div>
+</form>
+<p style="text-align:center;margin-top:16px;font-size:14px"><a href="/signup" style="color:#222f40;font-weight:600">{{ 'नया खाता बनाएँ' if session.get('lang') == 'hi' else 'Create a new account' }}</a></p></div>
 {% endblock %}

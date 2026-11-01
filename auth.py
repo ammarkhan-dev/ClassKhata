@@ -1,5 +1,6 @@
 import os, secrets, time, sqlite3
 import store
+import tenant
 from datetime import timedelta
 from urllib.parse import urlparse
 from flask import request, session, redirect, render_template
@@ -8,7 +9,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 DB = "classkhata.db"
 
 def q(sql, args=(), one=False, commit=False):
-    c = sqlite3.connect(DB)
+    c = tenant.raw_connect(DB)
     c.row_factory = sqlite3.Row
     cur = c.execute(sql, args)
     if commit:
@@ -42,11 +43,10 @@ def setup(app):
             session.pop("uid", None)
             session.pop("name", None)
             return redirect("/signup" if no_users() else "/login")
+        session.setdefault("tid", session["uid"])
 
     @app.route("/signup", methods=["GET", "POST"])
     def signup():
-        if not no_users():
-            return redirect("/login")
         err, name, inst = None, "", ""
         if request.method == "POST":
             name = request.form.get("name", "").strip()
@@ -59,6 +59,8 @@ def setup(app):
                 err = "err_name"
             elif not inst:
                 err = "err_inst"
+            elif q("SELECT 1 FROM users WHERE name=?", (name,), one=True):
+                err = "err_taken"
             elif len(pw) < 6:
                 err = "err_pw_short"
             elif pw != request.form.get("pw2", ""):
@@ -66,10 +68,10 @@ def setup(app):
             else:
                 q("INSERT INTO users(name,pw_hash,lang) VALUES(?,?,?)",
                   (name, generate_password_hash(pw), lang), commit=True)
-                store.put("institute", inst)
                 u = q("SELECT * FROM users WHERE name=?", (name,), one=True)
                 session.permanent = True
-                session.update(uid=u["id"], name=u["name"], lang=lang)
+                session.update(uid=u["id"], name=u["name"], lang=lang, tid=u["id"])
+                store.put("institute", inst)
                 return redirect("/")
         return render_template("signup.html", err=err, name=name, inst=inst)
 
@@ -83,7 +85,7 @@ def setup(app):
                   (request.form.get("name", "").strip(),), one=True)
             if u and check_password_hash(u["pw_hash"], request.form.get("pw", "")):
                 session.permanent = True
-                session.update(uid=u["id"], name=u["name"], lang=u["lang"])
+                session.update(uid=u["id"], name=u["name"], lang=u["lang"], tid=u["id"])
                 return redirect("/")
             time.sleep(1)
             err = "err_login"

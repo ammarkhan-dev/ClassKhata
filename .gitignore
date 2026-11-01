@@ -8,3 +8,4 @@ __pycache__/
 *.bak4
 *.bak5
 *.bak7
+data/
