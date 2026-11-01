@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L.mp }}{% endblock %}
+{% block hsub %}{{ L.empty }}{% endblock %}
+{% block body %}
+{% include "_lib_css.html" %}
+<div class="lb">
+  <div class="crumb"><a href="/">{{ L.back }}</a><span>›</span><span>{{ L.mp }}</span></div>
+  <div class="card">
+    <div class="ic"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></div>
+    <h3>{{ L.empty }}</h3>
+    <p>{{ L.soon }}</p>
+  </div>
+</div>
+{% endblock %}

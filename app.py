@@ -42,6 +42,8 @@ def _old_home():
 i18n.setup(app)
 auth.setup(app)
 syllabus.setup(app)
+import library
+library.setup(app)
 students.setup(app, db)
 hazri.setup(app, db)
 fees.setup(app, db)
