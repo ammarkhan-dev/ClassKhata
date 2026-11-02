@@ -43,7 +43,7 @@ def setup(app, db=None):
         lg = "hi" if session.get("lang") == "hi" else "en"
         p = _mine()
         kb = round(os.path.getsize(p) / 1024) if p else 0
-        return render_template("backup.html", L=UI[lg], size=("%d KB" % kb) if p else "", has=bool(p), last=_last_server_copy())
+        return render_template("mybackup.html", L=UI[lg], size=("%d KB" % kb) if p else "", has=bool(p), last=_last_server_copy())
 
     @app.route("/mybackup/download")
     def mybackup_download():

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L.title }}{% endblock %}
+{% block hsub %}{{ L.sub }}{% endblock %}
+{% block body %}
+<style>
+.bk{padding:4px 0 28px}
+.bk .card{background:#fff;border-radius:16px;box-shadow:0 1px 3px rgba(15,23,42,.08);padding:16px;margin-bottom:10px}
+.bk p{margin:0 0 10px;font-size:14px;line-height:1.5;color:#334155}
+.bk .btn{display:block;text-align:center;padding:14px;border-radius:12px;background:#1fa855;color:#fff;font-weight:700;font-size:15px;text-decoration:none}
+.bk .sm{font-size:12.5px;color:#64748b;margin-top:8px}
+.bk .row{display:flex;justify-content:space-between;font-size:14px;padding:6px 0}
+</style>
+<div class="bk">
+  <div class="card"><p>{{ L.why }}</p>
+    {% if has %}<a class="btn" href="/mybackup/download">⬇ {{ L.dl }}</a><div class="sm">{{ L.size }}: {{ size }}</div>{% endif %}
+    <div class="sm">{{ L.note }}</div><div class="sm">{{ L.how }}</div></div>
+  <div class="card"><div class="row"><span>{{ L.last }}</span><b>{{ last or L.never }}</b></div><div class="sm">{{ L.daily }}</div></div>
+</div>
+{% endblock %}
