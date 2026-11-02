@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L.title }}{% endblock %}
+{% block hsub %}{{ L.sub }}{% endblock %}
+{% block body %}
+<style>
+.kh{padding:4px 0 28px}
+.kh .card{background:#fff;border-radius:16px;box-shadow:0 1px 3px rgba(15,23,42,.08);padding:14px;margin-bottom:10px}
+.kh .mn{display:flex;align-items:center;gap:8px;margin:2px 0 12px}
+.kh .mn a{flex:0 0 40px;height:40px;border-radius:12px;background:#fff;color:#222f40;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;box-shadow:0 1px 3px rgba(15,23,42,.08)}
+.kh .mn a.off{opacity:.35;pointer-events:none}
+.kh .mn b{flex:1;text-align:center;font-size:16px}
+.kh .big{font-size:30px;font-weight:700;line-height:1.1}
+.kh .g{color:#1a7f3c}.kh .r{color:#b42318}
+.kh .sm{font-size:12.5px;color:#64748b;margin-top:4px}
+.kh .tri{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.kh .tri .card{margin:0}.kh .tri b{display:block;font-size:20px;margin-top:4px}
+.kh h4{margin:0 0 10px;font-size:14px}
+.kh .bar{margin:8px 0}.kh .bar div.t{display:flex;justify-content:space-between;font-size:13px;margin-bottom:3px}
+.kh .bar div.b{height:8px;border-radius:99px;background:#eef2f7}.kh .bar i{display:block;height:8px;border-radius:99px}
+.kh input,.kh select{width:100%;box-sizing:border-box;height:44px;border:1px solid #e2e8f0;border-radius:10px;padding:0 10px;font-family:inherit;font-size:14px;background:#fff;margin-bottom:8px}
+.kh .go{width:100%;height:46px;border:0;border-radius:12px;background:#222f40;color:#fff;font-weight:700;font-size:15px}
+.kh .li{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #eef2f7}
+.kh .li:last-child{border:0}.kh .dot{flex:0 0 10px;height:10px;border-radius:50%}
+.kh .li .tx{flex:1;min-width:0}.kh .li .tx b{font-size:14px;display:block}.kh .li .tx small{color:#64748b;font-size:12px}
+.kh .li .am{font-weight:700;font-size:14px}.kh .x{border:0;background:none;color:#b42318;font-size:18px;padding:4px 6px}
+.kh .tip{font-size:11.5px;color:#94a3b8;text-align:center;margin-top:6px}
+details.kh-add summary{list-style:none;cursor:pointer}details.kh-add summary::-webkit-details-marker{display:none}
+</style>
+<div class="kh">
+  <div class="mn">
+    <a href="/kharche?month={{ prev }}">‹</a><b>{{ label }}</b><a href="/kharche?month={{ nxt }}" class="{{ '' if can_next else 'off' }}">›</a>
+  </div>
+
+  <div class="card">
+    <div class="sm" style="margin:0">{{ L.profit if profit >= 0 else L.loss }}</div>
+    <div class="big {{ 'g' if profit >= 0 else 'r' }}">₹{{ '{:,}'.format(profit|abs) }}</div>
+    <div class="sm">{{ L.last }}: ₹{{ '{:,}'.format(pprofit) }}{% if diff > 0 %} · <span class="g">▲ ₹{{ '{:,}'.format(diff) }}</span>{% elif diff < 0 %} · <span class="r">▼ ₹{{ '{:,}'.format(diff|abs) }}</span>{% endif %}</div>
+  </div>
+  <div class="tri">
+    <div class="card"><div class="sm" style="margin:0">{{ L.coll }}</div><b class="g">₹{{ '{:,}'.format(coll) }}</b></div>
+    <div class="card"><div class="sm" style="margin:0">{{ L.exp }}</div><b class="r">₹{{ '{:,}'.format(exp) }}</b></div>
+  </div>
+  {% if own %}<div class="card"><div class="sm" style="margin:0">{{ L.self }}: <b>₹{{ '{:,}'.format(own) }}</b> · {{ L.left }}: <b class="{{ 'g' if left >= 0 else 'r' }}">₹{{ '{:,}'.format(left) }}</b></div></div>{% endif %}
+
+  <details class="card kh-add" {% if not rows %}open{% endif %}>
+    <summary><div class="go" style="display:flex;align-items:center;justify-content:center">＋ {{ L.add }}</div></summary>
+    <form method="post" style="margin-top:12px">
+      <input type="hidden" name="month" value="{{ mk }}">
+      <input name="amount" type="number" inputmode="numeric" min="1" required placeholder="{{ L.amount }}">
+      <select name="cat" aria-label="{{ L.cat }}">{% for k, n in cats %}<option value="{{ k }}">{{ n }}</option>{% endfor %}</select>
+      <input name="day" type="date" value="{{ dflt }}" required aria-label="{{ L.day }}">
+      <input name="note" maxlength="80" placeholder="{{ L.note }}">
+      <button class="go">{{ L.save }}</button>
+    </form>
+  </details>
+
+  {% if bars %}<div class="card"><h4>{{ L.bycat }}</h4>
+    {% for b in bars %}<div class="bar"><div class="t"><span>{{ b.name }}</span><b>₹{{ '{:,}'.format(b.amt) }}</b></div><div class="b"><i style="width:{{ b.w }}%;background:{{ b.col }}"></i></div></div>{% endfor %}</div>{% endif %}
+
+  <div class="card"><h4>{{ L.entries }}</h4>
+    {% for r in rows %}<div class="li"><span class="dot" style="background:{{ cols.get(r.cat, '#64748b') }}"></span>
+      <div class="tx"><b>{{ names.get(r.cat, r.cat) }}</b><small>{{ r.day }}{% if r.note %} · {{ r.note }}{% endif %}</small></div>
+      <span class="am">₹{{ '{:,}'.format(r.amount) }}</span>
+      <form method="post" action="/kharche/{{ r.id }}/delete" onsubmit="return confirm('{{ L.q }}')"><button class="x" aria-label="{{ L.del_ }}">×</button></form></div>
+    {% else %}<div class="sm" style="text-align:center;margin:8px 0">{{ L.none }}</div>{% endfor %}
+  </div>
+  <div class="tip">{{ L.tip }}</div>
+</div>
+{% endblock %}
