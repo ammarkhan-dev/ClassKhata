@@ -14,3 +14,6 @@ data/
 *.abs1
 *.par1
 *.ext1
+*.ext*
+*.abs*
+*.par*
