@@ -121,8 +121,8 @@ def setup(app, db):
             up = fee
         _reg = [h for h in due if not h.get("extra")]
         _xb = sum(h["baaki"] for h in due if h.get("extra"))
-        _f = (_reg or due)[0]
-        remind = wa_link(s, (_f["baaki"] if _reg else 0) + _xb, _f["due"], _f["y"], _f["m"], lang) if due else ""
+        _f = (_reg or due or [None])[0]
+        remind = wa_link(s, (_f["baaki"] if _reg else 0) + _xb, _f["due"], _f["y"], _f["m"], lang) if _f else ""
         adm = s["admission_date"] or "0000-00-00"
         r = db().execute("""SELECT
             (SELECT COUNT(*) FROM attendance x WHERE x.student_id=? AND x.status='P' AND x.day>=?) AS pres,
