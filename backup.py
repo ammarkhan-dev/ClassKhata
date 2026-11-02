@@ -38,15 +38,15 @@ def _last_server_copy():
 
 
 def setup(app, db=None):
-    @app.route("/backup")
-    def backup_page():
+    @app.route("/mybackup")
+    def mybackup_page():
         lg = "hi" if session.get("lang") == "hi" else "en"
         p = _mine()
         kb = round(os.path.getsize(p) / 1024) if p else 0
         return render_template("backup.html", L=UI[lg], size=("%d KB" % kb) if p else "", has=bool(p), last=_last_server_copy())
 
-    @app.route("/backup/download")
-    def backup_download():
+    @app.route("/mybackup/download")
+    def mybackup_download():
         p = _mine()
         if not p:
             abort(404)

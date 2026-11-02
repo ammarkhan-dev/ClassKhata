@@ -12,7 +12,7 @@
 </style>
 <div class="bk">
   <div class="card"><p>{{ L.why }}</p>
-    {% if has %}<a class="btn" href="/backup/download">⬇ {{ L.dl }}</a><div class="sm">{{ L.size }}: {{ size }}</div>{% endif %}
+    {% if has %}<a class="btn" href="/mybackup/download">⬇ {{ L.dl }}</a><div class="sm">{{ L.size }}: {{ size }}</div>{% endif %}
     <div class="sm">{{ L.note }}</div><div class="sm">{{ L.how }}</div></div>
   <div class="card"><div class="row"><span>{{ L.last }}</span><b>{{ last or L.never }}</b></div><div class="sm">{{ L.daily }}</div></div>
 </div>
