@@ -29,6 +29,7 @@ header.dk{display:block;padding:16px}
 </header>
 {% endblock %}
 {% block body %}
+<!--IMP--><a href="/students/import" style="display:block;margin:6px 0 12px;padding:11px 14px;border-radius:12px;background:#fff;color:#222f40;text-decoration:none;font-weight:600;font-size:14px;text-align:center;box-shadow:0 1px 3px rgba(15,23,42,.1)">{{ 'Excel / CSV से विद्यार्थी इम्पोर्ट' if session.get('lang') == 'hi' else 'Import students from Excel / CSV' }}</a><!--/IMP-->
 {% include "_shared.html" %}
 <style>
 .tabs{display:flex;gap:8px;margin:2px 0 12px;flex-wrap:wrap}

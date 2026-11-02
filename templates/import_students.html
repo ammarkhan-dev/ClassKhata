@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L.title }}{% endblock %}
+{% block hsub %}{{ L.sub }}{% endblock %}
+{% block body %}
+<style>
+.im{padding:4px 0 28px}
+.im .card{background:#fff;border-radius:14px;box-shadow:0 1px 3px rgba(15,23,42,.08);padding:14px;margin-bottom:10px}
+.im h4{margin:0 0 8px;font-size:14px}
+.im .btn{display:block;width:100%;box-sizing:border-box;text-align:center;padding:12px;border-radius:12px;border:0;background:#222f40;color:#fff;font-weight:700;font-size:14px;text-decoration:none}
+.im .btn.g{background:#1fa855}.im .btn.l{background:#e2e8f0;color:#222f40}
+.im input[type=file],.im textarea{width:100%;box-sizing:border-box;border:1px solid #e2e8f0;border-radius:10px;padding:10px;font-family:inherit;font-size:13px;background:#fff}
+.im textarea{min-height:110px}
+.im .note{font-size:12px;color:#64748b;margin:6px 0}
+.im .msg{background:#fdecec;color:#b42318;border-radius:12px;padding:10px 12px;font-size:13px;margin-bottom:10px}
+.im .sum{display:flex;gap:8px;margin-bottom:10px}
+.im .sum div{flex:1;background:#fff;border-radius:12px;padding:10px;text-align:center;box-shadow:0 1px 3px rgba(15,23,42,.08)}
+.im .sum b{display:block;font-size:20px}.im .sum small{font-size:11px;color:#64748b}
+.im .ok b{color:#1a7f3c}.im .wn b{color:#b45309}.im .er b{color:#b42318}
+.im table{width:100%;border-collapse:collapse;font-size:12.5px}
+.im td,.im th{padding:6px 4px;border-bottom:1px solid #eef2f7;text-align:left}
+.im .sc{overflow-x:auto}
+.im .bad{color:#b42318;font-size:12px}
+</style>
+<div class="im">
+{% if mode == 'form' %}
+  {% if msg %}<div class="msg">{{ msg }}</div>{% endif %}
+  <div class="card"><h4>{{ L.step1 }}</h4><a class="btn l" href="/students/import/sample.csv">{{ L.sample }}</a><div class="note">{{ L.rules }}</div></div>
+  <form class="card" method="post" action="/students/import/check" enctype="multipart/form-data">
+    <h4>{{ L.step2 }}</h4>
+    <div class="note">{{ L.file }}</div><input type="file" name="file" accept=".csv,.xlsx,.txt,text/csv">
+    <div class="note" style="margin-top:12px">{{ L.paste }}</div><textarea name="paste"></textarea>
+    <div class="note">{{ L.pastehint }}</div>
+    <button class="btn" style="margin-top:8px">{{ L.check }}</button>
+  </form>
+{% elif mode == 'preview' %}
+  <div class="sum"><div class="ok"><b>{{ good|length }}</b><small>{{ L.newn }}</small></div><div class="wn"><b>{{ dups|length }}</b><small>{{ L.dupn }}</small></div><div class="er"><b>{{ errs|length }}</b><small>{{ L.errn }}</small></div></div>
+  {% if good %}
+  <form method="post" action="/students/import/save"><input type="hidden" name="payload" value="{{ payload }}"><button class="btn g">{{ L.save.format(n=good|length) }}</button></form>
+  <div class="card sc" style="margin-top:10px"><table><tr><th>#</th><th>{{ L.nm }}</th><th>{{ L.cl }}</th><th>{{ L.ph }}</th><th>{{ L.fe }}</th><th>{{ L.ad }}</th></tr>
+  {% for n,c in good %}<tr><td>{{ n }}</td><td>{{ c.name }}</td><td>{{ c.cls }}</td><td>{{ c.phone }}</td><td>{{ c.fee }}</td><td>{{ c.adm }}</td></tr>{% endfor %}</table></div>
+  {% else %}<div class="card" style="text-align:center;color:#64748b">{{ L.none_ok }}</div>{% endif %}
+  {% if errs %}<div class="card"><h4>{{ L.errn }}</h4>{% for n,c,e in errs %}<div class="bad">{{ L.row }} {{ n }}: {{ c.name or '—' }} — {{ L.E.get(e, e) }}</div>{% endfor %}</div>{% endif %}
+  {% if dups %}<div class="card"><h4>{{ L.dupn }}</h4>{% for n,c in dups %}<div class="note">{{ L.row }} {{ n }}: {{ c.name }} · {{ c.phone }}</div>{% endfor %}</div>{% endif %}
+  <a class="btn l" href="/students/import" style="margin-top:6px">{{ L.back }}</a>
+{% else %}
+  <div class="card" style="text-align:center"><h4 style="font-size:18px">{{ L.done }}</h4><p><b>{{ added }}</b> {{ L.added }}{% if skipped %} · {{ skipped }} {{ L.skipped }}{% endif %}</p><a class="btn g" href="/students">{{ L.view }}</a></div>
+{% endif %}
+</div>
+{% endblock %}

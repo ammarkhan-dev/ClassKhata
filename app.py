@@ -50,6 +50,8 @@ import parent
 parent.setup(app)
 import extra
 extra.setup(app)
+import importer
+importer.setup(app)
 import account
 account.setup(app)
 students.setup(app, db)
