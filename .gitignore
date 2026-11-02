@@ -17,3 +17,4 @@ data/
 *.ext*
 *.abs*
 *.par*
+backups/

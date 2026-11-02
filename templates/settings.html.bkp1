@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+<a class="muted" href="/" style="text-decoration:none">‹ {{ t('back') }}</a>
+<h1 class="page" style="margin-top:6px">{{ t('settings') }}</h1>
+{% if saved %}<div class="err" style="background:#e7f3ec;color:var(--green);border-color:#cfe6d9">{{ t('saved') }}</div>{% endif %}
+<form method="post" class="card">
+<label style="margin-top:0">{{ t('institute_name') }}</label>
+<input name="inst" value="{{ institute }}" required>
+<div style="height:18px"></div>
+<button>{{ t('save') }}</button>
+</form>
+{% endblock %}

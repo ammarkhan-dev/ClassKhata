@@ -54,6 +54,8 @@ import importer
 importer.setup(app)
 import kharche
 kharche.setup(app)
+import backup
+backup.setup(app)
 import account
 account.setup(app)
 students.setup(app, db)
