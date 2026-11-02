@@ -36,6 +36,14 @@
 <div><div class="dl"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>{{ t('this_month') }}</div>
 <div class="dn g">₹{{ '{:,}'.format(month_coll) }}</div></div>
 </div>
+<!--TC-->{% set _tc = today_classes() %}{% if _tc.has %}
+<div style="background:var(--card,#fff);border:1px solid var(--line,#e6ebf1);border-radius:20px;padding:16px 18px;margin-bottom:14px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><b style="font-size:19px;color:var(--navy,#222f40)">{{ _tc.title }}</b><span style="font-size:13px;color:var(--muted,#64748b)">{{ _tc.date }}</span></div>
+{% for c in _tc["items"] %}<a href="/hazri" style="display:flex;align-items:center;gap:10px;padding:11px 0;text-decoration:none;color:inherit;{% if not loop.first %}border-top:1px solid var(--line,#eef2f7);{% endif %}{% if c.st == 'done' %}opacity:.55{% endif %}">
+<div style="flex:1;min-width:0"><b style="display:block;font-size:15px">{{ c.name }}</b><span style="font-size:13px;color:var(--muted,#64748b)">{{ c.when }} · {{ c.n }} {{ _tc.L.stu }}</span></div>
+<span style="font-size:12px;font-weight:700;padding:4px 10px;border-radius:99px;{% if c.st == 'now' %}background:#e7f6ec;color:#1a7f3c{% elif c.st == 'next' %}background:#eef2f6;color:#334155{% else %}background:#f1f5f9;color:#64748b{% endif %}">{{ c.label }}</span></a>
+{% else %}<div style="padding:10px 0 2px;font-size:14px;color:var(--muted,#64748b)">{{ _tc.L.none }}</div>{% endfor %}
+</div>{% endif %}<!--/TC-->
 <div class="card">
 <h3 class="qt">{{ t('quick_actions') }}</h3>
 <div class="qa">

@@ -54,6 +54,8 @@ import importer
 importer.setup(app)
 import kharche
 kharche.setup(app)
+import todayc
+todayc.setup(app)
 import backup
 backup.setup(app)
 import account
