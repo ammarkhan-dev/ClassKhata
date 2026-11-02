@@ -20,6 +20,7 @@ header.dk{display:block;padding:14px 16px 20px}
 <a class="hb" href="/students" aria-label="{{ t('back') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
 <div class="row" style="gap:6px">
 <a class="hb" href="/students/{{ s.id }}/card" aria-label="{{ t('card_title') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></a>
+<!--PAR--><a class="hb" href="/students/{{ s.id }}/parent" aria-label="Parent link"><svg class="ic" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></a><!--/PAR-->
 <a class="hb" href="/students/{{ s.id }}/edit" aria-label="{{ t('edit') }}"><svg class="ic" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg></a>
 <button type="button" class="hb" onclick="document.getElementById('mn').hidden=false"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6" fill="#fff"/><circle cx="12" cy="12" r="1.6" fill="#fff"/><circle cx="12" cy="19" r="1.6" fill="#fff"/></svg></button>
 </div></div>

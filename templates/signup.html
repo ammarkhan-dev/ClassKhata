@@ -12,6 +12,8 @@
 <input type="password" name="pw2" required>
 <label>{{ t('institute_name') }}</label>
 <input name="inst" value="{{ inst }}" placeholder="{{ t('inst_ph') }}" required>
+<label>{{ 'इन्वाइट कोड' if session.get('lang') == 'hi' else 'Invite code' }}</label>
+<input name="invite" autocapitalize="characters" autocomplete="off" value="" placeholder="XXXX-XXXX">
 {% if err %}<div class="err" style="margin-top:14px">{{ t(err) }}</div>{% endif %}
 <div style="height:18px"></div>
 <button>{{ t('create_account') }}</button>

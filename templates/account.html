@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L.title }}{% endblock %}
+{% block hsub %}{{ L.user }}: {{ uname }}{% endblock %}
+{% block body %}
+{% include "_acc_css.html" %}
+<div class="ac">
+  <form class="card" method="post" action="/account">
+    <h3>{{ L.change }}</h3>
+    {% if err %}<div class="err">{{ err }}</div>{% endif %}
+    {% if ok %}<div class="ok">{{ ok }}</div>{% endif %}
+    <label>{{ L.old }}</label><input type="password" name="old" autocomplete="current-password" required>
+    <label>{{ L.new }}</label><input type="password" name="new" autocomplete="new-password" required>
+    <label>{{ L.new2 }}</label><input type="password" name="new2" autocomplete="new-password" required>
+    <button class="btn" type="submit">{{ L.save }}</button>
+  </form>
+  <form class="card" method="post" action="/account/recovery">
+    <h3>{{ L.rec }}</h3>
+    <p>{{ L.rec_info }}</p>
+    <p><b>{{ L.st_set if has_code else L.st_none }}</b></p>
+    {% if has_code %}<p>{{ L.warn }}</p>{% endif %}
+    <button class="btn" type="submit">{{ L.mk }}</button>
+  </form>
+</div>
+{% endblock %}

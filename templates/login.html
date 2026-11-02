@@ -9,5 +9,6 @@
 {% if err %}<p style="color:#d64545;margin:4px 0">{{ t(err) }}</p>{% endif %}
 <button>{{ t('login_btn') }}</button>
 </form>
+<p style="text-align:center;margin-top:14px;font-size:14px"><a href="/forgot" style="color:#222f40;font-weight:600">{{ 'पासवर्ड भूल गए?' if session.get('lang') == 'hi' else 'Forgot password?' }}</a></p>
 <p style="text-align:center;margin-top:16px;font-size:14px"><a href="/signup" style="color:#222f40;font-weight:600">{{ 'नया खाता बनाएँ' if session.get('lang') == 'hi' else 'Create a new account' }}</a></p></div>
 {% endblock %}

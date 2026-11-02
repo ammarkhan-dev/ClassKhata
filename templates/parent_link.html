@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L.title }}{% endblock %}
+{% block hsub %}{{ s.name }}{% endblock %}
+{% block body %}
+<style>
+.pl{padding:4px 0 24px}
+.pl .box{background:#fff;border-radius:14px;box-shadow:0 1px 3px rgba(15,23,42,.08);padding:14px;margin-bottom:12px}
+.pl .u{word-break:break-all;font-size:13px;color:#334155;background:#f1f5f9;border-radius:10px;padding:10px}
+.pl .b{display:block;width:100%;box-sizing:border-box;margin-top:10px;padding:13px;border:0;border-radius:12px;font:inherit;font-weight:600;font-size:14px;text-align:center;text-decoration:none;cursor:pointer}
+.pl .g{background:#1fa855;color:#fff}.pl .n{background:#222f40;color:#fff}.pl .l{background:#e2e8f0;color:#222f40}
+.pl .i{font-size:12.5px;color:#64748b;line-height:1.5}
+</style>
+<div class="pl">
+  <div class="box">
+    <div class="u" id="u">{{ url }}</div>
+    <a class="b g" href="{{ wa }}" target="_blank" rel="noopener">{{ L.wa }}</a>
+    <button class="b n" type="button" onclick="cp()" id="cb">{{ L.copy }}</button>
+    <a class="b l" href="{{ url }}" target="_blank" rel="noopener">{{ L.open }}</a>
+  </div>
+  <div class="box i">{{ L.info }}</div>
+  <form method="post" onsubmit="return confirm('{{ L.newq }}')"><button class="b l" type="submit" style="margin-top:0">{{ L.newl }}</button></form>
+  <a class="b l" href="/students/{{ s.id }}" style="margin-top:10px;display:block;text-align:center;padding:13px;border-radius:12px;background:#e2e8f0;color:#222f40;text-decoration:none;font-weight:600;font-size:14px">{{ L.back }}</a>
+</div>
+<script>
+function cp(){var t=document.getElementById('u').textContent.trim(),b=document.getElementById('cb');
+function ok(){b.textContent='{{ L.copied }}';}
+if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){fb()});}else{fb()}
+function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){}document.body.removeChild(a)}}
+</script>
+{% endblock %}

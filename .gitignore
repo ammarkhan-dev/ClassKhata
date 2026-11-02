@@ -9,3 +9,7 @@ __pycache__/
 *.bak5
 *.bak7
 data/
+*.inv1
+*.acc1
+*.abs1
+*.par1

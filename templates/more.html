@@ -18,6 +18,7 @@
 <a href="/report"><svg class="ic" viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>{{ t('report_open') }}<span class="ch">›</span></a>
 <a href="/backup"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>{{ t('reports_export') }}{% if due %}<span class="pc lo" style="margin-left:6px">{{ t('backup_due') }}</span>{% endif %}<span class="ch">›</span></a></div>
 <div class="grp"><div class="gl">{{ t('sec_app') }}</div>
+<a href="/account"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3"/><path d="M17 6l3 3"/><path d="M14 9l2 2"/></svg>{{ t('reports_export') }}{% if due %}<span class="pc lo" style="margin-left:6px">{{ 'पासवर्ड व रिकवरी कोड' if session.get('lang') == 'hi' else 'Password & recovery code' }}</span>{% endif %}<span class="ch">›</span></a>
 <a href="/logout" style="color:var(--red)"><svg class="ic" viewBox="0 0 24 24" style="stroke:var(--red)"><path d="M9 4H5v16h4"/><path d="M16 8l4 4-4 4M20 12H9"/></svg>{{ t('logout') }}<span class="ch">›</span></a></div>
 <div class="card" id="inst-card">
 <b>{{ t('install_app') }}</b>

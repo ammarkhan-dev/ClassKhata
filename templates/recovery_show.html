@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L.rec }}{% endblock %}
+{% block hsub %}{{ L.title }}{% endblock %}
+{% block body %}
+{% include "_acc_css.html" %}
+<div class="ac">
+  <div class="card">
+    <h3>{{ L.your }}</h3>
+    <div class="code">{{ code }}</div>
+    <p>{{ L.save_now }}</p>
+    <a href="/"><button class="btn" type="button">{{ L.done }}</button></a>
+  </div>
+</div>
+{% endblock %}

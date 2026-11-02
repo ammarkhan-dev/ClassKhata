@@ -44,6 +44,12 @@ auth.setup(app)
 syllabus.setup(app)
 import library
 library.setup(app)
+import absent
+absent.setup(app)
+import parent
+parent.setup(app)
+import account
+account.setup(app)
 students.setup(app, db)
 hazri.setup(app, db)
 fees.setup(app, db)

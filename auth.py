@@ -1,6 +1,7 @@
 import os, secrets, time, sqlite3
 import store
 import tenant
+import invite
 from datetime import timedelta
 from urllib.parse import urlparse
 from flask import request, session, redirect, render_template
@@ -37,7 +38,7 @@ def setup(app):
 
     @app.before_request
     def guard():
-        if request.endpoint in ("login", "signup", "set_lang", "static", "manifest", "sw"):
+        if request.endpoint in ("login", "signup", "forgot", "set_lang", "static", "manifest", "sw"):
             return
         if not session.get("uid") or not q("SELECT 1 FROM users WHERE id=?", (session["uid"],), one=True):
             session.pop("uid", None)
@@ -59,6 +60,8 @@ def setup(app):
                 err = "err_name"
             elif not inst:
                 err = "err_inst"
+            elif not invite.check(request.form.get("invite", "")):
+                err = "err_invite"
             elif q("SELECT 1 FROM users WHERE name=?", (name,), one=True):
                 err = "err_taken"
             elif len(pw) < 6:
@@ -69,10 +72,12 @@ def setup(app):
                 q("INSERT INTO users(name,pw_hash,lang) VALUES(?,?,?)",
                   (name, generate_password_hash(pw), lang), commit=True)
                 u = q("SELECT * FROM users WHERE name=?", (name,), one=True)
+                invite.use(request.form.get("invite", ""), name)
                 session.permanent = True
                 session.update(uid=u["id"], name=u["name"], lang=lang, tid=u["id"])
                 store.put("institute", inst)
-                return redirect("/")
+                session["rec_pending"] = True
+                return redirect("/account/recovery")
         return render_template("signup.html", err=err, name=name, inst=inst)
 
     @app.route("/login", methods=["GET", "POST"])

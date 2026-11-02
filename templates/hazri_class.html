@@ -11,6 +11,7 @@ header.dk{display:block;padding:14px 16px}
 </div></header>
 {% endblock %}
 {% block body %}
+<!--ABS--><a href="/hazri/absent" style="display:block;margin:4px 0 12px;padding:12px 14px;border-radius:12px;background:#1fa855;color:#fff;text-decoration:none;font-weight:600;font-size:14px;text-align:center">{{ 'अनुपस्थित अभिभावकों को संदेश' if session.get('lang') == 'hi' else 'Message parents of absent students' }}</a><!--/ABS-->
 <style>
 .tl3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
 .tl3 div{border-radius:16px;padding:12px 6px;text-align:center;font-size:14px;font-weight:600}
