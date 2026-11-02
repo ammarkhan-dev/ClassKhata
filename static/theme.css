@@ -1,0 +1,19 @@
+/* ClassKhata premium theme: navy + white + gold (gold only on special spots) */
+:root{--au:#c9a24a;--au2:#e2c071;--ausoft:#f8f0dc;--aud:#7a5c14}
+header{border-bottom:2px solid var(--au);box-shadow:0 8px 20px rgba(34,47,64,.20)}
+.lg{background:rgba(212,173,85,.14);box-shadow:inset 0 0 0 1px rgba(212,173,85,.5)}
+.lang{border-color:rgba(226,192,113,.55)}
+.lang a.on{background:var(--au);color:#1c2634}
+.hero{background:linear-gradient(145deg,#2b3a50,#1c2634);border-top:2px solid var(--au);box-shadow:0 12px 26px rgba(34,47,64,.22)}
+.hero .lbl{color:var(--au2)}
+.sect{display:flex;align-items:center;gap:8px}
+.sect::before{content:"";width:16px;height:2px;background:var(--au);border-radius:2px;flex:none}
+.card,.cls,.item{box-shadow:0 2px 12px rgba(34,47,64,.06)}
+.cls .n,.big{color:var(--navy)}
+.av{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--au)}
+.badge{background:var(--ausoft);color:var(--aud)}
+input:focus,select:focus{border-color:var(--au);outline:2px solid rgba(201,162,74,.28)}
+nav{background:#161d29;border-top:1px solid rgba(212,173,85,.4)}
+nav a.on{color:var(--au2)}
+nav a.on .ic{stroke:var(--au2)}
+.item:active,.cls:active{background:var(--ausoft)}
