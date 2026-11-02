@@ -313,4 +313,9 @@ def sched(db, sid, adm):
 
 def fee_history_s(db, sid, adm, fee, pm, today):
     a0, _x = sched(db, sid, adm)
-    return fee_history(a0, fee, pm, today)
+    hist = fee_history(a0, fee, pm, today)
+    try:
+        import extra
+        return extra.entries(db, sid, pm, today) + list(hist)
+    except Exception:
+        return hist

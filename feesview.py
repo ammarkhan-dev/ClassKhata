@@ -132,8 +132,11 @@ def setup(app, db):
         mode = request.form.get("mode", "Cash")
         mode = mode if mode in ("Cash", "UPI", "Other") else "Cash"
         s = db().execute("SELECT * FROM students WHERE id=?", (sid,)).fetchone()
-        if not s or not mkey_ok(month):
+        if not s or not (mkey_ok(month) or __import__("extra").ok(month)):
             abort(404)
+        if month.startswith("X"):
+            __import__("extra").pay(db, sid, month, mode)
+            return redirect(safe_next(request.form.get("next", "")))
         y, m = int(month[:4]), int(month[5:])
         today = date.today()
         a0, _x = sched(db, sid, s["admission_date"])
@@ -151,7 +154,7 @@ def setup(app, db):
     def fees_undo():
         sid = to_int(request.form.get("sid"))
         month = request.form.get("month", "")
-        if sid is None or not mkey_ok(month):
+        if sid is None or not (mkey_ok(month) or __import__("extra").ok(month)):
             abort(404)
         db().execute("DELETE FROM payments WHERE student_id=? AND month=?", (sid, month))
         db().commit()

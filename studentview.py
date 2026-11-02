@@ -112,14 +112,17 @@ def setup(app, db):
         for h in hist:
             ny, nm = (h["y"] + 1, 1) if h["m"] == 12 else (h["y"], h["m"] + 1)
             end = due_date(a0, ny, nm)
-            entries.append(dict(key=h["key"], label=f"{MONTHS[lang][h['m'] - 1]} {h['y']}",
+            entries.append(dict(key=h["key"], label=(h.get("label") or f"{MONTHS[lang][h['m'] - 1]} {h['y']}"),
                                 span=f"{short(lang, h['due'])} – {short(lang, end)}",
                                 baaki=h["baaki"], st=h["st"], pid=pids.get(h["key"])))
         due = [h for h in hist if h["st"] == "due"]
         up = sum(h["baaki"] for h in hist if h["st"] == "soon")
         if fee > 0 and not hist:
             up = fee
-        remind = wa_link(s, due[0]["baaki"], due[0]["due"], due[0]["y"], due[0]["m"], lang) if due else ""
+        _reg = [h for h in due if not h.get("extra")]
+        _xb = sum(h["baaki"] for h in due if h.get("extra"))
+        _f = (_reg or due)[0]
+        remind = wa_link(s, (_f["baaki"] if _reg else 0) + _xb, _f["due"], _f["y"], _f["m"], lang) if due else ""
         adm = s["admission_date"] or "0000-00-00"
         r = db().execute("""SELECT
             (SELECT COUNT(*) FROM attendance x WHERE x.student_id=? AND x.status='P' AND x.day>=?) AS pres,
@@ -133,6 +136,10 @@ def setup(app, db):
     @app.route("/students/<int:sid>/pay/<month>", methods=["POST"])
     def student_pay(sid, month):
         s = get(sid)
+        if month.startswith("X"):
+            import extra
+            extra.pay(db, sid, month, "")
+            return redirect(f"/students/{sid}")
         if not re.fullmatch(r"\d{4}-(0[1-9]|1[0-2])", month):
             abort(404)
         y, m = int(month[:4]), int(month[5:])

@@ -48,6 +48,8 @@ import absent
 absent.setup(app)
 import parent
 parent.setup(app)
+import extra
+extra.setup(app)
 import account
 account.setup(app)
 students.setup(app, db)

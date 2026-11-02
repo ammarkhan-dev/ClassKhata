@@ -130,7 +130,7 @@ def _public(token):
         h = fees.fee_history_s(lambda: c, sid, s["admission_date"], s["monthly_fee"], pm, today) if s["monthly_fee"] else []
         owed = sum(x["baaki"] for x in h if x["st"] == "due")
         for x in list(h)[-12:][::-1]:
-            hist.append(dict(label="%s %d" % (MONTHS[lg][x["m"] - 1], x["y"]), st=x["st"], baaki=x["baaki"], paid=x["paid"]))
+            hist.append(dict(label=(x.get("label") or "%s %d" % (MONTHS[lg][x["m"] - 1], x["y"])), st=x["st"], baaki=x["baaki"], paid=x["paid"]))
     except Exception:
         hist = []
     inst = _setting(c, "institute", "")
