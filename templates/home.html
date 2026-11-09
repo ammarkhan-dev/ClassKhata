@@ -36,6 +36,22 @@
 <div><div class="dl"><svg class="ic" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>{{ t('this_month') }}</div>
 <div class="dn g">₹{{ '{:,}'.format(month_coll) }}</div></div>
 </div>
+<!--NT-->{% set _nt = notes_today() %}
+<div style="background:#fff;border:1px solid var(--line,#e3e9f0);border-left:4px solid var(--au,#c9a24a);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 12px rgba(34,47,64,.06)">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><b style="font-size:19px;color:var(--navy,#222f40)">{{ _nt.L.title }}</b><a href="/notes" style="background:var(--navy,#222f40);color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:7px 14px;border-radius:99px">{{ _nt.L.new }}</a></div>
+{% for n in _nt["items"] %}<form method="post" action="/notes/{{ n.id }}/done" style="display:flex;align-items:center;gap:10px;padding:11px 0;{% if not loop.first %}border-top:1px solid var(--line,#eef2f7);{% endif %}margin:0">
+<input type="hidden" name="next" value="/"><div style="flex:1;min-width:0"><b style="display:block;font-size:15px;overflow-wrap:anywhere">{{ n.text }}</b><span style="font-size:12px;color:{% if n.late %}#b42318{% else %}var(--muted,#6b7686){% endif %}">{{ n.date }}</span></div>
+<button style="width:auto;padding:6px 12px;font-size:12px;border-radius:99px;background:#f8f0dc;color:#7a5c14">{{ _nt.L.mark }}</button></form>
+{% else %}<div style="padding:10px 0 2px;font-size:14px;color:var(--muted,#6b7686)"><a href="/notes" style="color:inherit;text-decoration:none">{{ _nt.L.all }} ›</a></div>{% endfor %}
+<div id="ntEn" style="display:none;margin-top:8px"><button type="button" onclick="Notification.requestPermission().then(function(){location.reload()})" style="font-size:13px;padding:9px;background:#fff;color:var(--navy,#222f40);border:1px solid var(--line,#e3e9f0)">&#128276; {{ _nt.L.enable }}</button></div>
+</div>
+<script>(function(){try{var it={{ _nt.js|tojson }},day={{ _nt.today|tojson }};
+if(!("Notification" in window))return;
+if(Notification.permission==="default"){document.getElementById("ntEn").style.display="block";return}
+if(Notification.permission!=="granted"||!it.length)return;
+it.forEach(function(n){var k="ck_nt_"+n.id+"_"+day;if(localStorage.getItem(k))return;localStorage.setItem(k,"1");
+var o={body:n.text,icon:"/static/icon-192.png",tag:"nt"+n.id};
+if(navigator.serviceWorker&&navigator.serviceWorker.ready){navigator.serviceWorker.ready.then(function(r){r.showNotification("ClassKhata",o)}).catch(function(){new Notification("ClassKhata",o)})}else{new Notification("ClassKhata",o)}})}catch(e){}})();</script><!--/NT-->
 <!--TC-->{% set _tc = today_classes() %}{% if _tc.has %}
 <div style="background:var(--card,#fff);border:1px solid var(--line,#e6ebf1);border-radius:20px;padding:16px 18px;margin-bottom:14px">
 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><b style="font-size:19px;color:var(--navy,#222f40)">{{ _tc.title }}</b><span style="font-size:13px;color:var(--muted,#64748b)">{{ _tc.date }}</span></div>

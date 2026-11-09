@@ -56,6 +56,8 @@ import kharche
 kharche.setup(app)
 import todayc
 todayc.setup(app)
+import notes
+notes.setup(app)
 import backup
 backup.setup(app)
 import account
