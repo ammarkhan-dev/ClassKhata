@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L.title }}{% endblock %}
+{% block hsub %}{{ L.sub }}{% endblock %}
+{% block body %}
+<style>
+.lf .wa{flex:0 0 auto;padding:10px 14px;border-radius:12px;background:#1fa855;color:#fff;text-decoration:none;font-size:13px;font-weight:600}
+.lf .no{flex:0 0 auto;font-size:12px;color:#94a3b8}
+</style>
+<div class="lf">
+<a class="muted" href="/alerts" style="text-decoration:none">‹ {{ L.back }}</a>
+{% for s in items %}
+<div class="card" style="display:flex;align-items:center;gap:12px;margin:8px 0;padding:12px 14px">
+  <div style="flex:1;min-width:0">
+    <b style="color:#b42318">{{ s.name }}</b><br>
+    <small class="muted">{{ s.cls }} · ₹{{ s.amt }}{% if s.days %} · {{ s.days }} {{ L.days }}{% endif %}</small>
+  </div>
+  {% if s.url %}<a class="wa" href="{{ s.url }}" target="_blank" rel="noopener">{{ L.wa }}</a>
+  {% else %}<span class="no">{{ L.nonum }}</span>{% endif %}
+</div>
+{% else %}
+<div class="card muted">{{ L.none }}</div>
+{% endfor %}
+</div>
+{% endblock %}

@@ -46,6 +46,8 @@ import library
 library.setup(app)
 import absent
 absent.setup(app)
+import watch
+watch.setup(app)
 import parent
 parent.setup(app)
 import extra
@@ -70,9 +72,13 @@ more.setup(app, db)
 report.setup(app, db)
 dash.setup(app, db)
 batches.setup(app, db)
+import wagroups
+wagroups.setup(app, db)
 studentview.setup(app, db)
 
 feesview.setup(app, db)
+import watchfees
+watchfees.setup(app, db)
 
 prefs.setup(app, db)
 

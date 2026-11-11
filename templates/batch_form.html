@@ -25,5 +25,6 @@
 <div style="height:18px"></div>
 <button>{{ t('save') }}</button>
 </form>
+{% if b %}<a class="btn" href="/batches/{{ b.id }}/groups" style="margin-bottom:10px">{{ 'WhatsApp ग्रुप' if session.get('lang')=='hi' else 'WhatsApp groups' }}</a>{% endif %}
 {% if b %}<form method="post" action="/batches/{{ b.id }}/delete" onsubmit="return confirm('{{ t('delete_batch_confirm') }}')"><button class="btn danger">{{ t('delete') }}</button></form>{% endif %}
 {% endblock %}

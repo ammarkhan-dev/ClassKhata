@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block hdr %}{{ L.btitle }}{% endblock %}
+{% block hsub %}{{ L.bsub }}{% endblock %}
+{% block body %}
+<a class="muted" href="/batches" style="text-decoration:none">‹ {{ L.back }}</a>
+<h1 class="page" style="margin-top:6px">{{ L.btitle }}</h1>
+{% if not groups %}
+<div class="card muted">{{ L.nogroups }}</div>
+{% else %}
+<div class="card">
+  <label style="margin-top:0">{{ L.msg }}</label>
+  <textarea id="msg" rows="6" style="width:100%"></textarea>
+  <label>{{ L.pick }}</label>
+  {% for g in groups %}
+  <label style="display:flex;align-items:center;gap:10px;margin:8px 0;text-transform:none;letter-spacing:0">
+    <input type="checkbox" class="gc" value="{{ loop.index0 }}" style="width:auto">
+    <span><b>{{ g.name }}</b> <small class="muted">· {{ g.bname }}</small></span>
+  </label>
+  {% endfor %}
+  <div style="height:10px"></div>
+  <button type="button" onclick="prep()">{{ L.prep }}</button>
+</div>
+<div id="out"></div>
+<script>
+var G = {{ groups|tojson }};
+var L = {{ L|tojson }};
+function fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(a);}
+function cp(t){if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).catch(function(){fb(t)});}else{fb(t);}}
+function prep(){
+  var msg=document.getElementById('msg').value.trim();
+  var out=document.getElementById('out');out.innerHTML='';
+  var sel=[].slice.call(document.querySelectorAll('.gc:checked')).map(function(x){return G[+x.value];});
+  if(!msg||!sel.length){out.innerHTML='<div class="card muted">'+L.empty+'</div>';return;}
+  sel.forEach(function(g){
+    var d=document.createElement('div');d.className='card';
+    d.style.cssText='display:flex;align-items:center;gap:12px;margin:8px 0;padding:12px 14px';
+    var t=document.createElement('div');t.style.cssText='flex:1;min-width:0';
+    t.innerHTML='<b></b><br><small class="muted"></small>';
+    t.querySelector('b').textContent=g.name;t.querySelector('small').textContent=g.bname;
+    var a=document.createElement('a');
+    a.style.cssText='flex:0 0 auto;padding:10px 14px;border-radius:12px;background:#1fa855;color:#fff;text-decoration:none;font-size:13px;font-weight:600';
+    a.target='_blank';a.rel='noopener';
+    if(g.link){a.href=g.link;a.textContent=L.copyopen;a.onclick=function(){cp(msg);a.style.background='#94a3b8';a.textContent=L.done;};}
+    else{a.href='https://wa.me/?text='+encodeURIComponent(msg);a.textContent=L.pickgroup;a.onclick=function(){a.style.background='#94a3b8';};}
+    d.appendChild(t);d.appendChild(a);out.appendChild(d);
+  });
+  var h=document.createElement('div');h.className='muted';h.style.cssText='font-size:12px;text-align:center;margin-top:8px';h.textContent=L.hint;out.appendChild(h);
+}
+</script>
+{% endif %}
+{% endblock %}

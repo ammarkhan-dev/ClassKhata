@@ -25,6 +25,14 @@ def alert_list(db):
                         (today.isoformat(), (today + timedelta(days=30)).isoformat())).fetchone()[0]
     if soon:
         out.append(dict(key="al_end", n=soon, amt="", url="/records"))
+    import watch
+    nl = len(watch.long_absent())
+    if nl:
+        out.append(dict(key='al_long', text=watch.alert_text(nl), n=nl, amt='', url='/alerts/gayab'))
+    import watchfees
+    nf = len(watchfees.late_list(db))
+    if nf:
+        out.append(dict(key='al_late', text=watchfees.alert_text(nf), n=nf, amt='', url='/alerts/fees'))
     return out
 
 def setup(app, db):
