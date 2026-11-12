@@ -16,8 +16,8 @@ self.addEventListener("push", function (e) {
   try { d = e.data ? e.data.json() : {}; } catch (x) { d = { body: e.data ? e.data.text() : "" }; }
   e.waitUntil(self.registration.showNotification(d.title || "BatchBook", {
     body: d.body || "",
-    icon: "/static/icon-192.png?v=5",
-    badge: "/static/badge-96.png?v=5",
+    icon: "/static/icon-192.png?v=6",
+    badge: "/static/badge-96.png?v=6",
     tag: d.tag || "ck",
     renotify: !!d.tag,
     vibrate: [120, 60, 120],
