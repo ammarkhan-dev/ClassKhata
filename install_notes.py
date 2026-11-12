@@ -1,4 +1,4 @@
-# ClassKhata - Notes + yaad-dilane wala card on Home.  Run inside ~/classkhata :  python install_notes.py
+# BatchBook - Notes + yaad-dilane wala card on Home.  Run inside ~/classkhata :  python install_notes.py
 import os, re, shutil, sys, glob
 for p in ["app.py", "notes.py", "templates/ntnotes.html", "templates/home.html"]:
     if not os.path.exists(p): sys.exit("NAHI MILA: %s  (sahi folder me ho? cd ~/classkhata)" % p)
@@ -42,7 +42,7 @@ if(Notification.permission==="default"){document.getElementById("ntEn").style.di
 if(Notification.permission!=="granted"||!it.length)return;
 it.forEach(function(n){var k="ck_nt_"+n.id+"_"+day;if(localStorage.getItem(k))return;localStorage.setItem(k,"1");
 var o={body:n.text,icon:"/static/icon-192.png",tag:"nt"+n.id};
-if(navigator.serviceWorker&&navigator.serviceWorker.ready){navigator.serviceWorker.ready.then(function(r){r.showNotification("ClassKhata",o)}).catch(function(){new Notification("ClassKhata",o)})}else{new Notification("ClassKhata",o)}})}catch(e){}})();</script><!--/NT-->
+if(navigator.serviceWorker&&navigator.serviceWorker.ready){navigator.serviceWorker.ready.then(function(r){r.showNotification("BatchBook",o)}).catch(function(){new Notification("BatchBook",o)})}else{new Notification("BatchBook",o)}})}catch(e){}})();</script><!--/NT-->
 '''
 f = "templates/home.html"; h = rd(f)
 if "<!--NT-->" in h: print("SKIP home.html (card pehle se hai)")

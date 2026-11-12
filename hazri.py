@@ -154,7 +154,7 @@ def setup(app, db):
         pv = (y - 1, 12) if m == 1 else (y, m - 1)
         nx = (y + 1, 1) if m == 12 else (y, m + 1)
         avg = pct(tot[0], tot[0] + tot[1])
-        inst = store.get("institute") or "ClassKhata"
+        inst = store.get("institute") or "BatchBook"
         label = f"{MONTHS[lang][m - 1]} {y}"
         return render_template("hazri_overall.html", matrix=matrix, srows=srows, tot=tot, avg=avg,
             days=[dict(n=d, sun=date(y, m, d).weekday() == 6) for d in range(1, nd + 1)], nd=nd,

@@ -1,4 +1,4 @@
-# ClassKhata - 'Aaj ki classes' on Home.  Run inside ~/classkhata :  python install_todayc.py
+# BatchBook - 'Aaj ki classes' on Home.  Run inside ~/classkhata :  python install_todayc.py
 import os, re, shutil, sys
 
 for p in ["app.py", "todayc.py", "templates/home.html"]:

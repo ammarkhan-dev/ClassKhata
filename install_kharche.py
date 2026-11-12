@@ -1,4 +1,4 @@
-# ClassKhata - expenses + monthly profit.  Run inside ~/classkhata :  python install_kharche.py
+# BatchBook - expenses + monthly profit.  Run inside ~/classkhata :  python install_kharche.py
 import os, re, shutil, sys
 
 for p in ["app.py", "kharche.py", "templates/kharche.html", "templates/home.html", "templates/base.html"]:

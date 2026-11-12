@@ -1,4 +1,4 @@
-"""ClassKhata - Model Paper and Books sections (pages are ready; content comes next)."""
+"""BatchBook - Model Paper and Books sections (pages are ready; content comes next)."""
 from flask import render_template, session
 
 UI = {

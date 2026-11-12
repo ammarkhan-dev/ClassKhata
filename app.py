@@ -7,7 +7,7 @@ from flask import Flask, render_template, g
 import os
 app = Flask(__name__)
 app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Lax", SESSION_COOKIE_SECURE=bool(os.environ.get("CK_PROD")))
-COACHING_NAME = "ClassKhata"
+COACHING_NAME = "BatchBook"
 DB = "classkhata.db"
 
 def db():

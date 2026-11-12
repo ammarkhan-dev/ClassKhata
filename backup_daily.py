@@ -1,4 +1,4 @@
-"""ClassKhata - daily backup.  Standard library only.
+"""BatchBook - daily backup.  Standard library only.
 Copies classkhata.db and every data/t*.db into backups/<YYYY-MM-DD>/ (safe copy, works while the app is running),
 keeps the newest KEEP days.   Run:  python backup_daily.py"""
 import glob

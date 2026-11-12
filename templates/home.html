@@ -51,7 +51,7 @@ if(Notification.permission==="default"){document.getElementById("ntEn").style.di
 if(Notification.permission!=="granted"||!it.length)return;
 it.forEach(function(n){var k="ck_nt_"+n.id+"_"+day;if(localStorage.getItem(k))return;localStorage.setItem(k,"1");
 var o={body:n.text,icon:"/static/icon-192.png",tag:"nt"+n.id};
-if(navigator.serviceWorker&&navigator.serviceWorker.ready){navigator.serviceWorker.ready.then(function(r){r.showNotification("ClassKhata",o)}).catch(function(){new Notification("ClassKhata",o)})}else{new Notification("ClassKhata",o)}})}catch(e){}})();</script><!--/NT-->
+if(navigator.serviceWorker&&navigator.serviceWorker.ready){navigator.serviceWorker.ready.then(function(r){r.showNotification("BatchBook",o)}).catch(function(){new Notification("BatchBook",o)})}else{new Notification("BatchBook",o)}})}catch(e){}})();</script><!--/NT-->
 <!--TC-->{% set _tc = today_classes() %}{% if _tc.has %}
 <div style="background:var(--card,#fff);border:1px solid var(--line,#e6ebf1);border-radius:20px;padding:16px 18px;margin-bottom:14px">
 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><b style="font-size:19px;color:var(--navy,#222f40)">{{ _tc.title }}</b><span style="font-size:13px;color:var(--muted,#64748b)">{{ _tc.date }}</span></div>

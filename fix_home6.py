@@ -1,4 +1,4 @@
-# ClassKhata - Home me sirf 6 tile: Books hatao, Expenses uski jagah.  Run in ~/classkhata
+# BatchBook - Home me sirf 6 tile: Books hatao, Expenses uski jagah.  Run in ~/classkhata
 import os, re, shutil, sys
 p = "templates/home.html"
 if not os.path.exists(p):

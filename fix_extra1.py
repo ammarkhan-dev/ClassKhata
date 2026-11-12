@@ -1,4 +1,4 @@
-# ClassKhata - fix: student page crashed when a student had no pending fee.  Run in ~/classkhata
+# BatchBook - fix: student page crashed when a student had no pending fee.  Run in ~/classkhata
 import os, shutil, sys
 p = "studentview.py"
 if not os.path.exists(p): sys.exit("NAHI MILA: studentview.py (sahi folder me ho?)")

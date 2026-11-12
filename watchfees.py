@@ -1,4 +1,4 @@
-"""ClassKhata - fees more than a week late: red list + WhatsApp to parent."""
+"""BatchBook - fees more than a week late: red list + WhatsApp to parent."""
 from datetime import date, timedelta
 from flask import render_template
 import fees

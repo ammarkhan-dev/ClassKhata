@@ -1,4 +1,4 @@
-# ClassKhata - Model Paper + Books tiles.  Run inside ~/classkhata :  python install_library.py
+# BatchBook - Model Paper + Books tiles.  Run inside ~/classkhata :  python install_library.py
 import os, re, shutil, sys
 
 for p in ["app.py", "library.py", "templates/home.html", "templates/modelpaper.html", "templates/books.html"]:

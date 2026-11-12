@@ -1,4 +1,4 @@
-# ClassKhata - Syllabus installer. Run inside ~/classkhata :  python install_syllabus.py
+# BatchBook - Syllabus installer. Run inside ~/classkhata :  python install_syllabus.py
 import os, re, shutil, sys
 
 need = ["app.py", "syllabus.py", "syl_data", "templates/home.html", "templates/syllabus_home.html"]

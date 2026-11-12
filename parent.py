@@ -1,4 +1,4 @@
-"""ClassKhata - read-only secret link for parents (attendance + fees).
+"""BatchBook - read-only secret link for parents (attendance + fees).
 Owner:  /students/<id>/parent   (login needed)      Parent:  /p/<token>   (no login)
 """
 import calendar
@@ -177,7 +177,7 @@ def setup(app, db=None):
             url = url.replace("http://", "https://", 1)
         parent = s["parent_name"] or ("Parent/Guardian" if lg == "en" else "अभिभावक")
         sign = "\n".join(dict.fromkeys(x for x in (session.get("name", ""), inst) if x))
-        msg = L["msg"].format(parent=parent, name=s["name"], inst=inst or "ClassKhata", url=url, sign=sign)
+        msg = L["msg"].format(parent=parent, name=s["name"], inst=inst or "BatchBook", url=url, sign=sign)
         ph = "".join(ch for ch in (s["parent_phone"] or "") if ch.isdigit())
         if len(ph) == 12 and ph.startswith("91"):
             ph = ph[2:]

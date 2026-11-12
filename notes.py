@@ -1,4 +1,4 @@
-"""ClassKhata - Notes and date/time reminders."""
+"""BatchBook - Notes and date/time reminders."""
 import sqlite3
 from datetime import datetime, timedelta
 from flask import session, request, redirect, render_template

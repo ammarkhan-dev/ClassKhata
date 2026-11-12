@@ -1,4 +1,4 @@
-"""ClassKhata - WhatsApp groups per batch + one message for many groups."""
+"""BatchBook - WhatsApp groups per batch + one message for many groups."""
 import sqlite3
 from flask import render_template, request, redirect
 import absent

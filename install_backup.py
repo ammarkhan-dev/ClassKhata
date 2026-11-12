@@ -1,4 +1,4 @@
-# ClassKhata - backup.  Run inside ~/classkhata :  python install_backup.py
+# BatchBook - backup.  Run inside ~/classkhata :  python install_backup.py
 import os, re, shutil, sys
 
 for p in ["app.py", "backup.py", "backup_daily.py", "tenant.py", "templates/backup.html", "templates/base.html"]:

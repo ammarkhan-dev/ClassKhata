@@ -1,4 +1,4 @@
-"""ClassKhata - phone notifications (Web Push) + daily reminder job."""
+"""BatchBook - phone notifications (Web Push) + daily reminder job."""
 import os, json, base64, secrets, sqlite3
 from datetime import datetime
 from flask import request, session, jsonify

@@ -1,4 +1,4 @@
-"""ClassKhata - Syllabus (UP Board, Hindi medium) : class -> subject -> chapter -> topic -> subtopic.
+"""BatchBook - Syllabus (UP Board, Hindi medium) : class -> subject -> chapter -> topic -> subtopic.
 Data lives in syl_data/*.txt  (edit these files to change the syllabus).
 Line format:  @class 12 | @subject key | English | Hindi | # chapter | ## topic | - subtopic
 Every name is written as  English | Hindi  and shown in the app language.

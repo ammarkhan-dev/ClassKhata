@@ -1,4 +1,4 @@
-# ClassKhata - previous due + extra fee.  Run inside ~/classkhata :  python install_extra.py
+# BatchBook - previous due + extra fee.  Run inside ~/classkhata :  python install_extra.py
 import os, re, shutil, sys
 
 for p in ["app.py", "extra.py", "fees.py", "feesview.py", "studentview.py", "templates/extra_dues.html", "templates/student_detail.html"]:

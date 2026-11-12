@@ -1,4 +1,4 @@
-# ClassKhata - alag-alag coaching ka alag data.  Run inside ~/classkhata :  python patch_tenant.py
+# BatchBook - alag-alag coaching ka alag data.  Run inside ~/classkhata :  python patch_tenant.py
 import os, re, shutil, sys
 
 for p in ["app.py", "auth.py", "tenant.py", "classkhata.db"]:

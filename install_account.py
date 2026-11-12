@@ -1,4 +1,4 @@
-# ClassKhata - change password / recovery code / forgot password.  Run in ~/classkhata :  python install_account.py
+# BatchBook - change password / recovery code / forgot password.  Run in ~/classkhata :  python install_account.py
 import os, re, shutil, sys
 
 for p in ["app.py", "auth.py", "account.py", "tenant.py", "templates/account.html", "templates/forgot.html", "templates/recovery_show.html"]:

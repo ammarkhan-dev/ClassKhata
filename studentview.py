@@ -164,7 +164,7 @@ def setup(app, db):
         bl = [b["name"] for b in db().execute(
             "SELECT b.name FROM student_batches sb JOIN batches b ON b.id=sb.batch_id WHERE sb.student_id=? ORDER BY b.name", (sid,))]
         a = parse_d(s["admission_date"])
-        inst = store.get("institute") or "ClassKhata"
+        inst = store.get("institute") or "BatchBook"
         ini = "".join(w[0] for w in inst.split()[:2]).upper() or "CK"
         roll = ex["roll"] if ex and ex["roll"] else "—"
         share = f"{s['name']} · {s['cls']} · {roll}"
@@ -238,7 +238,7 @@ def setup(app, db):
             mon = p["month"]
         d = parse_d(p["paid_on"])
         on = fmt(d, lang) if d else ""
-        inst = store.get("institute") or "ClassKhata"
+        inst = store.get("institute") or "BatchBook"
         share = f"{inst}: {st['name']} · {mon} · ₹{p['amount']} · {on}"
         return render_template("receipt.html", p=p, st=st, no=f"{pid:05d}", mon=mon, on=on, inst=inst, share=share)
 

@@ -1,4 +1,4 @@
-"""ClassKhata - 'Aaj ki classes' card on Home, built from the batches' days and times.
+"""BatchBook - 'Aaj ki classes' card on Home, built from the batches' days and times.
 Adds one helper  today_classes()  to every template; nothing else in the app changes."""
 import sqlite3
 from datetime import datetime

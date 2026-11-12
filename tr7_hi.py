@@ -7,6 +7,6 @@ HI7 = {
 "export_title": "स्प्रेडशीट में निकालें (CSV)", "exp_students": "छात्र (वर्तमान)",
 "exp_records": "रिकॉर्ड (पिछले सत्र)", "exp_fees": "फ़ीस का भुगतान", "exp_att": "हाज़िरी",
 "install_app": "ऐप इंस्टॉल करें",
-"install_hint": "ClassKhata को होम स्क्रीन पर जोड़ें, ताकि यह सामान्य ऐप की तरह खुले।",
+"install_hint": "BatchBook को होम स्क्रीन पर जोड़ें, ताकि यह सामान्य ऐप की तरह खुले।",
 "install_manual": "बटन न दिखे तो: Chrome मेन्यू (⋮) → Install app / Add to Home screen।",
 }

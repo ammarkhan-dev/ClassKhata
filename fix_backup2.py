@@ -1,4 +1,4 @@
-# ClassKhata - fix: meri backup.html ne teri purani templates/backup.html overwrite kar di thi.  Run in ~/classkhata
+# BatchBook - fix: meri backup.html ne teri purani templates/backup.html overwrite kar di thi.  Run in ~/classkhata
 import os, shutil, subprocess, sys
 
 def rd(p): return open(p, encoding="utf-8").read()

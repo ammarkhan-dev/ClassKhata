@@ -1,4 +1,4 @@
-# ClassKhata - parent read-only link.  Run inside ~/classkhata :  python install_parent.py
+# BatchBook - parent read-only link.  Run inside ~/classkhata :  python install_parent.py
 import os, re, shutil, sys
 
 for p in ["app.py", "parent.py", "tenant.py", "fees.py", "templates/parent_link.html", "templates/parent_view.html", "templates/base.html"]:

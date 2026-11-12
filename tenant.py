@@ -1,4 +1,4 @@
-"""ClassKhata multi-institute switch.
+"""BatchBook multi-institute switch.
 Login/sign-up info stays in classkhata.db (users table).  Every logged-in institute's
 own data goes to data/t<id>.db.  All existing  sqlite3.connect("classkhata.db")  calls
 are redirected automatically while a user is logged in, so no other file needs changes.

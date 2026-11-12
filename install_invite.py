@@ -1,4 +1,4 @@
-# ClassKhata - sign-up invite code.  Run in ~/classkhata :  python install_invite.py
+# BatchBook - sign-up invite code.  Run in ~/classkhata :  python install_invite.py
 import os, re, shutil, sys
 
 for p in ["auth.py", "invite.py", "templates/signup.html", "tr21_en.py", "tr21_hi.py"]:

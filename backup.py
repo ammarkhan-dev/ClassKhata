@@ -1,4 +1,4 @@
-"""ClassKhata - 'Backup' page: download your own data file + see the server's last daily copy."""
+"""BatchBook - 'Backup' page: download your own data file + see the server's last daily copy."""
 import os
 import sqlite3
 import tempfile

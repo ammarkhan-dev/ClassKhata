@@ -7,6 +7,6 @@
 {% else %}
 <div class="card muted">{{ t('no_batches') }}</div>
 {% endfor %}
-<a class="btn" href="/broadcast" style="margin-bottom:10px">{{ 'ग्रुप में संदेश' if session.get('lang')=='hi' else 'Message groups' }}</a>
+<a class="btn" href="/broadcast" style="margin-bottom:10px;background:#1fa855;color:#fff">{{ 'ग्रुप में संदेश' if session.get('lang')=='hi' else 'Message groups' }}</a>
 <a class="btn" href="/batches/new">+ {{ t('add_batch') }}</a>
 {% endblock %}

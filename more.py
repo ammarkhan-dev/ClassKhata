@@ -93,14 +93,14 @@ def setup(app, db):
 
     @app.route("/manifest.webmanifest")
     def manifest():
-        m = {"name": store.get("institute") or "ClassKhata", "short_name": "ClassKhata",
+        m = {"name": store.get("institute") or "BatchBook", "short_name": "BatchBook",
              "description": "Coaching management: students, attendance and fees",
              "start_url": "/", "scope": "/", "display": "standalone",
              "background_color": "#222f40", "theme_color": "#222f40",
              "icons": [
-                 {"src": "/static/icon-192.png?v=3", "sizes": "192x192", "type": "image/png", "purpose": "any"},
-                 {"src": "/static/icon-512.png?v=3", "sizes": "512x512", "type": "image/png", "purpose": "any"},
-                 {"src": "/static/icon-512.png?v=3", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}
+                 {"src": "/static/icon-192.png?v=5", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+                 {"src": "/static/icon-512.png?v=5", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+                 {"src": "/static/icon-512.png?v=5", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}
         return Response(json.dumps(m), mimetype="application/manifest+json")
 
     @app.route("/sw.js")

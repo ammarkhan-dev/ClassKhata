@@ -1,4 +1,4 @@
-"""ClassKhata - change password, recovery code, forgot password."""
+"""BatchBook - change password, recovery code, forgot password."""
 import re, secrets, sqlite3, time
 from flask import render_template, request, session, redirect
 from werkzeug.security import generate_password_hash, check_password_hash

@@ -7,6 +7,6 @@ EN7 = {
 "export_title": "Export to spreadsheet (CSV)", "exp_students": "Students (current)",
 "exp_records": "Records (past sessions)", "exp_fees": "Fee payments", "exp_att": "Attendance",
 "install_app": "Install app",
-"install_hint": "Add ClassKhata to your home screen so it opens like a normal app.",
+"install_hint": "Add BatchBook to your home screen so it opens like a normal app.",
 "install_manual": "If the button does not appear: Chrome menu (⋮) → Install app / Add to Home screen.",
 }

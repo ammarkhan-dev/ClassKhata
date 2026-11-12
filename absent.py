@@ -1,4 +1,4 @@
-"""ClassKhata - absent students -> one-tap WhatsApp message to the parent."""
+"""BatchBook - absent students -> one-tap WhatsApp message to the parent."""
 import sqlite3
 from datetime import date, datetime, timedelta
 from urllib.parse import quote
@@ -58,7 +58,7 @@ def link(s, d, lg):
         ph = ph[1:]
     if len(ph) != 10:
         return ""
-    inst = store.get("institute", "") or "ClassKhata"
+    inst = store.get("institute", "") or "BatchBook"
     sign = "\n".join(dict.fromkeys(x for x in (session.get("name", ""), inst) if x))
     parent = s["parent_name"] or ("Parent/Guardian" if lg == "en" else "अभिभावक")
     if lg == "en":

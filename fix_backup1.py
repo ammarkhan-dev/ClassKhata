@@ -1,4 +1,4 @@
-# ClassKhata - fix: backup routes ka naam /mybackup kiya (more.py ke /backup/download se takra raha tha).  Run in ~/classkhata
+# BatchBook - fix: backup routes ka naam /mybackup kiya (more.py ke /backup/download se takra raha tha).  Run in ~/classkhata
 import os, shutil, sys
 
 def rd(p): return open(p, encoding="utf-8").read()

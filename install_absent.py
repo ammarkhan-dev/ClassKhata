@@ -1,4 +1,4 @@
-# ClassKhata - absent students -> parent WhatsApp.  Run inside ~/classkhata :  python install_absent.py
+# BatchBook - absent students -> parent WhatsApp.  Run inside ~/classkhata :  python install_absent.py
 import os, re, shutil, sys
 
 for p in ["app.py", "absent.py", "templates/absent.html", "templates/base.html"]:

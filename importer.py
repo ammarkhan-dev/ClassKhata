@@ -1,4 +1,4 @@
-"""ClassKhata - import many students at once from CSV / Excel (.xlsx) / pasted rows.
+"""BatchBook - import many students at once from CSV / Excel (.xlsx) / pasted rows.
 No extra library needed.  Uses the same checks as the Add-student form (students.parse)."""
 import csv
 import io

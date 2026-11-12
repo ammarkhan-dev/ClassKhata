@@ -1,4 +1,4 @@
-# ClassKhata - import students from Excel/CSV.  Run inside ~/classkhata :  python install_import.py
+# BatchBook - import students from Excel/CSV.  Run inside ~/classkhata :  python install_import.py
 import os, re, shutil, sys
 
 for p in ["app.py", "importer.py", "students.py", "templates/import_students.html", "templates/base.html"]:

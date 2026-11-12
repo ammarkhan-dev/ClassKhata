@@ -1,4 +1,4 @@
-"""ClassKhata - coaching expenses + monthly profit (for a single-teacher coaching).
+"""BatchBook - coaching expenses + monthly profit (for a single-teacher coaching).
 Collected money = payments (paid_on).  Profit = collected - coaching expenses.
 'Apne liye nikala' (own withdrawal) is kept apart so it never reduces the coaching profit."""
 import re

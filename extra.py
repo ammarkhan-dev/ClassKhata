@@ -1,4 +1,4 @@
-"""ClassKhata - previous due + extra fee entries.
+"""BatchBook - previous due + extra fee entries.
 They live in table extra_dues; payments use month key 'X<id>'.  fees.fee_history_s adds them
 at the START of the history, so every page that sums 'due' baaki includes them automatically."""
 import re

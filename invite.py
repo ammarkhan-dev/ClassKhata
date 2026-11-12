@@ -1,4 +1,4 @@
-"""ClassKhata - sign-up invite codes (one-time, expiring).
+"""BatchBook - sign-up invite codes (one-time, expiring).
 Owner commands (run in ~/classkhata):
   python invite.py new "Sharma Classes"      -> makes a code valid for 14 days   (add a number for other days)
   python invite.py list                       -> shows all codes and who used them
