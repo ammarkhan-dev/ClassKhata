@@ -12,20 +12,20 @@ _pub_cache = []
 
 MSG = {
     "en": {
-        "al_fees": ("💰 Fees pending", "{n} students have pending fees (₹{amt})", "/fees"),
-        "al_late": ("🔴 Fees over a week late", "{n} students' fees are over a week late", "/alerts/fees"),
-        "al_long": ("🔴 Long absent", "{n} students absent for over a week", "/alerts/gayab"),
-        "al_att": ("📋 Attendance", "Attendance not marked for {n} class(es) today", "/hazri"),
-        "al_backup": ("💾 Backup", "Backup is due. Please take a backup today.", "/backup"),
-        "al_end": ("⏳ Sessions ending", "{n} students' session ends within 30 days", "/records"),
+        "al_fees": ("Fees pending", "{n} student{s} · ₹{amt} left to collect", "/fees"),
+        "al_late": ("Fees overdue", "{n} student{s} over a week late. Send a reminder to the parents.", "/alerts/fees"),
+        "al_long": ("Long absence", "{n} student{s} absent for over a week. Check in with the parents.", "/alerts/gayab"),
+        "al_att": ("Attendance pending", "Attendance is not marked for {n} class(es) today.", "/hazri"),
+        "al_backup": ("Backup due", "Take a backup today to keep your data safe.", "/backup"),
+        "al_end": ("Sessions ending", "{n} student{s} complete their session within 30 days.", "/records"),
     },
     "hi": {
-        "al_fees": ("💰 फ़ीस बाकी", "{n} विद्यार्थियों की फ़ीस बाकी है (₹{amt})", "/fees"),
-        "al_late": ("🔴 फ़ीस एक हफ़्ते से लेट", "{n} विद्यार्थियों की फ़ीस एक हफ़्ते से ज़्यादा लेट है", "/alerts/fees"),
-        "al_long": ("🔴 लंबे समय से अनुपस्थित", "{n} विद्यार्थी एक हफ़्ते से ज़्यादा अनुपस्थित हैं", "/alerts/gayab"),
-        "al_att": ("📋 हाज़िरी", "आज {n} क्लास की हाज़िरी नहीं लगी", "/hazri"),
-        "al_backup": ("💾 बैकअप", "बैकअप का समय हो गया है। आज बैकअप ले लें।", "/backup"),
-        "al_end": ("⏳ सत्र ख़त्म होने वाला है", "{n} विद्यार्थियों का सत्र 30 दिन में ख़त्म होगा", "/records"),
+        "al_fees": ("फ़ीस बाकी", "{n} विद्यार्थी · ₹{amt} वसूलना बाकी", "/fees"),
+        "al_late": ("फ़ीस लेट", "{n} विद्यार्थियों की फ़ीस एक हफ़्ते से ज़्यादा लेट है। अभिभावकों को याद दिलाएँ।", "/alerts/fees"),
+        "al_long": ("लंबी अनुपस्थिति", "{n} विद्यार्थी एक हफ़्ते से ज़्यादा अनुपस्थित हैं। अभिभावकों से बात करें।", "/alerts/gayab"),
+        "al_att": ("हाज़िरी बाकी", "आज {n} क्लास की हाज़िरी नहीं लगी है।", "/hazri"),
+        "al_backup": ("बैकअप का समय", "डेटा सुरक्षित रखने के लिए आज बैकअप ले लें।", "/backup"),
+        "al_end": ("सत्र ख़त्म होने वाला", "{n} विद्यार्थियों का सत्र 30 दिन में पूरा होगा।", "/records"),
     },
 }
 PARTS = {"morning": ("al_fees", "al_late", "al_long", "al_backup", "al_end"), "att": ("al_att",)}
@@ -115,8 +115,8 @@ def setup(app, db):
     @app.route("/push/test", methods=["POST"])
     def push_test():
         hi = session.get("lang") == "hi"
-        body = "टेस्ट नोटिफ़िकेशन। सब ठीक चल रहा है।" if hi else "Test notification. Everything is working."
-        n = send(session["uid"], "ClassKhata", body, "/alerts", "test", request.host)
+        body = "फ़ीस, हाज़िरी और बैकअप के अलर्ट अब यहीं मिलेंगे।" if hi else "You will now get fee, attendance and backup alerts here."
+        n = send(session["uid"], ("नोटिफ़िकेशन चालू हैं" if hi else "Notifications are on"), body, "/alerts", "test", request.host)
         return jsonify(sent=n)
 
     @app.route("/push/cron")
@@ -148,6 +148,6 @@ def setup(app, db):
                 if it["key"] not in keys or it["key"] not in MSG[lg]:
                     continue
                 title, body, url = MSG[lg][it["key"]]
-                sent += send(u["id"], title, body.format(n=it.get("n", ""), amt=it.get("amt", "")),
+                sent += send(u["id"], title, body.format(n=it.get("n", ""), amt=it.get("amt", ""), s="" if it.get("n") == 1 else "s"),
                              url, it["key"], host)
         return jsonify(ok=True, sent=sent)

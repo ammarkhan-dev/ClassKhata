@@ -17,10 +17,11 @@ self.addEventListener("push", function (e) {
   e.waitUntil(self.registration.showNotification(d.title || "ClassKhata", {
     body: d.body || "",
     icon: "/static/icon-192.png?v=3",
-    badge: "/static/icon-192.png?v=3",
+    badge: "/static/badge-96.png",
     tag: d.tag || "ck",
     renotify: !!d.tag,
     vibrate: [120, 60, 120],
+    timestamp: Date.now(),
     data: { url: d.url || "/alerts" }
   }));
 });
