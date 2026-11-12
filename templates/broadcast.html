@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% set hi = session.get('lang') == 'hi' %}
-{% block hdr %}{{ 'ग्रुप में संदेश' if hi else 'Message groups' }}{% endblock %}
+
 {% block hsub %}{{ 'एक बार लिखें, सब ग्रुप में भेजें' if hi else 'Write once, send to all' }}{% endblock %}
 {% block body %}
+<h1 class="page">{{ 'ग्रुप में संदेश' if hi else 'Message groups' }}</h1>
 <style>
 .bc .gl{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
 .bc .gp{margin:0;text-transform:none;letter-spacing:0}
