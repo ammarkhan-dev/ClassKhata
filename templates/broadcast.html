@@ -1,51 +1,64 @@
 {% extends "base.html" %}
-{% block hdr %}{{ L.btitle }}{% endblock %}
-{% block hsub %}{{ L.bsub }}{% endblock %}
+{% set hi = session.get('lang') == 'hi' %}
+{% block hdr %}{{ 'ग्रुप में संदेश' if hi else 'Message groups' }}{% endblock %}
+{% block hsub %}{{ 'एक बार लिखें, सब ग्रुप में भेजें' if hi else 'Write once, send to all' }}{% endblock %}
 {% block body %}
-<a class="muted" href="/batches" style="text-decoration:none">‹ {{ L.back }}</a>
-<h1 class="page" style="margin-top:6px">{{ L.btitle }}</h1>
+<style>
+.bc .gl{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.bc .gp{margin:0;text-transform:none;letter-spacing:0}
+.bc .gp input{display:none}
+.bc .gp span{display:block;padding:12px;border-radius:14px;border:1.5px solid var(--line,#e3e9f0);background:#fff}
+.bc .gp b{display:block;font-size:14px;color:var(--ink,#222f40)}
+.bc .gp small{color:var(--muted,#64748b);font-size:12px}
+.bc .gp input:checked+span{background:#e7f6ec;border-color:#1fa855}
+.bc .go{display:block;width:100%;padding:14px;border-radius:14px;background:#1fa855;color:#fff;font-weight:700;font-size:15px;text-align:center;text-decoration:none;border:0;box-sizing:border-box}
+.bc .part{background:#fff;border:1px solid var(--line,#e3e9f0);border-radius:16px;padding:14px;margin-top:12px}
+.bc .part ul{margin:8px 0 12px 18px;padding:0}
+.bc .note{background:#fff;border-radius:14px;padding:14px;color:var(--muted,#64748b);font-size:14px;margin-top:12px}
+.bc .sa{background:none;border:0;color:#1fa855;font-weight:700;font-size:13px;width:auto;padding:0;margin:0}
+</style>
+<div class="bc">
+<a class="muted" href="/" style="text-decoration:none">‹ {{ 'होम' if hi else 'Home' }}</a>
 {% if not groups %}
-<div class="card muted">{{ L.nogroups }}</div>
+<div class="card muted" style="margin-top:10px">{{ 'पहले किसी बैच में ग्रुप जोड़ें।' if hi else 'Add groups inside a batch first.' }}</div>
+<a class="btn" href="/batches">{{ 'बैच खोलें' if hi else 'Open batches' }}</a>
 {% else %}
-<div class="card">
-  <label style="margin-top:0">{{ L.msg }}</label>
-  <textarea id="msg" rows="6" style="width:100%"></textarea>
-  <label>{{ L.pick }}</label>
-  {% for g in groups %}
-  <label style="display:flex;align-items:center;gap:10px;margin:8px 0;text-transform:none;letter-spacing:0">
-    <input type="checkbox" class="gc" value="{{ loop.index0 }}" style="width:auto">
-    <span><b>{{ g.name }}</b> <small class="muted">· {{ g.bname }}</small></span>
-  </label>
-  {% endfor %}
-  <div style="height:10px"></div>
-  <button type="button" onclick="prep()">{{ L.prep }}</button>
+<div class="card" style="margin-top:10px">
+<label style="margin-top:0">{{ 'संदेश' if hi else 'Message' }}</label>
+<textarea id="msg" rows="6" style="width:100%"></textarea>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px">
+<label style="margin:0">{{ 'ग्रुप चुनें' if hi else 'Select groups' }}</label>
+<button type="button" class="sa" onclick="allg()">{{ 'सभी चुनें' if hi else 'Select all' }}</button></div>
+<div class="gl">
+{% for g in groups %}<label class="gp"><input type="checkbox" class="gc" value="{{ loop.index0 }}" onchange="cnt()"><span><b>{{ g.name }}</b><small>{{ g.bname }}</small></span></label>{% endfor %}
+</div>
+<div style="height:14px"></div>
+<button type="button" class="go" id="gobtn" onclick="go()"></button>
 </div>
 <div id="out"></div>
-<script>
-var G = {{ groups|tojson }};
-var L = {{ L|tojson }};
-function fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(a);}
-function cp(t){if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).catch(function(){fb(t)});}else{fb(t);}}
-function prep(){
-  var msg=document.getElementById('msg').value.trim();
-  var out=document.getElementById('out');out.innerHTML='';
-  var sel=[].slice.call(document.querySelectorAll('.gc:checked')).map(function(x){return G[+x.value];});
-  if(!msg||!sel.length){out.innerHTML='<div class="card muted">'+L.empty+'</div>';return;}
-  sel.forEach(function(g){
-    var d=document.createElement('div');d.className='card';
-    d.style.cssText='display:flex;align-items:center;gap:12px;margin:8px 0;padding:12px 14px';
-    var t=document.createElement('div');t.style.cssText='flex:1;min-width:0';
-    t.innerHTML='<b></b><br><small class="muted"></small>';
-    t.querySelector('b').textContent=g.name;t.querySelector('small').textContent=g.bname;
-    var a=document.createElement('a');
-    a.style.cssText='flex:0 0 auto;padding:10px 14px;border-radius:12px;background:#1fa855;color:#fff;text-decoration:none;font-size:13px;font-weight:600';
-    a.target='_blank';a.rel='noopener';
-    if(g.link){a.href=g.link;a.textContent=L.copyopen;a.onclick=function(){cp(msg);a.style.background='#94a3b8';a.textContent=L.done;};}
-    else{a.href='https://wa.me/?text='+encodeURIComponent(msg);a.textContent=L.pickgroup;a.onclick=function(){a.style.background='#94a3b8';};}
-    d.appendChild(t);d.appendChild(a);out.appendChild(d);
-  });
-  var h=document.createElement('div');h.className='muted';h.style.cssText='font-size:12px;text-align:center;margin-top:8px';h.textContent=L.hint;out.appendChild(h);
-}
-</script>
 {% endif %}
+</div>
+<script>
+var G={{ groups|tojson }},HI={{ hi|tojson }};
+function T(en,hi){return HI?hi:en;}
+function sel(){return [].slice.call(document.querySelectorAll('.gc:checked')).map(function(x){return G[+x.value];});}
+function cnt(){var n=sel().length;var b=document.getElementById('gobtn');if(b)b.textContent=T('Send on WhatsApp','WhatsApp में भेजें')+' ('+n+')';}
+function allg(){var a=[].slice.call(document.querySelectorAll('.gc'));var on=a.some(function(x){return !x.checked;});a.forEach(function(x){x.checked=on;});cnt();}
+function go(){
+  var msg=document.getElementById('msg').value.trim(),s=sel(),out=document.getElementById('out');out.innerHTML='';
+  if(!msg||!s.length){out.innerHTML='<div class="note">'+T('Write a message and select groups.','संदेश लिखें और ग्रुप चुनें।')+'</div>';return;}
+  var url='https://wa.me/?text='+encodeURIComponent(msg),parts=Math.ceil(s.length/5);
+  for(var i=0;i<s.length;i+=5){
+    var p=s.slice(i,i+5),d=document.createElement('div');d.className='part';
+    var h=document.createElement('b');
+    h.textContent=(parts>1?T('Part ','भाग ')+(i/5+1)+'/'+parts+': ':'')+T('Tick these groups in WhatsApp','WhatsApp में ये ग्रुप टिक करें');
+    var u=document.createElement('ul');
+    p.forEach(function(g){var li=document.createElement('li');li.textContent=g.name+' ('+g.bname+')';u.appendChild(li);});
+    var a=document.createElement('a');a.className='go';a.href=url;a.target='_blank';a.rel='noopener';a.textContent=T('Open WhatsApp','WhatsApp खोलें');
+    d.appendChild(h);d.appendChild(u);d.appendChild(a);out.appendChild(d);
+  }
+  if(parts>1){var n=document.createElement('div');n.className='note';n.textContent=T('WhatsApp allows 5 chats at a time, so groups are split in parts.','WhatsApp एक बार में 5 चैट ही देता है, इसलिए ग्रुप भागों में बँटे हैं।');out.appendChild(n);}
+}
+cnt();
+</script>
 {% endblock %}

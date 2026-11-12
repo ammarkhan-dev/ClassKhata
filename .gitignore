@@ -20,3 +20,5 @@ data/
 backups/
 *.bkp*
 *.bkf*
+.vapid_private.pem
+.cronkey

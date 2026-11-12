@@ -7,4 +7,43 @@
 {% else %}
 <div class="card muted">{{ t('no_alerts') }}</div>
 {% endfor %}
+<div class="card" id="pushCard" style="display:none;margin-top:14px">
+<b style="font-size:17px;color:var(--navy,#222f40)">{{ 'फ़ोन नोटिफ़िकेशन' if session.get('lang') == 'hi' else 'Phone notifications' }}</b>
+<p class="muted" id="pushMsg" style="margin:8px 0 12px;font-size:14px"></p>
+<button type="button" id="pushBtn"></button>
+<button type="button" id="pushTest" style="display:none"></button>
+</div>
+<script>
+(function(){
+var KEY={{ push_key()|tojson }},HI={{ (session.get('lang') == 'hi')|tojson }};
+function T(a,b){return HI?b:a;}
+var card=document.getElementById('pushCard'),msg=document.getElementById('pushMsg'),btn=document.getElementById('pushBtn'),tst=document.getElementById('pushTest');
+if(!KEY)return;
+card.style.display='block';
+btn.textContent=T('Turn on notifications','नोटिफ़िकेशन चालू करें');
+tst.textContent=T('Send test notification','टेस्ट नोटिफ़िकेशन भेजें');
+var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+var st=window.navigator.standalone||(window.matchMedia&&matchMedia('(display-mode: standalone)').matches);
+if(ios&&!st){msg.textContent=T('On iPhone, first open the app from its Home Screen icon (Share, then Add to Home Screen).','iPhone पर पहले होम स्क्रीन के आइकन से ऐप खोलें (Share, फिर Add to Home Screen)।');btn.style.display='none';return;}
+if(!('serviceWorker' in navigator)||!('PushManager' in window)){msg.textContent=T('This browser does not support notifications.','यह ब्राउज़र नोटिफ़िकेशन सपोर्ट नहीं करता।');btn.style.display='none';return;}
+function b64(s){var p='='.repeat((4-s.length%4)%4),b=(s+p).replace(/-/g,'+').replace(/_/g,'/'),r=atob(b),o=new Uint8Array(r.length);for(var i=0;i<r.length;i++)o[i]=r.charCodeAt(i);return o;}
+function on(){msg.textContent=T('Notifications are on.','नोटिफ़िकेशन चालू हैं।');btn.style.display='none';tst.style.display='block';}
+navigator.serviceWorker.ready.then(function(reg){return reg.pushManager.getSubscription();}).then(function(s){if(s&&Notification.permission==='granted')on();});
+btn.onclick=function(){
+  Notification.requestPermission().then(function(p){
+    if(p!=='granted'){msg.textContent=T('Permission was not given.','अनुमति नहीं मिली।');return;}
+    return navigator.serviceWorker.ready.then(function(reg){
+      return reg.pushManager.getSubscription().then(function(s){return s||reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64(KEY)});});
+    }).then(function(sub){
+      return fetch('/push/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(sub.toJSON())});
+    }).then(function(r){if(r.ok){on();}else{throw 0;}});
+  }).catch(function(){msg.textContent=T('Could not turn on. Please try again.','चालू नहीं हो सका। दोबारा कोशिश करें।');});
+};
+tst.onclick=function(){
+  fetch('/push/test',{method:'POST'}).then(function(r){return r.json();}).then(function(j){
+    msg.textContent=j.sent?T('Test sent. Check your notification bar.','टेस्ट भेजा गया। नोटिफ़िकेशन बार देखें।'):T('No device found. Turn on again.','कोई डिवाइस नहीं मिला। फिर से चालू करें।');
+  }).catch(function(){msg.textContent=T('Test failed.','टेस्ट नहीं हो सका।');});
+};
+})();
+</script>
 {% endblock %}

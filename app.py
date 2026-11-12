@@ -81,6 +81,8 @@ import watchfees
 watchfees.setup(app, db)
 
 prefs.setup(app, db)
+import push
+push.setup(app, db)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

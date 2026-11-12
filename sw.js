@@ -9,3 +9,30 @@ self.addEventListener("fetch", function (e) {
     return Response.error();
   }));
 });
+
+/* ---- push notifications ---- */
+self.addEventListener("push", function (e) {
+  var d = {};
+  try { d = e.data ? e.data.json() : {}; } catch (x) { d = { body: e.data ? e.data.text() : "" }; }
+  e.waitUntil(self.registration.showNotification(d.title || "ClassKhata", {
+    body: d.body || "",
+    icon: "/static/icon-192.png?v=3",
+    badge: "/static/icon-192.png?v=3",
+    tag: d.tag || "ck",
+    renotify: !!d.tag,
+    vibrate: [120, 60, 120],
+    data: { url: d.url || "/alerts" }
+  }));
+});
+self.addEventListener("notificationclick", function (e) {
+  e.notification.close();
+  var url = (e.notification.data && e.notification.data.url) || "/";
+  e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then(function (list) {
+    for (var i = 0; i < list.length; i++) {
+      if ("focus" in list[i]) {
+        return list[i].focus().then(function (c) { if (c && c.navigate) c.navigate(url); });
+      }
+    }
+    return self.clients.openWindow(url);
+  }));
+});

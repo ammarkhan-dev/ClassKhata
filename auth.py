@@ -38,7 +38,7 @@ def setup(app):
 
     @app.before_request
     def guard():
-        if request.endpoint in ("login", "signup", "forgot", "set_lang", "static", "manifest", "sw"):
+        if request.endpoint in ("login", "signup", "forgot", "set_lang", "static", "manifest", "sw", "push_cron"):
             return
         if not session.get("uid") or not q("SELECT 1 FROM users WHERE id=?", (session["uid"],), one=True):
             session.pop("uid", None)
