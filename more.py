@@ -98,9 +98,9 @@ def setup(app, db):
              "start_url": "/", "scope": "/", "display": "standalone",
              "background_color": "#222f40", "theme_color": "#222f40",
              "icons": [
-                 {"src": "/static/icon-192.png?v=6", "sizes": "192x192", "type": "image/png", "purpose": "any"},
-                 {"src": "/static/icon-512.png?v=6", "sizes": "512x512", "type": "image/png", "purpose": "any"},
-                 {"src": "/static/icon-512.png?v=6", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}
+                 {"src": "/static/icon-192.png?v=7", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+                 {"src": "/static/icon-512.png?v=7", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+                 {"src": "/static/icon-512.png?v=7", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}
         return Response(json.dumps(m), mimetype="application/manifest+json")
 
     @app.route("/sw.js")
